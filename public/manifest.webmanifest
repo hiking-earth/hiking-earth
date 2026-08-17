@@ -1,0 +1,18 @@
+{
+  "name": "徒步地球全球徒步路线",
+  "short_name": "徒步地球",
+  "description": "查开放、看四季、找路线、约同行",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020806",
+  "theme_color": "#102015",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

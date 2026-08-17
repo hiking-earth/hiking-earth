@@ -1,0 +1,355 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import * as maplibregl from "maplibre-gl";
+import type { GeoJSONSource, Map as MapLibreMap, Marker } from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import {
+  CalendarDays,
+  ChevronRight,
+  Compass,
+  LocateFixed,
+  MapPin,
+  Mountain,
+  Newspaper,
+  Route as RouteIcon,
+  Search,
+  SlidersHorizontal,
+  Sparkles,
+  X,
+} from "lucide-react";
+
+type RouteStatus = "演示开放" | "待官方核验" | "季节性关闭";
+
+type HikingRoute = {
+  id: string;
+  name: string;
+  region: string;
+  status: RouteStatus;
+  center: [number, number];
+  path: [number, number][];
+  distance: string;
+  ascent: string;
+  duration: string;
+  difficulty: string;
+  bestSeason: string;
+  scenery: string[];
+  summary: string;
+  image: string;
+  imageCredit: string;
+};
+
+const ROUTES: HikingRoute[] = [
+  {
+    id: "songshan",
+    name: "嵩山经典步道",
+    region: "河南 · 登封",
+    status: "演示开放",
+    center: [113.057, 34.493],
+    path: [[113.043, 34.49], [113.052, 34.499], [113.063, 34.504], [113.071, 34.492]],
+    distance: "11.8 km",
+    ascent: "820 m",
+    duration: "5–7 小时",
+    difficulty: "进阶",
+    bestSeason: "春 · 秋",
+    scenery: ["山岳", "古建", "秋色"],
+    summary: "郑州周边优先展示路线。路线、入口与开放状态将在接入官方数据后逐项核验。",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=82",
+    imageCredit: "Unsplash 演示影像",
+  },
+  {
+    id: "wugongshan",
+    name: "武功山高山草甸",
+    region: "江西 · 萍乡",
+    status: "演示开放",
+    center: [114.163, 27.46],
+    path: [[114.151, 27.445], [114.16, 27.453], [114.171, 27.462], [114.18, 27.474]],
+    distance: "18.6 km",
+    ascent: "1,280 m",
+    duration: "1–2 天",
+    difficulty: "进阶",
+    bestSeason: "春末 · 秋初",
+    scenery: ["草甸", "云海", "日出"],
+    summary: "以高山草甸、云海和日出著称。首版轨迹为交互演示，不用于实际导航。",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82",
+    imageCredit: "Unsplash 演示影像",
+  },
+  {
+    id: "nanji-luo",
+    name: "南极洛高山湖群",
+    region: "云南 · 迪庆",
+    status: "待官方核验",
+    center: [98.848, 28.313],
+    path: [[98.837, 28.302], [98.843, 28.31], [98.852, 28.319], [98.859, 28.326]],
+    distance: "约 12 km",
+    ascent: "约 760 m",
+    duration: "6–8 小时",
+    difficulty: "高海拔进阶",
+    bestSeason: "夏 · 秋",
+    scenery: ["湖泊", "雪山", "花海"],
+    summary: "高海拔与预约管理信息变化较快，正式上线前必须以属地公告为准。",
+    image: "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=1200&q=82",
+    imageCredit: "Unsplash 演示影像",
+  },
+  {
+    id: "changchuanbi",
+    name: "长穿毕穿越档案",
+    region: "四川 · 阿坝",
+    status: "季节性关闭",
+    center: [102.896, 31.014],
+    path: [[102.86, 30.99], [102.88, 31.006], [102.905, 31.024], [102.93, 31.04]],
+    distance: "约 35 km",
+    ascent: "约 1,900 m",
+    duration: "3–4 天",
+    difficulty: "高风险穿越",
+    bestSeason: "窗口期核验",
+    scenery: ["雪山", "森林", "垭口"],
+    summary: "关闭状态下保留路线认知资料，但禁用导航、下载、推荐与约伴功能。",
+    image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=82",
+    imageCredit: "Unsplash 演示影像",
+  },
+  {
+    id: "wangmangling",
+    name: "南太行 · 王莽岭候选线",
+    region: "山西/河南 · 南太行",
+    status: "待官方核验",
+    center: [113.57, 35.73],
+    path: [[113.548, 35.714], [113.56, 35.723], [113.576, 35.734], [113.59, 35.742]],
+    distance: "约 16 km",
+    ascent: "约 980 m",
+    duration: "7–9 小时",
+    difficulty: "进阶",
+    bestSeason: "春 · 秋",
+    scenery: ["峡谷", "绝壁", "云海"],
+    summary: "作为南太行路线样本，后续将区分景区步道、合法户外线与禁止穿越区域。",
+    image: "https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1200&q=82",
+    imageCredit: "Unsplash 演示影像",
+  },
+];
+
+const STATUS_COLORS: Record<RouteStatus, string> = {
+  "演示开放": "#b8f36b",
+  "待官方核验": "#ffd166",
+  "季节性关闭": "#ff7b72",
+};
+
+function featureCollection(route: HikingRoute) {
+  return {
+    type: "FeatureCollection" as const,
+    features: [{
+      type: "Feature" as const,
+      properties: { id: route.id },
+      geometry: { type: "LineString" as const, coordinates: route.path },
+    }],
+  };
+}
+
+export default function Home() {
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<MapLibreMap | null>(null);
+  const markersRef = useRef<Marker[]>([]);
+  const [activeId, setActiveId] = useState(ROUTES[0].id);
+  const [status, setStatus] = useState<"全部" | RouteStatus>("全部");
+  const [query, setQuery] = useState("");
+  const [panelOpen, setPanelOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [terrain, setTerrain] = useState(true);
+  const [layer, setLayer] = useState<"routes" | "news">("routes");
+
+  const visibleRoutes = useMemo(() => ROUTES.filter((route) => {
+    const statusMatch = status === "全部" || route.status === status;
+    const textMatch = `${route.name}${route.region}${route.scenery.join("")}`.includes(query.trim());
+    return statusMatch && textMatch;
+  }), [query, status]);
+
+  const activeRoute = ROUTES.find((route) => route.id === activeId) ?? ROUTES[0];
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current) return;
+
+    const map = new maplibregl.Map({
+      container: mapContainer.current,
+      center: [103.8, 34.7],
+      zoom: 2.3,
+      minZoom: 1.25,
+      maxZoom: 14,
+      pitch: 18,
+      bearing: -8,
+      attributionControl: false,
+      style: {
+        version: 8,
+        projection: { type: "globe" },
+        sources: {
+          satellite: {
+            type: "raster",
+            tiles: ["https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2025_3857/default/g/{z}/{y}/{x}.jpg"],
+            tileSize: 256,
+            attribution: "Sentinel-2 cloudless © EOX, Copernicus Sentinel data",
+          },
+          terrainSource: {
+            type: "raster-dem",
+            url: "https://demotiles.maplibre.org/terrain-tiles/tiles.json",
+            tileSize: 256,
+          },
+        },
+        layers: [
+          { id: "space", type: "background", paint: { "background-color": "#020806" } },
+          { id: "satellite", type: "raster", source: "satellite", paint: { "raster-saturation": -0.08, "raster-contrast": 0.12 } },
+          { id: "hillshade", type: "hillshade", source: "terrainSource", paint: { "hillshade-exaggeration": 0.4, "hillshade-shadow-color": "#071c13" } },
+        ],
+      } as maplibregl.StyleSpecification,
+    });
+
+    map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "bottom-right");
+    map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
+
+    map.on("load", () => {
+      map.setTerrain({ source: "terrainSource", exaggeration: 1.2 });
+      map.addSource("active-route", { type: "geojson", data: featureCollection(ROUTES[0]) });
+      map.addLayer({
+        id: "route-glow",
+        type: "line",
+        source: "active-route",
+        paint: { "line-color": "#b8f36b", "line-width": 8, "line-opacity": 0.22, "line-blur": 3 },
+      });
+      map.addLayer({
+        id: "route-line",
+        type: "line",
+        source: "active-route",
+        paint: { "line-color": "#eaffc7", "line-width": 3.5 },
+      });
+    });
+
+    ROUTES.forEach((route) => {
+      const button = document.createElement("button");
+      button.className = "route-marker";
+      button.style.setProperty("--marker-color", STATUS_COLORS[route.status]);
+      button.setAttribute("aria-label", `查看${route.name}`);
+      button.innerHTML = `<span></span>`;
+      button.addEventListener("click", () => {
+        setActiveId(route.id);
+        setPanelOpen(true);
+      });
+      markersRef.current.push(new maplibregl.Marker({ element: button, anchor: "bottom" }).setLngLat(route.center).addTo(map));
+    });
+
+    mapRef.current = map;
+    return () => {
+      markersRef.current.forEach((marker) => marker.remove());
+      markersRef.current = [];
+      map.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const updateRoute = () => {
+      const source = map.getSource("active-route") as GeoJSONSource | undefined;
+      source?.setData(featureCollection(activeRoute));
+      map.flyTo({ center: activeRoute.center, zoom: 10.4, pitch: 62, bearing: -20, duration: 1500 });
+    };
+    if (map.isStyleLoaded()) updateRoute();
+    else map.once("load", updateRoute);
+  }, [activeRoute]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !map.isStyleLoaded()) return;
+    map.setTerrain(terrain ? { source: "terrainSource", exaggeration: 1.2 } : null);
+  }, [terrain]);
+
+  function locateUser() {
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
+      mapRef.current?.flyTo({ center: [coords.longitude, coords.latitude], zoom: 8, duration: 1500 });
+    });
+  }
+
+  return (
+    <main className="app-shell">
+      <div ref={mapContainer} className="earth-map" aria-label="徒步路线 3D 地球" />
+      <div className="map-vignette" />
+
+      <header className="topbar glass">
+        <Link className="brand" href="/" aria-label="徒步地球首页">
+          <span className="brand-mark"><Mountain size={20} /></span>
+          <span><b>徒步地球</b><small>全球徒步路线</small></span>
+        </Link>
+        <nav className="layer-switch" aria-label="地球图层">
+          <button className={layer === "routes" ? "active" : ""} onClick={() => setLayer("routes")}><RouteIcon size={16} />徒步路线</button>
+          <button className={layer === "news" ? "active" : ""} onClick={() => setLayer("news")}><Newspaper size={16} />全球户外动态<span>规划中</span></button>
+        </nav>
+        <div className="top-actions">
+          <button className="icon-button" onClick={locateUser} aria-label="定位到我"><LocateFixed size={19} /></button>
+          <button className="primary-button">发起约伴 <ChevronRight size={17} /></button>
+        </div>
+      </header>
+
+      {layer === "news" && (
+        <section className="future-layer glass">
+          <Newspaper size={22} />
+          <div><b>全球户外动态 · 已预留</b><p>未来可按行业、时间和重要度筛选，并把新闻发生地显示为地球锚点。</p></div>
+          <button onClick={() => setLayer("routes")}><X size={17} /></button>
+        </section>
+      )}
+
+      <aside className={`route-browser glass ${panelOpen ? "open" : "closed"}`}>
+        <div className="browser-head">
+          <div><span className="eyebrow">EXPLORE THE EARTH</span><h1>今天，走哪一条？</h1></div>
+          <button className="mobile-close" onClick={() => setPanelOpen(false)} aria-label="关闭路线列表"><X size={20} /></button>
+        </div>
+
+        <div className="search-row">
+          <label className="search-box"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜路线、地区或风景" /></label>
+          <button className={`filter-button ${filtersOpen ? "active" : ""}`} onClick={() => setFiltersOpen((value) => !value)}><SlidersHorizontal size={18} /><span>筛选</span></button>
+        </div>
+
+        {filtersOpen && (
+          <div className="filters">
+            <span>开放状态</span>
+            <div>{(["全部", "演示开放", "待官方核验", "季节性关闭"] as const).map((item) => (
+              <button key={item} className={status === item ? "active" : ""} onClick={() => setStatus(item)}>{item}</button>
+            ))}</div>
+          </div>
+        )}
+
+        <div className="browser-meta"><span>中国首批演示路线</span><span>{visibleRoutes.length} 条</span></div>
+        <div className="route-list">
+          {visibleRoutes.map((route) => (
+            <button key={route.id} className={`route-card ${route.id === activeId ? "active" : ""}`} onClick={() => { setActiveId(route.id); setPanelOpen(true); }}>
+              <span className="route-thumb" style={{ backgroundImage: `linear-gradient(180deg, transparent, rgba(4,10,7,.7)), url(${route.image})` }}>
+                <span className="status-dot" style={{ color: STATUS_COLORS[route.status] }}>{route.status}</span>
+              </span>
+              <span className="route-card-copy"><small><MapPin size={13} />{route.region}</small><b>{route.name}</b><span>{route.distance} · {route.duration} · {route.difficulty}</span></span>
+            </button>
+          ))}
+        </div>
+        <p className="data-note">当前路线与开放状态均为产品演示数据，不作为出行或导航依据。</p>
+      </aside>
+
+      <section className={`route-detail glass ${panelOpen ? "open" : ""}`}>
+        <button className="detail-close" onClick={() => setPanelOpen(false)} aria-label="收起详情"><X size={18} /></button>
+        <div className="detail-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(5,12,8,.8), rgba(5,12,8,.08)), url(${activeRoute.image})` }}>
+          <span>{activeRoute.imageCredit}</span>
+        </div>
+        <div className="detail-copy">
+          <div className="detail-title"><div><span className="status-pill" style={{ color: STATUS_COLORS[activeRoute.status] }}>{activeRoute.status}</span><h2>{activeRoute.name}</h2><p><MapPin size={14} />{activeRoute.region}</p></div><button className="round-action"><Compass size={20} /></button></div>
+          <p className="summary">{activeRoute.summary}</p>
+          <div className="stats">
+            <div><RouteIcon size={17} /><span>距离<b>{activeRoute.distance}</b></span></div>
+            <div><Mountain size={17} /><span>累计爬升<b>{activeRoute.ascent}</b></span></div>
+            <div><CalendarDays size={17} /><span>建议用时<b>{activeRoute.duration}</b></span></div>
+          </div>
+          <div className="season-row"><span><Sparkles size={15} />最佳风景</span><b>{activeRoute.bestSeason}</b><div>{activeRoute.scenery.map((item) => <i key={item}>{item}</i>)}</div></div>
+          <div className="detail-actions"><button disabled={activeRoute.status === "季节性关闭"}>查看完整路线</button><button>留言与约伴</button></div>
+        </div>
+      </section>
+
+      {!panelOpen && <button className="reopen-panel" onClick={() => setPanelOpen(true)}><RouteIcon size={18} />查看路线</button>}
+      <div className="terrain-toggle glass"><button className={terrain ? "active" : ""} onClick={() => setTerrain((value) => !value)}><Mountain size={16} />立体地形</button><button disabled>等高线 · 下一阶段</button></div>
+    </main>
+  );
+}
