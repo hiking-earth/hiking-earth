@@ -17,6 +17,7 @@ import {
   Search,
   SlidersHorizontal,
   Sparkles,
+  SunMedium,
   X,
 } from "lucide-react";
 
@@ -134,6 +135,13 @@ const STATUS_COLORS: Record<RouteStatus, string> = {
   "季节性关闭": "#ff7b72",
 };
 
+const SEASONS = [
+  { id: "春", label: "春日花期", hint: "山花、杜鹃与新绿", saturation: 0.14, contrast: 0.08, brightness: 0.98, hue: -5 },
+  { id: "夏", label: "盛夏秘境", hint: "草甸、湖泊与长日照", saturation: 0.24, contrast: 0.1, brightness: 1, hue: 0 },
+  { id: "秋", label: "金秋层林", hint: "彩林、云海与通透光线", saturation: 0.18, contrast: 0.16, brightness: 0.94, hue: 8 },
+  { id: "冬", label: "冬日雪境", hint: "雪山、冰湖与低温风险", saturation: -0.38, contrast: 0.19, brightness: 0.86, hue: 0 },
+] as const;
+
 function featureCollection(route: HikingRoute) {
   return {
     type: "FeatureCollection" as const,
@@ -156,6 +164,7 @@ export default function Home() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [terrain, setTerrain] = useState(true);
   const [layer, setLayer] = useState<"routes" | "news">("routes");
+  const [season, setSeason] = useState<(typeof SEASONS)[number]["id"]>("秋");
 
   const visibleRoutes = useMemo(() => ROUTES.filter((route) => {
     const statusMatch = status === "全部" || route.status === status;
@@ -164,6 +173,7 @@ export default function Home() {
   }), [query, status]);
 
   const activeRoute = ROUTES.find((route) => route.id === activeId) ?? ROUTES[0];
+  const activeSeason = SEASONS.find((item) => item.id === season) ?? SEASONS[2];
 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
@@ -261,6 +271,19 @@ export default function Home() {
     map.setTerrain(terrain ? { source: "terrainSource", exaggeration: 1.2 } : null);
   }, [terrain]);
 
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const updateSeason = () => {
+      map.setPaintProperty("satellite", "raster-saturation", activeSeason.saturation);
+      map.setPaintProperty("satellite", "raster-contrast", activeSeason.contrast);
+      map.setPaintProperty("satellite", "raster-brightness-max", activeSeason.brightness);
+      map.setPaintProperty("satellite", "raster-hue-rotate", activeSeason.hue);
+    };
+    if (map.isStyleLoaded()) updateSeason();
+    else map.once("load", updateSeason);
+  }, [activeSeason]);
+
   function locateUser() {
     if (!navigator.geolocation) return;
     navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -350,6 +373,16 @@ export default function Home() {
 
       {!panelOpen && <button className="reopen-panel" onClick={() => setPanelOpen(true)}><RouteIcon size={18} />查看路线</button>}
       <div className="terrain-toggle glass"><button className={terrain ? "active" : ""} onClick={() => setTerrain((value) => !value)}><Mountain size={16} />立体地形</button><button disabled>等高线 · 下一阶段</button></div>
+      <section className="season-explorer glass" aria-label="全球季相探索">
+        <div className="season-head">
+          <span><SunMedium size={16} />全球季相探索<small>视觉模拟</small></span>
+          <b>{activeSeason.label}</b>
+        </div>
+        <div className="season-track">
+          {SEASONS.map((item) => <button key={item.id} className={season === item.id ? "active" : ""} onClick={() => setSeason(item.id)}><i>{item.id}</i><span>{item.label.slice(2)}</span></button>)}
+        </div>
+        <p>{activeSeason.hint} · 地球色彩随季节联动，开放状态仍以官方公告为准。</p>
+      </section>
     </main>
   );
 }

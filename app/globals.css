@@ -100,6 +100,18 @@ button { color: inherit; }
 .terrain-toggle button { border: 0; border-radius: 9px; background: transparent; padding: 8px 10px; color: var(--muted); font-size: 10px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
 .terrain-toggle button.active { color: #0c170b; background: var(--lime); }
 .terrain-toggle button:disabled { opacity: .45; cursor: default; }
+.season-explorer { position: absolute; z-index: 10; right: 20px; top: 160px; width: 310px; padding: 13px 14px 11px; border-radius: 17px; }
+.season-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.season-head > span { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--lime); }
+.season-head small { padding: 2px 5px; border-radius: 8px; color: #8d9b91; background: rgba(255,255,255,.06); font-size: 8px; }
+.season-head b { font-size: 11px; font-weight: 600; }
+.season-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 12px; }
+.season-track::before { content: ""; position: absolute; left: 11%; right: 11%; top: 10px; height: 1px; background: linear-gradient(90deg, #e2c990, #6ccf76, #e2a85b, #dceef4); opacity: .45; }
+.season-track button { position: relative; z-index: 1; border: 0; background: transparent; color: #78867d; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 8px; }
+.season-track i { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.24); background: #0b1510; font-style: normal; font-size: 9px; transition: .2s; }
+.season-track button.active { color: var(--ink); }
+.season-track button.active i { color: #0a1509; background: var(--lime); border-color: var(--lime); box-shadow: 0 0 16px rgba(184,243,107,.4); transform: scale(1.12); }
+.season-explorer > p { margin: 9px 0 0; color: #829087; font-size: 8px; line-height: 1.5; text-align: center; }
 .reopen-panel { position: absolute; z-index: 15; left: 20px; bottom: 20px; height: 44px; padding: 0 15px; border-radius: 13px; border: 1px solid var(--lime); color: #0b160a; background: var(--lime); font-weight: 700; display: flex; align-items: center; gap: 7px; cursor: pointer; }
 .future-layer { position: absolute; z-index: 30; top: 102px; left: 50%; transform: translateX(-50%); width: min(520px, calc(100vw - 40px)); padding: 15px 17px; border-radius: 16px; display: flex; gap: 12px; align-items: center; }
 .future-layer > svg { color: var(--lime); flex: none; }
@@ -128,6 +140,7 @@ button { color: inherit; }
   .route-detail { z-index: 14; right: 8px; left: 8px; bottom: 8px; width: auto; max-height: 80dvh; overflow-y: auto; }
   .terrain-toggle { right: 10px; top: 78px; }
   .terrain-toggle button:disabled { display: none; }
+  .season-explorer { top: 128px; right: 10px; width: 275px; }
   .future-layer { top: 78px; }
   .maplibregl-ctrl-bottom-right { bottom: 76px; }
 }
@@ -137,6 +150,7 @@ button { color: inherit; }
   .brand b { font-size: 14px; }
   .layer-switch button { font-size: 0; width: 36px; padding: 0; justify-content: center; }
   .route-browser { height: min(64dvh, 560px); padding: 20px 16px 15px; }
+  .season-explorer { left: 10px; right: 10px; width: auto; }
   .browser-head h1 { font-size: 24px; }
   .route-card { grid-template-columns: 92px 1fr; }
   .detail-image { height: 125px; }
