@@ -79,6 +79,14 @@ button { color: inherit; }
 .status-pill::before { content: "●"; margin-right: 5px; }
 .round-action { width: 42px; height: 42px; flex: none; border: 1px solid rgba(184,243,107,.4); border-radius: 50%; background: rgba(184,243,107,.1); color: var(--lime); }
 .summary { margin: 15px 0; color: #b6c1b8; font-size: 12px; line-height: 1.65; }
+.route-archive { margin: -1px 0 12px; padding: 10px 11px; border: 1px solid rgba(255,255,255,.11); border-radius: 13px; background: rgba(255,255,255,.035); }
+.archive-head { display: flex; align-items: center; justify-content: space-between; color: var(--lime); font-size: 10px; font-weight: 700; }
+.archive-head small, .route-archive > small { color: #7f8c83; font-size: 8px; font-weight: 400; }
+.route-archive ul { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0; padding: 0; list-style: none; }
+.route-archive li { padding: 4px 6px; border-radius: 8px; background: rgba(184,243,107,.08); color: #b9c6bc; font-size: 9px; }
+.route-archive p { display: flex; align-items: flex-start; gap: 5px; margin: 0 0 6px; color: #aeb9b0; font-size: 9px; line-height: 1.45; }
+.route-archive p svg { color: #ffd166; flex: none; margin-top: 1px; }
+.route-archive p b { color: #e5ece6; white-space: nowrap; }
 .guide-card { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 10px; margin: -2px 0 12px; padding: 8px; border: 1px solid rgba(184,243,107,.18); border-radius: 13px; background: linear-gradient(90deg, rgba(184,243,107,.08), rgba(255,255,255,.025)); }
 .guide-card img { width: 54px; height: 54px; border-radius: 11px; object-fit: cover; object-position: center 17%; }
 .guide-card div { min-width: 0; display: flex; flex-direction: column; }
