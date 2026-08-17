@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, Map as MapLibreMap, Marker } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -361,6 +362,11 @@ export default function Home() {
         <div className="detail-copy">
           <div className="detail-title"><div><span className="status-pill" style={{ color: STATUS_COLORS[activeRoute.status] }}>{activeRoute.status}</span><h2>{activeRoute.name}</h2><p><MapPin size={14} />{activeRoute.region}</p></div><button className="round-action"><Compass size={20} /></button></div>
           <p className="summary">{activeRoute.summary}</p>
+          <div className="guide-card">
+            <Image src="/route-guide-original.png" width={72} height={72} alt="原创Q版徒步路线向导拿着地图" />
+            <div><small>你的路线向导 · 原创默认形象</small><b>小径</b><span>路线导航阶段将支持步行、乘车和抵达状态</span></div>
+            <button disabled>自定义 · 后期</button>
+          </div>
           <div className="stats">
             <div><RouteIcon size={17} /><span>距离<b>{activeRoute.distance}</b></span></div>
             <div><Mountain size={17} /><span>累计爬升<b>{activeRoute.ascent}</b></span></div>
