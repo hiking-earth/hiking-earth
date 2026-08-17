@@ -364,7 +364,7 @@ export default function Home() {
           <p className="summary">{activeRoute.summary}</p>
           <div className="guide-card">
             <Image src="/route-guide-original.png" width={72} height={72} alt="原创Q版徒步路线向导拿着地图" />
-            <div><small>你的路线向导 · 原创默认形象</small><b>小径</b><span>路线导航阶段将支持步行、乘车和抵达状态</span></div>
+            <div><small>你的路线向导 · 原创默认形象</small><b>小陆</b><span>路线导航阶段将支持步行、乘车和抵达状态</span></div>
             <button disabled>自定义 · 后期</button>
           </div>
           <div className="stats">
