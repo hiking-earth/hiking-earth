@@ -17,7 +17,7 @@ export type HikingRoute = {
   image: string;
   imageCredit: string;
   archive: {
-    source: string;
+    source: { label: string; url?: string };
     checkedAt: string;
     highlights: string[];
     riskNotice: string;
@@ -33,7 +33,7 @@ export const STATUS_COLORS: Record<RouteStatus, string> = {
 export const ROUTES: HikingRoute[] = [
   {
     id: "songshan",
-    name: "嵩山经典步道",
+    name: "太室山—峻极峰登山步道",
     region: "河南 · 登封",
     status: "演示开放",
     center: [113.057, 34.493],
@@ -44,15 +44,14 @@ export const ROUTES: HikingRoute[] = [
     difficulty: "进阶",
     bestSeason: "春 · 秋",
     scenery: ["山岳", "古建", "秋色"],
-    summary: "郑州周边优先展示路线。路线、入口与开放状态将在接入官方数据后逐项核验。",
+    summary: "从太室山景区入口方向前往峻极峰的官方游览步道样本。页面只保存可追溯资料，不替代当天景区公告。",
     image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=82",
     imageCredit: "Unsplash 演示影像",
     archive: {
-      source: "演示资料，待补充官方来源",
-      checkedAt: "未核验",
-      // ===== 这是你的第一个编程练习，直接改下面 4 处文字即可。 =====
-      highlights: ["待你填写：这条路线最吸引人的一个亮点", "待你填写：最适合拍照或休息的特点", "待你填写：你认为它值得去的理由"],
-      riskNotice: "待你填写：请用一句话说明新手最需要注意的风险或准备。",
+      source: { label: "嵩山管委会《平安健康游嵩山》提示（2025-03-21）", url: "https://www.dengfeng.gov.cn/tzgg/9168329.jhtml" },
+      checkedAt: "资料复核：2026-08-18 · 出行前仍须复核",
+      highlights: ["官方开放游览线路样本", "太室山主峰峻极峰方向", "可与嵩阳书院游览串联"],
+      riskNotice: "只走景区开放步道和旅游道路；非游览线风险较高，需按规定批准，陡峭台阶请备防滑鞋和饮水。",
     },
   },
   {
@@ -71,7 +70,7 @@ export const ROUTES: HikingRoute[] = [
     summary: "以高山草甸、云海和日出著称。首版轨迹为交互演示，不用于实际导航。",
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82",
     imageCredit: "Unsplash 演示影像",
-    archive: { source: "演示资料，待补充官方来源", checkedAt: "未核验", highlights: ["高山草甸", "云海", "日出"], riskNotice: "请以景区公告、天气预警和自身体能为准。" },
+    archive: { source: { label: "演示资料，待补充官方来源" }, checkedAt: "未核验", highlights: ["高山草甸", "云海", "日出"], riskNotice: "请以景区公告、天气预警和自身体能为准。" },
   },
   {
     id: "nanji-luo",
@@ -89,7 +88,7 @@ export const ROUTES: HikingRoute[] = [
     summary: "高海拔与预约管理信息变化较快，正式上线前必须以属地公告为准。",
     image: "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=1200&q=82",
     imageCredit: "Unsplash 演示影像",
-    archive: { source: "演示资料，待补充官方来源", checkedAt: "未核验", highlights: ["高山湖泊", "雪山", "花海"], riskNotice: "高海拔与预约管理信息变化较快，出行前必须核验。" },
+    archive: { source: { label: "演示资料，待补充官方来源" }, checkedAt: "未核验", highlights: ["高山湖泊", "雪山", "花海"], riskNotice: "高海拔与预约管理信息变化较快，出行前必须核验。" },
   },
   {
     id: "changchuanbi",
@@ -107,7 +106,7 @@ export const ROUTES: HikingRoute[] = [
     summary: "关闭状态下保留路线认知资料，但禁用导航、下载、推荐与约伴功能。",
     image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=82",
     imageCredit: "Unsplash 演示影像",
-    archive: { source: "演示资料，待补充官方来源", checkedAt: "未核验", highlights: ["雪山", "森林", "垭口"], riskNotice: "关闭状态下不应将资料当作出行许可或导航依据。" },
+    archive: { source: { label: "演示资料，待补充官方来源" }, checkedAt: "未核验", highlights: ["雪山", "森林", "垭口"], riskNotice: "关闭状态下不应将资料当作出行许可或导航依据。" },
   },
   {
     id: "wangmangling",
@@ -125,6 +124,6 @@ export const ROUTES: HikingRoute[] = [
     summary: "作为南太行路线样本，后续将区分景区步道、合法户外线与禁止穿越区域。",
     image: "https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1200&q=82",
     imageCredit: "Unsplash 演示影像",
-    archive: { source: "演示资料，待补充官方来源", checkedAt: "未核验", highlights: ["峡谷", "绝壁", "云海"], riskNotice: "须区分景区步道、合法户外线与禁止穿越区域。" },
+    archive: { source: { label: "演示资料，待补充官方来源" }, checkedAt: "未核验", highlights: ["峡谷", "绝壁", "云海"], riskNotice: "须区分景区步道、合法户外线与禁止穿越区域。" },
   },
 ];

@@ -254,7 +254,7 @@ export default function Home() {
             <div className="archive-head"><span>路线档案</span><small>{activeRoute.archive.checkedAt}</small></div>
             <ul>{activeRoute.archive.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
             <p><ShieldAlert size={14} /><b>风险提示</b>{activeRoute.archive.riskNotice}</p>
-            <small>资料来源：{activeRoute.archive.source}</small>
+            <small>资料来源：{activeRoute.archive.source.url ? <a href={activeRoute.archive.source.url} target="_blank" rel="noreferrer">{activeRoute.archive.source.label}</a> : activeRoute.archive.source.label}</small>
           </section>
           <div className="guide-card">
             <Image src="/route-guide-original.png" width={72} height={72} alt="原创Q版徒步路线向导拿着地图" />
