@@ -1,18 +1,47 @@
 {
+  "id": "/",
   "name": "徒步地球全球徒步路线",
   "short_name": "徒步地球",
   "description": "查开放、看四季、找路线、约同行",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#020806",
   "theme_color": "#102015",
   "lang": "zh-CN",
+  "categories": ["travel", "navigation", "lifestyle"],
+  "orientation": "any",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "查看徒步路线",
+      "short_name": "路线",
+      "url": "/"
+    },
+    {
+      "name": "数据来源与发布状态",
+      "short_name": "来源",
+      "url": "/sources"
     }
   ]
 }

@@ -44,9 +44,23 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
-    server: isCodexSeatbeltSandbox
-      ? { watch: { useFsEvents: false, usePolling: true } }
-      : undefined,
+    // MapLibre creates its own Web Worker. Keeping it out of Vite's dependency
+    // optimizer avoids stale absolute worker paths when the project is moved.
+    optimizeDeps: {
+      exclude: ["maplibre-gl"],
+    },
+    // Keep the local review address stable and independent from Sites hosting.
+    // `strictPort` prevents Vite from silently moving to another port.
+    server: {
+      // Allow phones on the same trusted LAN to open the local review build.
+      // This does not publish the site to the internet.
+      host: "0.0.0.0",
+      port: 8080,
+      strictPort: true,
+      ...(isCodexSeatbeltSandbox
+        ? { watch: { useFsEvents: false, usePolling: true } }
+        : {}),
+    },
     plugins: [
       vinext(),
       sites(),

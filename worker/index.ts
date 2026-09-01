@@ -40,7 +40,38 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    const response = await handler.fetch(request, env, ctx);
+    const headers = new Headers(response.headers);
+    headers.set("X-Content-Type-Options", "nosniff");
+    headers.set("X-Frame-Options", "DENY");
+    headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+    headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(self)");
+    const contentSecurityPolicy = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'none'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://images.unsplash.com https://server.arcgisonline.com https://gibs.earthdata.nasa.gov",
+      "font-src 'self' data: https://tiles.openfreemap.org",
+      "connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://gibs.earthdata.nasa.gov",
+      "worker-src 'self' blob:",
+      "object-src 'none'",
+    ];
+    // A LAN review build is intentionally served over HTTP. Applying this
+    // directive there makes Safari rewrite its own CSS and JS URLs to HTTPS,
+    // leaving the real iPhone with unstyled, non-interactive server HTML.
+    if (url.protocol === "https:") contentSecurityPolicy.push("upgrade-insecure-requests");
+    headers.set(
+      "Content-Security-Policy",
+      contentSecurityPolicy.join("; "),
+    );
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   },
 };
 

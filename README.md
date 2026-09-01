@@ -1,100 +1,66 @@
-# vinext-starter
+# 徒步地球全球徒步路线
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+本地可操作的参赛版网页：以可旋转的 3D 卫星地球为主页，展示徒步路线、开放状态、季节筛选、装备建议、路线留言与约伴、个人日记足迹，以及景点和全球户外新闻图层的接入框架。
 
-## Prerequisites
-
-- Node.js `>=22.13.0`
-
-## Quick Start
+## 本地运行
 
 ```bash
 npm install
 npm run dev
+```
+
+固定本机入口：`http://localhost:8080/`
+
+服务监听当前可信局域网，手机与电脑连到同一网络时，也可以通过终端显示的局域网地址访问。开发与验收阶段不要求 ChatGPT 登录，未部署到公网、网页托管、小程序、应用商店或其他渠道。
+
+## 当前可验收功能
+
+- 真实卫星底图、星空背景、DEM 立体地形、地名道路、城市 3D 建筑。
+- 20 条中国首批路线，含开放中、即将开放、临时关闭、永久关闭、待核验等状态；永久关闭警示路线不展示精确轨迹。
+- 状态、季节、轻装/重装、夜宿和路面条件筛选；点击锚点或路线卡片平滑飞入详情。
+- 基于郑州出发、季节、假期与文本需求的本地推荐；装备清单和天气、高海拔、山洪、野生动物等风险提醒。
+- 本地评论、免费/AA 约伴、成年发布校验、紧急联系人、活动群聊、私密/公开日记和发光打卡足迹。
+- 国内景点档案和全球户外新闻图层的数据结构预留；没有正式 API 时明确标记为待接入，不伪装成实时信息。
+- 管理台已增加数据来源与发布闸门：开放状态、天气、路线资料和图片授权分别记录来源、复核状态与发布阻断原因。
+- iPhone 安全区、触摸优化与平衡渲染档；Android、Windows 待实机验收。
+
+## 验证命令
+
+```bash
+npm run lint
 npm run build
+npm test
 ```
 
-This starter does not use `wrangler.jsonc`.
+`npm test` 会检查 3D 地球、卫星/高程来源、20 条路线与高风险轨迹限制、手机性能与安全区、本地功能中心及局域网端口配置。
 
-## Included Shape
+## 目录
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+- `app/page.tsx`：3D 地球、地图图层、路线交互、筛选和装备助手。
+- `components/ProjectHub.tsx`：推荐、社区约伴、日记足迹、景点新闻和管理员台。
+- `data/routes.ts`：路线数据及安全展示级别。
+- `data/explore.ts`：景点与新闻框架数据。
+- `docs/`：路线资料和产品参考。
+- `tests/`：本地产品验收测试。
 
-## Workspace Auth Headers
+## 数据与安全边界
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+路线开放状态、预约、天气和高风险信息必须在出发前以属地官方公告为准。候选路线与待核验内容只作认知档案，不作为通行许可或导航依据；不允许进入的路线不展示精确轨迹，不提供下载、推荐或约伴。
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
+## 留档
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+每次关键迭代前保留旧版本，完整留档位于：
 
-Treat the full name as optional and fall back to email when it is absent:
+`/Users/nanyu/Desktop/全球徒步项目/版本留档/`
 
-```tsx
-import { headers } from "next/headers";
+当前修改前回退档：`v027-上线前技术收口前-2026-09-01`。
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+当前代码阶段：`v027 上线前技术收口`。NASA Earthdata GIBS 季节影像已加入生产 CSP 白名单并有自动回归断言；发布开关仍保持关闭，数据授权、正式联系信息和剩余真机验收完成前不得公开发布。
 
-  const displayName = fullName ?? email;
-  // ...
-}
-```
+上线前状态、外部数据阻断项和最终部署步骤见：
 
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+- `docs/上线前最后一步清单-v024.md`
+- `docs/上线前技术收口-v027.md`
+- `docs/数据许可核验-v024.md`
+- `docs/发布与回滚手册-v024.md`
+- `docs/真机验收记录-v026.md`
