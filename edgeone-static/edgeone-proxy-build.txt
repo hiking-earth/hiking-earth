@@ -1,1 +1,0 @@
-徒步地球 EdgeOne 国内测试入口。全部网页和接口由 Edge Function 转发到当前 Cloudflare 测试站。
