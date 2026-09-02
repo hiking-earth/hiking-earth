@@ -1,5 +1,12 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "outputDirectory": "static"
+  "outputDirectory": "static",
+  "mainlandRegions": ["ap-guangzhou"],
+  "cloudFunctions": {
+    "nodejs": {
+      "includeFiles": ["runtime/**", "static/**"],
+      "maxDuration": 120
+    }
+  }
 }

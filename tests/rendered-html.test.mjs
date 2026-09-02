@@ -238,22 +238,25 @@ test("上线前闸门、法律页面、健康检查和安全头已配置", async
 });
 
 test("EdgeOne 国内测试入口完整转发现有 Worker，而不是误作纯静态部署", async () => {
-  const [config, packageJson, proxy, rootFunction, catchAllFunction, buildScript] = await Promise.all([
+  const [config, packageJson, handler, rootFunction, catchAllFunction, buildScript] = await Promise.all([
     source("edgeone-domestic/edgeone.json"),
     source("edgeone-domestic/package.json"),
-    source("edgeone-domestic/edge-functions/_proxy.js"),
-    source("edgeone-domestic/edge-functions/index.js"),
-    source("edgeone-domestic/edge-functions/[[default]].js"),
+    source("edgeone-domestic/cloud-functions/_handler.js"),
+    source("edgeone-domestic/cloud-functions/index.js"),
+    source("edgeone-domestic/cloud-functions/[[default]].js"),
     source("edgeone-domestic/build.mjs"),
   ]);
 
   assert.match(config, /"buildCommand": "npm run build"/);
   assert.match(config, /"outputDirectory": "static"/);
   assert.match(packageJson, /"build": "node build\.mjs"/);
-  assert.match(proxy, /https:\/\/hiking-earth\.hiking-earth\.workers\.dev/);
-  assert.match(proxy, /headers\.delete\("host"\)/);
-  assert.match(proxy, /X-Hiking-Earth-Delivery/);
-  assert.match(rootFunction, /proxyToHikingEarth/);
-  assert.match(catchAllFunction, /proxyToHikingEarth/);
-  assert.match(buildScript, /edgeone-proxy-build\.txt/);
+  assert.match(config, /"mainlandRegions": \["ap-guangzhou"\]/);
+  assert.match(config, /"includeFiles": \["runtime\/\*\*", "static\/\*\*"\]/);
+  assert.match(handler, /vinext\.default\.fetch/);
+  assert.match(handler, /ASSETS/);
+  assert.match(handler, /IMAGES/);
+  assert.match(rootFunction, /onRequest/);
+  assert.match(catchAllFunction, /onRequest/);
+  assert.match(buildScript, /dist\/client/);
+  assert.match(buildScript, /dist\/server/);
 });
