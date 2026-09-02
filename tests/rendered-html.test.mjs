@@ -18,7 +18,9 @@ test("3D 地球首屏包含真实卫星、高程和路线交互", async () => {
   assert.match(layout, /viewportFit:\s*"cover"/);
   assert.match(page, /projection:\s*\{ type: "globe" \}/);
   assert.match(page, /const terrainEnabled = terrain && mapView === "route"/);
-  assert.match(page, /const showSeason = mapView === "route"/);
+  assert.match(page, /const showSeason = seasonOverlayEnabled && mapView === "route"/);
+  assert.match(page, /const \[terrain, setTerrain\] = useState\(false\)/);
+  assert.match(page, /const \[seasonOverlayEnabled, setSeasonOverlayEnabled\] = useState\(false\)/);
   assert.match(page, /World_Imagery\/MapServer\/tile/);
   assert.match(page, /\/terrain\/\{z\}\/\{x\}\/\{y\}\.png/);
   assert.match(page, /maxzoom: 0/);

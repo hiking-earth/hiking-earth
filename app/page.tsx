@@ -170,7 +170,9 @@ export default function Home() {
   const [panelOpen, setPanelOpen] = useState(true);
   const [detailOpen, setDetailOpen] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [terrain, setTerrain] = useState(true);
+  // Keep the first route view light: satellite tiles are enough to orient the user.
+  // Terrain and seasonal imagery remain available as opt-in enhancements.
+  const [terrain, setTerrain] = useState(false);
   const [mapDetails, setMapDetails] = useState(true);
   const [city3DActive, setCity3DActive] = useState(false);
   const [globeResetToken, setGlobeResetToken] = useState(0);
@@ -178,6 +180,7 @@ export default function Home() {
   const [mapMessage, setMapMessage] = useState("");
   const [layer, setLayer] = useState<"routes" | "news">("routes");
   const [season, setSeason] = useState<(typeof SEASONS)[number]["id"]>("秋");
+  const [seasonOverlayEnabled, setSeasonOverlayEnabled] = useState(false);
   const [mapView, setMapView] = useState<"globe" | "route">("globe");
   const [viewportRouteIds, setViewportRouteIds] = useState<string[]>(ROUTES.map((route) => route.id));
   const [viewportRegion, setViewportRegion] = useState("全球");
@@ -498,7 +501,7 @@ export default function Home() {
       }
       setFocusVisible(activeRoute.trackMode !== "不展示轨迹");
       map.setLayoutProperty("satellite", "visibility", "visible");
-      map.flyTo({ center: activeRoute.center, zoom: 13.2, pitch: lowPowerRef.current ? 48 : 60, bearing: -24, curve: 1.45, duration: lowPowerRef.current ? 1050 : 2200, easing: (t) => t * t * (3 - 2 * t), essential: true });
+      map.flyTo({ center: activeRoute.center, zoom: 12, pitch: lowPowerRef.current ? 42 : 52, bearing: -24, curve: 1.35, duration: lowPowerRef.current ? 700 : 1250, easing: (t) => t * t * (3 - 2 * t), essential: true });
     };
     if (mapReadyRef.current) updateView();
     else map.once("style.load", updateView);
@@ -541,7 +544,7 @@ export default function Home() {
       // NASA's raster tiles show visible seams on the low-zoom globe projection in Safari.
       // Keep the complete-earth overview on the seamless satellite source; show a selected
       // season only while inspecting a route at regional scale.
-      const showSeason = mapView === "route";
+      const showSeason = seasonOverlayEnabled && mapView === "route";
       SEASON_LAYER_IDS.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", showSeason && id === activeSeason.layerId ? "visible" : "none"));
       map.setPaintProperty(activeSeason.layerId, "raster-saturation", activeSeason.saturation);
       map.setPaintProperty(activeSeason.layerId, "raster-contrast", activeSeason.contrast);
@@ -550,7 +553,7 @@ export default function Home() {
     };
     if (map.getLayer("satellite")) updateSeason();
     else map.once("load", updateSeason);
-  }, [activeSeason, mapView]);
+  }, [activeSeason, mapView, seasonOverlayEnabled]);
 
   function locateUser() {
     if (!window.isSecureContext) {
@@ -830,7 +833,8 @@ export default function Home() {
           <b>{activeSeason.label}</b>
         </div>
         <div className="season-track">
-          {SEASONS.map((item) => <button key={item.id} className={season === item.id ? "active" : ""} onClick={() => setSeason(item.id)}><i>{item.id}</i><span>{item.label.slice(2)}</span></button>)}
+          <button className={!seasonOverlayEnabled ? "active" : ""} onClick={() => setSeasonOverlayEnabled(false)}><i>卫</i><span>卫星</span></button>
+          {SEASONS.map((item) => <button key={item.id} className={seasonOverlayEnabled && season === item.id ? "active" : ""} onClick={() => { setSeason(item.id); setSeasonOverlayEnabled(true); }}><i>{item.id}</i><span>{item.label.slice(2)}</span></button>)}
         </div>
         <p>{activeSeason.hint} · NASA MODIS {activeSeason.date} 北半球代表日影像，非实时；开放状态仍以官方公告为准。</p>
       </section>

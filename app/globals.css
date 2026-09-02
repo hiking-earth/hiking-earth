@@ -159,7 +159,7 @@ button { color: inherit; }
 .season-head > span { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--lime); }
 .season-head small { padding: 2px 5px; border-radius: 8px; color: #8d9b91; background: rgba(255,255,255,.06); font-size: 8px; }
 .season-head b { font-size: 11px; font-weight: 600; }
-.season-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 12px; }
+.season-track { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 12px; }
 .season-track::before { content: ""; position: absolute; left: 11%; right: 11%; top: 10px; height: 1px; background: linear-gradient(90deg, #e2c990, #6ccf76, #e2a85b, #dceef4); opacity: .45; }
 .season-track button { position: relative; z-index: 1; border: 0; background: transparent; color: #78867d; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 8px; }
 .season-track i { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.24); background: #0b1510; font-style: normal; font-size: 9px; transition: .2s; }
