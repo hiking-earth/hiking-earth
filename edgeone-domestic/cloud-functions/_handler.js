@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { join, normalize, sep } from "node:path";
+import { join as pathJoin, normalize as pathNormalize, sep as pathSep } from "node:path";
 
 const staticRoot = new URL("../static/", import.meta.url);
 const vinextPromise = import("../runtime/server/index.js");
@@ -16,8 +16,8 @@ const contentTypes = new Map([
 
 function assetPath(pathname) {
   const cleanPath = pathname.replace(/^\/+/, "") || "index.html";
-  const resolved = normalize(join(staticRoot.pathname, cleanPath));
-  if (resolved !== staticRoot.pathname && !resolved.startsWith(`${staticRoot.pathname}${sep}`)) return null;
+  const resolved = pathNormalize(pathJoin(staticRoot.pathname, cleanPath));
+  if (resolved !== staticRoot.pathname && !resolved.startsWith(`${staticRoot.pathname}${pathSep}`)) return null;
   return resolved;
 }
 
