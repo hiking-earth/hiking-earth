@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 
-const outputDirectory = new URL("../edgeone-static/", import.meta.url);
+const outputDirectory = new URL("./static/", import.meta.url);
 
 await mkdir(outputDirectory, { recursive: true });
 await writeFile(

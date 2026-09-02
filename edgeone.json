@@ -1,5 +1,0 @@
-{
-  "buildCommand": "npm run build:edgeone",
-  "installCommand": "npm install",
-  "outputDirectory": "edgeone-static"
-}

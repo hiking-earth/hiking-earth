@@ -1,0 +1,8 @@
+{
+  "name": "hiking-earth-edgeone-domestic",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

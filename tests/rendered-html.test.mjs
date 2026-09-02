@@ -239,17 +239,17 @@ test("上线前闸门、法律页面、健康检查和安全头已配置", async
 
 test("EdgeOne 国内测试入口完整转发现有 Worker，而不是误作纯静态部署", async () => {
   const [config, packageJson, proxy, rootFunction, catchAllFunction, buildScript] = await Promise.all([
-    source("edgeone.json"),
-    source("package.json"),
-    source("edge-functions/proxy.js"),
-    source("edge-functions/index.js"),
-    source("edge-functions/[[default]].js"),
-    source("scripts/prepare-edgeone-deployment.mjs"),
+    source("edgeone-domestic/edgeone.json"),
+    source("edgeone-domestic/package.json"),
+    source("edgeone-domestic/edge-functions/_proxy.js"),
+    source("edgeone-domestic/edge-functions/index.js"),
+    source("edgeone-domestic/edge-functions/[[default]].js"),
+    source("edgeone-domestic/build.mjs"),
   ]);
 
-  assert.match(config, /"buildCommand": "npm run build:edgeone"/);
-  assert.match(config, /"outputDirectory": "edgeone-static"/);
-  assert.match(packageJson, /"build:edgeone": "npm run build/);
+  assert.match(config, /"buildCommand": "npm run build"/);
+  assert.match(config, /"outputDirectory": "static"/);
+  assert.match(packageJson, /"build": "node build\.mjs"/);
   assert.match(proxy, /https:\/\/hiking-earth\.hiking-earth\.workers\.dev/);
   assert.match(proxy, /headers\.delete\("host"\)/);
   assert.match(proxy, /X-Hiking-Earth-Delivery/);
