@@ -341,7 +341,7 @@ export default function Home() {
           { id: "satellite", type: "raster", source: "satellite", paint: { "raster-saturation": -0.02, "raster-contrast": 0.18, "raster-resampling": "linear" } },
           { id: "season-spring", type: "raster", source: "seasonSpring", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-summer", type: "raster", source: "seasonSummer", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
-          { id: "season-autumn", type: "raster", source: "seasonAutumn", maxzoom: 9, layout: { visibility: "visible" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
+          { id: "season-autumn", type: "raster", source: "seasonAutumn", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-winter", type: "raster", source: "seasonWinter", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "terrain-shading", type: "hillshade", source: "terrainSource", paint: { "hillshade-exaggeration": efficientRendering ? 0.38 : 0.55, "hillshade-shadow-color": "#081018", "hillshade-highlight-color": "#e8f2d0", "hillshade-accent-color": "#5e7544" } },
           { id: "admin-boundaries", type: "line", source: "openmaptiles", "source-layer": "boundary", minzoom: 2, layout: { visibility: "none" }, filter: ["all", ["<=", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1]], paint: { "line-color": "rgba(255,220,220,.72)", "line-width": ["interpolate", ["linear"], ["zoom"], 2, 0.6, 8, 1.15], "line-dasharray": [3, 2] } },
@@ -355,7 +355,8 @@ export default function Home() {
           { id: "poi-labels", type: "symbol", source: "openmaptiles", "source-layer": "poi", minzoom: 12, layout: { visibility: "none", "text-field": LOCALIZED_NAME, "text-font": ["Noto Sans Regular"], "text-size": 10, "text-offset": [0, 0.7], "text-optional": true }, filter: ["in", ["get", "class"], ["literal", ["park", "attraction", "museum", "lodging", "hospital"]]], paint: { "text-color": "#d9ffad", "text-halo-color": "rgba(3,8,9,.94)", "text-halo-width": 1.4 } },
           { id: "place-labels", type: "symbol", source: "openmaptiles", "source-layer": "place", minzoom: 2, layout: { visibility: "none", "text-field": LOCALIZED_NAME, "text-font": ["Noto Sans Regular"], "text-size": ["match", ["get", "class"], "country", 15, "state", 13, "city", 13, "town", 11, 10], "text-allow-overlap": false, "text-padding": 5 }, paint: { "text-color": "#f7f7f2", "text-halo-color": "rgba(2,6,9,.92)", "text-halo-width": 1.8 } },
         ],
-        terrain: { source: "terrainSource", exaggeration: efficientRendering ? 2.7 : 4.2 },
+        // Globe projection and raster DEM can tear on Safari when the whole planet is visible.
+        // Terrain is enabled below only after a route is opened, where its local relief is useful.
       } as StyleSpecification,
     });
 
@@ -507,8 +508,9 @@ export default function Home() {
     const map = mapRef.current;
     if (!map) return;
     const updateTerrain = () => {
-      const exaggeration = lowPowerRef.current ? (mapView === "globe" ? 2.7 : 1.25) : (mapView === "globe" ? 4.2 : 1.65);
-      map.setTerrain(terrain ? { source: "terrainSource", exaggeration } : null);
+      const terrainEnabled = terrain && mapView === "route";
+      const exaggeration = lowPowerRef.current ? 1.25 : 1.65;
+      map.setTerrain(terrainEnabled ? { source: "terrainSource", exaggeration } : null);
     };
     if (map.getSource("terrainSource")) updateTerrain();
     else map.once("load", updateTerrain);
@@ -536,7 +538,11 @@ export default function Home() {
     if (!map) return;
     const updateSeason = () => {
       if (!map.getLayer("satellite")) return;
-      SEASON_LAYER_IDS.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", id === activeSeason.layerId ? "visible" : "none"));
+      // NASA's raster tiles show visible seams on the low-zoom globe projection in Safari.
+      // Keep the complete-earth overview on the seamless satellite source; show a selected
+      // season only while inspecting a route at regional scale.
+      const showSeason = mapView === "route";
+      SEASON_LAYER_IDS.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", showSeason && id === activeSeason.layerId ? "visible" : "none"));
       map.setPaintProperty(activeSeason.layerId, "raster-saturation", activeSeason.saturation);
       map.setPaintProperty(activeSeason.layerId, "raster-contrast", activeSeason.contrast);
       map.setPaintProperty(activeSeason.layerId, "raster-brightness-max", activeSeason.brightness);
@@ -544,7 +550,7 @@ export default function Home() {
     };
     if (map.getLayer("satellite")) updateSeason();
     else map.once("load", updateSeason);
-  }, [activeSeason]);
+  }, [activeSeason, mapView]);
 
   function locateUser() {
     if (!window.isSecureContext) {
