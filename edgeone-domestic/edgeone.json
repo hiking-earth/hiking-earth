@@ -4,9 +4,7 @@
   "outputDirectory": "static",
   "mainlandRegions": ["ap-guangzhou"],
   "cloudFunctions": {
-    "nodejs": {
-      "includeFiles": ["runtime/**", "static/**"],
-      "maxDuration": 120
-    }
+    "includeFiles": ["runtime/**", "static/**"],
+    "maxDuration": 120
   }
 }

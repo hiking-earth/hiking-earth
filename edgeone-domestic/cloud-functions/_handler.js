@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join, normalize, sep } from "node:path";
 
 const staticRoot = new URL("../static/", import.meta.url);
-const vinext = await import("../runtime/server/index.js");
+const vinextPromise = import("../runtime/server/index.js");
 
 const contentTypes = new Map([
   [".css", "text/css; charset=utf-8"],
@@ -63,5 +63,6 @@ const context = {
 };
 
 export async function onRequest(requestContext) {
+  const vinext = await vinextPromise;
   return vinext.default.fetch(requestContext.request, env, context);
 }
