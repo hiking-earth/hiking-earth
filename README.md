@@ -26,7 +26,6 @@
 - React 19、TypeScript、Vinext/Vite
 - MapLibre GL JS（3D 地球与地图交互）
 - Cloudflare Workers（海外运行时与 API）
-- Tencent EdgeOne（国内测试部署）
 - Drizzle ORM（数据层预留）
 
 ## 本地开发
@@ -49,7 +48,7 @@ npm test
 
 ## 发布流程
 
-`main` 是发布分支。推送到 GitHub 后，Cloudflare Workers 与 EdgeOne 会分别构建海外/国内版本；Cloudflare 的生产部署配置位于构建产物 `dist/server/wrangler.json`。
+`main` 是发布分支。推送到 GitHub 后由 Cloudflare Workers 构建部署；生产部署配置位于构建产物 `dist/server/wrangler.json`。
 
 ```bash
 npm run build
@@ -76,7 +75,6 @@ app/                 页面与 Cloudflare 兼容 API
 components/          功能中心与界面组件
 data/                路线、来源和探索数据
 tests/               产品边界与渲染回归测试
-edgeone-domestic/    国内 EdgeOne 独立部署入口
 docs/                验收、数据许可、发布与回滚资料
 ```
 

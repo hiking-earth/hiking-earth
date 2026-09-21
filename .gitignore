@@ -35,8 +35,6 @@ yarn-error.log*
 .vercel
 
 /dist/
-/edgeone-domestic/static/
-/edgeone-domestic/runtime/
 /.wrangler/
 *.tsbuildinfo
 /outputs/

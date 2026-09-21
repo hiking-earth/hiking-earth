@@ -240,27 +240,3 @@ test("上线前闸门、法律页面、健康检查和安全头已配置", async
   assert.match(privacy, /清除本机数据/);
   assert.match(sources, /RELEASE_SOURCE_REGISTRY/);
 });
-
-test("EdgeOne 国内测试入口完整转发现有 Worker，而不是误作纯静态部署", async () => {
-  const [config, packageJson, handler, rootFunction, catchAllFunction, buildScript] = await Promise.all([
-    source("edgeone-domestic/edgeone.json"),
-    source("edgeone-domestic/package.json"),
-    source("edgeone-domestic/cloud-functions/_handler.js"),
-    source("edgeone-domestic/cloud-functions/index.js"),
-    source("edgeone-domestic/cloud-functions/[[default]].js"),
-    source("edgeone-domestic/build.mjs"),
-  ]);
-
-  assert.match(config, /"buildCommand": "npm run build"/);
-  assert.match(config, /"outputDirectory": "static"/);
-  assert.match(packageJson, /"build": "node build\.mjs"/);
-  assert.match(config, /"mainlandRegions": \["ap-guangzhou"\]/);
-  assert.match(config, /"includeFiles": \["runtime\/\*\*", "static\/\*\*"\]/);
-  assert.match(handler, /vinext\.default\.fetch/);
-  assert.match(handler, /ASSETS/);
-  assert.match(handler, /IMAGES/);
-  assert.match(rootFunction, /onRequest/);
-  assert.match(catchAllFunction, /onRequest/);
-  assert.match(buildScript, /dist\/client/);
-  assert.match(buildScript, /dist\/server/);
-});
