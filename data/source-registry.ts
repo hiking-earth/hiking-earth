@@ -33,11 +33,11 @@ export const OFFICIAL_SOURCE_REGISTRY = {
     note: "路线长度、爬升和轨迹必须逐条确认；认知示意不得当作导航轨迹。",
   },
   image: {
-    label: "图片权利记录",
-    url: "https://unsplash.com/license",
-    readiness: "待授权" as SourceReadiness,
-    checkedAt: "2026-08-24 · 已核验平台许可，未完成逐图台账",
-    note: "Unsplash 许可允许广泛使用，但当前路线图片缺逐张作者、原始页面和许可快照记录；正式发布前必须补齐或替换为自有素材。",
+    label: "原创示意封面",
+    url: "https://github.com/hiking-earth/clients/blob/codex/mobile-privacy-controls/scripts/create-original-cover.py",
+    readiness: "可本地展示" as SourceReadiness,
+    checkedAt: "2026-10-05 · 原创几何绘制",
+    note: "展示封面为本项目原创示意，不是路线实景。历史演示照片不再展示；官方图片与讲解仅链接原页面。",
   },
 } satisfies Record<string, SourceRecord>;
 

@@ -45,7 +45,7 @@ const worker = {
     const clientPage = url.pathname === '/client';
     const response = clientAsset ? await env.ASSETS.fetch(request) : await handler.fetch(request, env, ctx);
     let clientApiOrigin = '';
-    try { const endpoint = new URL(env.CLIENT_API_ORIGIN || ''); if (endpoint.protocol === 'https:') clientApiOrigin = endpoint.origin; } catch {}
+    try { const endpoint = new URL(env.CLIENT_API_ORIGIN || 'https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com'); if (endpoint.protocol === 'https:') clientApiOrigin = endpoint.origin; } catch {}
     const headers = new Headers(response.headers);
     headers.set("X-Content-Type-Options", "nosniff");
     headers.set("X-Frame-Options", clientAsset ? "SAMEORIGIN" : "DENY");
@@ -59,9 +59,9 @@ const worker = {
       "frame-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://images.unsplash.com https://server.arcgisonline.com https://gibs.earthdata.nasa.gov",
+      "img-src 'self' data: blob: https://images.unsplash.com https://tiles.openfreemap.org https://server.arcgisonline.com https://gibs.earthdata.nasa.gov",
       "font-src 'self' data: https://tiles.openfreemap.org",
-      `connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://gibs.earthdata.nasa.gov ${clientApiOrigin}`,
+      `connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://raw.githubusercontent.com https://gibs.earthdata.nasa.gov ${clientApiOrigin}`,
       "worker-src 'self' blob:",
       "object-src 'none'",
     ];

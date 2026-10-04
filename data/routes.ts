@@ -1,6 +1,7 @@
 import osm from './catalog/osm.json';
 import usfs from './catalog/usfs.json';
-const snapshot={routes:[...osm.routes.map((r:any)=>({...r, attribution:osm.attribution})),...usfs.routes.map((r:any)=>({...r, attribution:usfs.attribution}))]};
+import hk from './catalog/hk-afcd.json';
+const snapshot={routes:[...osm.routes.map((r:any)=>({...r, attribution:osm.attribution})),...usfs.routes.map((r:any)=>({...r, attribution:usfs.attribution})),...hk.routes.map((r:any)=>({...r, attribution:hk.attribution}))]};
 export type RouteStatus = "开放中" | "即将开放" | "临时关闭" | "永久关闭" | "待核验";
 export type Season = "春" | "夏" | "秋" | "冬";
 export type PackStyle = "轻装" | "重装";
@@ -233,3 +234,6 @@ const imported: HikingRoute[] = snapshot.routes.map((raw: any) => ({
 }));
 const names = new Set([...CORE_ROUTES, ...CANDIDATE_ROUTES].map(r=>r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',')));
 export const ROUTES: HikingRoute[] = [...CORE_ROUTES, ...CANDIDATE_ROUTES, ...imported.filter(r=>{const key=r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',');if(names.has(key))return false;names.add(key);return true;})];
+
+// Demo photographs are retained in historical source only, never rendered.
+ROUTES.forEach(route=>{if(route.image){route.image="/static/original-mountain-reference.png";route.imageCredit="徒步地球原创几何示意 · 非路线实景";}});
