@@ -160,6 +160,7 @@ export default function Home() {
   const loadingTimerRef = useRef<number | null>(null);
   const markersRef = useRef<Marker[]>([]);
   const markerElementsRef = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const [routeDisplayLimit, setRouteDisplayLimit] = useState(50);
   const [activeId, setActiveId] = useState(ROUTES[0].id);
   const [status, setStatus] = useState<"全部" | RouteStatus>("全部");
   const [seasonFilter, setSeasonFilter] = useState<"全部" | Season>("全部");
@@ -429,7 +430,28 @@ export default function Home() {
       setMapLoading(false);
     });
 
+    const catalogMarkers = new Map<string, Marker>();
     const syncViewportRoutes = () => {
+      const markerBounds = map.getBounds();
+      const markerRoutes = ROUTES.filter(route => map.getZoom() < 3 || markerBounds.contains(route.center)).slice(0,400);
+      const desired = new Set(markerRoutes.map(route=>route.id));
+      catalogMarkers.forEach((marker,id)=>{if(!desired.has(id)){marker.remove();catalogMarkers.delete(id);markerElements.delete(id);}});
+      markerRoutes.forEach((route) => {
+        if (catalogMarkers.has(route.id)) return;
+      const button = document.createElement("button");
+      button.className = "route-marker";
+      button.style.setProperty("--marker-color", STATUS_COLORS[route.status]);
+      button.setAttribute("aria-label", `查看${route.name}`);
+      button.innerHTML = `<span></span>`;
+      button.addEventListener("click", () => {
+        selectRoute(route.id);
+      });
+      markerElements.set(route.id, button);
+      const marker = new maplibregl.Marker({ element: button, anchor: "bottom" }).setLngLat(route.center).addTo(map);
+      catalogMarkers.set(route.id, marker);
+      markers.push(marker);
+    });
+      markers.splice(0,markers.length,...catalogMarkers.values());
       const center = map.getCenter();
       setViewportRegion(getRegionLabel([center.lng, center.lat]));
       if (map.getZoom() < 3) {
@@ -442,18 +464,7 @@ export default function Home() {
     map.on("moveend", syncViewportRoutes);
     map.on("load", syncViewportRoutes);
 
-    ROUTES.forEach((route) => {
-      const button = document.createElement("button");
-      button.className = "route-marker";
-      button.style.setProperty("--marker-color", STATUS_COLORS[route.status]);
-      button.setAttribute("aria-label", `查看${route.name}`);
-      button.innerHTML = `<span></span>`;
-      button.addEventListener("click", () => {
-        selectRoute(route.id);
-      });
-      markerElements.set(route.id, button);
-      markers.push(new maplibregl.Marker({ element: button, anchor: "bottom" }).setLngLat(route.center).addTo(map));
-    });
+
 
       mapRef.current = map;
     })();
@@ -725,6 +736,8 @@ export default function Home() {
           <button className="mobile-close" onClick={() => setPanelOpen(false)} aria-label="关闭路线列表"><X size={20} /></button>
         </div>
 
+        <a href="/client" style={{ display: "block", color: "#b8f36b", padding: "12px 16px", fontSize: 14 }}>账号、轨迹、组队与社区 →</a>
+
         <div className="search-row">
           <label className="search-box"><Search size={17} /><input ref={searchInputRef} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜路线、地区或风景" aria-label="搜索路线、地区或风景" /><kbd>/</kbd></label>
           <button className={`filter-button ${filtersOpen ? "active" : ""}`} onClick={() => setFiltersOpen((value) => !value)}><SlidersHorizontal size={18} /><span>筛选</span></button>
@@ -744,7 +757,7 @@ export default function Home() {
         {!filtersOpen && <>
           <div className="browser-meta"><span>{viewportRegion} · 当前视野路线</span><span>{visibleRoutes.length} 条 <button className="reset-filters" onClick={resetFilters}>重置筛选</button></span></div>
           <div className="route-list">
-            {visibleRoutes.map((route) => (
+            {visibleRoutes.slice(0,routeDisplayLimit).map((route) => (
               <button key={route.id} className={`route-card ${route.id === activeId ? "active" : ""}`} onClick={() => selectRoute(route.id)}>
                 <span className="route-thumb" style={{ backgroundImage: `linear-gradient(180deg, transparent, rgba(4,10,7,.7)), url(${route.image})` }}>
                   <span className="status-dot" style={{ color: STATUS_COLORS[route.status] }}>{route.status}</span>
@@ -752,6 +765,7 @@ export default function Home() {
                 <span className="route-card-copy"><small><MapPin size={13} />{route.region}</small><b>{route.name}</b><span>{route.distance} · {route.duration} · {route.difficulty}</span></span>
               </button>
             ))}
+            {visibleRoutes.length > routeDisplayLimit && <button onClick={()=>setRouteDisplayLimit(limit=>limit+50)}>加载更多路线（共 {visibleRoutes.length} 条）</button>}
             {!visibleRoutes.length && <div className="empty-routes"><Search size={24} /><b>当前没有匹配路线</b><span>可以重置筛选，或拖动地球扩大当前视野。</span><button onClick={resetFilters}>重置筛选</button></div>}
           </div>
           <p className="data-note">拖动或缩放地球后，会自动更新当前视野内的路线。开放状态均须以属地公告为准。</p>

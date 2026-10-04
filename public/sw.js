@@ -1,4 +1,4 @@
-const CACHE_NAME = "hiking-earth-v024";
+const CACHE_NAME = "hiking-earth-v025-client";
 const APP_SHELL = ["/", "/manifest.webmanifest", "/favicon.svg", "/icon-192.png", "/icon-512.png", "/icon-512-maskable.png", "/route-guide-original.png", "/terrain/0/0/0.png"];
 
 self.addEventListener("install", (event) => {
@@ -22,9 +22,9 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     event.respondWith(fetch(request).then((response) => {
       const copy = response.clone();
-      event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put("/", copy)));
+      event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
       return response;
-    }).catch(() => caches.match("/")));
+    }).catch(async () => (await caches.match(request)) || (await caches.match("/"))));
     return;
   }
 

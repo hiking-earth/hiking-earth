@@ -39,3 +39,7 @@ yarn-error.log*
 *.tsbuildinfo
 /outputs/
 /work/
+
+# Shared client generated assets and checkout
+public/client-app/
+.client-source/

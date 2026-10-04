@@ -1,3 +1,6 @@
+import osm from './catalog/osm.json';
+import usfs from './catalog/usfs.json';
+const snapshot={routes:[...osm.routes.map((r:any)=>({...r, attribution:osm.attribution})),...usfs.routes.map((r:any)=>({...r, attribution:usfs.attribution}))]};
 export type RouteStatus = "开放中" | "即将开放" | "临时关闭" | "永久关闭" | "待核验";
 export type Season = "春" | "夏" | "秋" | "冬";
 export type PackStyle = "轻装" | "重装";
@@ -224,4 +227,9 @@ const CANDIDATE_ROUTES: HikingRoute[] = [
   { id: "qinglongshan", name: "古荥·青龙山徒步候选线", region: "河南 · 郑州", center: [113.48, 34.91], distance: "待核验", ascent: "待核验", duration: "半日–1 天", difficulty: "入门", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "轻装", overnight: "无过夜", surface: "未铺装", scenery: ["丘陵", "古道", "近郊"] },
 ].map(candidateRoute);
 
-export const ROUTES: HikingRoute[] = [...CORE_ROUTES, ...CANDIDATE_ROUTES];
+const imported: HikingRoute[] = snapshot.routes.map((raw: any) => ({
+  id: raw.id, name: raw.name, region: raw.region, center: raw.center, status: "待核验", path: [], distance: "待核验", ascent: "待核验", duration: "待核验", difficulty: "待核验", bestSeason: "待核验", bestSeasons: [], packStyle: "轻装", overnight: "无过夜", surface: "未铺装", trackMode: "不展示轨迹", scenery: [], summary: "自动发现档案；开放许可、装备及住宿未核验。", image: "", imageCredit: "无配图",
+  archive: { source: {label: raw.attribution, url: raw.sourceUrl}, checkedAt: `采集 ${raw.fetchedAt}；开放状态未核验`, highlights: [], riskNotice: "地图收录不代表允许通行，须核验属地官方公告。本档案不提供导航。" }
+}));
+const names = new Set([...CORE_ROUTES, ...CANDIDATE_ROUTES].map(r=>r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',')));
+export const ROUTES: HikingRoute[] = [...CORE_ROUTES, ...CANDIDATE_ROUTES, ...imported.filter(r=>{const key=r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',');if(names.has(key))return false;names.add(key);return true;})];

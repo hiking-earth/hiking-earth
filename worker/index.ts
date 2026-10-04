@@ -5,6 +5,7 @@ import handler from "vinext/server/app-router-entry";
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
+  CLIENT_API_ORIGIN?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -40,22 +41,27 @@ const worker = {
       }, allowedWidths);
     }
 
-    const response = await handler.fetch(request, env, ctx);
+    const clientAsset = url.pathname.startsWith('/client-app/');
+    const clientPage = url.pathname === '/client';
+    const response = clientAsset ? await env.ASSETS.fetch(request) : await handler.fetch(request, env, ctx);
+    let clientApiOrigin = '';
+    try { const endpoint = new URL(env.CLIENT_API_ORIGIN || ''); if (endpoint.protocol === 'https:') clientApiOrigin = endpoint.origin; } catch {}
     const headers = new Headers(response.headers);
     headers.set("X-Content-Type-Options", "nosniff");
-    headers.set("X-Frame-Options", "DENY");
+    headers.set("X-Frame-Options", clientAsset ? "SAMEORIGIN" : "DENY");
     headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-    headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(self)");
+    headers.set("Permissions-Policy", `${clientAsset || clientPage ? "camera=(self)" : "camera=()"}, microphone=(), geolocation=(self)`);
     const contentSecurityPolicy = [
       "default-src 'self'",
       "base-uri 'self'",
       "form-action 'self'",
-      "frame-ancestors 'none'",
+      clientAsset ? "frame-ancestors 'self'" : "frame-ancestors 'none'",
+      "frame-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://images.unsplash.com https://server.arcgisonline.com https://gibs.earthdata.nasa.gov",
       "font-src 'self' data: https://tiles.openfreemap.org",
-      "connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://gibs.earthdata.nasa.gov",
+      `connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://gibs.earthdata.nasa.gov ${clientApiOrigin}`,
       "worker-src 'self' blob:",
       "object-src 'none'",
     ];
