@@ -41,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <head>
-        <link rel="preconnect" href="https://server.arcgisonline.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

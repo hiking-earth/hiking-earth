@@ -47,13 +47,6 @@ export const RELEASE_SOURCE_REGISTRY: SourceRecord[] = [
   OFFICIAL_SOURCE_REGISTRY.route,
   OFFICIAL_SOURCE_REGISTRY.image,
   {
-    label: "Esri World Imagery 卫星底图",
-    url: "https://developers.arcgis.com/documentation/mapping-and-location-services/mapping/basemaps/introduction-static-basemap-tiles-service/",
-    readiness: "待官方核验",
-    checkedAt: "2026-08-24 · 已核验署名要求",
-    note: "当前已显示 Esri 和数据提供方署名；正式上线前仍需确认生产账号、授权方式、配额和计费模型。",
-  },
-  {
     label: "OpenFreeMap / OpenMapTiles / OpenStreetMap",
     url: "https://openfreemap.org/",
     readiness: "可本地展示",
@@ -77,7 +70,7 @@ export const RELEASE_SOURCE_REGISTRY: SourceRecord[] = [
 ];
 
 export function getRouteSourceRecords(route: HikingRoute): SourceRecord[] {
-  const routeSource = route.archive.source.url
+  const routeSource: SourceRecord = route.archive.source.url
     ? {
         label: route.archive.source.label,
         url: route.archive.source.url,

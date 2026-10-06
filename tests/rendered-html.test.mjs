@@ -21,9 +21,10 @@ test("3D 地球首屏包含真实卫星、高程和路线交互", async () => {
   assert.match(page, /const showSeason = seasonOverlayEnabled && mapView === "route"/);
   assert.match(page, /const \[terrain, setTerrain\] = useState\(false\)/);
   assert.match(page, /const \[seasonOverlayEnabled, setSeasonOverlayEnabled\] = useState\(false\)/);
-  assert.match(page, /World_Imagery\/MapServer\/tile/);
-  assert.match(page, /\/terrain\/\{z\}\/\{x\}\/\{y\}\.png/);
-  assert.match(page, /maxzoom: 0/);
+  assert.doesNotMatch(page, /arcgisonline\.com/);
+  assert.match(page, /tiles\.openfreemap\.org\/planet/);
+  assert.match(page, /\/api\/terrain\/\{z\}\/\{x\}\/\{y\}\.png/);
+  assert.match(page, /maxzoom: 14/);
   assert.match(page, /city-buildings-3d/);
   assert.match(page, /返回完整3D地球/);
   assert.match(page, /全球季相探索/);
@@ -106,8 +107,8 @@ test("iPhone 地图工具反馈、署名和完整地球复位保持可验收", a
   assert.match(page, /\[city3DActive, mapDetails\]/);
   assert.match(page, /setGlobeResetToken\(\(value\) => value \+ 1\)/);
   assert.match(page, /\[activeRoute, globeResetToken, mapView\]/);
-  assert.match(page, /影像 © Esri、Maxar/);
-  assert.match(page, /地形 © Mapzen \/ AWS 开放数据/);
+  assert.match(page, /地图 © OpenFreeMap/);
+  assert.match(page, /terrain-sources/);
   assert.match(page, /数据 © OpenStreetMap 贡献者/);
   assert.doesNotMatch(page, /Terrain tile ©|Source: Esri|OpenStreetMap contributors/);
   assert.match(page, /route-browser glass[^\n]*detailOpen \? "detail-hidden"/);
@@ -130,18 +131,14 @@ test("iPhone 地图工具反馈、署名和完整地球复位保持可验收", a
 test("本地功能中心覆盖推荐、社区、约伴、日记和管理台", async () => {
   const [hub, css] = await Promise.all([source("components/ProjectHub.tsx"), source("app/globals.css")]);
 
-  for (const expected of ["自然语言行程需求", "推荐结果", "路线留言", "免费/AA约伴", "保存日记并打卡", "我的发光足迹", "国内著名景点首批档案", "路线审核总览"]) {
+  for (const expected of ["自然语言行程需求", "推荐结果", "统一账号云端社区", "景点档案", "路线审核总览"]) {
     assert.match(hub, new RegExp(expected));
   }
   assert.match(hub, /localStorage/);
-  assert.match(hub, /无需登录/);
+  assert.match(hub, /client-app\/index\.html#\/pages\/companion\/social/);
   assert.match(hub, /role="dialog" aria-modal="true"/);
   assert.match(css, /\.project-hub \{ inset: 0; border: 0; border-radius: 0; box-shadow: none; \}/);
-  assert.match(hub, /hiking-earth-registrations-v1/);
-  assert.match(hub, /报名并进入群聊/);
-  assert.match(hub, /只有已报名成员可见/);
-  assert.match(hub, /未成年人报名需要由监护人确认/);
-  assert.match(hub, /isTripArchived/);
+  assert.match(hub, /公开内容需审核/);
   assert.match(hub, /数据来源与发布闸门/);
   assert.match(hub, /不可发布/);
 });
@@ -153,7 +150,7 @@ test("数据来源闸门不会把演示素材当成正式发布数据", async ()
   assert.match(registry, /待授权/);
   assert.match(registry, /isPublishReady/);
   assert.match(registry, /NASA Earthdata GIBS \/ MODIS Terra 季节影像/);
-  assert.match(routes, /Unsplash 演示影像/);
+  assert.match(routes, /徒步地球原创几何示意/);
 });
 
 test("官方天气读取层存在且失败时不伪造实时天气", async () => {
@@ -162,17 +159,18 @@ test("官方天气读取层存在且失败时不伪造实时天气", async () =>
     source("app/page.tsx"),
     source("data/routes.ts"),
   ]);
-  assert.match(weatherRoute, /weather\.com\.cn\/adat\/sk/);
+  assert.match(weatherRoute, /smart\/weatherapi\.shtml/);
+  assert.doesNotMatch(weatherRoute, /fetch\([^\n]*adat\/sk/);
   assert.match(weatherRoute, /status: "unavailable"/);
   assert.match(page, /\/api\/weather\?cityId=/);
-  assert.match(page, /官方天气实况/);
+  assert.match(page, /天气服务状态/);
   assert.match(routes, /weatherCityId: "101180101"/);
 });
 
 test("高程瓦片使用本地低缩放回退，浏览器不直连远程源", async () => {
   const [page, terrainAsset] = await Promise.all([source("app/page.tsx"), stat(new URL("public/terrain/0/0/0.png", root))]);
-  assert.match(page, /\/terrain\/\{z\}\/\{x\}\/\{y\}\.png/);
-  assert.match(page, /maxzoom: 0/);
+  assert.match(page, /\/api\/terrain\/\{z\}\/\{x\}\/\{y\}\.png/);
+  assert.match(page, /maxzoom: 14/);
   assert.doesNotMatch(page, /s3\.amazonaws\.com\/elevation-tiles-prod\/terrarium/);
   assert.ok(terrainAsset.size > 1000);
 });
@@ -237,6 +235,6 @@ test("上线前闸门、法律页面、健康检查和安全头已配置", async
   assert.match(worker, /url\.protocol === "https:"/);
   assert.match(worker, /contentSecurityPolicy\.push\("upgrade-insecure-requests"\)/);
   assert.match(release, /禁止正式发布/);
-  assert.match(privacy, /清除本机数据/);
+  assert.match(privacy, /本机资料由你导出或删除/);
   assert.match(sources, /RELEASE_SOURCE_REGISTRY/);
 });

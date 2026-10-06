@@ -1,7 +1,3 @@
-import osm from './catalog/osm.json';
-import usfs from './catalog/usfs.json';
-import hk from './catalog/hk-afcd.json';
-const snapshot={routes:[...osm.routes.map((r:any)=>({...r, attribution:osm.attribution})),...usfs.routes.map((r:any)=>({...r, attribution:usfs.attribution})),...hk.routes.map((r:any)=>({...r, attribution:hk.attribution}))]};
 export type RouteStatus = "开放中" | "即将开放" | "临时关闭" | "永久关闭" | "待核验";
 export type Season = "春" | "夏" | "秋" | "冬";
 export type PackStyle = "轻装" | "重装";
@@ -14,6 +10,7 @@ export type HikingRoute = {
   name: string;
   region: string;
   status: RouteStatus;
+  openingExpiresAt?: number;
   center: [number, number];
   path: [number, number][];
   distance: string;
@@ -210,7 +207,7 @@ function candidateRoute(seed: CandidateSeed, index: number): HikingRoute {
   };
 }
 
-const CANDIDATE_ROUTES: HikingRoute[] = [
+const CANDIDATE_SEEDS: CandidateSeed[] = [
   { id: "wutaishan", name: "五台山朝台路线", region: "山西 · 忻州", center: [113.59, 39.04], distance: "约 50–70 km", ascent: "待核验", duration: "2–4 天", difficulty: "长距离进阶", bestSeason: "夏 · 秋", bestSeasons: ["夏", "秋"], packStyle: "轻装", overnight: "住宿", surface: "景区成熟", scenery: ["古建", "台顶", "日出"] },
   { id: "yubeng", name: "梅里雪山·雨崩徒步", region: "云南 · 迪庆", center: [98.78, 28.39], distance: "约 45–70 km", ascent: "待核验", duration: "4–6 天", difficulty: "高海拔进阶", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "轻装", overnight: "住宿", surface: "未铺装", scenery: ["雪山", "森林", "冰湖"] },
   { id: "hutiaoxia", name: "虎跳峡高路徒步", region: "云南 · 丽江", center: [100.12, 27.25], distance: "约 22 km", ascent: "待核验", duration: "2 天", difficulty: "进阶", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "轻装", overnight: "住宿", surface: "未铺装", scenery: ["峡谷", "雪山", "金沙江"] },
@@ -226,14 +223,12 @@ const CANDIDATE_ROUTES: HikingRoute[] = [
   { id: "everest-east", name: "珠峰东坡认知档案", region: "西藏 · 日喀则", center: [87.04, 27.94], distance: "长距离", ascent: "待核验", duration: "7–10 天", difficulty: "高海拔高风险", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "重装", overnight: "营地", surface: "未铺装", scenery: ["雪峰", "冰川", "高山湖"] },
   { id: "fuliushan", name: "伏牛山徒步候选线", region: "河南 · 洛阳/南阳", center: [111.73, 33.72], distance: "待核验", ascent: "待核验", duration: "1–2 天", difficulty: "进阶", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "轻装", overnight: "住宿", surface: "未铺装", scenery: ["森林", "花岗岩", "秋色"] },
   { id: "qinglongshan", name: "古荥·青龙山徒步候选线", region: "河南 · 郑州", center: [113.48, 34.91], distance: "待核验", ascent: "待核验", duration: "半日–1 天", difficulty: "入门", bestSeason: "春 · 秋", bestSeasons: ["春", "秋"], packStyle: "轻装", overnight: "无过夜", surface: "未铺装", scenery: ["丘陵", "古道", "近郊"] },
-].map(candidateRoute);
+];
+const CANDIDATE_ROUTES: HikingRoute[] = CANDIDATE_SEEDS.map(candidateRoute);
 
-const imported: HikingRoute[] = snapshot.routes.map((raw: any) => ({
-  id: raw.id, name: raw.name, region: raw.region, center: raw.center, status: "待核验", path: [], distance: "待核验", ascent: "待核验", duration: "待核验", difficulty: "待核验", bestSeason: "待核验", bestSeasons: [], packStyle: "轻装", overnight: "无过夜", surface: "未铺装", trackMode: "不展示轨迹", scenery: [], summary: "自动发现档案；开放许可、装备及住宿未核验。", image: "", imageCredit: "无配图",
-  archive: { source: {label: raw.attribution, url: raw.sourceUrl}, checkedAt: `采集 ${raw.fetchedAt}；开放状态未核验`, highlights: [], riskNotice: "地图收录不代表允许通行，须核验属地官方公告。本档案不提供导航。" }
-}));
-const names = new Set([...CORE_ROUTES, ...CANDIDATE_ROUTES].map(r=>r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',')));
-export const ROUTES: HikingRoute[] = [...CORE_ROUTES, ...CANDIDATE_ROUTES, ...imported.filter(r=>{const key=r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')+':'+r.center.map((v:number)=>v.toFixed(1)).join(',');if(names.has(key))return false;names.add(key);return true;})];
+// Large OSM/USFS snapshots are loaded through the paginated live catalog
+// service. Keep only editorial seed routes in the static website bundle.
+export const ROUTES: HikingRoute[] = [...CORE_ROUTES, ...CANDIDATE_ROUTES];
 
 // Demo photographs are retained in historical source only, never rendered.
 ROUTES.forEach(route=>{if(route.image){route.image="/static/original-mountain-reference.png";route.imageCredit="徒步地球原创几何示意 · 非路线实景";}});

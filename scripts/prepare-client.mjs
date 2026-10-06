@@ -8,6 +8,7 @@ const source = JSON.parse(readFileSync(path.join(root, 'clients.source.json'), '
 let clientRoot = process.env.HIKING_CLIENT_ROOT || path.resolve(root, '..');
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 function run(command, args, cwd, extra = {}) {
+  if(command===npm && process.platform==='win32'){if(!process.env.npm_execpath)throw new Error('NPM CLI path unavailable');args=[process.env.npm_execpath,...args];command=process.execPath;}
   const result = spawnSync(command, args, { cwd, stdio: 'inherit', env: { ...process.env, ...extra } });
   if (result.status !== 0) throw new Error(`Client preparation failed: ${command}`);
 }
@@ -18,9 +19,12 @@ if (!existsSync(path.join(clientRoot, 'app', 'package.json'))) {
   run('git', ['checkout', '--detach', 'FETCH_HEAD'], clientRoot);
 }
 mkdirSync(path.join(root, 'data', 'catalog'), { recursive: true });
-cpSync(path.join(clientRoot, 'shared', 'data', 'catalog'), path.join(root, 'data', 'catalog'), { recursive: true });
+for (const name of ['osm.json','usfs.json','hk-afcd.json']) {
+  const input=path.join(clientRoot,'shared','data','catalog',name);
+  if(existsSync(input))cpSync(input,path.join(root,'data','catalog',name));
+}
 run(npm, ['ci'], path.join(clientRoot, 'app'));
-run(npm, ['run', 'build:h5'], path.join(clientRoot, 'app'), { VITE_DESKTOP: 'false' });
+run(npm, ['run', 'build:h5'], path.join(clientRoot, 'app'), { VITE_DESKTOP: 'false', VITE_PUBLIC_BASE: '/client-app/' });
 const target = path.join(root, 'public', 'client-app');
 rmSync(target, { recursive: true, force: true }); mkdirSync(target, { recursive: true });
 cpSync(path.join(clientRoot, 'app', 'dist', 'build', 'h5'), target, { recursive: true });

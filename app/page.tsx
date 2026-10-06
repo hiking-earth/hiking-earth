@@ -3,10 +3,12 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { GeoJSONSource, Map as MapLibreMap, Marker, StyleSpecification } from "maplibre-gl";
+import type { ExpressionSpecification, GeoJSONSource, Map as MapLibreMap, Marker, StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { ROUTES, STATUS_COLORS, type HikingRoute, type OvernightStyle, type PackStyle, type RouteStatus, type Season, type SurfaceStyle } from "@/data/routes";
 import type { HubTab } from "@/components/ProjectHub";
+import {readWebCatalogCache,writeWebCatalogCache} from '@/data/catalog-cache';
+import {loadOfficialNotices,loadPublicRouteCatalog,searchPublicRoutes,publicCatalogCoverageSummary,type OfficialNotice} from "@/data/live-catalog";
 import {
   Backpack,
   Building2,
@@ -41,7 +43,7 @@ const ProjectHub = lazy(() => import("@/components/ProjectHub").then((module) =>
 const MAP_DETAIL_LAYERS = ["admin-boundaries", "roads-casing", "roads", "road-labels", "water-labels", "peak-labels", "poi-labels", "place-labels"];
 const BUILDING_LAYERS = ["building-footprints", "city-buildings-3d"];
 const SEASON_LAYER_IDS = ["season-spring", "season-summer", "season-autumn", "season-winter"] as const;
-const LOCALIZED_NAME = ["coalesce", ["get", "name:zh-Hans"], ["get", "name:zh"], ["get", "name"], ["get", "name_en"]] as maplibregl.ExpressionSpecification;
+const LOCALIZED_NAME = ["coalesce", ["get", "name:zh-Hans"], ["get", "name:zh"], ["get", "name"], ["get", "name_en"]] as ExpressionSpecification;
 
 function nasaSeasonTiles(date: string) {
   return [`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/${date}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`];
@@ -152,6 +154,29 @@ function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: stri
 
 export default function Home() {
   const mapContainer = useRef<HTMLDivElement>(null);
+  const [routes,setRoutes]=useState(ROUTES);
+  const currentRoutesRef=useRef(routes);currentRoutesRef.current=routes;
+  const catalogRefreshRef=useRef<()=>void>(()=>{});
+  const [catalogMessage,setCatalogMessage]=useState("");
+  const [catalogRefreshing,setCatalogRefreshing]=useState(false);
+  useEffect(()=>{
+    let active=true;let loading=false;let restoring=true;let lastSuccess=0;let failures=0;let retryAt=0;
+    const refresh=async(force=false)=>{
+      const now=Date.now();
+      if(restoring||loading||(!force&&(now<retryAt||now-lastSuccess<6*60*60*1000)))return;
+      loading=true;
+      if(active)setCatalogRefreshing(true);
+      try{const next=await loadPublicRouteCatalog();if(!active)return;setRoutes(next);lastSuccess=Date.now();failures=0;retryAt=0;const saved=await writeWebCatalogCache(next);if(active)setCatalogMessage(`路线及官方状态已刷新，共 ${next.length} 条。${publicCatalogCoverageSummary()}. ${saved?'已保存本机目录。':'本机保存失败，本次资料仅在当前页面可用。'}`);}
+      catch{if(active){failures+=1;retryAt=Date.now()+Math.min(6*60*60*1000,15*60*1000*2**Math.min(failures-1,5));setCatalogMessage("云端路线刷新失败，继续显示已保存目录；稍后自动重试，也可手动刷新。");}}
+      finally{loading=false;if(active)setCatalogRefreshing(false);}
+    };
+    catalogRefreshRef.current=()=>{void refresh(true);};
+    const onVisible=()=>{if(document.visibilityState==='visible')void refresh();};
+    void (async()=>{const cached=await readWebCatalogCache();if(!active)return;restoring=false;if(cached){setRoutes(cached.routes);setCatalogMessage(`已恢复 ${cached.routes.length} 条本机目录（${new Date(cached.savedAt).toLocaleString()}），正在检查更新。`);}await refresh(true);})();
+    const timer=window.setInterval(()=>{if(document.visibilityState==='visible')void refresh();},6*60*60*1000);
+    document.addEventListener('visibilitychange',onVisible);
+    return()=>{active=false;catalogRefreshRef.current=()=>{};window.clearInterval(timer);document.removeEventListener('visibilitychange',onVisible);};
+  },[]);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const userMarkerRef = useRef<Marker | null>(null);
@@ -168,10 +193,29 @@ export default function Home() {
   const [overnightFilter, setOvernightFilter] = useState<"全部" | OvernightStyle>("全部");
   const [surfaceFilter, setSurfaceFilter] = useState<"全部" | SurfaceStyle>("全部");
   const [query, setQuery] = useState("");
+  const [searchSource,setSearchSource]=useState<'osm'|'usfs'|'hk'>('osm');
+  const [onlineSearchRows,setOnlineSearchRows]=useState<HikingRoute[]>([]);
+  const [onlineSearchMessage,setOnlineSearchMessage]=useState('');
+  const [onlineSearchLoading,setOnlineSearchLoading]=useState(false);
+  const [onlineSearchMore,setOnlineSearchMore]=useState(false);
+  const searchGenerationRef=useRef(0),onlineSearchOffsetRef=useRef(0),onlineSearchSnapshotRef=useRef('');
+  useEffect(()=>{searchGenerationRef.current++;setOnlineSearchRows([]);setOnlineSearchMessage('');setOnlineSearchLoading(false);setOnlineSearchMore(false);},[query,searchSource]);
+  useEffect(()=>()=>{searchGenerationRef.current++;},[]);
+  async function onlineSearch(more=false){
+    if(onlineSearchLoading)return;if(query.trim().length<2){setOnlineSearchMessage('在线检索至少输入2个字符');return;}
+    const generation=++searchGenerationRef.current;setOnlineSearchLoading(true);
+    try{const result=await searchPublicRoutes(searchSource,query.trim(),more?onlineSearchOffsetRef.current:0,more?onlineSearchSnapshotRef.current:undefined);if(generation!==searchGenerationRef.current)return;
+      setOnlineSearchRows(previous=>more?[...previous,...result.routes]:result.routes);onlineSearchOffsetRef.current=result.offset+result.routes.length;onlineSearchSnapshotRef.current=result.snapshot;setOnlineSearchMore(result.hasMore);setOnlineSearchMessage(`来源匹配${result.total}条，已读取${result.offset+result.routes.length}条；不代表开放或可导航。`);
+    }catch(error){if(generation===searchGenerationRef.current)setOnlineSearchMessage(error instanceof Error?error.message:'在线检索失败，保留现有结果');}
+    finally{if(generation===searchGenerationRef.current)setOnlineSearchLoading(false);}
+  }
+  function openOnlineRoute(route:HikingRoute){
+    setRoutes(previous=>previous.some(item=>item.id===route.id)?previous:[...previous,route]);setActiveId(route.id);setDetailOpen(true);setMapView('route');
+  }
   const [panelOpen, setPanelOpen] = useState(true);
   const [detailOpen, setDetailOpen] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  // Keep the first route view light: satellite tiles are enough to orient the user.
+  // Keep the first route view light: the public vector basemap is enough to orient the user.
   // Terrain and seasonal imagery remain available as opt-in enhancements.
   const [terrain, setTerrain] = useState(false);
   const [mapDetails, setMapDetails] = useState(true);
@@ -180,6 +224,15 @@ export default function Home() {
   const [mapLoading, setMapLoading] = useState(true);
   const [mapMessage, setMapMessage] = useState("");
   const [layer, setLayer] = useState<"routes" | "news">("routes");
+  const [officialNotices,setOfficialNotices]=useState<OfficialNotice[]>([]);
+  const [noticeUpdatedAt,setNoticeUpdatedAt]=useState("");
+  const [noticeState,setNoticeState]=useState<"loading"|"available"|"unavailable">("loading");
+  const [noticeReload,setNoticeReload]=useState(0);
+  const noticeReloadHandledRef=useRef(0);
+  const noticeLastSuccessRef=useRef(0);
+  const noticeRetryAtRef=useRef(0);
+  const noticeFailuresRef=useRef(0);
+  const noticeLoadingRef=useRef(false);
   const [season, setSeason] = useState<(typeof SEASONS)[number]["id"]>("秋");
   const [seasonOverlayEnabled, setSeasonOverlayEnabled] = useState(false);
   const [mapView, setMapView] = useState<"globe" | "route">("globe");
@@ -195,7 +248,37 @@ export default function Home() {
   const [locating, setLocating] = useState(false);
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
 
-  const visibleRoutes = useMemo(() => ROUTES.filter((route) => {
+  useEffect(()=>{
+    if(layer!=="news")return;
+    const refresh=async(force=false)=>{
+      const now=Date.now();
+      if(noticeLoadingRef.current||(!force&&(now<noticeRetryAtRef.current||now-noticeLastSuccessRef.current<6*60*60*1000)))return;
+      noticeLoadingRef.current=true;
+      setNoticeState("loading");
+      try{
+        const snapshot=await loadOfficialNotices();
+        setOfficialNotices(snapshot.items);
+        setNoticeUpdatedAt(snapshot.generatedAt);
+        noticeLastSuccessRef.current=Date.now();
+        noticeFailuresRef.current=0;
+        noticeRetryAtRef.current=0;
+        setNoticeState("available");
+      }catch{
+        noticeFailuresRef.current+=1;
+        noticeRetryAtRef.current=Date.now()+Math.min(6*60*60*1000,15*60*1000*2**Math.min(noticeFailuresRef.current-1,5));
+        setNoticeState("unavailable");
+      }finally{noticeLoadingRef.current=false;}
+    };
+    const force=noticeReload>noticeReloadHandledRef.current;
+    noticeReloadHandledRef.current=noticeReload;
+    void refresh(force);
+    const timer=window.setInterval(()=>{if(document.visibilityState==="visible")void refresh();},6*60*60*1000);
+    const onVisible=()=>{if(document.visibilityState==="visible")void refresh();};
+    document.addEventListener("visibilitychange",onVisible);
+    return()=>{window.clearInterval(timer);document.removeEventListener("visibilitychange",onVisible);};
+  },[layer,noticeReload]);
+
+  const visibleRoutes = useMemo(() => routes.filter((route) => {
     const statusMatch = status === "全部" || route.status === status;
     const seasonMatch = seasonFilter === "全部" || route.bestSeasons.includes(seasonFilter);
     const packMatch = packFilter === "全部" || route.packStyle === packFilter;
@@ -203,9 +286,9 @@ export default function Home() {
     const surfaceMatch = surfaceFilter === "全部" || route.surface === surfaceFilter;
     const textMatch = `${route.name}${route.region}${route.scenery.join("")}`.includes(query.trim());
     return statusMatch && seasonMatch && packMatch && overnightMatch && surfaceMatch && textMatch && viewportRouteIds.includes(route.id);
-  }), [overnightFilter, packFilter, query, seasonFilter, status, surfaceFilter, viewportRouteIds]);
+  }), [routes, overnightFilter, packFilter, query, seasonFilter, status, surfaceFilter, viewportRouteIds]);
 
-  const activeRoute = ROUTES.find((route) => route.id === activeId) ?? ROUTES[0];
+  const activeRoute = routes.find((route) => route.id === activeId) ?? routes[0];
   const activeSeason = SEASONS.find((item) => item.id === season) ?? SEASONS[2];
   const gearAdvice = useMemo(() => buildGearAdvice(activeRoute, gearMode, departureDate), [activeRoute, departureDate, gearMode]);
 
@@ -266,7 +349,7 @@ export default function Home() {
     setDetailOpen(true);
     setPanelOpen(true);
     setGearOpen(false);
-    setGearMode((ROUTES.find((route) => route.id === routeId)?.packStyle ?? "轻装") as GearMode);
+    setGearMode((currentRoutesRef.current.find((route) => route.id === routeId)?.packStyle ?? "轻装") as GearMode);
   }, [startMapLoading]);
 
   useEffect(() => {
@@ -315,24 +398,17 @@ export default function Home() {
         projection: { type: "globe" },
         glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
         sources: {
-          satellite: {
-            type: "raster",
-            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
-            tileSize: 256,
-            maxzoom: 18,
-            attribution: "影像 © Esri、Maxar、Earthstar Geographics 与 GIS 用户社区",
-          },
           seasonSpring: { type: "raster", tiles: nasaSeasonTiles("2025-04-15"), tileSize: 256, maxzoom: 9, attribution: "季节影像 © NASA Earth Observatory / GIBS（MODIS Terra）" },
           seasonSummer: { type: "raster", tiles: nasaSeasonTiles("2025-07-15"), tileSize: 256, maxzoom: 9, attribution: "季节影像 © NASA Earth Observatory / GIBS（MODIS Terra）" },
           seasonAutumn: { type: "raster", tiles: nasaSeasonTiles("2025-10-15"), tileSize: 256, maxzoom: 9, attribution: "季节影像 © NASA Earth Observatory / GIBS（MODIS Terra）" },
           seasonWinter: { type: "raster", tiles: nasaSeasonTiles("2025-01-15"), tileSize: 256, maxzoom: 9, attribution: "季节影像 © NASA Earth Observatory / GIBS（MODIS Terra）" },
           terrainSource: {
             type: "raster-dem",
-            tiles: ["/terrain/{z}/{x}/{y}.png"],
+            tiles: ["/api/terrain/{z}/{x}/{y}.png"],
             tileSize: 256,
-            maxzoom: 0,
+            maxzoom: 14,
             encoding: "terrarium",
-            attribution: "地形 © Mapzen / AWS 开放数据（本地低缩放回退）",
+            attribution: '地形：Mapzen / AWS 开放数据 · <a href="/terrain-sources" target="_blank" rel="noreferrer">数据来源与署名</a>',
           },
           openmaptiles: {
             type: "vector",
@@ -341,13 +417,14 @@ export default function Home() {
           },
         },
         layers: [
-          { id: "ocean", type: "background", paint: { "background-color": "#071a35" } },
-          { id: "satellite", type: "raster", source: "satellite", paint: { "raster-saturation": -0.02, "raster-contrast": 0.18, "raster-resampling": "linear" } },
+          { id: "ocean", type: "background", paint: { "background-color": "#24372f" } },
+          { id: "basemap", type: "fill", source: "openmaptiles", "source-layer": "landcover", paint: { "fill-color": ["match", ["get", "class"], "wood", "#294938", "grass", "#3d5034", "ice", "#c8d9dd", "sand", "#80744e", "#344a3b"], "fill-opacity": 0.82 } },
+          { id: "base-water", type: "fill", source: "openmaptiles", "source-layer": "water", paint: { "fill-color": "#102a40" } },
           { id: "season-spring", type: "raster", source: "seasonSpring", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-summer", type: "raster", source: "seasonSummer", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-autumn", type: "raster", source: "seasonAutumn", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-winter", type: "raster", source: "seasonWinter", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
-          { id: "terrain-shading", type: "hillshade", source: "terrainSource", paint: { "hillshade-exaggeration": efficientRendering ? 0.38 : 0.55, "hillshade-shadow-color": "#081018", "hillshade-highlight-color": "#e8f2d0", "hillshade-accent-color": "#5e7544" } },
+          { id: "terrain-shading", type: "hillshade", source: "terrainSource", layout: {visibility:"none"}, paint: { "hillshade-exaggeration": efficientRendering ? 0.38 : 0.55, "hillshade-shadow-color": "#081018", "hillshade-highlight-color": "#e8f2d0", "hillshade-accent-color": "#5e7544" } },
           { id: "admin-boundaries", type: "line", source: "openmaptiles", "source-layer": "boundary", minzoom: 2, layout: { visibility: "none" }, filter: ["all", ["<=", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1]], paint: { "line-color": "rgba(255,220,220,.72)", "line-width": ["interpolate", ["linear"], ["zoom"], 2, 0.6, 8, 1.15], "line-dasharray": [3, 2] } },
           { id: "roads-casing", type: "line", source: "openmaptiles", "source-layer": "transportation", minzoom: 7, layout: { visibility: "none", "line-cap": "round", "line-join": "round" }, filter: ["!in", ["get", "class"], ["literal", ["rail", "ferry"]]], paint: { "line-color": "rgba(7,14,16,.72)", "line-width": ["interpolate", ["exponential", 1.35], ["zoom"], 7, 1.2, 13, 4.8, 17, 15] } },
           { id: "roads", type: "line", source: "openmaptiles", "source-layer": "transportation", minzoom: 7, layout: { visibility: "none", "line-cap": "round", "line-join": "round" }, filter: ["!in", ["get", "class"], ["literal", ["rail", "ferry"]]], paint: { "line-color": ["match", ["get", "class"], ["motorway", "trunk"], "#f1b45b", ["primary", "secondary"], "#ffe0a3", ["path", "track"], "#b8f36b", "#dce8df"], "line-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0.38, 11, 0.72, 15, 0.9], "line-width": ["interpolate", ["exponential", 1.35], ["zoom"], 7, 0.45, 13, 2.5, 17, 9] } },
@@ -380,7 +457,7 @@ export default function Home() {
           setCity3DActive(false);
           map.easeTo({ pitch: 0, bearing: 0, duration: lowPowerRef.current ? 180 : 360, essential: true });
         });
-        container.append(button);
+        container.appendChild(button);
         return container;
       },
       onRemove() { document.querySelector(".flat-view-control")?.remove(); },
@@ -403,9 +480,9 @@ export default function Home() {
 
     map.on("load", () => {
       setMapMessage("");
-      map.addSource("active-route", { type: "geojson", data: featureCollection(ROUTES[0]) });
-      map.addSource("active-area", { type: "geojson", data: areaCollection(ROUTES[0]) });
-      map.addSource("route-mask", { type: "geojson", data: maskCollection(ROUTES[0]) });
+      map.addSource("active-route", { type: "geojson", data: featureCollection(routes[0]) });
+      map.addSource("active-area", { type: "geojson", data: areaCollection(routes[0]) });
+      map.addSource("route-mask", { type: "geojson", data: maskCollection(routes[0]) });
       map.addLayer({ id: "area-mask", type: "fill", source: "route-mask", layout: { visibility: "none" }, paint: { "fill-color": "#01040b", "fill-opacity": 0.52 } });
       map.addLayer({ id: "area-fill", type: "fill", source: "active-area", layout: { visibility: "none" }, paint: { "fill-color": "#57c7ff", "fill-opacity": 0.1 } });
       map.addLayer({ id: "area-outline-glow", type: "line", source: "active-area", layout: { visibility: "none" }, paint: { "line-color": "#4cc9ff", "line-width": 9, "line-opacity": 0.28, "line-blur": 4 } });
@@ -433,7 +510,7 @@ export default function Home() {
     const catalogMarkers = new Map<string, Marker>();
     const syncViewportRoutes = () => {
       const markerBounds = map.getBounds();
-      const markerRoutes = ROUTES.filter(route => map.getZoom() < 3 || markerBounds.contains(route.center)).slice(0,400);
+      const markerRoutes = currentRoutesRef.current.filter(route => map.getZoom() < 3 || markerBounds.contains(route.center)).slice(0,400);
       const desired = new Set(markerRoutes.map(route=>route.id));
       catalogMarkers.forEach((marker,id)=>{if(!desired.has(id)){marker.remove();catalogMarkers.delete(id);markerElements.delete(id);}});
       markerRoutes.forEach((route) => {
@@ -455,11 +532,11 @@ export default function Home() {
       const center = map.getCenter();
       setViewportRegion(getRegionLabel([center.lng, center.lat]));
       if (map.getZoom() < 3) {
-        setViewportRouteIds(ROUTES.map((route) => route.id));
+        setViewportRouteIds(currentRoutesRef.current.map((route) => route.id));
         return;
       }
       const bounds = map.getBounds();
-      setViewportRouteIds(ROUTES.filter((route) => bounds.contains(route.center)).map((route) => route.id));
+      setViewportRouteIds(currentRoutesRef.current.filter((route) => bounds.contains(route.center)).map((route) => route.id));
     };
     map.on("moveend", syncViewportRoutes);
     map.on("load", syncViewportRoutes);
@@ -484,6 +561,8 @@ export default function Home() {
     };
   }, [selectRoute]);
 
+  useEffect(() => { if(!routes.some(route=>route.id===activeId)&&routes[0])setActiveId(routes[0].id); },[routes,activeId]);
+
   useEffect(() => {
     const visibleIds = new Set(visibleRoutes.map((route) => route.id));
     markerElementsRef.current.forEach((element, routeId) => {
@@ -505,13 +584,13 @@ export default function Home() {
       const setFocusVisible = (visible: boolean) => focusLayers.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", visible ? "visible" : "none"));
       if (mapView === "globe") {
         setFocusVisible(false);
-        map.setLayoutProperty("satellite", "visibility", "visible");
+        map.setLayoutProperty("basemap", "visibility", "visible");
         map.setProjection({ type: "globe" });
         map.flyTo({ center: [105, 28], zoom: 2, pitch: 8, bearing: -8, curve: 1.15, duration: lowPowerRef.current ? 500 : 900, easing: (t) => t * t * (3 - 2 * t), essential: true });
         return;
       }
       setFocusVisible(activeRoute.trackMode !== "不展示轨迹");
-      map.setLayoutProperty("satellite", "visibility", "visible");
+      map.setLayoutProperty("basemap", "visibility", "visible");
       map.flyTo({ center: activeRoute.center, zoom: 12, pitch: lowPowerRef.current ? 42 : 52, bearing: -24, curve: 1.35, duration: lowPowerRef.current ? 700 : 1250, easing: (t) => t * t * (3 - 2 * t), essential: true });
     };
     if (mapReadyRef.current) updateView();
@@ -524,6 +603,7 @@ export default function Home() {
     const updateTerrain = () => {
       const terrainEnabled = terrain && mapView === "route";
       const exaggeration = lowPowerRef.current ? 1.25 : 1.65;
+      if(map.getLayer("terrain-shading"))map.setLayoutProperty("terrain-shading","visibility",terrainEnabled?"visible":"none");
       map.setTerrain(terrainEnabled ? { source: "terrainSource", exaggeration } : null);
     };
     if (map.getSource("terrainSource")) updateTerrain();
@@ -551,9 +631,9 @@ export default function Home() {
     const map = mapRef.current;
     if (!map) return;
     const updateSeason = () => {
-      if (!map.getLayer("satellite")) return;
+      if (!map.getLayer("basemap")) return;
       // NASA's raster tiles show visible seams on the low-zoom globe projection in Safari.
-      // Keep the complete-earth overview on the seamless satellite source; show a selected
+      // Keep the complete-earth overview on the public vector basemap; show a selected
       // season only while inspecting a route at regional scale.
       const showSeason = seasonOverlayEnabled && mapView === "route";
       SEASON_LAYER_IDS.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", showSeason && id === activeSeason.layerId ? "visible" : "none"));
@@ -562,7 +642,7 @@ export default function Home() {
       map.setPaintProperty(activeSeason.layerId, "raster-brightness-max", activeSeason.brightness);
       map.setPaintProperty(activeSeason.layerId, "raster-hue-rotate", activeSeason.hue);
     };
-    if (map.getLayer("satellite")) updateSeason();
+    if (map.getLayer("basemap")) updateSeason();
     else map.once("load", updateSeason);
   }, [activeSeason, mapView, seasonOverlayEnabled]);
 
@@ -693,7 +773,7 @@ export default function Home() {
     <main className={`app-shell ${panelOpen || detailOpen ? "map-controls-hidden" : ""}`}>
       <div className="space-backdrop" aria-hidden="true" />
       <div ref={mapContainer} className={`earth-map ${mapLoading ? "loading" : "ready"}`} aria-label="徒步路线 3D 地球" />
-      <div className={`map-loading ${mapLoading ? "visible" : ""}`} aria-live="polite"><Globe2 size={25} /><span>{mapView === "globe" ? "正在构建立体地球" : "正在展开立体路线"}</span><small>{mapView === "globe" ? "卫星影像与高程数据加载中" : "区域边界、轨迹与高程加载中"}</small></div>
+      <div className={`map-loading ${mapLoading ? "visible" : ""}`} aria-live="polite"><Globe2 size={25} /><span>{mapView === "globe" ? "正在构建立体地球" : "正在展开立体路线"}</span><small>底图与路线资料加载中；地形和季节影像需单独开启</small></div>
       <div className="map-vignette" />
       {!isOnline && <div className="offline-banner" role="status"><WifiOff size={15} />当前处于离线状态：可查看已缓存页面，本次天气和远程地图不能保证更新。</div>}
       {mapMessage && <div className="app-message glass" role="status"><span>{mapMessage}</span><button onClick={() => setMapMessage("")} aria-label="关闭提示"><X size={15} /></button></div>}
@@ -705,7 +785,7 @@ export default function Home() {
         </Link>
         <nav className="layer-switch" aria-label="地球图层">
           <button className={layer === "routes" ? "active" : ""} onClick={() => setLayer("routes")}><RouteIcon size={16} />徒步路线</button>
-          <button className={layer === "news" ? "active" : ""} onClick={() => { setLayer("news"); openHub("景点新闻"); }}><Newspaper size={16} />全球户外动态<span>框架版</span></button>
+          <button className={layer === "news" ? "active" : ""} onClick={() => { setLayer("news"); openHub("景点新闻"); }}><Newspaper size={16} />官方户外公告<span>NPS</span></button>
         </nav>
         <div className="top-actions">
           {installPrompt && <button className="icon-button" onClick={installPwa} aria-label="安装徒步地球" title="安装为桌面应用"><Download size={18} /></button>}
@@ -723,10 +803,19 @@ export default function Home() {
       </nav>
 
       {layer === "news" && (
-        <section className="future-layer glass">
+        <section className="future-layer glass" aria-label="大峡谷国家公园官方公告">
           <Newspaper size={22} />
-          <div><b>全球户外动态 · 已预留</b><p>未来可按行业、时间和重要度筛选，并把新闻发生地显示为地球锚点。</p></div>
-          <button onClick={() => setLayer("routes")}><X size={17} /></button>
+          <div className="future-layer-content">
+            <div className="future-layer-heading"><div><b>大峡谷国家公园官方公告</b><p>美国国家公园管理局标题与原文链接索引；不代表全球动态或路线当天开放状态。</p></div><button className="notice-refresh" onClick={()=>setNoticeReload((value)=>value+1)} disabled={noticeState==="loading"}>{noticeState==="loading"?"更新中…":"刷新"}</button></div>
+            <small className="notice-updated">采集快照：{noticeUpdatedAt||"尚未取得"} · {noticeState==="available"?`${officialNotices.length} 条索引`:noticeState==="loading"?"正在读取":officialNotices.length?`更新失败，保留上次 ${officialNotices.length} 条快照`:"读取失败；可重试"}</small>
+            <div className="official-notice-list" aria-live="polite">
+              {noticeState==="loading"&&!officialNotices.length&&<p>正在读取官方公告目录…</p>}
+              {noticeState==="unavailable"&&!officialNotices.length&&<p>当前无法取得公告目录。请稍后重试，或直接查看 <a href="https://www.nps.gov/grca/planyourvisit/conditions.htm" target="_blank" rel="noreferrer">大峡谷官方状况页面</a>。</p>}
+              {officialNotices.slice(0,8).map((item)=><article key={item.id}><small>{item.sourceLabel} · {item.region} · {item.publishedAt?new Date(item.publishedAt).toLocaleDateString("zh-CN"):"日期未提供"}</small><a href={item.url} target="_blank" rel="noreferrer">{item.title}</a></article>)}
+              {noticeState==="available"&&!officialNotices.length&&<p>官方快照中暂无公告条目。</p>}
+            </div>
+          </div>
+          <button className="future-layer-close" onClick={() => setLayer("routes")} aria-label="关闭公告图层"><X size={17} /></button>
         </section>
       )}
 
@@ -743,6 +832,14 @@ export default function Home() {
           <button className={`filter-button ${filtersOpen ? "active" : ""}`} onClick={() => setFiltersOpen((value) => !value)}><SlidersHorizontal size={18} /><span>筛选</span></button>
         </div>
 
+        <section className="online-catalog-search" aria-label="在线来源目录检索">
+          <p>本机搜索覆盖已同步目录；在线检索覆盖当前来源快照。</p>
+          <label>来源 <select value={searchSource} onChange={event=>setSearchSource(event.target.value as 'osm'|'usfs'|'hk')}><option value="osm">OpenStreetMap</option><option value="usfs">美国国家森林</option><option value="hk">香港官方步道</option></select></label>
+          <button disabled={onlineSearchLoading} onClick={()=>void onlineSearch()}>{onlineSearchLoading?'检索中…':'在线检索全部来源记录'}</button>
+          <p role="status">{onlineSearchMessage}</p>
+          {onlineSearchRows.map(route=><button key={route.id} onClick={()=>openOnlineRoute(route)}>{route.name} · {route.region} · 待核验</button>)}
+          {onlineSearchMore&&<button disabled={onlineSearchLoading} onClick={()=>void onlineSearch(true)}>继续读取在线结果</button>}
+        </section>
         {filtersOpen && (
           <div className="filters">
             <div className="filter-panel-head"><div><b>筛选路线</b><span>设置完成后显示匹配路线</span></div><button onClick={() => setFiltersOpen(false)}>完成</button></div>
@@ -768,7 +865,7 @@ export default function Home() {
             {visibleRoutes.length > routeDisplayLimit && <button onClick={()=>setRouteDisplayLimit(limit=>limit+50)}>加载更多路线（共 {visibleRoutes.length} 条）</button>}
             {!visibleRoutes.length && <div className="empty-routes"><Search size={24} /><b>当前没有匹配路线</b><span>可以重置筛选，或拖动地球扩大当前视野。</span><button onClick={resetFilters}>重置筛选</button></div>}
           </div>
-          <p className="data-note">拖动或缩放地球后，会自动更新当前视野内的路线。开放状态均须以属地公告为准。</p>
+          <p className="data-note">拖动或缩放地球后，会自动更新当前视野内的路线。目录每六小时自动刷新，切回前台时检查；失败后延迟重试。{catalogMessage}开放状态均须以属地公告为准。 <button className="notice-refresh" onClick={()=>catalogRefreshRef.current()} disabled={catalogRefreshing}>{catalogRefreshing?"更新中…":"刷新目录"}</button></p>
         </>}
       </aside>
 
@@ -780,10 +877,10 @@ export default function Home() {
         <div className="detail-copy">
           <div className="detail-title"><div><span className="status-pill" style={{ color: STATUS_COLORS[activeRoute.status] }}>{activeRoute.status}</span><h2>{activeRoute.name}</h2><p><MapPin size={14} />{activeRoute.region}</p></div><button className="round-action" onClick={focusActiveRoute} aria-label="在地图中查看路线" title="在地图中查看路线"><Compass size={20} /></button></div>
           <p className="summary">{activeRoute.summary}</p>
-          <section className="route-weather" aria-label="官方天气实况">
-            <div className="archive-head"><span>官方天气实况</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `观测时间 ${weatherState.weather?.observedAt}` : "无法核实"}</small></div>
-            {weatherState.status === "available" && weatherState.weather ? <div className="weather-grid"><b>{weatherState.weather.city} {weatherState.weather.temperature}</b><span>风力 {weatherState.weather.wind}</span><span>湿度 {weatherState.weather.humidity}</span><span>降水 {weatherState.weather.rain}</span></div> : <p>{weatherState.message ?? "正在读取中国天气网官方公开实况。"}</p>}
-            <small>来源：{weatherState.sourceUrl ? <a href={weatherState.sourceUrl} target="_blank" rel="noreferrer">中国天气网官方公开实况</a> : "中国天气网官方公开实况"}；天气不代表路线开放许可。</small>
+          <section className="route-weather" aria-label="天气服务状态">
+            <div className="archive-head"><span>天气服务</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `观测时间 ${weatherState.weather?.observedAt}` : "尚未正式接入"}</small></div>
+            {weatherState.status === "available" && weatherState.weather ? <div className="weather-grid"><b>{weatherState.weather.city} {weatherState.weather.temperature}</b><span>风力 {weatherState.weather.wind}</span><span>湿度 {weatherState.weather.humidity}</span><span>降水 {weatherState.weather.rain}</span></div> : <p>{weatherState.message ?? "正在确认天气接口是否已配置。"}</p>}
+            <small>天气不能证明路线开放，也不能替代属地预警。{weatherState.sourceUrl ? <>查看 <a href={weatherState.sourceUrl} target="_blank" rel="noreferrer">官方天气</a>；</> : null} 接口申请：<a href="https://www.weather.com.cn/wzfw/smart/weatherapi.shtml" target="_blank" rel="noreferrer">中国天气网 SmartWeatherAPI</a></small>
           </section>
           <section className="route-archive">
             <div className="archive-head"><span>路线档案</span><small>{activeRoute.archive.checkedAt}</small></div>
@@ -828,7 +925,7 @@ export default function Home() {
 
       {hubOpen && (
         <Suspense fallback={<div className="hub-loading glass">正在打开本地功能中心…</div>}>
-          <ProjectHub key={`${hubOpen}-${hubTab}`} open={hubOpen} route={activeRoute} initialTab={hubTab} onClose={closeHub} onSelectRoute={(id) => { selectRoute(id); closeHub(); }} />
+          <ProjectHub key={`${hubOpen}-${hubTab}`} open={hubOpen} route={activeRoute} initialTab={hubTab} onClose={closeHub} onSelectRoute={(id) => { selectRoute(id); closeHub(); }} routes={routes} />
         </Suspense>
       )}
 
@@ -847,7 +944,7 @@ export default function Home() {
           <b>{activeSeason.label}</b>
         </div>
         <div className="season-track">
-          <button className={!seasonOverlayEnabled ? "active" : ""} onClick={() => setSeasonOverlayEnabled(false)}><i>卫</i><span>卫星</span></button>
+          <button className={!seasonOverlayEnabled ? "active" : ""} onClick={() => setSeasonOverlayEnabled(false)}><i>图</i><span>底图</span></button>
           {SEASONS.map((item) => <button key={item.id} className={seasonOverlayEnabled && season === item.id ? "active" : ""} onClick={() => { setSeason(item.id); setSeasonOverlayEnabled(true); }}><i>{item.id}</i><span>{item.label.slice(2)}</span></button>)}
         </div>
         <p>{activeSeason.hint} · NASA MODIS {activeSeason.date} 北半球代表日影像，非实时；开放状态仍以官方公告为准。</p>
