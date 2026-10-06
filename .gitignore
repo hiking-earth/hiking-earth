@@ -42,4 +42,5 @@ yarn-error.log*
 
 # Shared client generated assets and checkout
 public/client-app/
+public/route-catalog/
 .client-source/

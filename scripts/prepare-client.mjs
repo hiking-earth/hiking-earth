@@ -23,6 +23,25 @@ for (const name of ['osm.json','usfs.json','hk-afcd.json']) {
   const input=path.join(clientRoot,'shared','data','catalog',name);
   if(existsSync(input))cpSync(input,path.join(root,'data','catalog',name));
 }
+const catalogSource=path.join(clientRoot,'shared','public-catalog');
+const catalogTarget=path.join(root,'public','route-catalog');
+const digest=/^[a-f0-9]{64}$/;
+rmSync(catalogTarget,{recursive:true,force:true});mkdirSync(catalogTarget,{recursive:true});
+for(const sourceName of ['osm','usfs','hk','news']){
+ const sourceFolder=path.join(catalogSource,sourceName),manifestPath=path.join(sourceFolder,'manifest.json');
+ if(!existsSync(manifestPath))throw new Error(`Public ${sourceName} catalog manifest missing; update the pinned client source before website packaging`);
+ const manifest=JSON.parse(readFileSync(manifestPath,'utf8'));
+ if(manifest.schemaVersion!==1||!digest.test(manifest.snapshot)||!Array.isArray(manifest.pages)||!digest.test(manifest.indexHash))throw new Error(`Public ${sourceName} catalog manifest is invalid`);
+ mkdirSync(path.join(catalogTarget,sourceName),{recursive:true});
+ for(const generation of [manifest.snapshot,manifest.previousSnapshot]){
+  if(!generation)continue;
+  if(!digest.test(generation))throw new Error(`Public ${sourceName} prior snapshot is invalid`);
+  const from=path.join(sourceFolder,generation);
+  if(!existsSync(from)){if(generation===manifest.snapshot)throw new Error(`Public ${sourceName} current snapshot pages are missing`);continue;}
+  cpSync(from,path.join(catalogTarget,sourceName,generation),{recursive:true});
+ }
+ cpSync(manifestPath,path.join(catalogTarget,sourceName,'manifest.json'));
+}
 run(npm, ['ci'], path.join(clientRoot, 'app'));
 run(npm, ['run', 'build:h5'], path.join(clientRoot, 'app'), { VITE_DESKTOP: 'false', VITE_PUBLIC_BASE: '/client-app/' });
 const target = path.join(root, 'public', 'client-app');
