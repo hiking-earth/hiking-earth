@@ -2,7 +2,7 @@ type Source='osm'|'usfs'|'hk'|'news';
 const PAGE_SIZE=400,WINDOW_LIMIT=40000,MAX_RECORDS=250000;
 const HEX=/^[a-f0-9]{64}$/;
 export type StaticManifest={schemaVersion:1;snapshot:string;key:'routes'|'items';total:number;pageSize:400;pages:string[];indexHash:string;metadata:Record<string,any>};
-export type StaticPage={snapshot:string;key:string;metadata:Record<string,any>;total:number;page:number;hasMore:boolean;items:any[]};
+export type StaticPage={snapshot:string;key:string;metadata:Record<string,any>;total:number;page:number;hasMore:boolean;items:any[];deliverySource:'website-package'};
 
 function object(value:unknown):Record<string,any>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('catalog metadata invalid');return value as Record<string,any>;}
 async function responseBytes(response:Response,limit:number):Promise<Uint8Array>{
@@ -56,7 +56,7 @@ async function pages(manifest:StaticManifest,source:Source,count:number):Promise
 }
 export async function loadStaticPages(source:Source,knownManifest?:StaticManifest):Promise<StaticPage>{
  const manifest=knownManifest||await staticManifest(source),total=Math.min(manifest.total,WINDOW_LIMIT),items=await pages(manifest,source,total);
- return {snapshot:manifest.snapshot,key:manifest.key,metadata:{...manifest.metadata,sourceTotal:manifest.total,loadedTotal:total,complete:total===manifest.total},total,page:0,hasMore:total>PAGE_SIZE,items};
+ return {snapshot:manifest.snapshot,key:manifest.key,metadata:{...manifest.metadata,sourceTotal:manifest.total,loadedTotal:total,complete:total===manifest.total},total,page:0,hasMore:total>PAGE_SIZE,items,deliverySource:'website-package'};
 }
 export async function searchStatic(source:Exclude<Source,'news'>,query:string,offset:number,expectedSnapshot?:string):Promise<{snapshot:string;key:string;metadata:Record<string,any>;items:any[];total:number;offset:number;hasMore:boolean}>{
  const manifest=await staticManifest(source);if(expectedSnapshot&&expectedSnapshot!==manifest.snapshot)throw new Error('static catalog changed during search');
