@@ -171,9 +171,20 @@ export default function Home() {
       finally{loading=false;if(active)setCatalogRefreshing(false);}
     };
     catalogRefreshRef.current=()=>{void refresh(true);};
-    const onVisible=()=>{if(document.visibilityState==='visible')void refresh();};
+    const expireOpeningStatuses=()=>{
+      const now=Date.now();
+      setRoutes(previous=>{
+        let changed=false;
+        const next=previous.map(route=>{
+          if(route.status!=='开放中'||(Number.isFinite(route.openingExpiresAt)&&route.openingExpiresAt!>now))return route;
+          changed=true;return {...route,status:'待核验' as const,openingExpiresAt:0};
+        });
+        return changed?next:previous;
+      });
+    };
+    const onVisible=()=>{if(document.visibilityState==='visible'){expireOpeningStatuses();void refresh();}};
     void (async()=>{const cached=await readWebCatalogCache();if(!active)return;restoring=false;if(cached){setRoutes(cached.routes);setCatalogMessage(`已恢复 ${cached.routes.length} 条本机目录（${new Date(cached.savedAt).toLocaleString()}），正在检查更新。`);}await refresh(true);})();
-    const timer=window.setInterval(()=>{if(document.visibilityState==='visible')void refresh();},6*60*60*1000);
+    const timer=window.setInterval(()=>{if(document.visibilityState==='visible'){expireOpeningStatuses();void refresh();}},60*1000);
     document.addEventListener('visibilitychange',onVisible);
     return()=>{active=false;catalogRefreshRef.current=()=>{};window.clearInterval(timer);document.removeEventListener('visibilitychange',onVisible);};
   },[]);
