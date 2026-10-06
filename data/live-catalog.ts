@@ -11,12 +11,16 @@ const regions:Record<string,string>={china:'中国检索区域','hong-kong':'香
 function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  if(!Array.isArray(raw)||raw.length>40000)throw new Error('catalog size invalid');return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>({id:r.id,name:r.name,region:regions[r.region]||r.region||'未注明区域',status:'待核验',center:r.center,path:source==='hk'&&r.referencePaths?.length===1?r.referencePaths[0]:[],distance:Number.isFinite(r.sourceTags?.distanceKm)?`${r.sourceTags.distanceKm.toFixed(1)} km`:r.sourceTags?.distance?`${r.sourceTags.distance}（单位待核验）`:'待核验',ascent:'待核验',duration:'待核验',difficulty:'待核验',bestSeason:'待核验',bestSeasons:[],packStyle:'轻装',overnight:'无过夜',surface:'未铺装',trackMode:source==='hk'&&r.referencePaths?.length===1?'认知示意':'不展示轨迹',scenery:[],summary:'自动采集的徒步路线档案；开放许可、装备和住宿尚未核验。',image:'/static/original-mountain-reference.png',imageCredit:'徒步地球原创几何示意 · 非路线实景',archive:{source:{label:attribution,url:r.sourceUrl},checkedAt:`采集 ${r.fetchedAt}；开放状态未核验`,highlights:[],riskNotice:'地图收录不代表允许通行；本档案不提供导航。'}}));
 }
-async function apiPages(source:string):Promise<Record<string,any> & {items:any[]}>{
+async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
  const first=await fetch(`/api/catalog?source=${source}&page=0`,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('catalog unavailable');return r.json().then(jsonObject);});
  if(!Array.isArray(first.items)||first.items.length>PAGE_SIZE||first.page!==0||!Number.isInteger(first.total)||first.total<0||!/^([a-f0-9]{64})$/.test(first.snapshot)||typeof first.key!=='string')throw new Error('catalog page invalid');
  if(first.total>40000)throw new Error('catalog exceeds safe read limit');
- const pageCount=Math.ceil(first.total/PAGE_SIZE),items=[...first.items];
+ const pageCount=Math.ceil(first.total/PAGE_SIZE);
  if(first.hasMore!==(pageCount>1))throw new Error('catalog page state invalid');
+ return first;
+}
+async function apiPages(source:string,first:Record<string,any> & {items:any[]}):Promise<Record<string,any> & {items:any[]}>{
+ const pageCount=Math.ceil(first.total/PAGE_SIZE),items=[...first.items];
  for(let start=1;start<pageCount;start+=8){
   const pageNumbers=Array.from({length:Math.min(8,pageCount-start)},(_,i)=>start+i);
   const later=await Promise.all(pageNumbers.map(page=>fetch(`/api/catalog?source=${source}&page=${page}&snapshot=${first.snapshot}`,{signal:AbortSignal.timeout(15000)}).then(x=>{if(!x.ok)throw new Error('catalog unavailable');return x.json().then(jsonObject);})));
@@ -26,14 +30,15 @@ async function apiPages(source:string):Promise<Record<string,any> & {items:any[]
 }
 function generatedAt(value:any){const time=Date.parse(value?.metadata?.generatedAt||'');return Number.isFinite(time)?time:-Infinity;}
 async function pages(source:'osm'|'usfs'|'hk'|'news'){
- const [apiResult,staticResult]=await Promise.allSettled([apiPages(source),staticManifest(source)]);
+ const [apiResult,staticResult]=await Promise.allSettled([apiFirstPage(source),staticManifest(source)]);
  if(apiResult.status==='rejected'&&staticResult.status==='rejected')throw apiResult.reason;
  if(apiResult.status==='rejected')return loadStaticPages(source,staticResult.value);
- if(staticResult.status==='rejected')return apiResult.value;
+ if(staticResult.status==='rejected')return apiPages(source,apiResult.value);
  const remoteTime=generatedAt(apiResult.value),staticTime=generatedAt(staticResult.value);
  const remoteCount=Number.isInteger(apiResult.value.metadata?.sourceTotal)?apiResult.value.metadata.sourceTotal:apiResult.value.total;
- if(staticTime>remoteTime||staticTime===remoteTime&&staticResult.value.total>remoteCount)return loadStaticPages(source,staticResult.value);
- return apiResult.value;
+ const preferStatic=staticTime>remoteTime||staticTime===remoteTime&&staticResult.value.total>remoteCount;
+ if(preferStatic){try{return await loadStaticPages(source,staticResult.value);}catch{return apiPages(source,apiResult.value);}}
+ try{return await apiPages(source,apiResult.value);}catch{return loadStaticPages(source,staticResult.value);}
 }
 async function allReviews(){
  const first=await fetch('/api/catalog/reviews?page=0',{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('review unavailable');return r.json().then(jsonObject);});
