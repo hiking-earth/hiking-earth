@@ -316,7 +316,7 @@ export default function Home() {
             longitude: Number(activeRoute.center[0].toFixed(2)), latitude: Number(activeRoute.center[1].toFixed(2)) } }),
           signal: AbortSignal.timeout(15_000),
         });
-        const envelope = await response.json();
+        const envelope = await response.json() as { ok?: boolean; data?: any };
         const payload = envelope?.data, weather = payload?.weather;
         if (cancelled) return;
         const valid = response.ok && envelope?.ok === true && payload?.status === "available"

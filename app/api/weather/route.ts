@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
             signal: AbortSignal.timeout(15000), redirect: "error", cache: "no-store",
           });
           if (!response.ok) throw new Error("provider");
-          const payload = await response.json();
+          const payload = await response.json() as { ok?: boolean; data?: any };
           const result = payload?.data, weather = result?.weather;
           if (payload?.ok !== true || result?.status !== "available" || result.provider !== "MET Norway"
               || result.license !== "CC BY 4.0" || !weather
