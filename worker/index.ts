@@ -49,6 +49,11 @@ const worker = {
     let clientApiOrigin = '';
     try { const endpoint = new URL(env?.CLIENT_API_ORIGIN || 'https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com'); if (endpoint.protocol === 'https:') clientApiOrigin = endpoint.origin; } catch {}
     const headers = new Headers(response.headers);
+    if (url.pathname.startsWith('/client-app/static/offline-maps/')) {
+      headers.set('Access-Control-Allow-Origin', '*');
+      headers.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+      headers.set('Access-Control-Expose-Headers', 'Content-Length');
+    }
     headers.set("X-Content-Type-Options", "nosniff");
     headers.set("X-Frame-Options", clientAsset ? "SAMEORIGIN" : "DENY");
     headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
