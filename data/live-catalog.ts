@@ -1,3 +1,4 @@
+import {needsGatewayRelay,gatewayRelayRequest} from './gateway-relay';
 import {ROUTES as bundled,type HikingRoute} from './routes';
 import {loadStaticPages,searchStatic,staticManifest,type StaticManifest} from './static-catalog';
 export type OfficialNotice={id:string;title:string;url:string;region:string;sourceLabel:string;sourceUrl:string;publishedAt:string|null;fetchedAt:string;center:[number,number]};
@@ -5,6 +6,7 @@ const sources=['osm','usfs','hk'] as const;
 const PAGE_SIZE=400;
 function jsonObject(value:unknown):Record<string,any>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('invalid JSON object');return value as Record<string,any>;}
 async function publicCatalogRequest(action:'catalog-feed'|'route-manage',data:Record<string,unknown>,timeout=15000):Promise<Record<string,any>>{
+ if(needsGatewayRelay()){const result=await gatewayRelayRequest(action,data,undefined,timeout);if(result.status!==200||result.body?.ok!==true)throw new Error('public catalog unavailable');return jsonObject(result.body.data);}
  const response=await fetch('https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api',{
   method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(timeout),
  });

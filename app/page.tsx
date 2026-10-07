@@ -2,6 +2,7 @@
 
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import {needsGatewayRelay,gatewayRelayRequest} from "@/data/gateway-relay";
 import Image from "next/image";
 import type { ExpressionSpecification, GeoJSONSource, Map as MapLibreMap, Marker, StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -310,13 +311,13 @@ export default function Home() {
     async function loadWeather() {
       setWeatherState({ status: "loading" });
       try {
-        const response = await fetch("https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api", {
-          method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "weather.forecast", data: {
-            longitude: Number(activeRoute.center[0].toFixed(2)), latitude: Number(activeRoute.center[1].toFixed(2)) } }),
-          signal: AbortSignal.timeout(15_000),
-        });
-        const envelope = await response.json() as { ok?: boolean; data?: any };
+        const data={longitude:Number(activeRoute.center[0].toFixed(2)),latitude:Number(activeRoute.center[1].toFixed(2))};
+        const result=needsGatewayRelay()?await gatewayRelayRequest('weather.forecast',data,undefined,15000):await (async()=>{
+          const response=await fetch("https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'weather.forecast',data}),signal:AbortSignal.timeout(15000)});
+          return {status:response.status,body:await response.json()};
+        })();
+        const response={ok:result.status>=200&&result.status<300};
+        const envelope=result.body as {ok?:boolean;data?:any};
         const payload = envelope?.data, weather = payload?.weather;
         if (cancelled) return;
         const valid = response.ok && envelope?.ok === true && payload?.status === "available"
@@ -406,6 +407,7 @@ export default function Home() {
       // Keep the 3D engine out of the React/UI entry chunk. The loading panel
       // stays visible while the browser fetches MapLibre in parallel.
       const maplibregl = await import("maplibre-gl");
+      maplibregl.setWorkerUrl("/vendor/maplibre/maplibre-gl-worker.mjs");
       if (disposed || !mapContainer.current || mapRef.current) return;
       const markers = markersRef.current;
 

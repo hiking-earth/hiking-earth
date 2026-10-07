@@ -114,3 +114,8 @@ for (const asset of modelManifest.files) {
 }
 cpSync(gearModel, path.join(target, 'models', 'gear'), { recursive: true });
 
+
+cpSync(path.join(clientRoot,'shared','network','gateway-relay.ts'),path.join(root,'data','gateway-relay.ts'));
+
+const mapVendor=path.join(root,'public','vendor','maplibre');mkdirSync(mapVendor,{recursive:true});
+for(const asset of ['maplibre-gl-worker.mjs','maplibre-gl-shared.mjs'])cpSync(path.join(root,'node_modules','maplibre-gl','dist',asset),path.join(mapVendor,asset));
