@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
             body: JSON.stringify({ action: "weather.forecast", data: { latitude: Number(latitude), longitude: Number(longitude) } }),
             signal: AbortSignal.timeout(15000), redirect: "error", cache: "no-store",
           });
-          if (!response.ok) throw new Error("provider");
+          if (!response.ok) throw new Error("provider_http_"+response.status);
           const payload = await response.json() as { ok?: boolean; data?: any };
           const result = payload?.data, weather = result?.weather;
           if (payload?.ok !== true || result?.status !== "available" || result.provider !== "MET Norway"
@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ status: "available", weather: entry.weather, sourceUrl: SOURCE, provider: "MET Norway",
       license: "CC BY 4.0", type: "forecast" }, { headers: { "cache-control": "public, max-age=60" } });
   } catch (error) {
-    console.warn("weather proxy unavailable", { reason: error instanceof Error ? error.name + ":" + (error.message === "schema" || error.message === "provider" || error.message === "backoff" ? error.message : "request") : "unknown" });
+    console.warn("weather proxy unavailable", { reason: error instanceof Error ? error.name + ":" + (error.message === "schema" || /^provider_http_[0-9]{3}$/.test(error.message) || error.message === "backoff" ? error.message : "request") : "unknown" });
     return NextResponse.json({ status: "unavailable", message: "天气预报暂不可用，请查属地预警后再出发。", sourceUrl: SOURCE },
       { status: 503, headers: { "cache-control": "no-store", "retry-after": "60" } });
   }

@@ -7,7 +7,9 @@ const requests=new Map<string,{resolve:(value:Reply)=>void;reject:(error:Error)=
 let active=0;const waiting:Array<()=>void>=[];
 async function acquire(){if(active>=4)await new Promise<void>(resolve=>waiting.push(resolve));else active++;}
 function release(){const next=waiting.shift();if(next)next();else active--;}
-export function needsGatewayRelay(){return typeof window!=='undefined'&&window.location.origin===SITE;}
+// Disabled: default CloudBase hosting requires an access reminder page.
+const ENABLED=false;
+export function needsGatewayRelay(){return ENABLED&&typeof window!=='undefined'&&window.location.origin===SITE;}
 function initialize(){
  if(ready)return ready;
  ready=new Promise<void>((resolve,reject)=>{
