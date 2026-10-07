@@ -310,11 +310,22 @@ export default function Home() {
     async function loadWeather() {
       setWeatherState({ status: "loading" });
       try {
-        const params = new URLSearchParams({ longitude: String(activeRoute.center[0]), latitude: String(activeRoute.center[1]) });
-        const response = await fetch(`/api/weather?${params}`, { signal: AbortSignal.timeout(15_000) });
-        const payload = await response.json() as { weather?: WeatherState["weather"]; message?: string; sourceUrl?: string };
+        const response = await fetch("https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "weather.forecast", data: {
+            longitude: Number(activeRoute.center[0].toFixed(2)), latitude: Number(activeRoute.center[1].toFixed(2)) } }),
+          signal: AbortSignal.timeout(15_000),
+        });
+        const envelope = await response.json();
+        const payload = envelope?.data, weather = payload?.weather;
         if (cancelled) return;
-        setWeatherState(response.ok && payload.weather ? { status: "available", weather: payload.weather, sourceUrl: payload.sourceUrl } : { status: "unavailable", message: payload.message, sourceUrl: payload.sourceUrl });
+        const valid = response.ok && envelope?.ok === true && payload?.status === "available"
+          && payload.provider === "MET Norway" && payload.license === "CC BY 4.0" && weather
+          && [weather.city, weather.temperature, weather.wind, weather.humidity, weather.rain]
+            .every(v => typeof v === "string" && v.length < 100)
+          && typeof weather.observedAt === "string" && Number.isFinite(Date.parse(weather.observedAt));
+        setWeatherState(valid ? { status: "available", weather, sourceUrl: "https://api.met.no/doc/TermsOfService" }
+          : { status: "unavailable", message: "天气预报暂不可用，请查属地预警后再出发。" });
       } catch {
         if (!cancelled) setWeatherState({ status: "unavailable", message: "官方天气暂时无法核实。" });
       }
@@ -912,7 +923,7 @@ export default function Home() {
           <div className="detail-title"><div><span className="status-pill" style={{ color: STATUS_COLORS[activeRoute.status] }}>{activeRoute.status}</span><h2>{activeRoute.name}</h2><p><MapPin size={14} />{activeRoute.region}</p></div><button className="round-action" onClick={focusActiveRoute} aria-label="在地图中查看路线" title="在地图中查看路线"><Compass size={20} /></button></div>
           <p className="summary">{activeRoute.summary}</p>
           <section className="route-weather" aria-label="天气服务状态">
-            <div className="archive-head"><span>天气服务</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `预报时刻 ${weatherState.weather?.observedAt}` : "尚未正式接入"}</small></div>
+            <div className="archive-head"><span>天气服务</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `预报时刻 ${weatherState.weather?.observedAt}` : "预报暂不可用"}</small></div>
             {weatherState.status === "available" && weatherState.weather ? <div className="weather-grid"><b>{weatherState.weather.city} {weatherState.weather.temperature}</b><span>风力 {weatherState.weather.wind}</span><span>湿度 {weatherState.weather.humidity}</span><span>降水 {weatherState.weather.rain}</span></div> : <p>{weatherState.message ?? "正在确认天气接口是否已配置。"}</p>}
             <small>天气不能证明路线开放，也不能替代属地预警。{weatherState.sourceUrl ? <>查看 <a href={weatherState.sourceUrl} target="_blank" rel="noreferrer">官方天气</a>；</> : null} 预报来自 MET Norway，按 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a> 转换展示。</small>
           </section>
