@@ -27,30 +27,21 @@ export async function GET(request: NextRequest) {
         if (Date.now() < retryAfter || Date.now() - lastRequest < 250) throw new Error("backoff");
         lastRequest = Date.now();
         job = (async () => {
-          const headers: Record<string, string> = {
-            "User-Agent": "HikingEarth/0.2 https://github.com/hiking-earth/clients", "Accept": "application/json",
-          };
-          if (previous?.modified) headers["If-Modified-Since"] = previous.modified;
-          const response = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${latitude}&lon=${longitude}`,
-            { headers, signal: AbortSignal.timeout(10000), redirect: "error" });
-          if (response.status === 429 || response.status === 403) {
-            const seconds = Number(response.headers.get("retry-after"));
-            retryAfter = Date.now() + Math.max(60000, Math.min(86400000, Number.isFinite(seconds) ? seconds * 1000 : 60000));
-          }
-          const expires = Math.max(Date.now() + 60000, Date.parse(response.headers.get("expires") ?? "") || Date.now() + 3600000);
-          if (response.status === 304 && previous) return { ...previous, expires };
+          // CloudBase runs the attributed provider request; edge egress to MET can fail.
+          const response = await fetch("https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "weather.forecast", data: { latitude: Number(latitude), longitude: Number(longitude) } }),
+            signal: AbortSignal.timeout(15000), redirect: "error", cache: "no-store",
+          });
           if (!response.ok) throw new Error("provider");
-          const payload: any = await response.json();
-          const point = payload?.properties?.timeseries?.find((p: { time?: string }) =>
-            typeof p.time === "string" && Date.parse(p.time) >= Date.now() - 3600000);
-          const details = point?.data?.instant?.details;
-          if (!details || ![details.air_temperature, details.wind_speed, details.relative_humidity].every(Number.isFinite)
-              || !Number.isFinite(Date.parse(point.time))) throw new Error("schema");
-          const rain = point.data.next_1_hours?.details?.precipitation_amount;
-          const weather: Weather = { city: `${latitude}, ${longitude}`, temperature: `${details.air_temperature} °C`,
-            wind: `${details.wind_speed} m/s`, humidity: `${details.relative_humidity}%`,
-            rain: Number.isFinite(rain) ? `${rain} mm / 下一小时` : "暂无逐小时预报", observedAt: point.time };
-          return { weather, expires, modified: response.headers.get("last-modified") ?? "" };
+          const payload = await response.json();
+          const result = payload?.data, weather = result?.weather;
+          if (payload?.ok !== true || result?.status !== "available" || result.provider !== "MET Norway"
+              || result.license !== "CC BY 4.0" || !weather
+              || ![weather.city, weather.temperature, weather.wind, weather.humidity, weather.rain]
+                .every(v => typeof v === "string" && v.length < 100)
+              || typeof weather.observedAt !== "string" || !Number.isFinite(Date.parse(weather.observedAt))) throw new Error("schema");
+          return { weather: weather as Weather, expires: Date.now() + 60000, modified: "" };
         })();
         pending.set(key, job);
       }
