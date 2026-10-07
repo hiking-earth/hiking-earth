@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
           const response = await fetch("https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api", {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ action: "weather.forecast", data: { latitude: Number(latitude), longitude: Number(longitude) } }),
-            signal: AbortSignal.timeout(15000), redirect: "error", cache: "no-store",
+            signal: AbortSignal.timeout(15000), redirect: "manual", cache: "no-store",
           });
           if (!response.ok) throw new Error("provider_http_"+response.status);
           const payload = await response.json() as { ok?: boolean; data?: any };
