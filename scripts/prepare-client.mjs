@@ -119,3 +119,4 @@ cpSync(path.join(clientRoot,'shared','network','gateway-relay.ts'),path.join(roo
 
 const mapVendor=path.join(root,'public','vendor','maplibre');mkdirSync(mapVendor,{recursive:true});
 for(const asset of ['maplibre-gl-worker.mjs','maplibre-gl-shared.mjs'])cpSync(path.join(root,'node_modules','maplibre-gl','dist',asset),path.join(mapVendor,asset));
+cpSync(path.join(root,'node_modules','maplibre-gl','LICENSE.txt'),path.join(mapVendor,'LICENSE.txt'));

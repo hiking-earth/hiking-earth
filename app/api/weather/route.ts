@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ status: "available", weather: entry.weather, sourceUrl: SOURCE, provider: "MET Norway",
       license: "CC BY 4.0", type: "forecast" }, { headers: { "cache-control": "public, max-age=60" } });
   } catch (error) {
-    console.warn("weather proxy unavailable", { reason: error instanceof Error ? error.name + ":" + (error.message === "schema" || /^provider_http_[0-9]{3}$/.test(error.message) || error.message === "backoff" ? error.message : "request") : "unknown" });
+    console.warn("weather proxy unavailable", { reason: error instanceof Error ? error.name + ":" + error.message.replace(/https?:\/\/[^\s]+/g,"[upstream]").slice(0,180) : "unknown" });
     return NextResponse.json({ status: "unavailable", message: "天气预报暂不可用，请查属地预警后再出发。", sourceUrl: SOURCE },
       { status: 503, headers: { "cache-control": "no-store", "retry-after": "60" } });
   }
