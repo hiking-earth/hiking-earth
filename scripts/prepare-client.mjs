@@ -104,3 +104,13 @@ run(npm, ['run', 'build:h5'], path.join(clientRoot, 'app'), { VITE_DESKTOP: 'fal
 const target = path.join(root, 'public', 'client-app');
 rmSync(target, { recursive: true, force: true }); mkdirSync(target, { recursive: true });
 cpSync(path.join(clientRoot, 'app', 'dist', 'build', 'h5'), target, { recursive: true });
+const gearModel = path.join(clientRoot, 'shared', 'models', 'gear');
+const modelManifest = JSON.parse(readFileSync(path.join(gearModel, 'source.json'), 'utf8'));
+if (!Array.isArray(modelManifest.files) || modelManifest.files.length > 20) throw new Error('Invalid gear model manifest');
+for (const asset of modelManifest.files) {
+ if (!/^[a-zA-Z0-9_.-]+$/.test(asset.name) || !/^[a-f0-9]{64}$/.test(asset.sha256)) throw new Error('Invalid gear model asset');
+ const bytes = readFileSync(path.join(gearModel, asset.name));
+ if (bytes.length !== asset.bytes || sha256(bytes) !== asset.sha256) throw new Error('Gear model hash mismatch');
+}
+cpSync(gearModel, path.join(target, 'models', 'gear'), { recursive: true });
+
