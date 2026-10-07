@@ -4,6 +4,14 @@ export type OfficialNotice={id:string;title:string;url:string;region:string;sour
 const sources=['osm','usfs','hk'] as const;
 const PAGE_SIZE=400;
 function jsonObject(value:unknown):Record<string,any>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('invalid JSON object');return value as Record<string,any>;}
+async function publicCatalogRequest(action:'catalog-feed'|'route-manage',data:Record<string,unknown>,timeout=15000):Promise<Record<string,any>>{
+ const response=await fetch('https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api',{
+  method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(timeout),
+ });
+ const envelope=await response.json() as {ok?:boolean;data?:unknown};
+ if(!response.ok||envelope?.ok!==true)throw new Error('public catalog unavailable');
+ return jsonObject(envelope.data);
+}
 let coverageSummary='';
 export function publicCatalogCoverageSummary(){return coverageSummary;}
 let coverageHasSourceFailures=false;
@@ -19,7 +27,7 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  });
 }
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
- const first=await fetch(`/api/catalog?source=${source}&page=0`,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('catalog unavailable');return r.json().then(jsonObject);});
+ const first=await publicCatalogRequest('catalog-feed',{source,page:0,windowLimit:100000});
  if(!Array.isArray(first.items)||first.items.length>PAGE_SIZE||first.page!==0||!Number.isInteger(first.total)||first.total<0||!/^([a-f0-9]{64})$/.test(first.snapshot)||typeof first.key!=='string')throw new Error('catalog page invalid');
  if(first.total>100000)throw new Error('catalog exceeds safe read limit');
  const pageCount=Math.ceil(first.total/PAGE_SIZE);
@@ -30,7 +38,7 @@ async function apiPages(source:string,first:Record<string,any> & {items:any[]}):
  const pageCount=Math.ceil(first.total/PAGE_SIZE),items=[...first.items];
  for(let start=1;start<pageCount;start+=8){
   const pageNumbers=Array.from({length:Math.min(8,pageCount-start)},(_,i)=>start+i);
-  const later=await Promise.all(pageNumbers.map(page=>fetch(`/api/catalog?source=${source}&page=${page}&snapshot=${first.snapshot}`,{signal:AbortSignal.timeout(15000)}).then(x=>{if(!x.ok)throw new Error('catalog unavailable');return x.json().then(jsonObject);})));
+  const later=await Promise.all(pageNumbers.map(page=>publicCatalogRequest('catalog-feed',{source,page,snapshot:first.snapshot,windowLimit:100000})));
   for(let i=0;i<later.length;i++){const page=pageNumbers[i],result=later[i];if(result.snapshot!==first.snapshot||result.total!==first.total||result.key!==first.key||!Array.isArray(result.items)||result.items.length>PAGE_SIZE||result.page!==page||result.hasMore!==(page<pageCount-1))throw new Error('catalog changed during read');items.push(...result.items);}
  }
  if(items.length!==first.total)throw new Error('catalog incomplete');return {...first,items};
@@ -49,12 +57,12 @@ async function pages(source:'osm'|'usfs'|'hk'|'news'){
  try{return await apiPages(source,apiResult.value);}catch{return loadStaticPages(source,staticResult.value);}
 }
 async function allReviews(){
- const first=await fetch('/api/catalog/reviews?page=0',{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('review unavailable');return r.json().then(jsonObject);});
+ const first=await publicCatalogRequest('route-manage',{action:'list',page:0});
  if(!Array.isArray(first.items)||first.items.length>10||typeof first.hasMore!=='boolean')throw new Error('review snapshot invalid');
  const rows:any[]=[...first.items];let done=!first.hasMore;
  for(let start=1;!done&&start<100;start+=8){
   const pageNumbers=Array.from({length:Math.min(8,100-start)},(_,i)=>start+i);
-  const later=await Promise.all(pageNumbers.map(page=>fetch(`/api/catalog/reviews?page=${page}`,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('review unavailable');return r.json().then(jsonObject);})));
+  const later=await Promise.all(pageNumbers.map(page=>publicCatalogRequest('route-manage',{action:'list',page})));
   for(let i=0;i<later.length;i++){const response=later[i];if(!Array.isArray(response.items)||response.items.length>10||typeof response.hasMore!=='boolean')throw new Error('review snapshot invalid');rows.push(...response.items);if(!response.hasMore){done=true;break;}}
  }
  if(!done)throw new Error('review page limit');
@@ -124,10 +132,9 @@ export async function loadOfficialNotices():Promise<{items:OfficialNotice[];gene
 
 export async function searchPublicRoutes(source:'osm'|'usfs'|'hk',query:string,offset=0,snapshot?:string):Promise<{routes:HikingRoute[];total:number;offset:number;snapshot:string;hasMore:boolean}>{
  if(query.trim().length<2||query.length>100||!Number.isInteger(offset)||offset<0||offset>250000)throw new Error('搜索词或分页位置无效');
- const params=new URLSearchParams({source,q:query,offset:String(offset),...(snapshot?{snapshot}:{})});let remote:Record<string,any>|undefined;
+ let remote:Record<string,any>|undefined;
  try{
-  const response=await fetch(`/api/catalog/search?${params}`,{signal:AbortSignal.timeout(55000)});if(!response.ok)throw new Error('online catalog search unavailable');
-  const data=jsonObject(await response.json());
+  const data=await publicCatalogRequest('catalog-feed',{action:'search',source,query,offset,...(snapshot?{snapshot}:{})},55000);
   if(!/^([a-f0-9]{64})$/.test(data.snapshot)||snapshot&&snapshot!==data.snapshot||!Number.isInteger(data.total)||data.total<0||data.total>250000||data.offset!==offset||data.key!=='routes'||!Array.isArray(data.items)||data.items.length>20||data.hasMore!==(offset+data.items.length<data.total))throw new Error('online catalog page invalid');
   remote=data;
  }catch{}
