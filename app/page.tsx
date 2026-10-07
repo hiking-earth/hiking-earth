@@ -8,7 +8,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { ROUTES, STATUS_COLORS, type HikingRoute, type OvernightStyle, type PackStyle, type RouteStatus, type Season, type SurfaceStyle } from "@/data/routes";
 import type { HubTab } from "@/components/ProjectHub";
 import {readWebCatalogCache,writeWebCatalogCache} from '@/data/catalog-cache';
-import {loadOfficialNotices,loadPublicRouteCatalog,searchPublicRoutes,publicCatalogCoverageSummary,type OfficialNotice} from "@/data/live-catalog";
+import {loadOfficialNotices,loadPublicRouteCatalog,searchPublicRoutes,publicCatalogCoverageSummary,publicCatalogHasSourceFailures,type OfficialNotice} from "@/data/live-catalog";
 import {
   Backpack,
   Building2,
@@ -143,6 +143,7 @@ function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: stri
   if (isColdSeason || isHighAltitude) ["保暖帽和手套", "保温层", "应急保温毯"].forEach((item) => items.add(item));
 
   const notices = ["出发前再次核验开放状态、天气、预约和属地公告。", "把路线、返回时间和紧急联系人留给未同行人员。"];
+  if (route.packStyle === "待核验" || route.overnight === "待核验" || route.surface === "待核验") notices.unshift("该路线的装备、住宿或路面资料尚未核验；以下为你选择负重方式后的通用清单，不是路线专属方案。");
   if (isWetSeason) notices.push("降雨期避开沟谷、河道和陡坡；出现持续强降雨、山洪或滑坡预警时取消行程。");
   if (isHighAltitude) notices.push("安排高海拔适应和撤退点；出现明显不适时停止上升并及时下撤。");
   if (isRemote) notices.push("未铺装或偏远路段不要单独出行；预留导航冗余、通信方案和返程时间。");
@@ -166,7 +167,7 @@ export default function Home() {
       if(restoring||loading||(!force&&(now<retryAt||now-lastSuccess<6*60*60*1000)))return;
       loading=true;
       if(active)setCatalogRefreshing(true);
-      try{const next=await loadPublicRouteCatalog();if(!active)return;setRoutes(next);lastSuccess=Date.now();failures=0;retryAt=0;const saved=await writeWebCatalogCache(next);if(active)setCatalogMessage(`路线及官方状态已刷新，共 ${next.length} 条。${publicCatalogCoverageSummary()}. ${saved?'已保存本机目录。':'本机保存失败，本次资料仅在当前页面可用。'}`);}
+      try{const next=await loadPublicRouteCatalog(currentRoutesRef.current);if(!active)return;currentRoutesRef.current=next;setRoutes(next);const partial=publicCatalogHasSourceFailures();if(partial){failures+=1;lastSuccess=0;retryAt=Date.now()+Math.min(6*60*60*1000,15*60*1000*2**Math.min(failures-1,5));}else{lastSuccess=Date.now();failures=0;retryAt=0;}const saved=await writeWebCatalogCache(next);if(active)setCatalogMessage(`${partial?'部分路线源已刷新':'路线及官方状态已刷新'}，共 ${next.length} 条。${publicCatalogCoverageSummary()}. ${saved?'已保存本机目录。':'本机保存失败，本次资料仅在当前页面可用。'}`);}
       catch{if(active){failures+=1;retryAt=Date.now()+Math.min(6*60*60*1000,15*60*1000*2**Math.min(failures-1,5));setCatalogMessage("云端路线刷新失败，继续显示已保存目录；稍后自动重试，也可手动刷新。");}}
       finally{loading=false;if(active)setCatalogRefreshing(false);}
     };
@@ -183,7 +184,7 @@ export default function Home() {
       });
     };
     const onVisible=()=>{if(document.visibilityState==='visible'){expireOpeningStatuses();void refresh();}};
-    void (async()=>{const cached=await readWebCatalogCache();if(!active)return;restoring=false;if(cached){setRoutes(cached.routes);setCatalogMessage(`已恢复 ${cached.routes.length} 条本机目录（${new Date(cached.savedAt).toLocaleString()}），正在检查更新。`);}await refresh(true);})();
+    void (async()=>{const cached=await readWebCatalogCache();if(!active)return;restoring=false;if(cached){currentRoutesRef.current=cached.routes;setRoutes(cached.routes);setCatalogMessage(`已恢复 ${cached.routes.length} 条本机目录（${new Date(cached.savedAt).toLocaleString()}），正在检查更新。`);}await refresh(true);})();
     const timer=window.setInterval(()=>{if(document.visibilityState==='visible'){expireOpeningStatuses();void refresh();}},60*1000);
     document.addEventListener('visibilitychange',onVisible);
     return()=>{active=false;catalogRefreshRef.current=()=>{};window.clearInterval(timer);document.removeEventListener('visibilitychange',onVisible);};
@@ -234,6 +235,7 @@ export default function Home() {
   const [globeResetToken, setGlobeResetToken] = useState(0);
   const [mapLoading, setMapLoading] = useState(true);
   const [mapMessage, setMapMessage] = useState("");
+  const [webUpdateReady, setWebUpdateReady] = useState(false);
   const [layer, setLayer] = useState<"routes" | "news">("routes");
   const [officialNotices,setOfficialNotices]=useState<OfficialNotice[]>([]);
   const [noticeUpdatedAt,setNoticeUpdatedAt]=useState("");
@@ -306,13 +308,10 @@ export default function Home() {
   useEffect(() => {
     let cancelled = false;
     async function loadWeather() {
-      if (!activeRoute.weatherCityId) {
-        if (!cancelled) setWeatherState({ status: "unavailable", message: "该路线暂未登记官方天气城市编码，当前无法核实。" });
-        return;
-      }
       setWeatherState({ status: "loading" });
       try {
-        const response = await fetch(`/api/weather?cityId=${activeRoute.weatherCityId}`);
+        const params = new URLSearchParams({ longitude: String(activeRoute.center[0]), latitude: String(activeRoute.center[1]) });
+        const response = await fetch(`/api/weather?${params}`, { signal: AbortSignal.timeout(15_000) });
         const payload = await response.json() as { weather?: WeatherState["weather"]; message?: string; sourceUrl?: string };
         if (cancelled) return;
         setWeatherState(response.ok && payload.weather ? { status: "available", weather: payload.weather, sourceUrl: payload.sourceUrl } : { status: "unavailable", message: payload.message, sourceUrl: payload.sourceUrl });
@@ -322,7 +321,7 @@ export default function Home() {
     }
     void loadWeather();
     return () => { cancelled = true; };
-  }, [activeRoute.weatherCityId]);
+  }, [activeRoute.id, activeRoute.weatherCityId, activeRoute.center[0], activeRoute.center[1]]);
 
   useEffect(() => {
     const updateNetworkState = () => setIsOnline(navigator.onLine);
@@ -334,12 +333,35 @@ export default function Home() {
     window.addEventListener("online", updateNetworkState);
     window.addEventListener("offline", updateNetworkState);
     window.addEventListener("beforeinstallprompt", captureInstallPrompt);
-    if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {
-        setMapMessage("离线缓存初始化失败；在线浏览不受影响。");
+    let disposed = false;
+    let hadController = "serviceWorker" in navigator && !!navigator.serviceWorker.controller;
+    let registration: ServiceWorkerRegistration | undefined;
+    let updateTimer: number | undefined;
+    const controllerChanged = () => {
+      if (hadController) setWebUpdateReady(true);
+      hadController = true;
+    };
+    const checkWorkerUpdate = () => { if (registration) void registration.update().catch(() => {}); };
+    const canUseServiceWorker = "serviceWorker" in navigator
+      && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1");
+    if (canUseServiceWorker) {
+      navigator.serviceWorker.addEventListener("controllerchange", controllerChanged);
+      window.addEventListener("focus", checkWorkerUpdate);
+      updateTimer = window.setInterval(checkWorkerUpdate, 6 * 60 * 60 * 1000);
+      navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" }).then((value) => {
+        if (disposed) return;
+        registration = value;
+        if (hadController && value.waiting) setWebUpdateReady(true);
+        checkWorkerUpdate();
+      }).catch(() => {
+        if (!disposed) setMapMessage("离线缓存初始化失败；在线浏览不受影响。");
       });
     }
     return () => {
+      disposed = true;
+      if (updateTimer !== undefined) window.clearInterval(updateTimer);
+      if (canUseServiceWorker) navigator.serviceWorker.removeEventListener("controllerchange", controllerChanged);
+      window.removeEventListener("focus", checkWorkerUpdate);
       window.removeEventListener("online", updateNetworkState);
       window.removeEventListener("offline", updateNetworkState);
       window.removeEventListener("beforeinstallprompt", captureInstallPrompt);
@@ -360,7 +382,8 @@ export default function Home() {
     setDetailOpen(true);
     setPanelOpen(true);
     setGearOpen(false);
-    setGearMode((currentRoutesRef.current.find((route) => route.id === routeId)?.packStyle ?? "轻装") as GearMode);
+    const packStyle=currentRoutesRef.current.find((route)=>route.id===routeId)?.packStyle;
+    setGearMode(packStyle==="轻装"||packStyle==="重装"?packStyle:"中度");
   }, [startMapLoading]);
 
   useEffect(() => {
@@ -787,7 +810,7 @@ export default function Home() {
       <div className={`map-loading ${mapLoading ? "visible" : ""}`} aria-live="polite"><Globe2 size={25} /><span>{mapView === "globe" ? "正在构建立体地球" : "正在展开立体路线"}</span><small>底图与路线资料加载中；地形和季节影像需单独开启</small></div>
       <div className="map-vignette" />
       {!isOnline && <div className="offline-banner" role="status"><WifiOff size={15} />当前处于离线状态：可查看已缓存页面，本次天气和远程地图不能保证更新。</div>}
-      {mapMessage && <div className="app-message glass" role="status"><span>{mapMessage}</span><button onClick={() => setMapMessage("")} aria-label="关闭提示"><X size={15} /></button></div>}
+      {webUpdateReady ? <div className="app-message glass" role="status"><span>网页有新版本。保存当前输入或记录后，可刷新加载更新。</span><div className="app-update-actions"><button className="update-apply-button" onClick={() => window.location.reload()}>保存后刷新</button><button className="update-dismiss-button" onClick={() => setWebUpdateReady(false)}>稍后</button></div></div> : mapMessage && <div className="app-message glass" role="status"><span>{mapMessage}</span><button onClick={() => setMapMessage("")} aria-label="关闭提示"><X size={15} /></button></div>}
 
       <header className="topbar glass">
         <Link className="brand" href="/" aria-label="徒步地球首页">
@@ -856,9 +879,9 @@ export default function Home() {
             <div className="filter-panel-head"><div><b>筛选路线</b><span>设置完成后显示匹配路线</span></div><button onClick={() => setFiltersOpen(false)}>完成</button></div>
             <div className="filter-group"><span>路线状态</span><div>{(["全部", "开放中", "即将开放", "临时关闭", "永久关闭", "待核验"] as const).map((item) => <button key={item} className={status === item ? "active" : ""} onClick={() => setStatus(item)}>{item}</button>)}</div></div>
             <div className="filter-group"><span>最佳季节</span><div>{(["全部", "春", "夏", "秋", "冬"] as const).map((item) => <button key={item} className={seasonFilter === item ? "active" : ""} onClick={() => setSeasonFilter(item)}>{item === "全部" ? item : `${item}季`}</button>)}</div></div>
-            <div className="filter-group"><span>行程方式</span><div>{(["全部", "轻装", "重装"] as const).map((item) => <button key={item} className={packFilter === item ? "active" : ""} onClick={() => setPackFilter(item)}>{item}</button>)}</div></div>
-            <div className="filter-group"><span>夜宿方式</span><div>{(["全部", "营地", "住宿", "无过夜"] as const).map((item) => <button key={item} className={overnightFilter === item ? "active" : ""} onClick={() => setOvernightFilter(item)}>{item === "营地" ? "自带帐篷" : item}</button>)}</div></div>
-            <div className="filter-group"><span>路面与环境</span><div>{(["全部", "景区成熟", "未铺装"] as const).map((item) => <button key={item} className={surfaceFilter === item ? "active" : ""} onClick={() => setSurfaceFilter(item)}>{item}</button>)}</div></div>
+            <div className="filter-group"><span>行程方式</span><div>{(["全部", "轻装", "重装", "待核验"] as const).map((item) => <button key={item} className={packFilter === item ? "active" : ""} onClick={() => setPackFilter(item)}>{item}</button>)}</div></div>
+            <div className="filter-group"><span>夜宿方式</span><div>{(["全部", "营地", "住宿", "无过夜", "待核验"] as const).map((item) => <button key={item} className={overnightFilter === item ? "active" : ""} onClick={() => setOvernightFilter(item)}>{item === "营地" ? "自带帐篷" : item}</button>)}</div></div>
+            <div className="filter-group"><span>路面与环境</span><div>{(["全部", "景区成熟", "未铺装", "待核验"] as const).map((item) => <button key={item} className={surfaceFilter === item ? "active" : ""} onClick={() => setSurfaceFilter(item)}>{item}</button>)}</div></div>
           </div>
         )}
 
@@ -889,9 +912,9 @@ export default function Home() {
           <div className="detail-title"><div><span className="status-pill" style={{ color: STATUS_COLORS[activeRoute.status] }}>{activeRoute.status}</span><h2>{activeRoute.name}</h2><p><MapPin size={14} />{activeRoute.region}</p></div><button className="round-action" onClick={focusActiveRoute} aria-label="在地图中查看路线" title="在地图中查看路线"><Compass size={20} /></button></div>
           <p className="summary">{activeRoute.summary}</p>
           <section className="route-weather" aria-label="天气服务状态">
-            <div className="archive-head"><span>天气服务</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `观测时间 ${weatherState.weather?.observedAt}` : "尚未正式接入"}</small></div>
+            <div className="archive-head"><span>天气服务</span><small>{weatherState.status === "loading" ? "正在核实…" : weatherState.status === "available" ? `预报时刻 ${weatherState.weather?.observedAt}` : "尚未正式接入"}</small></div>
             {weatherState.status === "available" && weatherState.weather ? <div className="weather-grid"><b>{weatherState.weather.city} {weatherState.weather.temperature}</b><span>风力 {weatherState.weather.wind}</span><span>湿度 {weatherState.weather.humidity}</span><span>降水 {weatherState.weather.rain}</span></div> : <p>{weatherState.message ?? "正在确认天气接口是否已配置。"}</p>}
-            <small>天气不能证明路线开放，也不能替代属地预警。{weatherState.sourceUrl ? <>查看 <a href={weatherState.sourceUrl} target="_blank" rel="noreferrer">官方天气</a>；</> : null} 接口申请：<a href="https://www.weather.com.cn/wzfw/smart/weatherapi.shtml" target="_blank" rel="noreferrer">中国天气网 SmartWeatherAPI</a></small>
+            <small>天气不能证明路线开放，也不能替代属地预警。{weatherState.sourceUrl ? <>查看 <a href={weatherState.sourceUrl} target="_blank" rel="noreferrer">官方天气</a>；</> : null} 预报来自 MET Norway，按 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a> 转换展示。</small>
           </section>
           <section className="route-archive">
             <div className="archive-head"><span>路线档案</span><small>{activeRoute.archive.checkedAt}</small></div>

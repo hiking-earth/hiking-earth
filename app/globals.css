@@ -184,6 +184,10 @@ button { color: inherit; }
 .app-message { position: absolute; z-index: 40; top: 102px; left: 50%; transform: translateX(-50%); width: min(600px, calc(100vw - 460px)); display: flex; align-items: center; gap: 12px; padding: 11px 14px; border: 1px solid rgba(255,209,102,.35); border-radius: 13px; color: #ffe8ae; background: rgba(31,24,9,.88); font-size: 11px; line-height: 1.45; }
 .app-message span { flex: 1; }
 .app-message button { display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 50%; color: inherit; background: rgba(255,255,255,.08); cursor: pointer; }
+.app-update-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.app-message .app-update-actions button { width: auto; padding: 6px 9px; border-radius: 8px; white-space: nowrap; }
+.app-message .update-apply-button { color: #10151c; background: #b8f36b; font-weight: 700; }
+.app-message .update-dismiss-button { color: #ffe8ae; border: 1px solid rgba(255,209,102,.28); }
 .offline-banner { position: absolute; z-index: 42; top: 0; left: 0; right: 0; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 6px 18px; color: #221500; background: #ffd166; font-size: 10px; font-weight: 700; }
 .release-links { position: absolute; z-index: 13; top: 102px; left: 20px; display: flex; gap: 3px; padding: 4px; border-radius: 11px; }
 .release-links a { padding: 6px 8px; border-radius: 7px; color: #91a097; text-decoration: none; font-size: 9px; }

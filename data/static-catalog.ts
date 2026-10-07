@@ -23,9 +23,9 @@ function isGzip(bytes:Uint8Array){return bytes.length>2&&bytes[0]===0x1f&&bytes[
 async function unpack(bytes:Uint8Array,limit:number){
  if(!isGzip(bytes))return bytes;
  if(typeof DecompressionStream==='undefined')throw new Error('This browser cannot read the compressed route catalog');
- return streamBytes(new Response(bytes).body!.pipeThrough(new DecompressionStream('gzip')),limit);
+ return streamBytes(new Response(new Uint8Array(bytes).buffer).body!.pipeThrough(new DecompressionStream('gzip')),limit);
 }
-async function sha256(bytes:Uint8Array){const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',bytes));return [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');}
+async function sha256(bytes:Uint8Array){const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',new Uint8Array(bytes).buffer));return [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');}
 function validateManifest(value:unknown,source:Source):StaticManifest{
  const data=object(value),key=source==='news'?'items':'routes';
  if(data.schemaVersion!==1||data.key!==key||data.pageSize!==PAGE_SIZE||!HEX.test(data.snapshot)||!Number.isInteger(data.total)||data.total<0||data.total>MAX_RECORDS||!Array.isArray(data.pages)||data.pages.length!==Math.max(1,Math.ceil(data.total/PAGE_SIZE))||!data.pages.every((hash:any)=>typeof hash==='string'&&HEX.test(hash))||!HEX.test(data.indexHash)||data.metadata?.schemaVersion!==1||!Number.isFinite(Date.parse(data.metadata?.generatedAt)))throw new Error('static catalog manifest invalid');

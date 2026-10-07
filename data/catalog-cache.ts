@@ -12,7 +12,7 @@ const point=(value:any)=>Array.isArray(value)&&value.length===2&&value.every(Num
 function valid(route:any):route is HikingRoute{
  if(!route||!['id','name','region','distance','ascent','duration','difficulty','bestSeason','summary','image','imageCredit'].every(key=>typeof route[key]==='string'&&route[key].length<=12000)||!point(route.center)||!['开放中','待核验','即将开放','临时关闭','永久关闭'].includes(route.status))return false;
  if(!Array.isArray(route.path)||route.path.length>20000||!route.path.every(point)||!Array.isArray(route.scenery)||!route.scenery.every((value:any)=>typeof value==='string')||!Array.isArray(route.bestSeasons)||!route.bestSeasons.every((value:any)=>['春','夏','秋','冬'].includes(value)))return false;
- if(!['轻装','重装'].includes(route.packStyle)||!['营地','住宿','无过夜'].includes(route.overnight)||!['景区成熟','未铺装'].includes(route.surface)||route.trackMode!==undefined&&!['认知示意','已核验轨迹','不展示轨迹'].includes(route.trackMode))return false;
+ if(!['轻装','重装','待核验'].includes(route.packStyle)||!['营地','住宿','无过夜','待核验'].includes(route.overnight)||!['景区成熟','未铺装','待核验'].includes(route.surface)||route.trackMode!==undefined&&!['认知示意','已核验轨迹','不展示轨迹'].includes(route.trackMode))return false;
  const archive=route.archive;return !!archive&&typeof archive.checkedAt==='string'&&typeof archive.riskNotice==='string'&&typeof archive.source?.label==='string'&&(archive.source.url===undefined||typeof archive.source.url==='string')&&Array.isArray(archive.highlights)&&archive.highlights.every((value:any)=>typeof value==='string');
 }
 export async function readWebCatalogCache():Promise<{routes:HikingRoute[];savedAt:number}|null>{

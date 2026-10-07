@@ -21,10 +21,30 @@ self.addEventListener("fetch", (event) => {
 
   if (request.mode === "navigate") {
     event.respondWith(fetch(request).then((response) => {
-      const copy = response.clone();
-      event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
+      if (response.ok) {
+        const copy = response.clone();
+        event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
+      }
       return response;
     }).catch(async () => (await caches.match(request)) || (await caches.match("/"))));
+    return;
+  }
+
+  // Route manifests are mutable pointers to immutable, content-addressed pages.
+  // Always try the network first so a data-only catalog release is visible even
+  // when the app shell itself has not changed; retain the last good manifest offline.
+  if (url.pathname.startsWith("/route-catalog/") && url.pathname.endsWith("/manifest.json")) {
+    const cacheKey = new Request(request.url, { method: "GET" });
+    event.respondWith((async () => {
+      try {
+        const response = await fetch(request, { cache: "no-store" });
+        if (response.ok) await (await caches.open(CACHE_NAME)).put(cacheKey, response.clone());
+        else if (response.status >= 500) return (await caches.match(cacheKey)) || response;
+        return response;
+      } catch {
+        return (await caches.match(cacheKey)) || Response.error();
+      }
+    })());
     return;
   }
 
