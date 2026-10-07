@@ -1,6 +1,7 @@
 import {needsGatewayRelay,gatewayRelayRequest} from './gateway-relay';
 import {ROUTES as bundled,type HikingRoute} from './routes';
 import {loadStaticPages,searchStatic,staticManifest,type StaticManifest} from './static-catalog';
+import {discoveryTagHighlights} from '../../shared/data/discovery-tags';
 export type OfficialNotice={id:string;title:string;url:string;region:string;sourceLabel:string;sourceUrl:string;publishedAt:string|null;fetchedAt:string;center:[number,number]};
 const sources=['osm','usfs','hk'] as const;
 const PAGE_SIZE=400;
@@ -25,7 +26,7 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>{
   const restrictionValue=source==='usfs'&&typeof r.sourceTags?.hikingRestricted==='string'?r.sourceTags.hikingRestricted.trim():'';
   const restrictionNotice=restrictionValue?` USDA Forest Service源字段“徒步限制”原值（去除首尾空格）：${restrictionValue}；含义和适用日期需查属地官方资料。`:'';
-  return {id:r.id,name:r.name,region:regions[r.region]||r.region||'未注明区域',status:'待核验',center:r.center,path:source==='hk'&&r.referencePaths?.length===1?r.referencePaths[0]:[],distance:Number.isFinite(r.sourceTags?.distanceKm)?`${r.sourceTags.distanceKm.toFixed(1)} km`:r.sourceTags?.distance?`${r.sourceTags.distance}（单位待核验）`:'待核验',ascent:'待核验',duration:'待核验',difficulty:'待核验',bestSeason:'待核验',bestSeasons:[],packStyle:'待核验',overnight:'待核验',surface:'待核验',trackMode:source==='hk'&&r.referencePaths?.length===1?'认知示意':'不展示轨迹',scenery:[],summary:'自动采集的徒步路线发现档案；装备、住宿、路况与开放许可尚未核验。',image:'/static/original-mountain-reference.png',imageCredit:'徒步地球原创几何示意 · 非路线实景',archive:{source:{label:attribution,url:r.sourceUrl},checkedAt:`采集 ${r.fetchedAt}；开放状态未核验`,highlights:[],riskNotice:`地图收录不代表允许通行；装备、住宿和路况尚未核验；本档案不提供导航。${restrictionNotice}`}};
+  return {id:r.id,name:r.name,region:regions[r.region]||r.region||'未注明区域',status:'待核验',center:r.center,path:source==='hk'&&r.referencePaths?.length===1?r.referencePaths[0]:[],distance:Number.isFinite(r.sourceTags?.distanceKm)?`${r.sourceTags.distanceKm.toFixed(1)} km`:r.sourceTags?.distance?`${r.sourceTags.distance}（来源原值，单位待核验）`:'待核验',ascent:'待核验',duration:'待核验',difficulty:'待核验',bestSeason:'待核验',bestSeasons:[],packStyle:'待核验',overnight:'待核验',surface:'待核验',trackMode:source==='hk'&&r.referencePaths?.length===1?'认知示意':'不展示轨迹',scenery:[],summary:'自动采集的徒步路线发现档案；装备、住宿、路况与开放许可尚未核验。',image:'/static/original-mountain-reference.png',imageCredit:'徒步地球原创几何示意 · 非路线实景',archive:{source:{label:attribution,url:r.sourceUrl},checkedAt:`采集 ${r.fetchedAt}；开放状态未核验`,highlights:discoveryTagHighlights(r.sourceTags,attribution),riskNotice:`地图收录不代表允许通行；来源标签为贡献者原始标注，不代表官方开放、安全或路线许可；装备、住宿和路况尚未核验；本档案不提供导航。${restrictionNotice}`}};
  });
 }
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
