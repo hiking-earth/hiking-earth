@@ -11,7 +11,7 @@ export function publicCatalogHasSourceFailures(){return coverageHasSourceFailure
 const key=(r:HikingRoute)=>`${r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')}:${r.center.map(v=>v.toFixed(1)).join(',')}`;
 const regions:Record<string,string>={china:'中国检索区域','hong-kong':'香港',macao:'澳门',europe:'欧洲','north-america':'北美',japan:'日本及周边检索区域',oceania:'大洋洲','south-america':'南美',africa:'非洲','south-asia':'南亚'};
 function discover(raw:any,source:string,attribution:string):HikingRoute[]{
- if(!Array.isArray(raw)||raw.length>40000)throw new Error('catalog size invalid');
+ if(!Array.isArray(raw)||raw.length>100000)throw new Error('catalog size invalid');
  return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>{
   const restrictionValue=source==='usfs'&&typeof r.sourceTags?.hikingRestricted==='string'?r.sourceTags.hikingRestricted.trim():'';
   const restrictionNotice=restrictionValue?` USDA Forest Service源字段“徒步限制”原值（去除首尾空格）：${restrictionValue}；含义和适用日期需查属地官方资料。`:'';
@@ -21,7 +21,7 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
  const first=await fetch(`/api/catalog?source=${source}&page=0`,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw new Error('catalog unavailable');return r.json().then(jsonObject);});
  if(!Array.isArray(first.items)||first.items.length>PAGE_SIZE||first.page!==0||!Number.isInteger(first.total)||first.total<0||!/^([a-f0-9]{64})$/.test(first.snapshot)||typeof first.key!=='string')throw new Error('catalog page invalid');
- if(first.total>40000)throw new Error('catalog exceeds safe read limit');
+ if(first.total>100000)throw new Error('catalog exceeds safe read limit');
  const pageCount=Math.ceil(first.total/PAGE_SIZE);
  if(first.hasMore!==(pageCount>1))throw new Error('catalog page state invalid');
  return {...first,items:first.items};
@@ -44,7 +44,7 @@ async function pages(source:'osm'|'usfs'|'hk'|'news'){
  if(staticResult.status==='rejected')return apiPages(source,apiResult.value);
  const remoteTime=generatedAt(apiResult.value),staticTime=generatedAt(staticResult.value);
  const remoteCount=Number.isInteger(apiResult.value.metadata?.sourceTotal)?apiResult.value.metadata.sourceTotal:apiResult.value.total;
- const preferStatic=staticTime>remoteTime||staticTime===remoteTime&&staticResult.value.total>remoteCount;
+ const preferStatic=staticTime>remoteTime||staticTime===remoteTime&&staticResult.value.total>=remoteCount;
  if(preferStatic){try{return await loadStaticPages(source,staticResult.value);}catch{return apiPages(source,apiResult.value);}}
  try{return await apiPages(source,apiResult.value);}catch{return loadStaticPages(source,staticResult.value);}
 }
