@@ -21,6 +21,10 @@ async function boundedCopy(response) {
   return new Response(new Blob(chunks), { status: response.status, statusText: response.statusText, headers });
 }
 function boundedPut(request, response) {
+  // Never persist authenticated or explicitly private server responses.
+  if (request.headers?.has("authorization") || request.cache === "no-store"
+    || /(?:^|,)\s*(?:no-store|private)\b/i.test(response.headers.get("cache-control") || "")
+    || response.headers.get("vary")?.trim() === "*" || response.headers.has("set-cookie")) return Promise.resolve();
   const operation = cacheWrites.then(async () => {
     const copy = await boundedCopy(response); if (!copy) return;
     const cache = await caches.open(CACHE_NAME);
@@ -57,7 +61,7 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  if (request.method !== "GET") return;
+  if (request.method !== "GET" || request.headers.has("authorization") || request.cache === "no-store") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin || url.pathname.startsWith("/api/") || url.pathname.startsWith("/_vinext/")) return;
 
