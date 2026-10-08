@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #edf4ef;
-  --muted: #a1b5b8;
-  --lime: #48c9a8;
+  --ink: #f4f8f2;
+  --muted: #a7b5aa;
+  --lime: #b8f36b;
   --warm: #ff9a62;
-  --panel: rgba(20, 36, 41, 0.90);
+  --panel: rgba(5, 12, 18, 0.84);
   --line: rgba(255, 255, 255, 0.12);
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; min-height: 100%; background: #080d17; color: var(--ink); }
+html, body { margin: 0; min-height: 100%; background: #01030a; color: var(--ink); }
 body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; overflow: hidden; }
 button, input { font: inherit; }
 button { color: inherit; }
-.app-shell { position: relative; width: 100vw; height: 100dvh; overflow: hidden; background: #080d17; }
+.app-shell { position: relative; width: 100vw; height: 100dvh; overflow: hidden; background: #01030a; }
 .space-backdrop { position: absolute; z-index: 0; inset: 0; overflow: hidden; background: radial-gradient(ellipse at 48% 48%, rgba(25,65,112,.3) 0, rgba(6,19,43,.2) 30%, transparent 60%), radial-gradient(ellipse at 18% 14%, rgba(63,73,136,.2), transparent 32%), linear-gradient(145deg, #010208 0%, #04091b 45%, #000106 100%); }
 .space-backdrop::before, .space-backdrop::after { content: ""; position: absolute; inset: -15%; background-repeat: repeat; pointer-events: none; }
 .space-backdrop::before { opacity: .78; background-image: radial-gradient(circle, rgba(255,255,255,.92) 0 1px, transparent 1.5px), radial-gradient(circle, rgba(170,204,255,.75) 0 1px, transparent 1.7px), radial-gradient(circle, rgba(255,240,201,.55) 0 1.2px, transparent 1.8px); background-size: 137px 149px, 211px 197px, 293px 257px; background-position: 17px 31px, 79px 113px, 151px 47px; }
@@ -186,7 +186,7 @@ button { color: inherit; }
 .app-message button { display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 50%; color: inherit; background: rgba(255,255,255,.08); cursor: pointer; }
 .app-update-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .app-message .app-update-actions button { width: auto; padding: 6px 9px; border-radius: 8px; white-space: nowrap; }
-.app-message .update-apply-button { color: #10151c; background: #48c9a8; font-weight: 700; }
+.app-message .update-apply-button { color: #10151c; background: #b8f36b; font-weight: 700; }
 .app-message .update-dismiss-button { color: #ffe8ae; border: 1px solid rgba(255,209,102,.28); }
 .offline-banner { position: absolute; z-index: 42; top: 0; left: 0; right: 0; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 6px 18px; color: #221500; background: #ffd166; font-size: 10px; font-weight: 700; }
 .release-links { position: absolute; z-index: 13; top: 102px; left: 20px; display: flex; gap: 3px; padding: 4px; border-radius: 11px; }
