@@ -44,3 +44,6 @@ yarn-error.log*
 public/client-app/
 public/route-catalog/
 .client-source/
+
+# Catalog provenance stays in the pinned client source; package verified gzip pages.
+/data/catalog/

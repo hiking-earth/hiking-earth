@@ -58,11 +58,6 @@ function verifyPinnedCatalog(sourceName, sourceFolder, manifest) {
     throw new Error(`Pinned ${sourceName} search index does not match its source snapshot`);
   }
 }
-mkdirSync(path.join(root, 'data', 'catalog'), { recursive: true });
-for (const name of ['osm.json','usfs.json','hk-afcd.json']) {
-  const input=path.join(clientRoot,'shared','data','catalog',name);
-  if(existsSync(input))cpSync(input,path.join(root,'data','catalog',name));
-}
 const catalogSource=path.join(clientRoot,'shared','public-catalog');
 const catalogTarget=path.join(root,'public','route-catalog');
 const catalogStage=`${catalogTarget}.stage-${process.pid}`;
