@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import test from "node:test";
+import ts from "typescript";
 
 const root = new URL("../", import.meta.url);
 
@@ -48,7 +49,14 @@ test("路线数据、筛选和高风险轨迹规则保持完整", async () => {
 
   const routeIds = [...routes.matchAll(/\bid:\s*"([a-z0-9-]+)"/g)].map((match) => match[1]);
   assert.equal(new Set(routeIds).size, 20);
-  assert.match(routes, /id: "aotai-warning"[\s\S]*?status: "永久关闭"[\s\S]*?trackMode: "不展示轨迹"/);
+  const javascript = ts.transpileModule(routes, {compilerOptions: {module: ts.ModuleKind.ESNext}}).outputText;
+  const actual = await import(`data:text/javascript;base64,${Buffer.from(javascript).toString("base64")}`);
+  const warning = actual.ROUTES.find(route => route.id === "aotai-warning");
+  assert.ok(warning);
+  assert.notEqual(warning.status, "开放中");
+  assert.equal(warning.trackMode, "不展示轨迹");
+  assert.deepEqual(warning.path, []);
+  assert.match(warning.summary, /禁止进入/);
   assert.match(page, /route\.trackMode === "不展示轨迹" \? \[\] : route\.path/);
   assert.match(page, /路线状态/);
   assert.match(page, /最佳季节/);
@@ -171,11 +179,11 @@ test("官方天气读取层存在且失败时不伪造实时天气", async () =>
     source("app/page.tsx"),
     source("data/routes.ts"),
   ]);
-  assert.match(weatherRoute, /smart\/weatherapi\.shtml/);
+  assert.match(weatherRoute, /api\.met\.no\/doc\/TermsOfService/);
   assert.doesNotMatch(weatherRoute, /fetch\([^\n]*adat\/sk/);
   assert.match(weatherRoute, /status: "unavailable"/);
-  assert.match(page, /\/api\/weather\?cityId=/);
-  assert.match(page, /天气服务状态/);
+  assert.match(page, /longitude:Number\(activeRoute\.center\[0\]\.toFixed\(2\)\)/);
+  assert.match(page, /天气服务/);
   assert.match(routes, /weatherCityId: "101180101"/);
 });
 
@@ -210,7 +218,7 @@ test("PWA 安装与离线降级不会缓存实时接口", async () => {
   assert.equal(parsed.scope, "/");
   assert.ok(parsed.icons.some((icon) => icon.sizes === "192x192"));
   assert.ok(parsed.icons.some((icon) => icon.sizes === "512x512" && icon.purpose === "maskable"));
-  assert.match(page, /navigator\.serviceWorker\.register\("\/sw\.js"\)/);
+  assert.match(page, /navigator\.serviceWorker\.register\("\/sw\.js",/);
   assert.match(page, /当前处于离线状态/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
   assert.doesNotMatch(serviceWorker, /cache\.put\([^\n]*api/);
