@@ -146,7 +146,8 @@ test("本地功能中心覆盖推荐、社区、约伴、日记和管理台", as
 test("数据来源闸门不会把演示素材当成正式发布数据", async () => {
   const [registry, routes] = await Promise.all([source("data/source-registry.ts"), source("data/routes.ts")]);
   assert.match(registry, /OFFICIAL_SOURCE_REGISTRY/);
-  assert.match(registry, /中国气象局 SmartWeatherAPI/);
+  assert.match(registry, /MET Norway 全球天气预报/);
+  assert.match(registry, /不需要 API 密钥/);
   assert.match(registry, /待授权/);
   assert.match(registry, /isPublishReady/);
   assert.match(registry, /NASA Earthdata GIBS \/ MODIS Terra 季节影像/);

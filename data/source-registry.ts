@@ -19,11 +19,11 @@ export const OFFICIAL_SOURCE_REGISTRY = {
     note: "静态公告不能直接代表今天可进入；发布前必须人工复核最新公告、预约和限流规则。",
   },
   weather: {
-    label: "中国气象局 SmartWeatherAPI",
-    url: "https://www.weather.com.cn/wzfw/smart/weatherapi.shtml",
+    label: "MET Norway 全球天气预报",
+    url: "https://api.met.no/doc/TermsOfService",
     readiness: "待官方核验" as SourceReadiness,
-    checkedAt: "未配置接口凭据",
-    note: "接口需要申请并配置凭据；未配置时只显示官方入口，不显示伪造的实时天气。",
+    checkedAt: "2026-10-08 · 免费公开接口与服务条款复核",
+    note: "服务端代理源码已接入，按 CC BY 4.0 署名；不需要 API 密钥。上线前仍需统一验收代理可用性、缓存与限流；该服务不提供 SLA。",
   },
   route: {
     label: "景区/属地官方路线资料",
