@@ -1,5 +1,6 @@
+import {CATALOG_PAGE_SIZE,CATALOG_SOURCE_LIMIT} from './catalog-limits';
 type Source='osm'|'usfs'|'hk'|'news';
-const PAGE_SIZE=400,WINDOW_LIMIT=250000,MAX_RECORDS=250000;
+const PAGE_SIZE=CATALOG_PAGE_SIZE,WINDOW_LIMIT=CATALOG_SOURCE_LIMIT,MAX_RECORDS=CATALOG_SOURCE_LIMIT;
 const HEX=/^[a-f0-9]{64}$/;
 export type StaticManifest={schemaVersion:1;snapshot:string;key:'routes'|'items';total:number;pageSize:400;pages:string[];indexHash:string;metadata:Record<string,any>};
 export type StaticPage={snapshot:string;key:string;metadata:Record<string,any>;total:number;page:number;hasMore:boolean;items:any[];deliverySource:'website-package'};

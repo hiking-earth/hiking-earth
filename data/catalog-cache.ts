@@ -1,3 +1,4 @@
+import {CATALOG_CACHE_LIMIT} from './catalog-limits';
 import type {HikingRoute} from './routes';
 const DB='hiking-earth-web-catalog',KEY='routes-v1';
 function open():Promise<IDBDatabase>{
@@ -19,11 +20,12 @@ export async function readWebCatalogCache():Promise<{routes:HikingRoute[];savedA
  let db:IDBDatabase|undefined;
  try{
   db=await open();const value:any=await new Promise((resolve,reject)=>{const request=db!.transaction('snapshots','readonly').objectStore('snapshots').get(KEY);request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});
-  if(value?.schemaVersion!==1||!Number.isFinite(value.savedAt)||value.savedAt>Date.now()+60000||!Array.isArray(value.routes)||value.routes.length>250000||!value.routes.every(valid))return null;
+  if(value?.schemaVersion!==1||!Number.isFinite(value.savedAt)||value.savedAt>Date.now()+60000||!Array.isArray(value.routes)||value.routes.length>CATALOG_CACHE_LIMIT||!value.routes.every(valid))return null;
   return {savedAt:value.savedAt,routes:value.routes.map((route:HikingRoute)=>route.status==='开放中'&&(!Number.isFinite(route.openingExpiresAt)||route.openingExpiresAt!<=Date.now())?{...route,status:'待核验',openingExpiresAt:0}:route)};
  }catch{return null;}finally{db?.close();}
 }
 export async function writeWebCatalogCache(routes:HikingRoute[]):Promise<boolean>{
+ if(routes.length>CATALOG_CACHE_LIMIT||!routes.every(valid))return false;
  let db:IDBDatabase|undefined;
  try{
   db=await open();await new Promise<void>((resolve,reject)=>{

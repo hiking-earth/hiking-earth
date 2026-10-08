@@ -5,20 +5,15 @@ import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import {resolvePinnedClientSource} from './pinned-client-source.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = JSON.parse(readFileSync(path.join(root, 'clients.source.json'), 'utf8'));
-let clientRoot = process.env.HIKING_CLIENT_ROOT || path.resolve(root, '..');
+const clientRoot = resolvePinnedClientSource(root,source);
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 function run(command, args, cwd, extra = {}) {
   if(command===npm && process.platform==='win32'){if(!process.env.npm_execpath)throw new Error('NPM CLI path unavailable');args=[process.env.npm_execpath,...args];command=process.execPath;}
   const result = spawnSync(command, args, { cwd, stdio: 'inherit', env: { ...process.env, ...extra } });
   if (result.status !== 0) throw new Error(`Client preparation failed: ${command}`);
-}
-if (!existsSync(path.join(clientRoot, 'app', 'package.json'))) {
-  clientRoot = path.join(root, '.client-source'); mkdirSync(clientRoot, { recursive: true });
-  if (!existsSync(path.join(clientRoot, '.git'))) run('git', ['init'], clientRoot);
-  run('git', ['fetch', '--depth', '1', source.repository, source.ref], clientRoot);
-  run('git', ['checkout', '--detach', 'FETCH_HEAD'], clientRoot);
 }
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -116,6 +111,7 @@ cpSync(gearModel, path.join(target, 'models', 'gear'), { recursive: true });
 
 
 cpSync(path.join(clientRoot,'shared','network','gateway-relay.ts'),path.join(root,'data','gateway-relay.ts'));
+cpSync(path.join(clientRoot,'shared','data','discovery-tags.ts'),path.join(root,'data','discovery-tags.ts'));
 
 const mapVendor=path.join(root,'public','vendor','maplibre');mkdirSync(mapVendor,{recursive:true});
 for(const asset of ['maplibre-gl-worker.mjs','maplibre-gl-shared.mjs'])cpSync(path.join(root,'node_modules','maplibre-gl','dist',asset),path.join(mapVendor,asset));

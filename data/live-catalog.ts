@@ -1,10 +1,11 @@
+import {CATALOG_PAGE_SIZE,CATALOG_SOURCE_LIMIT} from './catalog-limits';
 import {needsGatewayRelay,gatewayRelayRequest} from './gateway-relay';
 import {ROUTES as bundled,type HikingRoute} from './routes';
 import {loadStaticPages,searchStatic,staticManifest,type StaticManifest} from './static-catalog';
-import {discoveryNameReview,discoveryTagHighlights} from '../../shared/data/discovery-tags';
+import {discoveryNameReview,discoveryTagHighlights} from './discovery-tags';
 export type OfficialNotice={id:string;title:string;url:string;region:string;sourceLabel:string;sourceUrl:string;publishedAt:string|null;fetchedAt:string;center:[number,number]};
 const sources=['osm','usfs','hk'] as const;
-const PAGE_SIZE=400;
+const PAGE_SIZE=CATALOG_PAGE_SIZE;
 function jsonObject(value:unknown):Record<string,any>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('invalid JSON object');return value as Record<string,any>;}
 async function publicCatalogRequest(action:'catalog-feed'|'route-manage',data:Record<string,unknown>,timeout=15000):Promise<Record<string,any>>{
  if(needsGatewayRelay()){const result=await gatewayRelayRequest(action,data,undefined,timeout);if(result.status!==200||result.body?.ok!==true)throw new Error('public catalog unavailable');return jsonObject(result.body.data);}
@@ -22,7 +23,7 @@ export function publicCatalogHasSourceFailures(){return coverageHasSourceFailure
 const key=(r:HikingRoute)=>`${r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')}:${r.center.map(v=>v.toFixed(1)).join(',')}`;
 const regions:Record<string,string>={china:'中国检索区域','hong-kong':'香港',macao:'澳门',europe:'欧洲','north-america':'北美',japan:'日本及周边检索区域',oceania:'大洋洲','south-america':'南美',africa:'非洲','south-asia':'南亚'};
 function discover(raw:any,source:string,attribution:string):HikingRoute[]{
- if(!Array.isArray(raw)||raw.length>100000)throw new Error('catalog size invalid');
+ if(!Array.isArray(raw)||raw.length>CATALOG_SOURCE_LIMIT)throw new Error('catalog size invalid');
  return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>{
   const restrictionValue=source==='usfs'&&typeof r.sourceTags?.hikingRestricted==='string'?r.sourceTags.hikingRestricted.trim():'';
   const restrictionNotice=restrictionValue?` USDA Forest Service源字段“徒步限制”原值（去除首尾空格）：${restrictionValue}；含义和适用日期需查属地官方资料。`:'';
@@ -30,9 +31,9 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  });
 }
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
- const first=await publicCatalogRequest('catalog-feed',{source,page:0,windowLimit:250000});
+ const first=await publicCatalogRequest('catalog-feed',{source,page:0,windowLimit:CATALOG_SOURCE_LIMIT});
  if(!Array.isArray(first.items)||first.items.length>PAGE_SIZE||first.page!==0||!Number.isInteger(first.total)||first.total<0||!/^([a-f0-9]{64})$/.test(first.snapshot)||typeof first.key!=='string')throw new Error('catalog page invalid');
- if(first.total>250000)throw new Error('catalog exceeds safe read limit');
+ if(first.total>CATALOG_SOURCE_LIMIT)throw new Error('catalog exceeds safe read limit');
  const pageCount=Math.ceil(first.total/PAGE_SIZE);
  if(first.hasMore!==(pageCount>1))throw new Error('catalog page state invalid');
  return {...first,items:first.items};
@@ -41,7 +42,7 @@ async function apiPages(source:string,first:Record<string,any> & {items:any[]}):
  const pageCount=Math.ceil(first.total/PAGE_SIZE),items=[...first.items];
  for(let start=1;start<pageCount;start+=8){
   const pageNumbers=Array.from({length:Math.min(8,pageCount-start)},(_,i)=>start+i);
-  const later=await Promise.all(pageNumbers.map(page=>publicCatalogRequest('catalog-feed',{source,page,snapshot:first.snapshot,windowLimit:100000})));
+  const later=await Promise.all(pageNumbers.map(page=>publicCatalogRequest('catalog-feed',{source,page,snapshot:first.snapshot,windowLimit:CATALOG_SOURCE_LIMIT})));
   for(let i=0;i<later.length;i++){const page=pageNumbers[i],result=later[i];if(result.snapshot!==first.snapshot||result.total!==first.total||result.key!==first.key||!Array.isArray(result.items)||result.items.length>PAGE_SIZE||result.page!==page||result.hasMore!==(page<pageCount-1))throw new Error('catalog changed during read');items.push(...result.items);}
  }
  if(items.length!==first.total)throw new Error('catalog incomplete');return {...first,items};
@@ -134,11 +135,11 @@ export async function loadOfficialNotices():Promise<{items:OfficialNotice[];gene
 }
 
 export async function searchPublicRoutes(source:'osm'|'usfs'|'hk',query:string,offset=0,snapshot?:string):Promise<{routes:HikingRoute[];total:number;offset:number;snapshot:string;hasMore:boolean}>{
- if(query.trim().length<2||query.length>100||!Number.isInteger(offset)||offset<0||offset>250000)throw new Error('搜索词或分页位置无效');
+ if(query.trim().length<2||query.length>100||!Number.isInteger(offset)||offset<0||offset>CATALOG_SOURCE_LIMIT)throw new Error('搜索词或分页位置无效');
  let remote:Record<string,any>|undefined;
  try{
   const data=await publicCatalogRequest('catalog-feed',{action:'search',source,query,offset,...(snapshot?{snapshot}:{})},55000);
-  if(!/^([a-f0-9]{64})$/.test(data.snapshot)||snapshot&&snapshot!==data.snapshot||!Number.isInteger(data.total)||data.total<0||data.total>250000||data.offset!==offset||data.key!=='routes'||!Array.isArray(data.items)||data.items.length>20||data.hasMore!==(offset+data.items.length<data.total))throw new Error('online catalog page invalid');
+  if(!/^([a-f0-9]{64})$/.test(data.snapshot)||snapshot&&snapshot!==data.snapshot||!Number.isInteger(data.total)||data.total<0||data.total>CATALOG_SOURCE_LIMIT||data.offset!==offset||data.key!=='routes'||!Array.isArray(data.items)||data.items.length>20||data.hasMore!==(offset+data.items.length<data.total))throw new Error('online catalog page invalid');
   remote=data;
  }catch{}
  let manifest:StaticManifest|undefined;try{manifest=await staticManifest(source);}catch{}
