@@ -30,9 +30,9 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  });
 }
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
- const first=await publicCatalogRequest('catalog-feed',{source,page:0,windowLimit:100000});
+ const first=await publicCatalogRequest('catalog-feed',{source,page:0,windowLimit:250000});
  if(!Array.isArray(first.items)||first.items.length>PAGE_SIZE||first.page!==0||!Number.isInteger(first.total)||first.total<0||!/^([a-f0-9]{64})$/.test(first.snapshot)||typeof first.key!=='string')throw new Error('catalog page invalid');
- if(first.total>100000)throw new Error('catalog exceeds safe read limit');
+ if(first.total>250000)throw new Error('catalog exceeds safe read limit');
  const pageCount=Math.ceil(first.total/PAGE_SIZE);
  if(first.hasMore!==(pageCount>1))throw new Error('catalog page state invalid');
  return {...first,items:first.items};

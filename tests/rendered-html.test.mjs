@@ -165,6 +165,18 @@ test("路线来源名称含占位标记时会提示复核但保留发现记录",
   assert.match(catalog, /highlights:\[\.\.\.discoveryNameReview\(r\.name\)/);
 });
 
+test("网页目录在线、离线与本机缓存上限一致覆盖全球来源快照", async () => {
+  const [live, offline, cache] = await Promise.all([
+    source("data/live-catalog.ts"),
+    source("data/static-catalog.ts"),
+    source("data/catalog-cache.ts"),
+  ]);
+  assert.match(live, /windowLimit:250000/);
+  assert.match(live, /first\.total>250000/);
+  assert.match(offline, /WINDOW_LIMIT=250000/);
+  assert.match(cache, /value\.routes\.length>250000/);
+});
+
 test("官方天气读取层存在且失败时不伪造实时天气", async () => {
   const [weatherRoute, page, routes] = await Promise.all([
     source("app/api/weather/route.ts"),
