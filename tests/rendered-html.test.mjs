@@ -154,6 +154,17 @@ test("数据来源闸门不会把演示素材当成正式发布数据", async ()
   assert.match(routes, /徒步地球原创几何示意/);
 });
 
+test("路线来源名称含占位标记时会提示复核但保留发现记录", async () => {
+  const [catalog, helper] = await Promise.all([
+    source("data/live-catalog.ts"),
+    source("../shared/data/discovery-tags.ts"),
+  ]);
+  assert.match(helper, /discoveryNameReview/);
+  assert.ok(helper.includes(String.raw`fix\s*me|todo|unknown|unnamed|no\s+name`));
+  assert.match(helper, /请核对原始路线记录/);
+  assert.match(catalog, /highlights:\[\.\.\.discoveryNameReview\(r\.name\)/);
+});
+
 test("官方天气读取层存在且失败时不伪造实时天气", async () => {
   const [weatherRoute, page, routes] = await Promise.all([
     source("app/api/weather/route.ts"),
