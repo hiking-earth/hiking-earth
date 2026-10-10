@@ -79,7 +79,7 @@ self.addEventListener("fetch", (event) => {
   // Route manifests are mutable pointers to immutable, content-addressed pages.
   // Always try the network first so a data-only catalog release is visible even
   // when the app shell itself has not changed; retain the last good manifest offline.
-  if (url.pathname.startsWith("/route-catalog/") && url.pathname.endsWith("/manifest.json")) {
+  if ((url.pathname.startsWith("/route-catalog/") && url.pathname.endsWith("/manifest.json")) || url.pathname === "/client-app/static/offline-maps/catalog.json") {
     const cacheKey = new Request(request.url, { method: "GET" });
     event.respondWith((async () => {
       try {
