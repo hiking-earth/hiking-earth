@@ -7,4 +7,11 @@
   --he-color-muted: #a7b5aa;
   --he-color-accent: #b8f36b;
   --he-color-border: #29323a;
+  --he-home-topbar-height: 66px;
+  --he-home-topbar-radius: 20px;
+  --he-home-brand-mark-size: 40px;
+  --he-home-panel-width: 374px;
+  --he-home-mobile-topbar-height: 58px;
+  --he-home-mobile-topbar-radius: 17px;
+  --he-home-mobile-brand-mark-size: 36px;
 }

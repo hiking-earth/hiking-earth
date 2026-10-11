@@ -32,9 +32,9 @@ button { color: inherit; }
 @keyframes globe-pulse { 0%,100% { transform: scale(.94); opacity: .7; } 50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 12px rgba(132,188,255,.8)); } }
 .glass { background: var(--panel); border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(0,0,0,.24); backdrop-filter: blur(12px) saturate(112%); }
 
-.topbar { position: absolute; z-index: 20; top: 18px; left: 20px; right: 20px; height: 66px; border-radius: 20px; display: flex; align-items: center; padding: 0 15px; gap: 20px; }
+.topbar { position: absolute; z-index: 20; top: 18px; left: 20px; right: 20px; height: var(--he-home-topbar-height, 66px); border-radius: var(--he-home-topbar-radius, 20px); display: flex; align-items: center; padding: 0 15px; gap: 20px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); min-width: 230px; }
-.brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 13px; color: #061006; background: var(--lime); box-shadow: 0 7px 25px rgba(184,243,107,.22); }
+.brand-mark { width: var(--he-home-brand-mark-size, 40px); height: var(--he-home-brand-mark-size, 40px); display: grid; place-items: center; border-radius: 13px; color: #061006; background: var(--lime); box-shadow: 0 7px 25px rgba(184,243,107,.22); }
 .brand b, .brand small { display: block; line-height: 1.15; }
 .brand b { font-size: 16px; letter-spacing: .04em; }
 .brand small { margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .16em; }
@@ -50,7 +50,7 @@ button { color: inherit; }
 .icon-button:disabled { cursor: wait; opacity: .8; }
 .primary-button { gap: 6px; padding: 0 14px; border-color: var(--lime); background: var(--lime); color: #061006; font-weight: 700; }
 
-.route-browser { position: absolute; z-index: 12; top: 102px; right: 20px; bottom: 20px; width: 374px; border-radius: 25px; padding: 23px 20px 18px; display: flex; flex-direction: column; transition: transform .38s ease, opacity .25s ease; }
+.route-browser { position: absolute; z-index: 12; top: 102px; right: 20px; bottom: 20px; width: var(--he-home-panel-width, 374px); border-radius: 25px; padding: 23px 20px 18px; display: flex; flex-direction: column; transition: transform .38s ease, opacity .25s ease; }
 .route-browser.closed { transform: translateX(calc(100% + 40px)); opacity: 0; }
 .browser-head { display: flex; justify-content: space-between; align-items: start; }
 .eyebrow { font-size: 10px; letter-spacing: .18em; color: var(--lime); }
@@ -349,9 +349,9 @@ button { color: inherit; }
 
 @media (max-width: 900px) {
   .map-loading { left: 50%; top: 50%; }
-  .topbar { top: max(10px, env(safe-area-inset-top)); left: max(10px, env(safe-area-inset-left)); right: max(10px, env(safe-area-inset-right)); height: 58px; border-radius: 17px; }
+  .topbar { top: max(10px, env(safe-area-inset-top)); left: max(10px, env(safe-area-inset-left)); right: max(10px, env(safe-area-inset-right)); height: var(--he-home-mobile-topbar-height, 58px); border-radius: var(--he-home-mobile-topbar-radius, 17px); }
   .brand { min-width: 0; }
-  .brand-mark { width: 36px; height: 36px; }
+  .brand-mark { width: var(--he-home-mobile-brand-mark-size, 36px); height: var(--he-home-mobile-brand-mark-size, 36px); }
   .brand small { display: none; }
   .layer-switch { margin-left: auto; }
   .layer-switch button { padding: 0 10px; }
