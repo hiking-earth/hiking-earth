@@ -6,8 +6,8 @@
   --muted: var(--he-color-muted);
   --lime: var(--he-color-accent);
   --warm: #ff9a62;
-  --panel: rgba(5, 12, 18, 0.84);
-  --line: rgba(255, 255, 255, 0.12);
+  --panel: var(--he-overlay);
+  --line: var(--he-overlay-border);
 }
 
 * { box-sizing: border-box; }

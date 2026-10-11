@@ -7,6 +7,8 @@
   --he-color-muted: #a7b5aa;
   --he-color-accent: #b8f36b;
   --he-color-border: #29323a;
+  --he-overlay: rgba(5, 12, 18, 0.84);
+  --he-overlay-border: rgba(255, 255, 255, 0.12);
   --he-home-topbar-height: 66px;
   --he-home-topbar-radius: 20px;
   --he-home-brand-mark-size: 40px;
