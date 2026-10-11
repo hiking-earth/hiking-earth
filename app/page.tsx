@@ -10,6 +10,7 @@ import { ROUTES, STATUS_COLORS, type HikingRoute, type OvernightStyle, type Pack
 import type { HubTab } from "@/components/ProjectHub";
 import {readWebCatalogCache,writeWebCatalogCache} from '@/data/catalog-cache';
 import {loadOfficialNotices,loadPublicRouteCatalog,searchPublicRoutes,publicCatalogCoverageSummary,publicCatalogHasSourceFailures,type OfficialNotice} from "@/data/live-catalog";
+import { weatherGearAdvice } from "@/data/weather-gear-advice";
 import {
   Backpack,
   Building2,
@@ -126,7 +127,7 @@ function maskCollection(route: HikingRoute) {
   };
 }
 
-function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: string) {
+function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: string, weather?: WeatherState["weather"]) {
   const month = departureDate ? Number(departureDate.split("-")[1]) : null;
   const routeText = `${route.name}${route.region}${route.difficulty}${route.summary}${route.archive.riskNotice}${route.scenery.join("")}`;
   const isWetSeason = month !== null && month >= 5 && month <= 9;
@@ -142,6 +143,8 @@ function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: stri
   if (needsCamp) ["适温睡袋", "帐篷与地钉", "隔潮垫", "营地照明"].forEach((item) => items.add(item));
   if (isWetSeason) ["冲锋衣裤", "防水袋", "备用干燥衣物"].forEach((item) => items.add(item));
   if (isColdSeason || isHighAltitude) ["保暖帽和手套", "保温层", "应急保温毯"].forEach((item) => items.add(item));
+  const forecastAdvice = weatherGearAdvice(weather);
+  forecastAdvice.items.forEach((item) => items.add(item));
 
   const notices = ["出发前再次核验开放状态、天气、预约和属地公告。", "把路线、返回时间和紧急联系人留给未同行人员。"];
   if (route.packStyle === "待核验" || route.overnight === "待核验" || route.surface === "待核验") notices.unshift("该路线的装备、住宿或路面资料尚未核验；以下为你选择负重方式后的通用清单，不是路线专属方案。");
@@ -149,6 +152,7 @@ function buildGearAdvice(route: HikingRoute, mode: GearMode, departureDate: stri
   if (isHighAltitude) notices.push("安排高海拔适应和撤退点；出现明显不适时停止上升并及时下撤。");
   if (isRemote) notices.push("未铺装或偏远路段不要单独出行；预留导航冗余、通信方案和返程时间。");
   if (/四川|云南|新疆|西藏|森林/.test(routeText)) notices.push("野生动物活动信息须向保护区核实；食物密封、保持距离，防熊喷雾等用品需遵守运输与属地规定。");
+  notices.push(...forecastAdvice.notices);
   if (route.status !== "开放中") notices.unshift(`当前路线状态为“${route.status}”，本清单不代表允许进入或可以成行。`);
 
   return { items: [...items], notices };
@@ -304,7 +308,8 @@ export default function Home() {
 
   const activeRoute = routes.find((route) => route.id === activeId) ?? routes[0];
   const activeSeason = SEASONS.find((item) => item.id === season) ?? SEASONS[2];
-  const gearAdvice = useMemo(() => buildGearAdvice(activeRoute, gearMode, departureDate), [activeRoute, departureDate, gearMode]);
+  const gearAdvice = useMemo(() => buildGearAdvice(activeRoute, gearMode, departureDate,
+    weatherState.status === "available" ? weatherState.weather : undefined), [activeRoute, departureDate, gearMode, weatherState]);
 
   useEffect(() => {
     let cancelled = false;
@@ -332,7 +337,8 @@ export default function Home() {
       }
     }
     void loadWeather();
-    return () => { cancelled = true; };
+    const refreshTimer = window.setInterval(() => { void loadWeather(); }, 30 * 60 * 1000);
+    return () => { cancelled = true; window.clearInterval(refreshTimer); };
   }, [activeRoute.id, activeRoute.weatherCityId, activeRoute.center[0], activeRoute.center[1]]);
 
   useEffect(() => {
@@ -968,7 +974,7 @@ export default function Home() {
           <article><h3><Backpack size={16} />建议装备清单</h3><ul>{gearAdvice.items.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="notice-list"><h3><CircleAlert size={16} />路线注意事项</h3><ul>{gearAdvice.notices.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
-        <p className="gear-footnote">当前由路线、季节、日期、路况和负重规则生成；页面天气预报与本清单分开展示，尚未自动纳入计算。论坛用户清单、语音与照片多模态也尚未接入。清单不能替代属地公告和专业领队判断。</p>
+        <p className="gear-footnote">当前由路线、季节、日期、路况、负重方式及可用的路线坐标天气预报生成；天气失效时不应用天气调整。坐标预报不能替代现场天气、属地预警或专业判断。论坛用户清单、语音与照片多模态尚未接入。</p>
       </section>}
 
       {hubOpen && (
