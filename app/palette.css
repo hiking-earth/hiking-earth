@@ -1,0 +1,10 @@
+/* Generated from shared/design/palette.json by scripts/sync-design-palette.mjs. */
+:root {
+  --he-color-background: #01030a;
+  --he-color-panel: #050c12;
+  --he-color-surface: #151f24;
+  --he-color-text: #f4f8f2;
+  --he-color-muted: #a7b5aa;
+  --he-color-accent: #b8f36b;
+  --he-color-border: #29323a;
+}
