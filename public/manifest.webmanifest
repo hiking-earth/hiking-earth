@@ -6,11 +6,19 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  "background_color": "#020806",
-  "theme_color": "#102015",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#01030a",
+  "theme_color": "#01030a",
   "lang": "zh-CN",
-  "categories": ["travel", "navigation", "lifestyle"],
+  "categories": [
+    "travel",
+    "navigation",
+    "lifestyle"
+  ],
   "orientation": "any",
   "icons": [
     {
