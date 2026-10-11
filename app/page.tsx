@@ -206,7 +206,7 @@ export default function Home() {
   const [overnightFilter, setOvernightFilter] = useState<"全部" | OvernightStyle>("全部");
   const [surfaceFilter, setSurfaceFilter] = useState<"全部" | SurfaceStyle>("全部");
   const [query, setQuery] = useState("");
-  const [searchSource,setSearchSource]=useState<'osm'|'usfs'|'hk'>('osm');
+  const [searchSource,setSearchSource]=useState<'osm'|'usfs'|'hk'|'nzdoc'>('osm');
   const [onlineSearchRows,setOnlineSearchRows]=useState<HikingRoute[]>([]);
   const [onlineSearchMessage,setOnlineSearchMessage]=useState('');
   const [onlineSearchLoading,setOnlineSearchLoading]=useState(false);
@@ -882,7 +882,7 @@ export default function Home() {
 
         <section className="online-catalog-search" aria-label="在线来源目录检索">
           <p>本机搜索覆盖已同步目录；在线检索覆盖当前来源快照。</p>
-          <label>来源 <select value={searchSource} onChange={event=>setSearchSource(event.target.value as 'osm'|'usfs'|'hk')}><option value="osm">OpenStreetMap</option><option value="usfs">美国国家森林</option><option value="hk">香港官方步道</option></select></label>
+          <label>来源 <select value={searchSource} onChange={event=>setSearchSource(event.target.value as 'osm'|'usfs'|'hk'|'nzdoc')}><option value="osm">OpenStreetMap</option><option value="usfs">美国国家森林</option><option value="hk">香港官方步道</option><option value="nzdoc">新西兰环保部官方步道</option></select></label>
           <button disabled={onlineSearchLoading} onClick={()=>void onlineSearch()}>{onlineSearchLoading?'检索中…':'在线检索全部来源记录'}</button>
           <p role="status">{onlineSearchMessage}</p>
           {onlineSearchRows.map(route=><button key={route.id} onClick={()=>openOnlineRoute(route)}>{route.name} · {route.region} · 待核验</button>)}
