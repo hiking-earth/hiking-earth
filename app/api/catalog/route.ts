@@ -2,7 +2,7 @@ import {CATALOG_PAGE_SIZE,CATALOG_SOURCE_LIMIT} from '../../../data/catalog-limi
 import { NextResponse } from 'next/server';
 export const dynamic='force-dynamic';
 const api=process.env.HIKING_CLIENT_API_URL||'https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api';
-const sources=['osm','usfs','hk','nzdoc','news'] as const;
+const sources=['osm','usfs','hk','nzdoc','parkscanada','news'] as const;
 function validSource(value:string|null):value is typeof sources[number]{return sources.includes(value as any);}
 export async function GET(request:Request){
  const url=new URL(request.url),source=url.searchParams.get('source'),page=Number(url.searchParams.get('page')||0),snapshot=url.searchParams.get('snapshot');

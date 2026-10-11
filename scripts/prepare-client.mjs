@@ -22,6 +22,7 @@ const catalogFiles = {
   usfs: ['shared/data/catalog/usfs.json', 'routes'],
   hk: ['shared/data/catalog/hk-afcd.json', 'routes'],
   nzdoc: ['shared/data/catalog/nzdoc.json', 'routes'],
+  parkscanada: ['shared/data/catalog/canada-parks.json', 'routes'],
   news: ['shared/data/content/official-news.json', 'items'],
 };
 function verifyPinnedCatalog(sourceName, sourceFolder, manifest) {
@@ -68,7 +69,7 @@ rmSync(catalogStage,{recursive:true,force:true});
 if(existsSync(catalogBackup))throw new Error('A previous route catalog promotion needs recovery before packaging');
 mkdirSync(catalogStage,{recursive:true});
 try{
- for(const sourceName of ['osm','usfs','hk','nzdoc','news']){
+ for(const sourceName of ['osm','usfs','hk','nzdoc','parkscanada','news']){
   const sourceFolder=path.join(catalogSource,sourceName),manifestPath=path.join(sourceFolder,'manifest.json');
   if(!existsSync(manifestPath))throw new Error(`Public ${sourceName} catalog manifest missing; update the pinned client source before website packaging`);
   const manifest=JSON.parse(readFileSync(manifestPath,'utf8'));

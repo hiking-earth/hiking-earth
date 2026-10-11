@@ -4,7 +4,7 @@ import {ROUTES as bundled,type HikingRoute} from './routes';
 import {loadStaticPages,searchStatic,staticManifest,type StaticManifest} from './static-catalog';
 import {discoveryNameReview,discoveryTagHighlights,discoveryTagValue} from './discovery-tags';
 export type OfficialNotice={id:string;title:string;url:string;region:string;sourceLabel:string;sourceUrl:string;publishedAt:string|null;fetchedAt:string;center:[number,number]};
-const sources=['osm','usfs','hk','nzdoc'] as const;
+const sources=['osm','usfs','hk','nzdoc','parkscanada'] as const;
 const PAGE_SIZE=CATALOG_PAGE_SIZE;
 function jsonObject(value:unknown):Record<string,any>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('invalid JSON object');return value as Record<string,any>;}
 async function publicCatalogRequest(action:'catalog-feed'|'route-manage',data:Record<string,unknown>,timeout=15000):Promise<Record<string,any>>{
@@ -27,8 +27,8 @@ function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>{
   const restrictionValue=source==='usfs'&&typeof r.sourceTags?.hikingRestricted==='string'?r.sourceTags.hikingRestricted.trim():'';
   const restrictionNotice=restrictionValue?` USDA Forest Service源字段“徒步限制”原值（去除首尾空格）：${restrictionValue}；含义和适用日期需查属地官方资料。`:'';
-  const nzdoc=source==='nzdoc';
-  return {id:r.id,name:r.name,region:regions[r.region]||r.region||'未注明区域',status:'待核验',center:r.center,path:(source==='hk'||nzdoc)&&r.referencePaths?.length===1?r.referencePaths[0]:[],distance:Number.isFinite(r.sourceTags?.distanceKm)?`${r.sourceTags.distanceKm.toFixed(1)} km${nzdoc?'（DOC来源值，待核验）':''}`:r.sourceTags?.distance?`${r.sourceTags.distance}（来源原值，单位待核验）`:'待核验',ascent:'待核验',duration:nzdoc&&typeof r.sourceTags?.estimatedTime==='string'?`${r.sourceTags.estimatedTime}（DOC来源值，待核验）`:'待核验',difficulty:nzdoc?discoveryTagValue(r.sourceTags,'difficulty','DOC新西兰'):'待核验',bestSeason:'待核验',bestSeasons:[],packStyle:'待核验',overnight:'待核验',surface:'待核验',trackMode:(source==='hk'||nzdoc)&&r.referencePaths?.length===1?'认知示意':'不展示轨迹',scenery:[],summary:nzdoc?'DOC提供的近似步道中心线参考资料；出行前请核验DOC的当前公告。':'自动采集的徒步路线发现档案；装备、住宿、路况与开放许可尚未核验。',image:'/static/original-mountain-reference.png',imageCredit:'徒步地球原创几何示意 · 非路线实景',archive:{source:{label:attribution,url:r.sourceTags?.officialUrl||r.sourceUrl},checkedAt:`采集 ${r.fetchedAt}；开放状态未核验`,highlights:[...discoveryNameReview(r.name),...discoveryTagHighlights(r.sourceTags,attribution)],riskNotice:`地图收录不代表允许通行；来源标签为贡献者原始标注，不代表官方开放、安全或路线许可；装备、住宿和路况尚未核验；本档案不提供导航。${nzdoc?'DOC将几何描述为近似中心线，并要求出行前向当地办公室或官网核实关闭状态。':''}${restrictionNotice}`}};
+  const nzdoc=source==='nzdoc',parkscanada=source==='parkscanada';
+  return {id:r.id,name:r.name,region:regions[r.region]||r.region||'未注明区域',status:'待核验',center:r.center,path:(source==='hk'||nzdoc||parkscanada)&&r.referencePaths?.length===1?r.referencePaths[0]:[],distance:Number.isFinite(r.sourceTags?.distanceKm)?`${r.sourceTags.distanceKm.toFixed(1)} km${nzdoc?'（DOC来源值，待核验）':parkscanada?'（Parks Canada来源值，待核验）':''}`:r.sourceTags?.distance?`${r.sourceTags.distance}（来源原值，单位待核验）`:'待核验',ascent:'待核验',duration:nzdoc&&typeof r.sourceTags?.estimatedTime==='string'?`${r.sourceTags.estimatedTime}（DOC来源值，待核验）`:'待核验',difficulty:nzdoc?discoveryTagValue(r.sourceTags,'difficulty','DOC新西兰'):'待核验',bestSeason:'待核验',bestSeasons:[],packStyle:'待核验',overnight:'待核验',surface:'待核验',trackMode:(source==='hk'||nzdoc||parkscanada)&&r.referencePaths?.length===1?'认知示意':'不展示轨迹',scenery:[],summary:nzdoc?'DOC提供的近似步道中心线参考资料；出行前请核验DOC的当前公告。':parkscanada?'Parks Canada的步道发现档案，官方说明数据覆盖可能不完整；出行前请查看属地公告，线条仅供参考。':'自动采集的徒步路线发现档案；装备、住宿、路况与开放许可尚未核验。',image:'/static/original-mountain-reference.png',imageCredit:'徒步地球原创几何示意 · 非路线实景',archive:{source:{label:attribution,url:r.sourceTags?.officialUrl||r.sourceTags?.officialUrlEn||r.sourceTags?.officialUrlFr||r.sourceUrl},checkedAt:`采集 ${r.fetchedAt}；开放状态未核验`,highlights:[...discoveryNameReview(r.name),...discoveryTagHighlights(r.sourceTags,attribution)],riskNotice:`地图收录不代表允许通行；来源标签为贡献者原始标注，不代表官方开放、安全或路线许可；装备、住宿和路况尚未核验；本档案不提供导航。${nzdoc?'DOC将几何描述为近似中心线，并要求出行前向当地办公室或官网核实关闭状态。':''}${parkscanada?'加拿大官方数据说明路线目录可能不完整；请出行前查看当地Parks Canada公告。':''}${restrictionNotice}`}};
  });
 }
 async function apiFirstPage(source:string):Promise<Record<string,any> & {items:any[]}>{
@@ -49,7 +49,7 @@ async function apiPages(source:string,first:Record<string,any> & {items:any[]}):
  if(items.length!==first.total)throw new Error('catalog incomplete');return {...first,items};
 }
 function generatedAt(value:any){const time=Date.parse(value?.metadata?.generatedAt||'');return Number.isFinite(time)?time:-Infinity;}
-async function pages(source:'osm'|'usfs'|'hk'|'nzdoc'|'news'){
+async function pages(source:'osm'|'usfs'|'hk'|'nzdoc'|'parkscanada'|'news'){
  const [apiResult,staticResult]=await Promise.allSettled([apiFirstPage(source),staticManifest(source)]);
  if(apiResult.status==='rejected'&&staticResult.status==='rejected')throw apiResult.reason;
  if(apiResult.status==='rejected'&&staticResult.status==='fulfilled')return loadStaticPages(source,staticResult.value);
@@ -94,11 +94,11 @@ export async function loadPublicRouteCatalog(previousRoutes:HikingRoute[]=[]):Pr
  if(!snapshots.length)throw new Error('all route catalogs unavailable');
  let reviewRows:any[]=[];let reviewsAvailable=true;
  try{reviewRows=await allReviews();}catch{reviewsAvailable=false;}
- const defaultAttribution:Record<typeof sources[number],string>={osm:'© OpenStreetMap contributors · ODbL-1.0',usfs:'USDA Forest Service',hk:'DATA.GOV.HK-terms-1.2',nzdoc:`Crown Copyright: Department of Conservation Te Papa Atawhai ${new Date().getUTCFullYear()} · CC BY 3.0 NZ`};
+ const defaultAttribution:Record<typeof sources[number],string>={osm:'© OpenStreetMap contributors · ODbL-1.0',usfs:'USDA Forest Service',hk:'DATA.GOV.HK-terms-1.2',nzdoc:`Crown Copyright: Department of Conservation Te Papa Atawhai ${new Date().getUTCFullYear()} · CC BY 3.0 NZ`,parkscanada:'Contains information licensed under the Open Government Licence – Canada. Source: Parks Canada (Trails APCA).'};
  const updated=snapshots.flatMap(({source,snapshot})=>discover(snapshot.items,source,snapshot.metadata?.attribution||defaultAttribution[source]));
  const originals=new Map(bundled.map(r=>[r.id,r]));const byId=new Map<string,HikingRoute>();for(const route of updated)if(!byId.has(route.id))byId.set(route.id,route);
- const prefixes:Record<typeof sources[number],string>={osm:'osm-relation-',usfs:'usfs-',hk:'hk-afcd-',nzdoc:'nzdoc-'};
- const unavailableCounts:Record<typeof sources[number],number>={osm:0,usfs:0,hk:0,nzdoc:0};
+ const prefixes:Record<typeof sources[number],string>={osm:'osm-relation-',usfs:'usfs-',hk:'hk-afcd-',nzdoc:'nzdoc-',parkscanada:'parkscanada-'};
+ const unavailableCounts:Record<typeof sources[number],number>={osm:0,usfs:0,hk:0,nzdoc:0,parkscanada:0};
  for(const source of unavailable){
   for(const route of previousRoutes){
    if(!route.id.startsWith(prefixes[source])||originals.has(route.id)||byId.has(route.id))continue;
@@ -110,7 +110,7 @@ export async function loadPublicRouteCatalog(previousRoutes:HikingRoute[]=[]):Pr
   }
  }
  for(const raw of reviewRows){if(!byId.has(raw.routeId)&&!originals.has(raw.routeId))continue;const original=originals.get(raw.routeId);if(original?.status==='永久关闭')continue;const route=byId.get(raw.routeId)||{...original!};route.status=raw.status==='开放中'&&raw.expiresAt<=Date.now()?'待核验':raw.status;route.openingExpiresAt=raw.expiresAt;route.summary=raw.summary;route.archive={...route.archive,source:{label:'官方资料人工核验',url:raw.sourceUrl},checkedAt:raw.checkedAt,riskNotice:raw.riskNotice};const track=raw.track;if(route.status==='开放中'&&raw.expiresAt>Date.now()&&track&&validReviewTrack(track)){route.path=track.path;route.trackMode='已核验轨迹';route.archive.riskNotice+=`\n轨迹许可：${track.license}；来源：${track.sourceUrl}`;}byId.set(route.id,route);}
- const sourceNames:Record<typeof sources[number],string>={osm:'OSM',usfs:'美国国家森林',hk:'香港官方步道',nzdoc:'新西兰环保部官方步道'};
+ const sourceNames:Record<typeof sources[number],string>={osm:'OSM',usfs:'美国国家森林',hk:'香港官方步道',nzdoc:'新西兰环保部官方步道',parkscanada:'加拿大公园管理局'};
  const summary=sources.map(source=>{
   const snapshot=snapshots.find(item=>item.source===source)?.snapshot;
   if(!snapshot)return `${sourceNames[source]}：来源暂不可用，沿用${unavailableCounts[source]}条本机档案并降为待核验`;
@@ -135,7 +135,7 @@ export async function loadOfficialNotices():Promise<{items:OfficialNotice[];gene
  return {items,generatedAt:snapshot.metadata.generatedAt};
 }
 
-export async function searchPublicRoutes(source:'osm'|'usfs'|'hk'|'nzdoc',query:string,offset=0,snapshot?:string):Promise<{routes:HikingRoute[];total:number;offset:number;snapshot:string;hasMore:boolean}>{
+export async function searchPublicRoutes(source:'osm'|'usfs'|'hk'|'nzdoc'|'parkscanada',query:string,offset=0,snapshot?:string):Promise<{routes:HikingRoute[];total:number;offset:number;snapshot:string;hasMore:boolean}>{
  if(query.trim().length<2||query.length>100||!Number.isInteger(offset)||offset<0||offset>CATALOG_SOURCE_LIMIT)throw new Error('搜索词或分页位置无效');
  let remote:Record<string,any>|undefined;
  try{
