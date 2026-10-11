@@ -21,7 +21,7 @@ export function publicCatalogCoverageSummary(){return coverageSummary;}
 let coverageHasSourceFailures=false;
 export function publicCatalogHasSourceFailures(){return coverageHasSourceFailures;}
 const key=(r:HikingRoute)=>`${r.name.normalize('NFKC').toLowerCase().replace(/[\s·—_-]/g,'')}:${r.center.map(v=>v.toFixed(1)).join(',')}`;
-const regions:Record<string,string>={china:'中国检索区域','hong-kong':'香港',macao:'澳门',europe:'欧洲','north-america':'北美',japan:'日本及周边检索区域',oceania:'大洋洲','south-america':'南美',africa:'非洲','south-asia':'南亚'};
+const regions:Record<string,string>={china:'中国检索区域','hong-kong':'香港',macao:'澳门',europe:'欧洲','north-america':'北美',japan:'日本及周边检索区域',oceania:'大洋洲','south-america':'南美',africa:'非洲','south-asia':'南亚',asia:'亚洲'};
 function discover(raw:any,source:string,attribution:string):HikingRoute[]{
  if(!Array.isArray(raw)||raw.length>CATALOG_SOURCE_LIMIT)throw new Error('catalog size invalid');
  return raw.filter((r:any)=>r&&typeof r.id==='string'&&typeof r.name==='string'&&Array.isArray(r.center)&&r.center.length===2&&r.center.every(Number.isFinite)&&Math.abs(r.center[0])<=180&&Math.abs(r.center[1])<=90).map((r:any)=>{
