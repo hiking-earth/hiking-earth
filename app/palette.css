@@ -1,5 +1,5 @@
 /* Generated from shared/design/palette.json by scripts/sync-design-palette.mjs. */
-:root {
+:root, page {
   --he-color-background: #01030a;
   --he-color-panel: #050c12;
   --he-color-surface: #151f24;
