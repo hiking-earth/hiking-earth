@@ -968,7 +968,7 @@ export default function Home() {
           <article><h3><Backpack size={16} />建议装备清单</h3><ul>{gearAdvice.items.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="notice-list"><h3><CircleAlert size={16} />路线注意事项</h3><ul>{gearAdvice.notices.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
-        <p className="gear-footnote">当前由路线、季节、日期、路况和负重规则生成；论坛用户清单、实时天气、语音与照片多模态将在后续接入。清单不能替代属地公告和专业领队判断。</p>
+        <p className="gear-footnote">当前由路线、季节、日期、路况和负重规则生成；页面天气预报与本清单分开展示，尚未自动纳入计算。论坛用户清单、语音与照片多模态也尚未接入。清单不能替代属地公告和专业领队判断。</p>
       </section>}
 
       {hubOpen && (
