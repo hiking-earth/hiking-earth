@@ -1,12 +1,13 @@
 # 徒步地球 Hiking Earth
 
-一个以可旋转 3D 卫星地球为入口的徒步路线发现与行前决策网页。它聚合路线档案、季节与地形观察、风险提示、装备建议和本地优先的约伴/足迹原型；首批收录 20 条中国徒步路线。
+一个以可旋转 3D 卫星地球为入口的徒步路线发现与行前决策网页。它聚合路线档案、季节与地形观察、风险提示、装备建议和本地优先的约伴/足迹原型；包含人工维护的中国种子路线，并持续从 OSM、美国国家森林和香港 AFCD 来源加载发现档案。
 
 > 当前为公开候选版，不是导航工具，也不构成通行许可或安全建议。出发前请以属地管理方、景区和气象部门的最新公告为准。
 
 ## 在线体验
 
-- 海外体验站：[hiking-earth.hiking-earth.workers.dev](https://hiking-earth.hiking-earth.workers.dev/)
+- 主站（Cloudflare Workers）：[hiking-earth.hiking-earth.workers.dev](https://hiking-earth.hiking-earth.workers.dev/)
+- 备用站（ChatGPT Sites）：[hiking-earth.nanyu20050927.chatgpt.site](https://hiking-earth.nanyu20050927.chatgpt.site/)
 - 源码仓库：[hiking-earth/hiking-earth](https://github.com/hiking-earth/hiking-earth)
 
 中国大陆正式入口仍在准备中：需完成自有域名、备案与国内地图资源替换后再对外提供。
@@ -15,7 +16,7 @@
 
 - 完整 3D 卫星地球、路线锚点、路线详情与地图聚焦。
 - 路线状态、季节、负重、夜宿、路面与关键词筛选。
-- 20 条首批路线档案；高风险或不开放路线不会展示精确轨迹。
+- 人工维护的中国种子档案，以及在线/API和静态快照提供的 OSM、美国国家森林与香港官方路线发现目录；自动发现不等于开放核验，未获授权或待核验的路线不会显示为可导航轨迹。
 - 近景按需开启立体地形和 NASA 季相影像，避免首屏不必要的地图加载。
 - 装备建议、天气读取降级提示、风险提醒、PWA 离线壳与移动端安全区适配。
 - 本地优先的推荐、约伴、留言、日记足迹与管理台原型。
@@ -30,10 +31,10 @@
 
 ## 本地开发
 
-需要 Node.js 22.13 或更高版本。
+项目统一使用 Node.js 22；仓库根目录的 `.nvmrc` 同时供本地 nvm 与 CI 读取。首次安装可运行 `nvm install && nvm use`。
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -48,7 +49,7 @@ npm test
 
 ## 发布流程
 
-`main` 是发布分支。推送到 GitHub 后由 Cloudflare Workers 构建部署；生产部署配置位于构建产物 `dist/server/wrangler.json`。
+Cloudflare Workers 是主站运行环境，GitHub 仓库保存源码和 CI 证据；当前仓库没有自动部署工作流，需在发布候选通过检查后手动部署。生产部署配置位于构建产物 `dist/server/wrangler.json`。
 
 ```bash
 npm run build
@@ -58,7 +59,7 @@ npx wrangler deploy --config wrangler.json
 
 ## 数据与使用边界
 
-项目当前使用或参考 Esri 卫星影像、OpenFreeMap/OpenMapTiles/OSM、NASA Earthdata GIBS、Mapzen/AWS 高程、Unsplash 演示图片及中国天气网公开实况。各来源、当前可用范围和正式发布阻断项见：[数据来源页](https://hiking-earth.hiking-earth.workers.dev/sources)。
+网页默认矢量底图使用 OpenFreeMap/OpenMapTiles 和 OpenStreetMap 数据；用户主动切换时可查看 NASA 历史季相影像，地形使用 Mapzen/AWS 开放高程资料。Esri World Imagery 已从默认地图移除。各来源、署名和当前可用范围见：[数据来源页](https://hiking-earth.hiking-earth.workers.dev/sources)。
 
 路线开放状态、预约、天气和高风险信息必须由用户在出发前向官方再次核实。未完成授权或核验的数据不得作为导航、救援、商业运营或安全决策依据。
 

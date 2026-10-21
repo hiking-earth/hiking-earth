@@ -12,13 +12,21 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npm test
+      - run: npm run build
+      - name: Check shared green and PWA theme colors
+        run: node scripts/check-brand-palette.mjs
+      - run: node --test tests/rendered-html.test.mjs
+      - run: node --test tests/catalog-source-mapping.test.mjs
+      - run: node --test tests/live-catalog-validation.test.mjs
+      - run: node --test tests/offline-map-page.test.mjs
+      - run: node --test tests/offline-map-privacy-disclosure.test.mjs
+      - run: node --test tests/scenic-image-display.test.mjs

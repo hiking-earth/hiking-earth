@@ -1,10 +1,12 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import clientHtml from "../public/client-app/index.html?raw";
 
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
+  CLIENT_API_ORIGIN?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -40,22 +42,33 @@ const worker = {
       }, allowedWidths);
     }
 
-    const response = await handler.fetch(request, env, ctx);
+    const clientAsset = url.pathname.startsWith('/client-app/');
+    const catalogAsset = url.pathname.startsWith('/route-catalog/');
+    const clientPage = url.pathname === '/client';
+    const response = (clientAsset||catalogAsset) && env?.ASSETS ? await env.ASSETS.fetch(request) : clientAsset && url.pathname === '/client-app/index.html' ? new Response(clientHtml, {headers:{'content-type':'text/html; charset=utf-8'}}) : await handler.fetch(request, env, ctx);
+    let clientApiOrigin = '';
+    try { const endpoint = new URL(env?.CLIENT_API_ORIGIN || 'https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com'); if (endpoint.protocol === 'https:') clientApiOrigin = endpoint.origin; } catch { /* Invalid optional origin safely leaves the relay unavailable. */ }
     const headers = new Headers(response.headers);
+    if (url.pathname.startsWith('/client-app/static/offline-maps/')) {
+      headers.set('Access-Control-Allow-Origin', '*');
+      headers.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+      headers.set('Access-Control-Expose-Headers', 'Content-Length');
+    }
     headers.set("X-Content-Type-Options", "nosniff");
-    headers.set("X-Frame-Options", "DENY");
+    headers.set("X-Frame-Options", clientAsset ? "SAMEORIGIN" : "DENY");
     headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-    headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(self)");
+    headers.set("Permissions-Policy", `${clientAsset || clientPage ? "camera=(self)" : "camera=()"}, microphone=(), geolocation=(self)`);
     const contentSecurityPolicy = [
       "default-src 'self'",
       "base-uri 'self'",
       "form-action 'self'",
-      "frame-ancestors 'none'",
+      clientAsset ? "frame-ancestors 'self'" : "frame-ancestors 'none'",
+      "frame-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://images.unsplash.com https://server.arcgisonline.com https://gibs.earthdata.nasa.gov",
+      "img-src 'self' data: blob: https://images.unsplash.com https://tiles.openfreemap.org https://gibs.earthdata.nasa.gov",
       "font-src 'self' data: https://tiles.openfreemap.org",
-      "connect-src 'self' https://server.arcgisonline.com https://tiles.openfreemap.org https://www.weather.com.cn https://gibs.earthdata.nasa.gov",
+      `connect-src 'self' https://tiles.openfreemap.org https://www.weather.com.cn https://raw.githubusercontent.com https://gibs.earthdata.nasa.gov ${clientApiOrigin}`,
       "worker-src 'self' blob:",
       "object-src 'none'",
     ];

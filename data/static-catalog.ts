@@ -1,0 +1,81 @@
+import {CATALOG_PAGE_SIZE,CATALOG_SOURCE_LIMIT} from './catalog-limits';
+import type {PublicRouteSource} from './catalog-sources';
+type Source=PublicRouteSource|'news';
+const PAGE_SIZE=CATALOG_PAGE_SIZE,WINDOW_LIMIT=CATALOG_SOURCE_LIMIT,MAX_RECORDS=CATALOG_SOURCE_LIMIT;
+const HEX=/^[a-f0-9]{64}$/;
+type SearchIndexRow=[name:string,region:string,page:number,offset:number];
+export type StaticManifest={schemaVersion:1;snapshot:string;key:'routes'|'items';total:number;pageSize:400;pages:string[];indexHash:string;metadata:Record<string,unknown>};
+export type StaticPage={snapshot:string;key:string;metadata:Record<string,unknown>;total:number;page:number;hasMore:boolean;items:unknown[];deliverySource:'website-package'};
+
+function object(value:unknown):Record<string,unknown>{if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('catalog metadata invalid');return value as Record<string,unknown>;}
+function isSearchIndexRow(value:unknown):value is SearchIndexRow{return Array.isArray(value)&&value.length===4&&typeof value[0]==='string'&&typeof value[1]==='string'&&Number.isInteger(value[2])&&(value[2] as number)>=0&&(value[2] as number)<MAX_RECORDS&&Number.isInteger(value[3])&&(value[3] as number)>=0&&(value[3] as number)<PAGE_SIZE;}
+async function responseBytes(response:Response,limit:number):Promise<Uint8Array>{
+ if(!response.ok||!response.body)throw new Error('static catalog unavailable');
+ const reader=response.body.getReader(),chunks:Uint8Array[]=[];let length=0;
+ try{for(;;){const {done,value}=await reader.read();if(done)break;length+=value.byteLength;if(length>limit){await reader.cancel();throw new Error('static catalog exceeds byte budget');}chunks.push(value);}}
+ finally{reader.releaseLock();}
+ const bytes=new Uint8Array(length);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}return bytes;
+}
+function join(chunks:Uint8Array[],length:number):Uint8Array{const bytes=new Uint8Array(length);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}return bytes;}
+async function streamBytes(stream:ReadableStream<Uint8Array>,limit:number):Promise<Uint8Array>{
+ const reader=stream.getReader(),chunks:Uint8Array[]=[];let length=0;
+ try{for(;;){const {done,value}=await reader.read();if(done)break;length+=value.byteLength;if(length>limit){await reader.cancel();throw new Error('decompressed catalog exceeds byte budget');}chunks.push(value);}}
+ finally{reader.releaseLock();}
+ return join(chunks,length);
+}
+function isGzip(bytes:Uint8Array){return bytes.length>2&&bytes[0]===0x1f&&bytes[1]===0x8b;}
+async function unpack(bytes:Uint8Array,limit:number){
+ if(!isGzip(bytes))return bytes;
+ if(typeof DecompressionStream==='undefined')throw new Error('This browser cannot read the compressed route catalog');
+ return streamBytes(new Response(new Uint8Array(bytes).buffer).body!.pipeThrough(new DecompressionStream('gzip')),limit);
+}
+async function sha256(bytes:Uint8Array){const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',new Uint8Array(bytes).buffer));return [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');}
+function validateManifest(value:unknown,source:Source):StaticManifest{
+ const data=object(value),key=source==='news'?'items':'routes';
+ if(data.schemaVersion!==1||data.key!==key||data.pageSize!==PAGE_SIZE||typeof data.snapshot!=='string'||!HEX.test(data.snapshot)||!Number.isInteger(data.total)||(data.total as number)<0||(data.total as number)>MAX_RECORDS||!Array.isArray(data.pages)||data.pages.length!==Math.max(1,Math.ceil((data.total as number)/PAGE_SIZE))||!data.pages.every((hash:unknown)=>typeof hash==='string'&&HEX.test(hash))||typeof data.indexHash!=='string'||!HEX.test(data.indexHash)||!data.metadata||typeof data.metadata!=='object'||Array.isArray(data.metadata))throw new Error('static catalog manifest invalid');
+ const metadata=data.metadata as Record<string,unknown>;
+ if(metadata.schemaVersion!==1||typeof metadata.generatedAt!=='string'||!Number.isFinite(Date.parse(metadata.generatedAt)))throw new Error('static catalog manifest metadata invalid');
+ return data as unknown as StaticManifest;
+}
+export async function staticManifest(source:Source):Promise<StaticManifest>{
+ const response=await fetch(`/route-catalog/${source}/manifest.json`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
+ return validateManifest(await response.json(),source);
+}
+async function page(manifest:StaticManifest,source:Source,pageNumber:number):Promise<unknown[]>{
+ const path=`/route-catalog/${source}/${manifest.snapshot}/page-${String(pageNumber).padStart(5,'0')}.bin`;
+ const response=await fetch(path,{cache:'force-cache',signal:AbortSignal.timeout(20000)}),compressed=await responseBytes(response,2*1024*1024);
+ const payload=await unpack(compressed,4*1024*1024);
+ if(await sha256(payload)!==manifest.pages[pageNumber])throw new Error('static catalog page hash mismatch');
+ const rows:unknown=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(payload));
+ const expected=Math.max(0,Math.min(PAGE_SIZE,manifest.total-pageNumber*PAGE_SIZE));
+ if(!Array.isArray(rows)||rows.length!==expected)throw new Error('static catalog page length mismatch');
+ return rows;
+}
+async function pages(manifest:StaticManifest,source:Source,count:number):Promise<unknown[]>{
+ const all:unknown[]=[],pageCount=Math.max(1,Math.ceil(count/PAGE_SIZE));
+ for(let start=0;start<pageCount;start+=8){
+  const numbers=Array.from({length:Math.min(8,pageCount-start)},(_,index)=>start+index);
+  const batches=await Promise.all(numbers.map(number=>page(manifest,source,number)));
+  for(const rows of batches)all.push(...rows);
+ }
+ if(all.length!==count)throw new Error('static catalog incomplete');return all;
+}
+export async function loadStaticPages(source:Source,knownManifest?:StaticManifest):Promise<StaticPage>{
+ const manifest=knownManifest||await staticManifest(source),total=Math.min(manifest.total,WINDOW_LIMIT),items=await pages(manifest,source,total);
+ return {snapshot:manifest.snapshot,key:manifest.key,metadata:{...manifest.metadata,sourceTotal:manifest.total,loadedTotal:total,complete:total===manifest.total},total,page:0,hasMore:total>PAGE_SIZE,items,deliverySource:'website-package'};
+}
+export async function searchStatic(source:Exclude<Source,'news'>,query:string,offset:number,expectedSnapshot?:string):Promise<{snapshot:string;key:string;metadata:Record<string,unknown>;items:unknown[];total:number;offset:number;hasMore:boolean}>{
+ const manifest=await staticManifest(source);if(expectedSnapshot&&expectedSnapshot!==manifest.snapshot)throw new Error('static catalog changed during search');
+ const indexResponse=await fetch(`/route-catalog/${source}/${manifest.snapshot}/index.bin`,{cache:'force-cache',signal:AbortSignal.timeout(30000)}),packed=await responseBytes(indexResponse,8*1024*1024),payload=await unpack(packed,32*1024*1024);
+ if(await sha256(payload)!==manifest.indexHash)throw new Error('static catalog index hash mismatch');
+ const decodedIndex:unknown=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(payload));
+ if(!Array.isArray(decodedIndex)||decodedIndex.length!==manifest.total||!decodedIndex.every(isSearchIndexRow))throw new Error('static catalog index invalid');
+ const index=decodedIndex as SearchIndexRow[];
+ if(index.some(row=>row[2]>=manifest.pages.length))throw new Error('static catalog index page invalid');
+ const terms=query.normalize('NFKC').toLowerCase().trim().split(/\s+/),matches:SearchIndexRow[]=[];let total=0;
+ for(const row of index){const text=(row[0]+' '+row[1]).normalize('NFKC').toLowerCase();if(terms.every(term=>text.includes(term))){if(total>=offset&&matches.length<20)matches.push(row);total++;}}
+ const needed=[...new Set(matches.map(row=>row[2]))],loaded=new Map<number,unknown[]>();
+ for(let start=0;start<needed.length;start+=4){const batch=needed.slice(start,start+4),rows=await Promise.all(batch.map(number=>page(manifest,source,number)));for(let index=0;index<batch.length;index++)loaded.set(batch[index],rows[index]);}
+ const items=matches.map(row=>{const records=loaded.get(row[2]);if(!records||row[3]>=records.length)throw new Error('static catalog index points outside its page');return records[row[3]];});
+ return {snapshot:manifest.snapshot,key:manifest.key,metadata:manifest.metadata,items,total,offset,hasMore:offset+items.length<total};
+}
