@@ -1,0 +1,29 @@
+name: Build website candidate without deployment
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: web-candidate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Compile and archive immutable website candidate only
+        run: node scripts/build-web-candidate.mjs "$RUNNER_TEMP/web-candidate"
+      - name: Preserve candidate or failure source record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-candidate-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/web-candidate/
+          if-no-files-found: warn
+          retention-days: 14
