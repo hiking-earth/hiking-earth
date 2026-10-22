@@ -3,6 +3,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { HE_PALETTE } from "./palette";
+import { readClientAuthMessage } from "@/data/client-auth-message";
 import Image from "next/image";
 import { RegionPhoto } from "@/components/RegionPhoto";
 import type { ExpressionSpecification, GeoJSONSource, Map as MapLibreMap, Marker, StyleSpecification } from "maplibre-gl";
@@ -257,7 +258,7 @@ function maskCollection(route: HikingRoute) {
   };
 }
 
-export default function Home() {
+function HomeContent() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const [routes,setRoutes]=useState(ROUTES);
   const currentRoutesRef=useRef(routes);
@@ -1221,6 +1222,37 @@ export default function Home() {
         <a href="/offline-map" aria-label="离线地图"><Download size={17} />地图</a>
         <a href="/download" aria-label="多端下载"><Download size={17} />下载</a>
       </nav>
+    </main>
+  );
+}
+
+export default function Home() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const frame = useRef<HTMLIFrameElement | null>(null);
+
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      const authenticated = readClientAuthMessage(event, frame.current);
+      if (authenticated !== null) setAuthenticated(authenticated);
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
+
+  if (authenticated) return <HomeContent />;
+  return (
+    <main className="hiking-earth-auth-gate" style={{ minHeight: '100dvh', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(320px,460px)', background: 'var(--he-color-background)', color: 'var(--he-color-text)' }}>
+      <section style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(28px,7vw,100px)', background: 'radial-gradient(circle at 70% 45%, var(--he-color-map-wood) 0, var(--he-color-panel) 38%, var(--he-color-background) 76%)' }}>
+        <span style={{ color: 'var(--he-color-accent)', letterSpacing: '.18em', fontSize: 13 }}>HIKING EARTH</span>
+        <h1 style={{ maxWidth: 680, margin: '22px 0 12px', fontSize: 'clamp(36px,6vw,76px)', lineHeight: 1.08 }}>先登录，再出发</h1>
+        <p style={{ maxWidth: 600, color: 'var(--he-color-muted)', fontSize: 18, lineHeight: 1.8 }}>使用徒步地球统一账号访问网页。新用户可以注册；已有账号可登录。登录后可在本账号下使用路线、轨迹和社区功能。</p>
+      </section>
+      <section style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', padding: 20, boxSizing: 'border-box', background: 'var(--he-color-panel)', borderLeft: '1px solid var(--he-color-border)' }}>
+        <div style={{ margin: '8px 8px 12px', fontWeight: 700 }}>徒步地球账号登录</div>
+        <iframe ref={frame} title="徒步地球账号登录" src="/client-app/index.html#/pages/account/account?loginRequired=1" allow="camera" style={{ flex: 1, width: '100%', minHeight: 560, border: 0, borderRadius: 16, background: 'var(--he-color-background)' }} />
+        <small style={{ margin: '12px 8px', color: 'var(--he-color-muted)', lineHeight: 1.6 }}>登录凭据只提交给徒步地球账号服务。请勿通过聊天或邮件发送密码、恢复码或二维码。</small>
+      </section>
+      <style>{`@media(max-width:760px){.hiking-earth-auth-gate{grid-template-columns:1fr!important}.hiking-earth-auth-gate>section:first-child{min-height:260px;padding:28px}.hiking-earth-auth-gate>section:last-of-type{min-height:calc(100dvh - 260px);border-left:0;border-top:1px solid var(--he-color-border)}.hiking-earth-auth-gate iframe{min-height:600px!important}}`}</style>
     </main>
   );
 }

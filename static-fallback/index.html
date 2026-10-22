@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#01030a">
+  <meta name="description" content="徒步地球轻量备用入口。动态路线、账号、社区与导航服务请使用 Cloudflare 主站。">
+  <title>徒步地球 · 轻量备用入口</title>
+  <style>
+    :root{color-scheme:dark;--bg:#01030a;--panel:#050c12;--line:#29323a;--text:#f4f8f2;--muted:#a7b5aa;--green:#b8f36b;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(ellipse at 68% 23%,#18271d 0,transparent 42%),linear-gradient(145deg,#010208,#01030a 55%,#050c12)}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.bar{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid #ffffff16}.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:.03em}.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;color:#061006;background:var(--green);font-size:21px}.bar small{display:block;color:var(--muted);font-weight:500;font-size:12px;margin-top:3px}.eyebrow{margin:0 0 15px;color:var(--green);font-size:12px;letter-spacing:.2em}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:clamp(48px,9vw,112px) 0 68px}.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.02;letter-spacing:-.045em;margin:0;max-width:720px}.hero p{color:var(--muted);font-size:17px;line-height:1.8;max-width:610px;margin:22px 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:14px;background:var(--green);color:#061006;font-weight:750}.button.secondary{border:1px solid var(--line);background:#ffffff08;color:var(--text)}.globe-wrap{position:relative;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}.glow{position:absolute;width:82%;aspect-ratio:1;border-radius:50%;background-color:#06111d;background-image:radial-gradient(circle at 30% 25%,rgba(184,243,107,.09),transparent 46%),url("./blue-marble-mercator-4096.webp");background-repeat:no-repeat;background-size:100% 100%,auto 100%;background-position:center;box-shadow:inset -35px -20px 70px #02040bc9,0 0 90px rgba(184,243,107,.10)}.glow:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 31% 25%,transparent 20%,rgba(1,3,10,.05) 49%,rgba(1,3,10,.78) 100%);box-shadow:inset -38px -18px 54px rgba(0,0,0,.82),inset 0 0 0 1px rgba(184,243,107,.12)}.orbit{position:absolute;width:100%;height:36%;border:1px solid rgba(184,243,107,.22);border-radius:50%;transform:rotate(-24deg)}.orbit.two{width:114%;height:56%;transform:rotate(52deg);border-color:rgba(184,243,107,.12)}.pin{position:absolute;top:28%;right:28%;width:13px;height:13px;border:3px solid #fff4c3;border-radius:50%;background:#ffc65a;box-shadow:0 0 22px #ffc65a}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:60px}.card{padding:23px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#ffffff0b,#ffffff04)}.card h2{font-size:17px;margin:0 0 9px}.card p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}.foot{padding:18px 0 34px;border-top:1px solid #ffffff16;color:#a7b5aa;font-size:12px;line-height:1.8}.foot a{color:var(--green)}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:6px;padding-top:52px}.hero p{font-size:15px}.globe-wrap{width:min(420px,100%);margin:-10px auto 0}.cards{grid-template-columns:1fr}.bar{padding:16px 0}.actions .button{flex:1}}
+    @media(prefers-reduced-motion:no-preference){.globe-wrap{animation:float 9s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}}
+  </style>
+</head>
+<body>
+  <header class="wrap bar">
+    <a class="brand" href="https://hiking-earth.hiking-earth.workers.dev/" aria-label="徒步地球主站"><span class="mark" aria-hidden="true">⌁</span><span>徒步地球<small>全球徒步路线</small></span></a>
+    <a class="button secondary" href="https://hiking-earth.hiking-earth.workers.dev/download">多端下载</a>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">HIKING EARTH · STATIC FALLBACK</p>
+        <h1>世界很大，<br>路线在脚下。</h1>
+        <p>这是徒步地球的轻量备用页面。需要路线目录、账号登录、离线地图申请、天气和社区等动态功能时，请打开 Cloudflare 主站。</p>
+        <div class="actions">
+          <a class="button" href="https://hiking-earth.hiking-earth.workers.dev/">进入 Cloudflare 主站 ↗</a>
+          <a class="button secondary" href="https://hiking-earth.hiking-earth.workers.dev/download">查看下载中心</a>
+        </div>
+      </div>
+      <div class="globe-wrap" role="img" aria-label="NASA Earth Observatory Blue Marble 地球影像，2004年6月合成，并非实时卫星图像">
+        <div class="orbit"></div><div class="orbit two"></div><div class="glow"></div><span class="pin"></span>
+      </div>
+    </section>
+    <section class="cards" aria-label="备用入口说明">
+      <article class="card"><h2>主站与动态功能</h2><p>路线搜索、登录、同步、地图下载申请、天气与社区依赖云服务，请在 Cloudflare 主站使用。</p></article>
+      <article class="card"><h2>多端下载</h2><p>只有正式更新清单标记为可下载的版本才会开放。未发布的客户端不会在此页面伪造下载按钮。</p></article>
+      <article class="card"><h2>源码与发布记录</h2><p>查看公开客户端源码、版本和发布说明。下载包的可用性以仓库正式 Release 页面为准。</p><p style="margin-top:12px"><a href="https://github.com/hiking-earth/clients/releases">打开 GitHub Releases ↗</a></p></article>
+    </section>
+  </main>
+  <footer class="wrap foot">地球底图：NASA Earth Observatory Blue Marble Next Generation（2004年6月合成，非实时影像）。轻量静态备用页，不保存账号资料，不承载动态业务；主站暂时不可用时，可从 GitHub 查看公开发布记录。<br><a href="https://hiking-earth.hiking-earth.workers.dev/privacy">隐私与数据说明</a> · <a href="https://hiking-earth.hiking-earth.workers.dev/terms">服务条款</a></footer>
+</body>
+</html>
