@@ -78,7 +78,7 @@ writeFileSync(path.join(root,'data/official-sources.json'),JSON.stringify(notice
 writeFileSync(path.join(root,'data/official-source-review.ts'),readFileSync(path.join(clientRoot,'shared/content/feed-review.ts'),'utf8'));
 const globeTexture = exportEarthTexture(
   path.join(clientRoot, 'app/src/components/earth-texture.json'),
-  path.join(root, 'public/static/earth/blue-marble-june-2004.png'),
+  path.join(root, 'public/static/earth/blue-marble-mercator-4096.webp'),
 );
 process.stdout.write(`Prepared the pinned NASA globe texture (${globeTexture.width}×${globeTexture.height}, ${globeTexture.bytes} bytes).\n`);
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';

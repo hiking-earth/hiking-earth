@@ -540,8 +540,8 @@ export default function Home() {
       const markers = markersRef.current;
 
     const deviceMemory = Number((navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8);
-    const compactTouchDevice = window.matchMedia("(max-width: 900px)").matches || navigator.maxTouchPoints > 1;
-    const lowPowerHardware = deviceMemory <= 4 || navigator.hardwareConcurrency <= 4 || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const compactTouchDevice = window.matchMedia("(max-width: 900px)").matches;
+    const lowPowerHardware = deviceMemory <= 4 || navigator.hardwareConcurrency <= 4;
     const efficientRendering = compactTouchDevice || lowPowerHardware;
     const seasonDates = getSeasonImageDates();
     setSeasonImageDates(seasonDates);
@@ -559,7 +559,7 @@ export default function Home() {
       pitch: 0,
       bearing: -8,
       fadeDuration: efficientRendering ? 0 : 120,
-      pixelRatio: lowPowerHardware ? 1 : compactTouchDevice ? Math.min(window.devicePixelRatio, 1.25) : Math.min(window.devicePixelRatio, 1.5),
+      pixelRatio: Math.min(window.devicePixelRatio || 1, lowPowerHardware ? 1.25 : 2),
       maxTileCacheSize: efficientRendering ? 24 : 52,
       maxTileCacheZoomLevels: efficientRendering ? 2 : 3,
       refreshExpiredTiles: false,
@@ -567,7 +567,7 @@ export default function Home() {
       crossSourceCollisions: false,
       cancelPendingTileRequestsWhileZooming: true,
       validateStyle: false,
-      maxCanvasSize: efficientRendering ? [2560, 2560] : [3584, 3584],
+      maxCanvasSize: efficientRendering ? [3072, 3072] : [4096, 4096],
       canvasContextAttributes: { antialias: !efficientRendering },
       attributionControl: false,
       style: {
@@ -581,7 +581,7 @@ export default function Home() {
           seasonWinter: { type: "raster", tiles: nasaSeasonTiles(seasonDates["冬"]), tileSize: 256, maxzoom: 9, attribution: "季节影像 © NASA Earth Observatory / GIBS（MODIS Terra）" },
           blueMarbleOverview: {
             type: "image",
-            url: "/static/earth/blue-marble-june-2004.png",
+            url: "/static/earth/blue-marble-mercator-4096.webp",
             coordinates: [[-180, 85.05112878], [180, 85.05112878], [180, -85.05112878], [-180, -85.05112878]],
             attribution: "地球影像 © NASA Earth Observatory Blue Marble Next Generation（2004年6月合成，非实时）",
           },
@@ -604,7 +604,7 @@ export default function Home() {
           { id: "ocean", type: "background", paint: { "background-color": HE_PALETTE.mapOcean } },
           { id: "basemap", type: "fill", source: "openmaptiles", "source-layer": "landcover", paint: { "fill-color": ["match", ["get", "class"], "wood", HE_PALETTE.mapWood, "grass", HE_PALETTE.mapGrass, "ice", HE_PALETTE.mapIce, "sand", HE_PALETTE.mapSand, HE_PALETTE.mapLand], "fill-opacity": 0.82 } },
           { id: "base-water", type: "fill", source: "openmaptiles", "source-layer": "water", paint: { "fill-color": HE_PALETTE.mapWater } },
-          { id: "blue-marble-overview", type: "raster", source: "blueMarbleOverview", minzoom: 0.75, maxzoom: 3.2, paint: { "raster-opacity": 0.96, "raster-fade-duration": 0 } },
+          { id: "blue-marble-overview", type: "raster", source: "blueMarbleOverview", minzoom: 0.75, maxzoom: 3.2, paint: { "raster-opacity": 1, "raster-fade-duration": 0, "raster-resampling": "linear" } },
           { id: "season-spring", type: "raster", source: "seasonSpring", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-summer", type: "raster", source: "seasonSummer", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },
           { id: "season-autumn", type: "raster", source: "seasonAutumn", maxzoom: 9, layout: { visibility: "none" }, paint: { "raster-opacity": 0.96, "raster-fade-duration": efficientRendering ? 0 : 280 } },

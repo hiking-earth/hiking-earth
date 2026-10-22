@@ -98,18 +98,18 @@ for (const [selector, stars] of starLayers) {
   }
 }
 
-// Both the website globe and shared client globe must derive from the same
-// pinned NASA source. Check the generated web PNG's provenance and digest so
-// a stale texture cannot silently make the platforms show different Earths.
+// Both globes retain the same pinned NASA source. The website uses the reviewed
+// full-color Mercator asset, while smaller clients keep a bounded indexed texture.
+// Verify its provenance and digest so a stale image cannot silently replace it.
 const clientEarthSourcePath = 'app/src/components/earth-texture.json';
 const clientEarthProvenance = JSON.parse(readClient('app/src/components/earth-texture.provenance.json'));
 const clientEarthBytes = readFileSync(path.join(clientRoot, clientEarthSourcePath));
-const webEarthAssetPath = 'public/static/earth/blue-marble-june-2004.png';
+const webEarthAssetPath = 'public/static/earth/blue-marble-mercator-4096.webp';
 const webEarthBytes = readFileSync(path.join(root, webEarthAssetPath));
-const webEarthProvenance = JSON.parse(read('public/static/earth/blue-marble-june-2004.png.provenance.json'));
+const webEarthProvenance = JSON.parse(read('public/static/earth/blue-marble-mercator-4096.webp.provenance.json'));
 const prepareClient = read('scripts/prepare-client.mjs');
 assert.ok(prepareClient.includes("path.join(clientRoot, 'app/src/components/earth-texture.json')"),
-  'website globe texture must be regenerated from the pinned shared-client texture');
+  'website globe must use the reviewed NASA asset from the pinned client source');
 assert.equal(sha256(clientEarthBytes), clientEarthProvenance.sha256,
   'shared-client globe texture must match its source provenance digest');
 assert.equal(webEarthProvenance.generatedAsset, path.basename(webEarthAssetPath),
