@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { WEB_THEME_COLOR } from "./theme-color";
 import "./globals.css";
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -34,14 +35,14 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#030712",
+  themeColor: WEB_THEME_COLOR,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
       <head>
-        <link rel="preconnect" href="https://server.arcgisonline.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

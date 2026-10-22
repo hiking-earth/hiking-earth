@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "0.2.1",
+  "versionCode": 21,
+  "publishedAt": null,
+  "notes": "全端统一账号、路线目录与自动同步更新版本",
+  "ready": false,
+  "android": null,
+  "ios": null,
+  "web": null,
+  "desktop": null
+}

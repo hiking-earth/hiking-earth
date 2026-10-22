@@ -39,3 +39,13 @@ yarn-error.log*
 *.tsbuildinfo
 /outputs/
 /work/
+
+# Shared client generated assets and checkout
+public/client-app/
+public/route-catalog/
+.sites-checkout/
+.client-source/
+.client-source-cache/
+
+# Catalog provenance stays in the pinned client source; package verified gzip pages.
+/data/catalog/

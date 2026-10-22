@@ -15,8 +15,8 @@ export default function ReleasePage() {
       <ul>{blockers.map((source) => <li key={source.label}><b>{source.label}</b>：{source.note}</li>)}</ul>
       <h2>最终上线动作</h2>
       <p>只有完成官方数据、图片授权、地图生产使用、真实设备、隐私主体信息和部署回滚验收后，才允许把 NEXT_PUBLIC_RELEASE_READY 改为 true，并执行最终部署。</p>
-      <h2>明确未包含</h2>
-      <p>原生手机 App、桌面 App、小程序、实时导航、离线完整地图、支付和救援服务不属于本次网页发布范围。</p>
+      <h2>多端下载</h2>
+      <p>网页、PWA、Android、桌面端和微信小程序的入口与正式版本状态见 <a href="/download">多端下载中心</a>。网站公开访问不代表客户端安装包已发布。</p>
     </DocumentShell>
   );
 }

@@ -1,0 +1,5 @@
+import {NextResponse} from 'next/server';
+export const dynamic='force-dynamic';
+const api=process.env.HIKING_CLIENT_API_URL||'https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api';
+function isRecord(value:unknown):value is Record<string,unknown>{return !!value&&typeof value==='object'&&!Array.isArray(value);}
+export async function GET(request:Request){const page=Number(new URL(request.url).searchParams.get('page')||0);if(!Number.isInteger(page)||page<0||page>=100)return NextResponse.json({error:'invalid_review_page'},{status:400});try{const response=await fetch(api,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'route-manage',data:{action:'list',page}}),signal:AbortSignal.timeout(15000)});const result:unknown=await response.json();if(!response.ok||!isRecord(result)||result.ok!==true||!isRecord(result.data)||!Array.isArray(result.data.items))return NextResponse.json({error:'review_unavailable'},{status:503});return NextResponse.json(result.data,{headers:{'cache-control':'public, max-age=60'}});}catch{return NextResponse.json({error:'review_unavailable'},{status:503});}}
