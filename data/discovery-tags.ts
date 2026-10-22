@@ -19,6 +19,8 @@ const TAGS: Array<[string, string, boolean]> = [
 
 function plainTag(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
+  // Source metadata may contain control bytes; strip them before display.
+  // eslint-disable-next-line no-control-regex
   const clean = value.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
   return clean ? clean.slice(0, 240) : undefined;
 }
