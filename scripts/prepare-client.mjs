@@ -76,6 +76,8 @@ function validNoticeSource(item){
 if(noticeRegistry.schemaVersion!==1||!Number.isInteger(maxItemsPerFeed)||maxItemsPerFeed<1||maxItemsPerFeed>500||noticeRegistry.maxItemsPerFeed!==undefined&&maxItemsPerFeed>100||!Array.isArray(noticeRegistry.sources)||noticeRegistry.sources.length<1||noticeRegistry.sources.length>50||!noticeRegistry.sources.every(validNoticeSource)||new Set(noticeRegistry.sources.map(item=>item.id)).size!==noticeRegistry.sources.length)throw new Error('Pinned official notice source registry is invalid');
 writeFileSync(path.join(root,'data/official-sources.json'),JSON.stringify(noticeRegistry,null,2)+'\n');
 writeFileSync(path.join(root,'data/official-source-review.ts'),readFileSync(path.join(clientRoot,'shared/content/feed-review.ts'),'utf8'));
+writeFileSync(path.join(root,'data/scenic-review.ts'),readFileSync(path.join(clientRoot,'shared/content/scenic-review.ts'),'utf8'));
+writeFileSync(path.join(root,'data/scenic-clock.ts'),readFileSync(path.join(clientRoot,'shared/content/scenic-clock.ts'),'utf8'));
 const globeTexture = exportEarthTexture(
   path.join(clientRoot, 'app/src/components/earth-texture.json'),
   path.join(root, 'public/static/earth/blue-marble-mercator-4096.webp'),
