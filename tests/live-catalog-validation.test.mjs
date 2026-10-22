@@ -10,6 +10,11 @@ const compiled = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
 }).outputText;
 
+const sourceRegistry = {};
+new Function('exports', ts.transpileModule(fs.readFileSync(path.join(root, 'data/catalog-sources.ts'), 'utf8'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText)(sourceRegistry);
+
 function loadCatalog(osmRows) {
   const exports = {};
   const fakeFetch = async (_url, request) => {
@@ -20,7 +25,8 @@ function loadCatalog(osmRows) {
       : { items: [], hasMore: false };
     return new Response(JSON.stringify({ ok: true, data }), { status: 200, headers: { 'content-type': 'application/json' } });
   };
-  const requireStub = name => name === './catalog-limits' ? { CATALOG_PAGE_SIZE: 20, CATALOG_SOURCE_LIMIT: 2000 }
+  const requireStub = name => name === './catalog-sources' ? sourceRegistry
+    : name === './catalog-limits' ? { CATALOG_PAGE_SIZE: 20, CATALOG_SOURCE_LIMIT: 2000 }
     : name === './gateway-relay' ? { needsGatewayRelay: () => false, gatewayRelayRequest: async () => { throw new Error('unexpected gateway'); } }
       : name === './routes' ? { ROUTES: [], reviewedRouteStatus: (status, expiresAt) => expiresAt > Date.now() ? status : '待核验' }
         : name === './static-catalog' ? { loadStaticPages: async () => { throw new Error('no static fallback'); }, searchStatic: async () => [], staticManifest: async () => { throw new Error('no static fallback'); } }

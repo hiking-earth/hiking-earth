@@ -25,15 +25,18 @@ assert.match(liveCatalog, /hasCurrentOfficialFeedReview\(source\)/, 'official no
 assert.match(liveCatalog, /source\.articleHosts\.includes\(article\.hostname\)/, 'official notice article links must stay on the configured host allowlist');
 assert.match(home, /当前仅显示内置待核验基础档案/, 'a first-visit catalog failure must not describe seed records as a saved catalog');
 assert.match(home, /hasRestoredCatalog=true/, 'the route refresh fallback label must track whether a local catalog was restored');
-const sourceList = liveCatalog.match(/const sources=\[([^\]]+)\] as const/);
+const registry = read('data/catalog-sources.ts');
+assert.match(liveCatalog, /const sources=PUBLIC_ROUTE_SOURCES/, 'catalog search must use the shared source registry');
+const sourceList = registry.match(/PUBLIC_ROUTE_SOURCES\s*=\s*\[([^\]]+)\] as const/);
 assert.ok(sourceList, 'website route search must keep an explicit source list');
 const liveSources = new Set([...sourceList[1].matchAll(/['"]([^'"]+)['"]/g)].map(([, id]) => id));
 const pageSourceType = home.match(/const \[searchSource,setSearchSource\]=useState<([^>]+)>/);
 assert.ok(pageSourceType, 'the website source selector must keep a typed source list');
 const pageSources = new Set([...pageSourceType[1].matchAll(/['"]([^'"]+)['"]/g)].map(([, id]) => id));
-const searchApiSourceList = searchApi.match(/if\(!\[([^\]]+)\]\.includes\(source/);
-assert.ok(searchApiSourceList, 'the website search API must keep an explicit source allowlist');
-const apiSources = new Set([...searchApiSourceList[1].matchAll(/['"]([^'"]+)['"]/g)].map(([, id]) => id));
+assert.match(searchApi, /import \{isPublicRouteSource\} from ['"][^'"]*catalog-sources['"]/, 'search API must import the shared source validator');
+assert.match(searchApi, /if\(!isPublicRouteSource\(source\)/, 'search API must validate against the shared source registry');
+assert.match(registry, /PUBLIC_ROUTE_SOURCES as readonly string\[\]\)\.includes\(value\)/, 'shared validator must enforce registry membership');
+const apiSources = liveSources;
 assert.deepEqual([...pageSources].sort(), [...liveSources].sort(), 'the website source selector must match its catalog registry');
 assert.deepEqual([...apiSources].sort(), [...liveSources].sort(), 'the website API allowlist must match its catalog registry');
 assert.ok(liveSources.has('japan-tokai'), 'website route search must include the licensed Japan Tokai catalog');
@@ -50,7 +53,7 @@ assert.ok(liveSources.has('korea-durunubi-trails'), 'website search must expose 
 assert.match(home, /value="korea-durunubi-trails"/, 'the website source selector must expose DuruNubi search');
 assert.equal((sourceNamesMap[1].match(/'korea-durunubi-trails':/g) || []).length, 1, 'DuruNubi must have exactly one display name');
 assert.equal((sourceAttributionLine.match(/'korea-durunubi-trails':/g) || []).length, 1, 'DuruNubi must have exactly one default attribution');
-assert.match(searchApi, /japan-tokai/, 'the website search API must allow the Japan Tokai source');
+assert.ok(apiSources.has('japan-tokai'), 'shared API registry must allow Japan Tokai');
 assert.match(liveCatalog, /日本环境省说明GPS线仍可能有位置误差/, 'Japan route results must disclose source accuracy and non-navigation limits');
 
 const staticCatalog = read('data/static-catalog.ts');
