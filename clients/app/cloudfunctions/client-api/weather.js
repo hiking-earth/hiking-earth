@@ -69,7 +69,7 @@ exports.forecast = async (data, reserveProviderRequest = async () => {}) => {
           // Count only cache misses that will contact MET Norway. Cached and
           // same-key coalesced requests must not consume the provider budget.
           await reserveProviderRequest();
-          const headers = { 'User-Agent': 'HikingEarth/0.2 (https://github.com/hiking-earth/clients; support: 2308582955@qq.com)', Accept: 'application/json' };
+          const headers = { 'User-Agent': 'HikingEarth/0.2 (https://github.com/hiking-earth/hiking-earth; support: 2308582955@qq.com)', Accept: 'application/json' };
           // We store one selected forecast slot, not the complete timeseries.
           // Once that slot ages out, request a body so a new slot can be chosen.
           if (prior?.modified && currentForecast(prior)) headers['If-Modified-Since'] = prior.modified;

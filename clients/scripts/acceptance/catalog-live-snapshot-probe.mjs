@@ -14,7 +14,7 @@ async function readJson(url){
 for(const source of sources){
  const result={source,passed:false};
  try{
-  const manifest=await readJson(`https://raw.githubusercontent.com/hiking-earth/clients/main/shared/public-catalog/${source}/manifest.json`);
+  const manifest=await readJson(`https://raw.githubusercontent.com/hiking-earth/hiking-earth/main/clients/shared/public-catalog/${source}/manifest.json`);
   const response=await fetch(apiUrl,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'catalog-feed',data:{source,page:0,windowLimit}}),signal:AbortSignal.timeout(30000)});
   const body=await response.json();
   const data=body?.data||{};

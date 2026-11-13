@@ -203,7 +203,7 @@ def collect(payload, now=None):
 
 def fetch_source():
     request = urllib.request.Request(SOURCE_URL, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/zip, application/octet-stream',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

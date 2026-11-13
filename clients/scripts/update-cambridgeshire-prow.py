@@ -32,7 +32,7 @@ MAX_FEATURE_POINTS = 50_000
 
 def fetch():
     request = urllib.request.Request(SOURCE_URL, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/geo+json, application/json',
     })
     with urllib.request.urlopen(request, timeout=60) as response:

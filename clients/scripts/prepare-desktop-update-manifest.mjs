@@ -29,10 +29,10 @@ for(const [platform,suffix,matchesArchitecture] of specs){
  }
  const verification=spawnSync(process.execPath,[fileURLToPath(new URL('./verify-desktop-updater.mjs',import.meta.url)),path.join(directory,artifact.name)],{encoding:'utf8'});
  if(verification.status!==0)throw new Error(`Invalid ${platform} signature`);
- if(typeof artifact.browser_download_url!=='string'||!artifact.browser_download_url.startsWith('https://github.com/hiking-earth/clients/releases/download/'))throw new Error('Unexpected updater origin');
+ if(typeof artifact.browser_download_url!=='string'||!artifact.browser_download_url.startsWith('https://github.com/hiking-earth/hiking-earth/releases/download/'))throw new Error('Unexpected updater origin');
  // GitHub draft assets may expose an untagged temporary URL. The installed
  // updater must retain the final release tag after the draft is published.
- platforms[platform]={url:`https://github.com/hiking-earth/clients/releases/download/${encodeURIComponent(release.tag_name)}/${encodeURIComponent(artifact.name)}`,signature:readFileSync(path.join(directory,signature.name),'utf8').trim()};
+ platforms[platform]={url:`https://github.com/hiking-earth/hiking-earth/releases/download/${encodeURIComponent(release.tag_name)}/${encodeURIComponent(artifact.name)}`,signature:readFileSync(path.join(directory,signature.name),'utf8').trim()};
 }
 writeFileSync(output,JSON.stringify({version:config.version,notes:'Candidate; full platform acceptance required before public release.',pub_date:release.created_at,platforms},null,2)+'\n');
 console.log('Prepared verified four-platform updater manifest; release remains draft.');

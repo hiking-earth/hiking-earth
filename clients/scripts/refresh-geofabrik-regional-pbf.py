@@ -157,7 +157,7 @@ def valid_url(value):
 
 
 def read_official_page(url):
-    request = Request(url, headers={'User-Agent': 'HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/clients)'})
+    request = Request(url, headers={'User-Agent': 'HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/hiking-earth)'})
     # Regional source index pages can be slow under shared download limits;
     # use a longer bounded wait so the scheduled refresh does not fail before
     # it can choose the next source batch.

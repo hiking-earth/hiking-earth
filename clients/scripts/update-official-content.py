@@ -37,7 +37,7 @@ selected_source_ids=set(args.source_id)
 COLLECT_SOURCES=[source for source in SOURCES if not selected_source_ids or source['id'] in selected_source_ids]
 
 def collect(source):
- req=urllib.request.Request(source['url'],headers={'User-Agent':'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)','Accept':'application/rss+xml, application/xml, text/xml'})
+ req=urllib.request.Request(source['url'],headers={'User-Agent':'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)','Accept':'application/rss+xml, application/xml, text/xml'})
  opener=urllib.request.build_opener(SameOriginHTTPSRedirectHandler(source['url']))
  with opener.open(req,timeout=30) as response:
   redirect=urllib.parse.urlparse(response.url)

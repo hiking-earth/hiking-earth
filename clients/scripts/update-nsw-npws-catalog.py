@@ -32,7 +32,7 @@ def get(params):
     body = None
     for attempt in range(3):
         request = urllib.request.Request(BASE + '/query?' + urllib.parse.urlencode(params), headers={
-            'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+            'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
             'Accept': 'application/json',
         })
         try:

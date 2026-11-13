@@ -20,7 +20,7 @@ from release_acceptance import (require_iphone_acceptance, require_platform_evid
                                 parse_client_version)
 
 
-REPOSITORY = "hiking-earth/clients"
+REPOSITORY = "hiking-earth/hiking-earth"
 ANDROID_ASSET_LIMIT = 200 * 1024 * 1024
 
 
@@ -104,7 +104,7 @@ def main() -> None:
             or isinstance(asset.get("size"), bool)
             or asset["size"] <= 0 or asset["size"] > ANDROID_ASSET_LIMIT
             or not isinstance(asset.get("browser_download_url"), str)
-            or not re.fullmatch(r"https://github\.com/hiking-earth/clients/releases/download/[^/]+/[^?#]+",
+            or not re.fullmatch(r"https://github\.com/hiking-earth/hiking-earth/releases/download/[^/]+/[^?#]+",
                                 asset["browser_download_url"])):
         stop("APK asset metadata is invalid or exceeds the download limit")
 

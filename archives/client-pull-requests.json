@@ -1,0 +1,299 @@
+[
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/development-handoff-20261023",
+    "headRefOid": "694dd4d737d57479246f1a51bd0f65130e0aac2d",
+    "mergedAt": "2026-10-23T03:00:46Z",
+    "number": 33,
+    "state": "MERGED",
+    "title": "Document independent development and candidate handoff"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/optional-offline-terrain-20261023",
+    "headRefOid": "9d7dda1d8f3aa99dab26a1833d7ddc87c961f1f6",
+    "mergedAt": "2026-10-23T02:40:14Z",
+    "number": 32,
+    "state": "MERGED",
+    "title": "Add optional regional offline terrain across clients"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/native-map-catalog-alignment-20261023",
+    "headRefOid": "a378087e164a948d6bd30db3bc93660409432e74",
+    "mergedAt": "2026-10-22T21:43:16Z",
+    "number": 31,
+    "state": "MERGED",
+    "title": "Align native map palette and standalone catalog source"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/usgs-discovery-candidate-20261023",
+    "headRefOid": "7094731a5db7428e817398209a025ac5de70230d",
+    "mergedAt": "2026-10-22T21:13:53Z",
+    "number": 30,
+    "state": "MERGED",
+    "title": "Add bounded USGS discovery candidate source"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/source-identity-handoff-20261023",
+    "headRefOid": "954c5e873f35ffb42a68f8d9979c78b1fe949740",
+    "mergedAt": "2026-10-22T20:43:13Z",
+    "number": 29,
+    "state": "MERGED",
+    "title": "Add source identity handoff recorder"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/candidate-archive-palette-20261023",
+    "headRefOid": "cd6b12d53ee23503a73fdd15c0166e67ebc256a4",
+    "mergedAt": "2026-10-22T19:14:16Z",
+    "number": 28,
+    "state": "MERGED",
+    "title": "fix: retain hidden compiler chunks and protect pinned web palettes"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/client-resource-candidate-20261023",
+    "headRefOid": "b841cbb5690c8ebec7fd80d76474ad39aa5db6da",
+    "mergedAt": "2026-10-22T18:44:25Z",
+    "number": 27,
+    "state": "MERGED",
+    "title": "build: add pinned shared client resource candidate workflow"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/photo-clock-consent-20261023",
+    "headRefOid": "173147c0152e91128460d1e41615e8ae15d66356",
+    "mergedAt": "2026-10-22T18:13:23Z",
+    "number": 26,
+    "state": "MERGED",
+    "title": "fix: refresh photo approval expiry and preserve explicit consent"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/scenic-review-source-20261023",
+    "headRefOid": "66f160f1d5a2fa453eb89b98b771d037afe32234",
+    "mergedAt": "2026-10-22T17:42:30Z",
+    "number": 25,
+    "state": "MERGED",
+    "title": "feat: add human-reviewed image catalog preparation and expiry guard"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/global-pbf-source-closeout-20261023",
+    "headRefOid": "df06ed4d40e5583d751bef7262701dcfdaf7b48e",
+    "mergedAt": "2026-10-22T16:32:17Z",
+    "number": 24,
+    "state": "MERGED",
+    "title": "feat: add bounded global regional route discovery sources"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/account-core-boundary-20261023",
+    "headRefOid": "6d108c7481e41c2a358fd81febcba6d3a9db3ca5",
+    "mergedAt": "2026-10-22T16:16:35Z",
+    "number": 23,
+    "state": "MERGED",
+    "title": "refactor: separate account core from local migration dependencies"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/release-source-closeout-20261022",
+    "headRefOid": "d86f5a7b10a62df66117aead90306109b4e0d798",
+    "mergedAt": "2026-10-22T15:36:06Z",
+    "number": 22,
+    "state": "MERGED",
+    "title": "build: tighten release promotion and package budget gates"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/model-byte-preservation-20261022",
+    "headRefOid": "76cfa2c92e03c55b90217e4fd66c5c85a888ae73",
+    "mergedAt": "2026-10-22T15:33:18Z",
+    "number": 21,
+    "state": "MERGED",
+    "title": "build: preserve pinned model bytes on Windows checkout"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/offline-map-worker-closeout-20261022",
+    "headRefOid": "c256e08f15f37ee9338f7cdbce2ee9a77125dd59",
+    "mergedAt": "2026-10-22T15:28:08Z",
+    "number": 20,
+    "state": "MERGED",
+    "title": "feat: wire opt-in offline map request worker and delivery"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/client-feature-closeout-20261022",
+    "headRefOid": "823d10a4fe9e790b23c352db6f5c6cbd8579b1cb",
+    "mergedAt": "2026-10-22T15:25:20Z",
+    "number": 19,
+    "state": "MERGED",
+    "title": "feat: integrate cross-platform client development closeout"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/client-resource-chain-20261022",
+    "headRefOid": "ba3f53208429ee63d435b58be8dff5282d5b0f5d",
+    "mergedAt": "2026-10-22T15:21:45Z",
+    "number": 18,
+    "state": "MERGED",
+    "title": "build: verify model assets and externalize desktop maps"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/bounded-cloud-cli-20261022",
+    "headRefOid": "1600a1b05fd344e03d1a4a85ed4f498e77afa4bc",
+    "mergedAt": "2026-10-22T15:01:44Z",
+    "number": 17,
+    "state": "MERGED",
+    "title": "fix: bound cloud CLI commands and preserve rollback on timeout"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/backend-closeout-source-20261022",
+    "headRefOid": "8700e05203752098958af9110174feaa89fe0cf6",
+    "mergedAt": "2026-10-22T14:43:08Z",
+    "number": 16,
+    "state": "MERGED",
+    "title": "feat: integrate account audit and backend source closeout"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/route-audit-scheduler-20261022",
+    "headRefOid": "3291b989fbd82fc6267ef3818884987197b30361",
+    "mergedAt": "2026-10-22T14:27:54Z",
+    "number": 15,
+    "state": "MERGED",
+    "title": "feat: schedule route collection with audit publication gates"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/map-primary-distribution-20261022",
+    "headRefOid": "99a4e8a8789b097bb993e67dc45c4e0c6087cc39",
+    "mergedAt": "2026-10-22T14:16:02Z",
+    "number": 14,
+    "state": "MERGED",
+    "title": "fix: unify map downloads on Cloudflare primary"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/candidate-build-entry-20261022",
+    "headRefOid": "7dfe83da26cdefac2325df73fcfe75f5652c4c6f",
+    "mergedAt": "2026-10-22T10:13:58Z",
+    "number": 13,
+    "state": "MERGED",
+    "title": "build: add manual desktop candidate pipeline without publication"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/home-theme-parity-20261022",
+    "headRefOid": "427e9cfde7e90ed5af24674c345b0611ff1ada1c",
+    "mergedAt": "2026-10-22T02:50:34Z",
+    "number": 12,
+    "state": "MERGED",
+    "title": "Align shared homepage backdrop with website"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/catalog-source-align-20261022",
+    "headRefOid": "d00a252260afcdb0b67f241c6187790f497c87ca",
+    "mergedAt": "2026-10-22T02:45:10Z",
+    "number": 11,
+    "state": "MERGED",
+    "title": "Align mainline source and published catalog generations"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/news-policy-publish-20261022",
+    "headRefOid": "245b0f04354734004f470cb9112245f0dfa4f346",
+    "mergedAt": "2026-10-22T02:29:39Z",
+    "number": 10,
+    "state": "MERGED",
+    "title": "Keep official notice expiry policy consistent with website publication"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/gps-mainline-20261022",
+    "headRefOid": "8451537e4e20ca3f373e4594456cf85cf45f83fc",
+    "mergedAt": "2026-10-22T02:18:55Z",
+    "number": 9,
+    "state": "MERGED",
+    "title": "Reconcile mainline and add native desktop GPS"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/news-publication-age-gate-20261021",
+    "headRefOid": "527606796f5aeb7f92f73da390e5f2a575098b77",
+    "mergedAt": "2026-10-21T11:24:13Z",
+    "number": 8,
+    "state": "MERGED",
+    "title": "fix(catalog): quarantine expired official notices"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/news-expiry-refresh-feature",
+    "headRefOid": "a32683024cb3820a816130019a6fede07f640fcd",
+    "mergedAt": null,
+    "number": 7,
+    "state": "OPEN",
+    "title": "feat: expand licensed trail sources and retire expired notices"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/regional-pbf-collector-20261013",
+    "headRefOid": "6da0091e93d9c9803e32c4690e9c8f371cb2616c",
+    "mergedAt": null,
+    "number": 6,
+    "state": "OPEN",
+    "title": "Add bounded worldwide regional PBF refreshers"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/gear-scan-candidates-20261013",
+    "headRefOid": "befa2eced86e79e8d1326b20de2795b7ac8ae9ab",
+    "mergedAt": null,
+    "number": 5,
+    "state": "OPEN",
+    "title": "Broaden free outdoor gear detection candidates"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/usgs-trails-catalog",
+    "headRefOid": "e26b841dacbec9917a076e0cdb24c30abaff5e1f",
+    "mergedAt": null,
+    "number": 4,
+    "state": "OPEN",
+    "title": "Add USGS public hiking discovery catalog"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/client-package-budget",
+    "headRefOid": "8c05d600b17558d8a70604be3d5e5e5772fb5af9",
+    "mergedAt": "2026-10-13T11:50:32Z",
+    "number": 3,
+    "state": "MERGED",
+    "title": "Add gated H5 and mini-program package budget checks"
+  },
+  {
+    "baseRefName": "codex/mobile-privacy-controls",
+    "headRefName": "codex/route-catalog-five-sources",
+    "headRefOid": "34f00a2c44c229499991df93f37786a92424882b",
+    "mergedAt": "2026-10-13T11:26:00Z",
+    "number": 2,
+    "state": "MERGED",
+    "title": "Add five free regional trail discovery sources"
+  },
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/route-partial-collection-gate",
+    "headRefOid": "69b523f6a543f7ed102dedab60c5b51c0dec5c22",
+    "mergedAt": null,
+    "number": 1,
+    "state": "OPEN",
+    "title": "Fail route refresh when any source is incomplete"
+  }
+]

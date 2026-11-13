@@ -55,7 +55,7 @@ class Links(html.parser.HTMLParser):
 
 def download(url, budget, accepted_hosts):
     request = urllib.request.Request(url, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'text/html,application/zip,application/octet-stream,*/*;q=0.5',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

@@ -15,7 +15,7 @@ from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
 HOSTS = {"download.geofabrik.de", "download.openstreetmap.fr"}
-USER_AGENT = "HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/clients)"
+USER_AGENT = "HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/hiking-earth)"
 MAX_BYTES = 20 * 1024 * 1024 * 1024
 MAX_CHECKSUM_BYTES = 4096
 

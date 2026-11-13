@@ -61,7 +61,7 @@ def valid_url(value):
 
 
 def list_sources():
-    request = Request(SOURCE_PAGE, headers={'User-Agent': 'HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/clients)'})
+    request = Request(SOURCE_PAGE, headers={'User-Agent': 'HikingEarthPbfFetcher/1.0 (+https://github.com/hiking-earth/hiking-earth)'})
     with urlopen(request, timeout=30) as response:
         final_url = response.geturl()
         if not valid_url(final_url):

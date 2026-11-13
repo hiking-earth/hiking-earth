@@ -26,7 +26,7 @@ OFFICIAL_HOSTS = {'pc.gc.ca', 'www.pc.gc.ca', 'parks.canada.ca', 'www.parks.cana
 
 def get(params):
     request = urllib.request.Request(BASE + '/query?' + urllib.parse.urlencode(params), headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

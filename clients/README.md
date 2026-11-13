@@ -6,7 +6,8 @@
 - 原生桌面定位：`desktop/src-tauri/src/location.rs`
 - 共享定位订阅：`app/src/services/location.ts`
 - 客户端首页：`app/src/components/ExploreGlobe.vue`
-- 独立网站源码：https://github.com/hiking-earth/hiking-earth
+- 唯一开发仓库：https://github.com/hiking-earth/hiking-earth
+- 网站源码位于同一仓库根目录；本目录是统一项目的客户端模块。
 - 主站：https://hiking-earth.hiking-earth.workers.dev
 - 备用站：https://hiking-earth.nanyu20050927.chatgpt.site
 

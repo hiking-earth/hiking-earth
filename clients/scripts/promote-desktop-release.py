@@ -14,7 +14,7 @@ from release_acceptance import (require_iphone_acceptance, require_platform_evid
                                 require_desktop_package_version, REQUIRED_RELEASE_PLATFORMS,
                                 require_client_version, parse_client_version)
 
-REPO = "hiking-earth/clients"
+REPO = "hiking-earth/hiking-earth"
 PLATFORMS = {
     "windows-x86_64": ".msi",
     "darwin-aarch64": ".app.tar.gz",
@@ -189,7 +189,7 @@ def main():
             if (not parsed or parsed.scheme != "https" or parsed.hostname != "github.com"
                     or parsed.username or parsed.password or parsed.port
                     or parsed.query or parsed.fragment
-                    or len(parts) != 7 or parts[1:5] != ["hiking-earth", "clients", "releases", "download"]
+                    or len(parts) != 7 or parts[1:5] != ["hiking-earth", "hiking-earth", "releases", "download"]
                     or parts[-3:-1] != ["download", args.tag]):
                 stop(f"Updater URL is not pinned to release {args.tag}: {platform}")
             artifact_name = parts[-1]

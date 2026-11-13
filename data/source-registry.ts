@@ -34,7 +34,7 @@ export const OFFICIAL_SOURCE_REGISTRY = {
   },
   image: {
     label: "原创示意封面",
-    url: "https://github.com/hiking-earth/clients/blob/codex/mobile-privacy-controls/scripts/create-original-cover.py",
+    url: "https://github.com/hiking-earth/hiking-earth/blob/legacy/clients/codex/mobile-privacy-controls/scripts/create-original-cover.py",
     readiness: "可本地展示" as SourceReadiness,
     checkedAt: "2026-10-05 · 原创几何绘制",
     note: "展示封面为本项目原创示意，不是路线实景。历史演示照片不再展示；官方图片与讲解仅链接原页面。",

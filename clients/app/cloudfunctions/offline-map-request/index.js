@@ -241,7 +241,7 @@ async function completeRequest(event) {
     }
     const { downloadUrl, bytes, sha256 } = event;
     if (typeof downloadUrl !== 'string'
-        || !/^https:\/\/github\.com\/hiking-earth\/clients\/releases\/download\/[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+\.zip$/.test(downloadUrl)
+        || !/^https:\/\/github\.com\/hiking-earth\/hiking-earth\/releases\/download\/[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+\.zip$/.test(downloadUrl)
         || !Number.isSafeInteger(bytes) || bytes < 1 || bytes > MAX_ARCHIVE_BYTES
         || typeof sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(sha256)) return { errMsg: '地图下载信息未通过校验' };
     await tx.collection(TABLE).doc(requestId).update({ data: {

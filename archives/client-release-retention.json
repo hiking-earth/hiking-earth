@@ -1,0 +1,2089 @@
+[
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71215811
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150071800
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71795112
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71978421
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71438336
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71168359
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71895299
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-50",
+    "retention": "migrate"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71215810
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150071800
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71795114
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71978422
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71438336
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71168350
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71895299
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-49",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71215803
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150071800
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71795112
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71978406
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71438336
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71168364
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71895295
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-48",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71214461
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150071800
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71795086
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71977846
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71438336
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71168291
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71895159
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-47",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71213165
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150063608
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71792204
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71974445
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71434240
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71163261
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71890007
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-46",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71213115
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150055416
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71792234
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71974206
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71434240
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71163259
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71890106
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-45",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71206103
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150043128
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71783456
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71965397
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71426048
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71156094
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71884888
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-44",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192815
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150030840
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71773740
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71953521
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71143728
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71871846
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-43",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71193411
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772800
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951809
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71142060
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71871093
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-42",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192795
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150022648
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772588
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951768
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141650
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71870636
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-41",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71193249
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772688
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951637
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141763
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71870953
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-40",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192599
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772524
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951641
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141759
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71871090
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-39",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192969
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772200
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951481
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141592
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71870880
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-37",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2546
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192939
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71772546
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951390
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141604
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71870791
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-34",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192328
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71771170
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71951174
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141131
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71869957
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-33",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71192387
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71141012
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-32",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71625037
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150026744
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71771114
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71368772
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71560006
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71279978
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-31",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71621766
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 150022648
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71770744
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71365299
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71413760
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71559722
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71279940
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-30",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 71427921
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 149883384
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 71578896
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 71171437
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 71217152
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 71366778
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 71085638
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-29",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33413617
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 112146936
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 33872436
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33461351
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33472512
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33366301
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33382621
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-28",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33724683
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 112454136
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 34180610
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33777585
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33783808
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33677409
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33688828
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-27",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33723204
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 112450040
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 34180496
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33780033
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33783808
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33677343
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33688349
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-26",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33723806
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 112454136
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 34180448
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33780255
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33783808
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33677324
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33688280
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-25",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33724159
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 112454136
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 34180148
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33781029
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33783808
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33676668
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33687850
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-24",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33282294
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 111987192
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 33576634
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33198053
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33398784
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33215908
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33102374
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-23",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.3_aarch64.dmg",
+        "size": 33282961
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage",
+        "size": 111987192
+      },
+      {
+        "name": "_0.2.3_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.3_amd64.deb",
+        "size": 33577154
+      },
+      {
+        "name": "_0.2.3_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.3_x64.dmg",
+        "size": 33198287
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi",
+        "size": 33398784
+      },
+      {
+        "name": "_0.2.3_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33216226
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33102644
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-22",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.2_aarch64.dmg",
+        "size": 33278250
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage",
+        "size": 111987192
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.2_amd64.deb",
+        "size": 33575682
+      },
+      {
+        "name": "_0.2.2_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.2_x64.dmg",
+        "size": 33200763
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi",
+        "size": 33398784
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 33213647
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 33103914
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-21",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.2_aarch64.dmg",
+        "size": 22190458
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage",
+        "size": 100985336
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.2_amd64.deb",
+        "size": 22584370
+      },
+      {
+        "name": "_0.2.2_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.2_x64.dmg",
+        "size": 22193886
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi",
+        "size": 22396928
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 22135614
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 22111645
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-20",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.2_aarch64.dmg",
+        "size": 21000948
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage",
+        "size": 99805688
+      },
+      {
+        "name": "_0.2.2_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.2_amd64.deb",
+        "size": 21404624
+      },
+      {
+        "name": "_0.2.2_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.2_x64.dmg",
+        "size": 21012369
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi",
+        "size": 21217280
+      },
+      {
+        "name": "_0.2.2_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 20946355
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 20931626
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-19",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.1_aarch64.dmg",
+        "size": 21005566
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 99805688
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 21403310
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.1_x64.dmg",
+        "size": 21009784
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi",
+        "size": 21217280
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 20948584
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 20929113
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-18",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.1_aarch64.dmg",
+        "size": 21005563
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 99805688
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 21403316
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.1_x64.dmg",
+        "size": 21009777
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi",
+        "size": 21217280
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 20948580
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 20929113
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-17",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2622
+      },
+      {
+        "name": "_0.2.1_aarch64.dmg",
+        "size": 3992756
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 82917880
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 4519224
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.1_x64.dmg",
+        "size": 4129519
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi",
+        "size": 4313088
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 3933840
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      },
+      {
+        "name": "_x64.app.tar.gz",
+        "size": 4045664
+      },
+      {
+        "name": "_x64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-16",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2018
+      },
+      {
+        "name": "_0.2.1_aarch64.dmg",
+        "size": 3929460
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 82835960
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 4434846
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi",
+        "size": 4227072
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 3857218
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-15",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 82835960
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 4434852
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-14",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2018
+      },
+      {
+        "name": "_0.2.1_aarch64.dmg",
+        "size": 3929458
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage",
+        "size": 82835960
+      },
+      {
+        "name": "_0.2.1_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.1_amd64.deb",
+        "size": 4434852
+      },
+      {
+        "name": "_0.2.1_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi",
+        "size": 4227072
+      },
+      {
+        "name": "_0.2.1_x64_zh-CN.msi.sig",
+        "size": 444
+      },
+      {
+        "name": "_aarch64.app.tar.gz",
+        "size": 3857217
+      },
+      {
+        "name": "_aarch64.app.tar.gz.sig",
+        "size": 432
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-14",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.0_aarch64.dmg",
+        "size": 4434412
+      },
+      {
+        "name": "_0.2.0_amd64.AppImage",
+        "size": 83347960
+      },
+      {
+        "name": "_0.2.0_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.0_amd64.deb",
+        "size": 4951070
+      },
+      {
+        "name": "_0.2.0_amd64.deb.sig",
+        "size": 436
+      },
+      {
+        "name": "_0.2.0_x64_zh-CN.msi",
+        "size": 4739072
+      },
+      {
+        "name": "_0.2.0_x64_zh-CN.msi.sig",
+        "size": 444
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-13",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.2.0_aarch64.dmg",
+        "size": 4121620
+      },
+      {
+        "name": "_0.2.0_amd64.AppImage",
+        "size": 83044856
+      },
+      {
+        "name": "_0.2.0_amd64.AppImage.sig",
+        "size": 444
+      },
+      {
+        "name": "_0.2.0_amd64.deb",
+        "size": 4640630
+      },
+      {
+        "name": "_0.2.0_amd64.deb.sig",
+        "size": 436
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-12",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.1.0_aarch64.dmg",
+        "size": 2030047
+      },
+      {
+        "name": "_0.1.0_amd64.AppImage",
+        "size": 80370168
+      },
+      {
+        "name": "_0.1.0_amd64.deb",
+        "size": 1787524
+      },
+      {
+        "name": "_0.1.0_x64_zh-CN.msi",
+        "size": 2220032
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-8",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.1.0_aarch64.dmg",
+        "size": 2030055
+      },
+      {
+        "name": "_0.1.0_amd64.AppImage",
+        "size": 80370168
+      },
+      {
+        "name": "_0.1.0_amd64.deb",
+        "size": 1787524
+      }
+    ],
+    "draft": true,
+    "tag_name": "desktop-7",
+    "retention": "discard-old-draft-at-owner-request"
+  },
+  {
+    "assets": [
+      {
+        "name": "custom-maps.zip",
+        "size": 1304397
+      }
+    ],
+    "draft": false,
+    "tag_name": "offline-maps-38052506253-1",
+    "retention": "migrate"
+  },
+  {
+    "assets": [
+      {
+        "name": "_0.1.0_aarch64.dmg",
+        "size": 2190932
+      },
+      {
+        "name": "_0.1.0_aarch64.zip",
+        "size": 1774601
+      }
+    ],
+    "draft": false,
+    "tag_name": "v0.1.0",
+    "retention": "migrate"
+  }
+]

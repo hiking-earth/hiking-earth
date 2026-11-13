@@ -26,7 +26,7 @@ FIELDS = 'OBJECTID,name,difficulty,completionTime,hasAlerts,walkingAndTrampingWe
 def get(params):
     query = urllib.parse.urlencode(params)
     request = urllib.request.Request(BASE + '/query?' + query, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

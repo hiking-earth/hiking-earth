@@ -222,7 +222,7 @@ def _request_json(params, service_key, opener):
     query = urllib.parse.urlencode({**params, 'serviceKey': service_key, '_type': 'json'})
     url = f'{COURSE_ENDPOINT}?{query}'
     request = urllib.request.Request(url, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     with opener(request, timeout=30) as response:
@@ -262,7 +262,7 @@ def collect(service_key, opener=None, now=None):
         try:
             gpx_url = _safe_gpx_url(row.get('gpxpath'))
             request = urllib.request.Request(gpx_url, headers={
-                'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+                'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
                 'Accept': 'application/gpx+xml,application/xml,*/*;q=0.5',
             })
             with opener(request, timeout=30) as response:

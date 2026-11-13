@@ -59,7 +59,7 @@
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDc5MTg5NzRFNUNCOUZEMjkKUldRcC9ibGNUcGNZZWFHaVdtRVl1eTFuWXo3SzlEcnBuVU9nTWtFNVlhN1pQaFlOeW1vQWFGS1QK",
       "endpoints": [
-        "https://github.com/hiking-earth/clients/releases/latest/download/latest.json"
+        "https://github.com/hiking-earth/hiking-earth/releases/latest/download/latest.json"
       ]
     }
   }

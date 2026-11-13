@@ -29,7 +29,7 @@ def get_page(start):
     }
     url = ENDPOINT + '?' + urllib.parse.urlencode(params)
     request = urllib.request.Request(url, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/geo+json, application/json',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

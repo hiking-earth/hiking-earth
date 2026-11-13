@@ -49,7 +49,7 @@ def simplify(raw):
 
 def collect():
     request = urllib.request.Request(SOURCE_URL, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

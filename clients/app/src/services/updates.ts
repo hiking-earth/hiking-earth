@@ -17,7 +17,7 @@ function versionParts(value:unknown):[number,number,number]|null{
   return parts.length===3&&parts.every(Number.isSafeInteger)?parts as [number,number,number]:null;
 }
 function newer(version:string,current:string):boolean {const a=versionParts(version),b=versionParts(current);if(!a||!b)return false;for(let i=0;i<3;i++){if(a[i]!==b[i])return a[i]>b[i];}return false;}
-function artifactUrl(url:string):boolean {return /^https:\/\/github\.com\/hiking-earth\/clients\/releases\/download\/[^/]+\/[^?#]+$/.test(url);}
+function artifactUrl(url:string):boolean {return /^https:\/\/github\.com\/hiking-earth\/hiking-earth\/releases\/download\/[^/]+\/[^?#]+$/.test(url);}
 function platformArtifactAvailable(candidate:Release):boolean {
   // #ifdef APP-PLUS
   return plus.os.name==='iOS'?!!candidate.ios:!!candidate.android;

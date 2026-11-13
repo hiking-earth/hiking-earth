@@ -40,7 +40,7 @@ ALLOWED_TYPES = {'Wanderweg', 'Bergwanderweg', 'Alpinwanderweg'}
 
 def fetch_archive(directory, prior_modified_at='', prior_etag=''):
     headers = {
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/zip, application/octet-stream',
     }
     if isinstance(prior_etag, str) and prior_etag.strip():

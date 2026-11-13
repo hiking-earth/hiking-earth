@@ -28,7 +28,7 @@ FIELDS = 'OBJECTID_1,OBJECTID,Name,Opened,Start,End_,Length_Km,Length_Mil,Update
 def get(params):
     url = BASE + '/query?' + urllib.parse.urlencode(params)
     request = urllib.request.Request(url, headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     with urllib.request.urlopen(request, timeout=45) as response:

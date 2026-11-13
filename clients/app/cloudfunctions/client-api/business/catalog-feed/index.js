@@ -3,7 +3,7 @@ const crypto=require('crypto');
 const fs=require('fs');
 const path=require('path');
 const zlib=require('zlib');
-const BASE='https://raw.githubusercontent.com/hiking-earth/clients/main/shared/';
+const BASE='https://raw.githubusercontent.com/hiking-earth/hiking-earth/main/clients/shared/';
 const catalogs=new Set(['osm','usfs','hk','nzdoc','parkscanada','nsw-npws','england','wales','japan-tokai','scotland-argyll','ni-midulster','norfolk-prow','cambridgeshire-prow','nps-public-trails','usgs-trails','swisstopo-wanderwege','victoria-recreation-tracks','queensland-qpws-trails','taiwan-trails','korea-durunubi-trails','news']);
 const directPaths={release:'releases/stable.json','offline-hk':'data/offline/hk-afcd.json'};
 const PAGE_SIZE=400,MAX_RECORDS=250000,HEX=/^[a-f0-9]{64}$/;

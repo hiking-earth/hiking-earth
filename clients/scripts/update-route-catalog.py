@@ -90,7 +90,7 @@ def read_daily_budget(raw, present, today, source):
     return budget
 
 def fetch(query, byte_limit=24 * 1024 * 1024):
-    req = urllib.request.Request('https://overpass-api.de/api/interpreter', data=urllib.parse.urlencode({'data':query}).encode(), headers={'User-Agent':'HikingEarthCatalog/1.0 (+https://github.com/hiking-earth/clients)'})
+    req = urllib.request.Request('https://overpass-api.de/api/interpreter', data=urllib.parse.urlencode({'data':query}).encode(), headers={'User-Agent':'HikingEarthCatalog/1.0 (+https://github.com/hiking-earth/hiking-earth)'})
     try:
         with urllib.request.urlopen(req, timeout=60) as response:
             raw = response.read(byte_limit)

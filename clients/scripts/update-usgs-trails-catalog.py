@@ -37,7 +37,7 @@ DEADLINE = None
 
 def get(params):
     request = urllib.request.Request(BASE + '/query?' + urllib.parse.urlencode(params), headers={
-        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+        'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
         'Accept': 'application/json',
     })
     for attempt in range(3):

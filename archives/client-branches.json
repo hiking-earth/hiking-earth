@@ -1,0 +1,177 @@
+[
+  {
+    "sourceBranch": "codex/account-core-boundary-20261023",
+    "commit": "6d108c7481e41c2a358fd81febcba6d3a9db3ca5",
+    "preservedBranch": "legacy/clients/codex/account-core-boundary-20261023"
+  },
+  {
+    "sourceBranch": "codex/backend-closeout-source-20261022",
+    "commit": "8700e05203752098958af9110174feaa89fe0cf6",
+    "preservedBranch": "legacy/clients/codex/backend-closeout-source-20261022"
+  },
+  {
+    "sourceBranch": "codex/bounded-cloud-cli-20261022",
+    "commit": "1600a1b05fd344e03d1a4a85ed4f498e77afa4bc",
+    "preservedBranch": "legacy/clients/codex/bounded-cloud-cli-20261022"
+  },
+  {
+    "sourceBranch": "codex/candidate-archive-palette-20261023",
+    "commit": "cd6b12d53ee23503a73fdd15c0166e67ebc256a4",
+    "preservedBranch": "legacy/clients/codex/candidate-archive-palette-20261023"
+  },
+  {
+    "sourceBranch": "codex/candidate-build-entry-20261022",
+    "commit": "7dfe83da26cdefac2325df73fcfe75f5652c4c6f",
+    "preservedBranch": "legacy/clients/codex/candidate-build-entry-20261022"
+  },
+  {
+    "sourceBranch": "codex/catalog-source-align-20261022",
+    "commit": "d00a252260afcdb0b67f241c6187790f497c87ca",
+    "preservedBranch": "legacy/clients/codex/catalog-source-align-20261022"
+  },
+  {
+    "sourceBranch": "codex/client-feature-closeout-20261022",
+    "commit": "823d10a4fe9e790b23c352db6f5c6cbd8579b1cb",
+    "preservedBranch": "legacy/clients/codex/client-feature-closeout-20261022"
+  },
+  {
+    "sourceBranch": "codex/client-resource-candidate-20261023",
+    "commit": "b841cbb5690c8ebec7fd80d76474ad39aa5db6da",
+    "preservedBranch": "legacy/clients/codex/client-resource-candidate-20261023"
+  },
+  {
+    "sourceBranch": "codex/client-resource-chain-20261022",
+    "commit": "ba3f53208429ee63d435b58be8dff5282d5b0f5d",
+    "preservedBranch": "legacy/clients/codex/client-resource-chain-20261022"
+  },
+  {
+    "sourceBranch": "codex/development-handoff-20261023",
+    "commit": "694dd4d737d57479246f1a51bd0f65130e0aac2d",
+    "preservedBranch": "legacy/clients/codex/development-handoff-20261023"
+  },
+  {
+    "sourceBranch": "codex/gear-scan-candidates-20261013",
+    "commit": "befa2eced86e79e8d1326b20de2795b7ac8ae9ab",
+    "preservedBranch": "legacy/clients/codex/gear-scan-candidates-20261013"
+  },
+  {
+    "sourceBranch": "codex/global-pbf-source-closeout-20261023",
+    "commit": "df06ed4d40e5583d751bef7262701dcfdaf7b48e",
+    "preservedBranch": "legacy/clients/codex/global-pbf-source-closeout-20261023"
+  },
+  {
+    "sourceBranch": "codex/gps-mainline-20261022",
+    "commit": "8451537e4e20ca3f373e4594456cf85cf45f83fc",
+    "preservedBranch": "legacy/clients/codex/gps-mainline-20261022"
+  },
+  {
+    "sourceBranch": "codex/home-theme-parity-20261022",
+    "commit": "427e9cfde7e90ed5af24674c345b0611ff1ada1c",
+    "preservedBranch": "legacy/clients/codex/home-theme-parity-20261022"
+  },
+  {
+    "sourceBranch": "codex/map-primary-distribution-20261022",
+    "commit": "99a4e8a8789b097bb993e67dc45c4e0c6087cc39",
+    "preservedBranch": "legacy/clients/codex/map-primary-distribution-20261022"
+  },
+  {
+    "sourceBranch": "codex/mobile-privacy-controls",
+    "commit": "cbf6281603e2306de1007e51148c3a3f49ab4b96",
+    "preservedBranch": "legacy/clients/codex/mobile-privacy-controls"
+  },
+  {
+    "sourceBranch": "codex/model-byte-preservation-20261022",
+    "commit": "76cfa2c92e03c55b90217e4fd66c5c85a888ae73",
+    "preservedBranch": "legacy/clients/codex/model-byte-preservation-20261022"
+  },
+  {
+    "sourceBranch": "codex/native-map-catalog-alignment-20261023",
+    "commit": "a378087e164a948d6bd30db3bc93660409432e74",
+    "preservedBranch": "legacy/clients/codex/native-map-catalog-alignment-20261023"
+  },
+  {
+    "sourceBranch": "codex/news-expiry-refresh-feature",
+    "commit": "a32683024cb3820a816130019a6fede07f640fcd",
+    "preservedBranch": "legacy/clients/codex/news-expiry-refresh-feature"
+  },
+  {
+    "sourceBranch": "codex/news-policy-publish-20261022",
+    "commit": "245b0f04354734004f470cb9112245f0dfa4f346",
+    "preservedBranch": "legacy/clients/codex/news-policy-publish-20261022"
+  },
+  {
+    "sourceBranch": "codex/news-publication-age-gate-20261021",
+    "commit": "527606796f5aeb7f92f73da390e5f2a575098b77",
+    "preservedBranch": "legacy/clients/codex/news-publication-age-gate-20261021"
+  },
+  {
+    "sourceBranch": "codex/offline-map-worker-closeout-20261022",
+    "commit": "c256e08f15f37ee9338f7cdbce2ee9a77125dd59",
+    "preservedBranch": "legacy/clients/codex/offline-map-worker-closeout-20261022"
+  },
+  {
+    "sourceBranch": "codex/optional-offline-terrain-20261023",
+    "commit": "9d7dda1d8f3aa99dab26a1833d7ddc87c961f1f6",
+    "preservedBranch": "legacy/clients/codex/optional-offline-terrain-20261023"
+  },
+  {
+    "sourceBranch": "codex/photo-clock-consent-20261023",
+    "commit": "173147c0152e91128460d1e41615e8ae15d66356",
+    "preservedBranch": "legacy/clients/codex/photo-clock-consent-20261023"
+  },
+  {
+    "sourceBranch": "codex/regional-pbf-collector-20261013",
+    "commit": "6da0091e93d9c9803e32c4690e9c8f371cb2616c",
+    "preservedBranch": "legacy/clients/codex/regional-pbf-collector-20261013"
+  },
+  {
+    "sourceBranch": "codex/release-source-closeout-20261022",
+    "commit": "d86f5a7b10a62df66117aead90306109b4e0d798",
+    "preservedBranch": "legacy/clients/codex/release-source-closeout-20261022"
+  },
+  {
+    "sourceBranch": "codex/route-audit-scheduler-20261022",
+    "commit": "3291b989fbd82fc6267ef3818884987197b30361",
+    "preservedBranch": "legacy/clients/codex/route-audit-scheduler-20261022"
+  },
+  {
+    "sourceBranch": "codex/route-partial-collection-gate",
+    "commit": "69b523f6a543f7ed102dedab60c5b51c0dec5c22",
+    "preservedBranch": "legacy/clients/codex/route-partial-collection-gate"
+  },
+  {
+    "sourceBranch": "codex/scenic-review-source-20261023",
+    "commit": "66f160f1d5a2fa453eb89b98b771d037afe32234",
+    "preservedBranch": "legacy/clients/codex/scenic-review-source-20261023"
+  },
+  {
+    "sourceBranch": "codex/source-identity-handoff-20261023",
+    "commit": "954c5e873f35ffb42a68f8d9979c78b1fe949740",
+    "preservedBranch": "legacy/clients/codex/source-identity-handoff-20261023"
+  },
+  {
+    "sourceBranch": "codex/usgs-discovery-candidate-20261023",
+    "commit": "7094731a5db7428e817398209a025ac5de70230d",
+    "preservedBranch": "legacy/clients/codex/usgs-discovery-candidate-20261023"
+  },
+  {
+    "sourceBranch": "codex/usgs-trails-catalog",
+    "commit": "e26b841dacbec9917a076e0cdb24c30abaff5e1f",
+    "preservedBranch": "legacy/clients/codex/usgs-trails-catalog"
+  },
+  {
+    "sourceBranch": "codex/web-client-home-visual-parity",
+    "commit": "e0a4c1add754b3de20d6054fe8cbec962e8cad55",
+    "preservedBranch": "legacy/clients/codex/web-client-home-visual-parity"
+  },
+  {
+    "sourceBranch": "codex/windows-model-candidate-20261022",
+    "commit": "495c66536e18a67b847d82cfdbe29d784ae6c948",
+    "preservedBranch": "legacy/clients/codex/windows-model-candidate-20261022"
+  },
+  {
+    "sourceBranch": "main",
+    "commit": "ab62579a4fecd059a8a760158a250f01f0688f10",
+    "preservedBranch": "legacy/clients/main"
+  }
+]

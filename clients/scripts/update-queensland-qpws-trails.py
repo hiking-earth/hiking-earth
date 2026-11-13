@@ -28,7 +28,7 @@ MAX_VERTICES_PER_ROUTE = 15000
 def request_json(url, attempts=3):
     for attempt in range(attempts):
         request = urllib.request.Request(url, headers={
-            'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)',
+            'User-Agent': 'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)',
             'Accept': 'application/json',
         })
         try:

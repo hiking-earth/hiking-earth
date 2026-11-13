@@ -9,7 +9,7 @@ BASE='https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665568199
 ATTR='香港特别行政区政府 · 渔农自然护理署 · DATA.GOV.HK'
 def get(params):
  url=BASE+'/query?'+urllib.parse.urlencode(params)
- with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'HikingEarth/0.2 (+https://github.com/hiking-earth/clients)'}),timeout=35) as response:
+ with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'HikingEarth/0.2 (+https://github.com/hiking-earth/hiking-earth)'}),timeout=35) as response:
   body=response.read(20_000_001)
  if len(body)>20_000_000:raise ValueError('source response exceeds limit')
  data=json.loads(body)
