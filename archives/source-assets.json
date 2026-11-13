@@ -1,0 +1,28 @@
+{
+  "sourceRepository": "hiking-earth/hiking-earth-build-archives",
+  "tag": "archive-20261030",
+  "publicationStatus": "withheld",
+  "reason": "Source archive is truncated and contains local machine paths; no confirmed credentials in readable content.",
+  "assets": [
+    {
+      "name": "macos-gps-cache.tar.gz.part0001",
+      "bytes": 67108864,
+      "sha256": "465ef4bd5e8999c6c05441758106080e3b8132f7a3afa405095487f04c78e816"
+    },
+    {
+      "name": "macos-gps-cache.tar.gz.part0002",
+      "bytes": 67108864,
+      "sha256": "22ecb64be72e2588d22788003d28ce4010a89488c4c32dab892ac833ee9b5b83"
+    },
+    {
+      "name": "macos-gps-cache.tar.gz.part0003",
+      "bytes": 67108864,
+      "sha256": "f0fa47e4e22807231e18974e1ea72f2a2ca0fdb0a3d782b5bf1a3a24ba5282bf"
+    },
+    {
+      "name": "macos-gps-cache.tar.gz.part0004",
+      "bytes": 67108864,
+      "sha256": "c143b030ad9739a22b1b94882cebf6a2d95778a134ea21e7e566a973165af45c"
+    }
+  ]
+}
