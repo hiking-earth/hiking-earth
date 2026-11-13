@@ -1,0 +1,104 @@
+{
+  "repository": "hiking-earth/hiking-earth",
+  "candidateTag": "desktop-50",
+  "candidateDraft": true,
+  "sourceCommit": "33de06857b2ab9e388129e789fcca3f5342e6621",
+  "verifiedAssets": [
+    {
+      "tag": "desktop-50",
+      "name": "latest.json",
+      "size": 2566,
+      "sha256": "6ca3e82998a5730cf5e2813b21080081354dc9a5c0d9b84f885b3b5febad9f32"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_aarch64.dmg",
+      "size": 71215811,
+      "sha256": "6cd5a6f7ba710f731f6d1b843964721d4415a8bfd9a74df05c3a6ae686f8468f"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_amd64.AppImage",
+      "size": 150071800,
+      "sha256": "73c4612c84085892d63dc6542bf38995ba7c461aa5b18caf49b3931bd3bb1ce0"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_amd64.AppImage.sig",
+      "size": 444,
+      "sha256": "130ad18adb41fc5756c0fe303c0c815f17d60c5e9c0ae54038ad60a71d854da8"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_amd64.deb",
+      "size": 71795112,
+      "sha256": "b4438cf1987de2e1d097cf2e7905de5832f8aa731b112b759ab27509f487d051"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_amd64.deb.sig",
+      "size": 436,
+      "sha256": "ddfb74f5b637e8dbfb098f440f9d1ddc8495792c8800c7717accbc2ea8f1a4f2"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_x64.dmg",
+      "size": 71978421,
+      "sha256": "1edb8f8a958d9b93ee985b7fc10032dafefd5aada28912741d97e610af9e5ab7"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_x64_zh-CN.msi",
+      "size": 71438336,
+      "sha256": "35a0ed65a2986116bbfc34b2a145b303e1b99d231218f5284a966f07a5d7a5dd"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_0.2.3_x64_zh-CN.msi.sig",
+      "size": 444,
+      "sha256": "862eb9192246584e583cc162644200bae30ba6d82fc64431fd19cf89ebcfde74"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_aarch64.app.tar.gz",
+      "size": 71168359,
+      "sha256": "1e8cecf7cadb3c2d391113d53eb235f8fa05e05cc26171e6b9b99ff76a501cd9"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432,
+      "sha256": "c85936c461fdbb1432ef7148abc796379fe349485fb292a0387a82c39dda21b1"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_x64.app.tar.gz",
+      "size": 71895299,
+      "sha256": "dfcd274553384a310705043dd6a9ada5b786baf7ed083ec9793a299c56c91118"
+    },
+    {
+      "tag": "desktop-50",
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432,
+      "sha256": "f581b8f42585dbd3358fc4fe24fa9ee51b15851d7509d11b6f8125729313fdb8"
+    },
+    {
+      "tag": "offline-maps-38052506253-1",
+      "name": "custom-maps.zip",
+      "size": 1304397,
+      "sha256": "c715e96eb323bad708ee94a8d54688910c5f4df355dba0a269402ae3ae6abaa8"
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "_0.1.0_aarch64.dmg",
+      "size": 2190932,
+      "sha256": "e412dc7d04de1e12d9f59fa92758e0c0d388dd24e9883f1878b662ecccb071f1"
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "_0.1.0_aarch64.zip",
+      "size": 1774601,
+      "sha256": "ac41c50b405ee2bd127565f7ca13b95aa997f7354c249f46096df324ab12e8a6"
+    }
+  ]
+}
