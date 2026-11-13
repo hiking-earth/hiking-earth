@@ -14,7 +14,12 @@
     "test": "npm run build && node --test tests/rendered-html.test.mjs tests/weather-proxy-compat.test.mjs tests/gear-candidate-parity.test.mjs tests/catalog-source-mapping.test.mjs tests/live-catalog-validation.test.mjs tests/gateway-relay-config.test.mjs tests/offline-map-page.test.mjs tests/scenic-image-display.test.mjs tests/release-manifest.test.mjs tests/earth-image-export.test.mjs",
     "lint": "eslint . --ignore-pattern '**/dist/**' --ignore-pattern '**/.next/**' --ignore-pattern '**/.client-source/**' --ignore-pattern '**/.client-source-cache/**' --ignore-pattern '**/.sites-checkout/**' --ignore-pattern '**/public/client-app/**' --ignore-pattern '**/public/vendor/**'",
     "db:generate": "drizzle-kit generate",
-    "prebuild": "node scripts/prepare-client.mjs"
+    "prebuild": "node scripts/prepare-client.mjs",
+    "setup": "npm ci && npm --prefix clients/app ci && npm --prefix clients/desktop ci",
+    "dev:client": "npm --prefix clients/app run dev:h5",
+    "dev:desktop": "npm --prefix clients/desktop run dev",
+    "build:desktop": "npm --prefix clients/desktop run build -- --bundles app --config src-tauri/tauri.local.conf.json",
+    "check:client": "npm --prefix clients/app run type-check"
   },
   "dependencies": {
     "@tensorflow-models/coco-ssd": "2.2.3",

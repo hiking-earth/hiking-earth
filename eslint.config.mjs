@@ -9,6 +9,7 @@ import tseslint from "typescript-eslint";
 
 const eslintConfig = defineConfig([
   globalIgnores([
+    "clients/**",
     ".next/**",
     "dist/**",
     "out/**",

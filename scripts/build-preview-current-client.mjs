@@ -9,7 +9,7 @@ if(process.env.CI==='true'||process.env.GITHUB_ACTIONS==='true'){
 }
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const clientRoot=process.env.HIKING_CLIENT_PREVIEW_ROOT||path.resolve(root,'..');
+const clientRoot=process.env.HIKING_CLIENT_PREVIEW_ROOT||path.join(root,'clients');
 const run=(script,args,env={})=>{
   const result=spawnSync(process.execPath,[script,...args],{
     cwd:root,
