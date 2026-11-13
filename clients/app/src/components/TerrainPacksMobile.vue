@@ -16,10 +16,10 @@ const canvasId='terrain-'+Math.random().toString(36).slice(2),instance=getCurren
 const emit=defineEmits<{(e:'changed'):void}>();
 function init(){if(store)return store;
  // #ifdef MP-WEIXIN
- const api=uni as unknown as SavedMapApi;store=createTerrainFileStore(api,(path,bytes)=>{const read=fileRangeReader(uni.getFileSystemManager(),path,bytes);return{size:bytes,read:async(o,n)=>new Uint8Array(await read(o,n))};},'wechat');
+ const wechatApi=uni as unknown as SavedMapApi;store=createTerrainFileStore(wechatApi,(path,bytes)=>{const read=fileRangeReader(uni.getFileSystemManager(),path,bytes);return{size:bytes,read:async(o,n)=>new Uint8Array(await read(o,n))};},'wechat');
  // #endif
  // #ifdef APP-PLUS
- const io=plus.io as unknown as NativeMapIO;const api=createNativeMapApi(uni as unknown as Parameters<typeof createNativeMapApi>[0],io,path=>path.startsWith('_doc/')?path:plus.io.convertAbsoluteFileSystem(path),value=>uni.base64ToArrayBuffer(value));store=createTerrainFileStore(api,(path,bytes)=>{const read=nativeMapRangeReader(io,path,bytes,value=>uni.base64ToArrayBuffer(value));return{size:bytes,read:async(o,n)=>new Uint8Array(await read(o,n))};},'native');
+ const io=plus.io as unknown as NativeMapIO;const nativeApi=createNativeMapApi(uni as unknown as Parameters<typeof createNativeMapApi>[0],io,path=>path.startsWith('_doc/')?path:plus.io.convertAbsoluteFileSystem(path),value=>uni.base64ToArrayBuffer(value));store=createTerrainFileStore(nativeApi,(path,bytes)=>{const read=nativeMapRangeReader(io,path,bytes,value=>uni.base64ToArrayBuffer(value));return{size:bytes,read:async(o,n)=>new Uint8Array(await read(o,n))};},'native');
  // #endif
  if(!store)throw new Error('当前平台不支持地形文件');return store;
 }

@@ -1,4 +1,7 @@
 {
   "repository": "https://github.com/hiking-earth/clients.git",
-  "ref": "545c01f91c4f9c37f339ad25753bf4de49bf7970"
+  "ref": "ab62579a4fecd059a8a760158a250f01f0688f10",
+  "path": "clients",
+  "mode": "monorepo",
+  "note": "ref records the imported upstream commit; current builds use clients/ from the same repository commit."
 }

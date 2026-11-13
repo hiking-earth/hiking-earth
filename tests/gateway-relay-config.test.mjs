@@ -6,7 +6,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => readFileSync(path.join(root, relative), 'utf8');
 const relay = read('data/gateway-relay.ts');
-const sharedRelay = readFileSync(path.resolve(root, '..', 'shared/network/gateway-relay.ts'), 'utf8');
+const sharedRelay = readFileSync(path.join(root, 'clients/shared/network/gateway-relay.ts'), 'utf8');
 const catalog = read('data/live-catalog.ts');
 const proxy = read('app/api/client-api/route.ts');
 

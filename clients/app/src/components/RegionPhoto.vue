@@ -9,7 +9,7 @@ const shown=ref(false),failed=ref(false),now=ref(Date.now());
 let unsubscribe:(()=>void)|undefined;
 onMounted(()=>{unsubscribe=subscribeScenicClock(value=>{now.value=value;});});
 onUnmounted(()=>{unsubscribe?.();});
-const photo=computed(()=>registry.items.find(item=>scenicReviewCurrent(item,now.value)&&(item.region===props.region||item.matchRegions?.includes(props.region))));
+const photo=computed(()=>registry.items.find(item=>scenicReviewCurrent(item,now.value)&&(item.region===props.region||('matchRegions' in item&&Array.isArray(item.matchRegions)&&item.matchRegions.includes(props.region)))));
 watch(photo,()=>{shown.value=false;failed.value=false;});
 watch(()=>props.region,()=>{shown.value=false;failed.value=false;});
 function showPhoto(){

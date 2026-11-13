@@ -13,7 +13,7 @@ if(!/^[a-f0-9]{40}$/.test(sourceCommit)||git(['status','--porcelain']))throw new
 const client=JSON.parse(readFileSync(path.join(root,'clients.source.json'),'utf8'));
 if(!/^[a-f0-9]{40}$/.test(client.ref))throw new Error('Client must be pinned to an immutable commit');
 mkdirSync(output,{recursive:true});
-const record={sourceCommit,clientCommit:client.ref,candidate:true,tested:false,deployed:false,buildExit:null,files:[]};
+const record={sourceCommit,clientImportCommit:client.ref,clientCommit:sourceCommit,clientPath:client.path,candidate:true,tested:false,deployed:false,buildExit:null,files:[]};
 const save=()=>writeFileSync(path.join(output,'candidate-source.json'),JSON.stringify(record,null,2)+'\n');save();
 const command=process.platform==='win32'?process.execPath:'npm';
 const args=process.platform==='win32'?[process.env.npm_execpath,'run','build']:['run','build'];

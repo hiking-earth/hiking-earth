@@ -16,7 +16,7 @@ test("region photos keep attribution, explicit license, and consent-first loadin
   assert.equal(photo.license, "CC BY-SA 4.0");
   assert.equal(new URL(photo.licenseUrl).hostname, "creativecommons.org");
   assert.match(photo.title, /非路线现况/);
-  assert.match(component, /setShown\(true\)/);
+  assert.match(component, /scenicReviewCurrent\(photo, current\)\) setShownFor\(photoKey\)/);
   assert.match(component, /safeCommonsUrl\(photo\.imageUrl, \["upload\.wikimedia\.org"\]\)/);
   assert.match(component, /photo\.author/);
   assert.match(component, /photo\.license/);

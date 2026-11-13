@@ -20,7 +20,7 @@ test("web privacy notice distinguishes local photo detection from consented clou
   assert.ok(privacy.includes("在当前设备处理，不上传照片"));
   assert.ok(privacy.includes("开启“装备照片云端分析”且服务可用时上传所选照片"));
   assert.ok(privacy.includes("自托管的免费 CPU 模型"));
-  assert.ok(privacy.includes("照片与本次使用的路线名称可能交由该服务处理"));
+  assert.ok(privacy.includes("只有服务端所有者主动启用外部模型后，照片与本次使用的路线名称才会交由视觉服务处理"));
   assert.ok(privacy.includes("路线名称也会用于本次装备建议"));
 });
 

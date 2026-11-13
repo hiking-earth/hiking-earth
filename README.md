@@ -29,6 +29,22 @@
 - Cloudflare Workers（海外运行时与 API）
 - Drizzle ORM（数据层预留）
 
+## 统一开发入口（2026-11-13）
+
+后续开发统一在 `hiking-earth/hiking-earth`，本地只使用当前工作文件夹。
+网站源码位于根目录，共享客户端、移动端、桌面端和后端源码位于 `clients/`；两者在同一次 Git 提交中版本化，构建不会再次克隆客户端。
+
+```bash
+npm run setup          # 安装网站、客户端与桌面工具依赖
+npm run dev            # 网站
+npm run dev:client     # 共享 H5 客户端
+npm run dev:desktop    # 桌面开发
+npm run build:desktop  # 覆盖同一位置的本机候选 .app，不生成其他平台包
+```
+
+本机软件本体固定为 `clients/desktop/src-tauri/target/release/bundle/macos/徒步地球.app`。
+该本机构建关闭正式更新签名产物，不代表稳定发布。开发、安装与真机验收状态见 [整合记录](docs/仓库整合与开发准备-2026-11-13.md)。
+
 ## 本地开发
 
 项目统一使用 Node.js 22；仓库根目录的 `.nvmrc` 同时供本地 nvm 与 CI 读取。首次安装可运行 `nvm install && nvm use`。

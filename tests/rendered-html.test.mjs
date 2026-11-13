@@ -164,7 +164,7 @@ test("iPhone 地图工具反馈、署名和完整地球复位保持可验收", a
 });
 
 test("网页嵌入客户端只委托业务实际使用的浏览器权限", async () => {
-  const clientFrame = await source("app/client/page.tsx");
+  const clientFrame = await source("components/AuthenticatedClientShell.tsx");
   assert.match(clientFrame, /allow="geolocation; camera"/);
   assert.doesNotMatch(clientFrame, /clipboard-write/);
 });

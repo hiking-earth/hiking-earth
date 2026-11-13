@@ -20,6 +20,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: node --test tests/unified-client-source.test.mjs
       - run: npm run lint
       - run: npm run build
       - name: Check shared green and PWA theme colors

@@ -1,0 +1,30 @@
+name: Unified client checks
+on:
+  push:
+    branches: [main]
+    paths: ['clients/**', '.github/workflows/clients.yml']
+  pull_request:
+    branches: [main]
+    paths: ['clients/**', '.github/workflows/clients.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  client:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: clients
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: clients/app/package-lock.json
+      - run: npm --prefix app ci
+      - run: npm --prefix app run type-check
+      - run: node --test app/tests/desktop-location.test.cjs app/tests/privacy-location.test.cjs scripts/tests/photo-selection.test.cjs scripts/tests/gear-backend.test.cjs
+      - run: npm --prefix app run build:h5
+      - run: npm --prefix app run build:mp-weixin

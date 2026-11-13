@@ -229,8 +229,8 @@ async function analyze() {
       // #ifdef APP-PLUS
       const dataUrl=await readAppImageDataUrl(path);
       if(!current())return;
-      const localResult=await analyzeGearLocally(dataUrl);
-      if(current())result.value={...localResult,provider:'device',plan:localResult.plan.map(p=>({...p,checked:false}))};
+      const nativeResult=await analyzeGearLocally(dataUrl);
+      if(current())result.value={...nativeResult,provider:'device',plan:nativeResult.plan.map(p=>({...p,checked:false}))};
       // #endif
     } else {
       const base64=await readImageBase64(path);
@@ -239,7 +239,7 @@ async function analyze() {
       const res = await callCloud<any>("gear-scan", { image: base64, routeId: selectedRoute, routeName: selectedName });
       if(!current())return;
       if (res.ok && validResult(res.data)) {
-        const provider=['cloud-cpu','qwen','deepseek'].includes(res.data.provider) ? res.data.provider : 'cloud-cpu';
+        const provider=typeof res.data.provider==='string'&&['cloud-cpu','qwen','deepseek'].includes(res.data.provider) ? res.data.provider : 'cloud-cpu';
         result.value = {
           items:res.data.items,missing:res.data.missing,usage:res.data.usage,provider,
           ...(typeof res.data.model==='string'&&res.data.model.length<=100?{model:res.data.model}:{}),
@@ -266,7 +266,7 @@ async function readImageBase64(path:string):Promise<string>{
   dataUrl=await readAppImageDataUrl(path);
   // #endif
   // #ifdef MP-WEIXIN
-  return readAsBase64(path);
+  if(!dataUrl)return readAsBase64(path);
   // #endif
   const match=dataUrl.match(/^data:image\/(jpeg|png);base64,([A-Za-z0-9+/]+=*)$/);
   if(!match)throw new Error('云端识别目前仅接受 JPEG 或 PNG 图片');

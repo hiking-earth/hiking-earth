@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T11:55:05.953658+00:00",
+  "generatedAt": "2026-11-13T06:09:06.686038+00:00",
   "sources": [
     {
       "id": "nps-grand-canyon-news",
@@ -265,9 +265,9 @@
   ],
   "notice": "官方公告索引；查看原文确认生效范围，不据此自动开放路线。",
   "collectionStatus": {
-    "state": "success",
-    "reviewedAt": "2026-10-22T11:55:05.953658+00:00",
-    "attemptedSourceCount": 6,
+    "state": "cached-review-only",
+    "reviewedAt": "2026-11-13T06:09:06.686038+00:00",
+    "attemptedSourceCount": 0,
     "failedSourceCount": 0,
     "cachedItemsRevalidated": true
   },
@@ -3385,101 +3385,125 @@
       "fetchedAt": "2026-10-22T11:55:02.241614+00:00",
       "verified": true,
       "sourceId": "nps-grand-canyon-news"
-    },
-    {
-      "id": "nps-grand-canyon-news-5a53e3c812411b544f92",
-      "title": "Increased Water Restrictions Take Effect August 13 at Grand Canyon National Park",
-      "url": "https://www.nps.gov/grca/learn/news/greater-water-conservation-measures-aug-13-2026.htm",
-      "region": "美国 · 大峡谷",
-      "center": [
-        -112.113,
-        36.106
-      ],
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-12T06:12:00-05:00",
-      "sourceLabel": "美国国家公园管理局 · 大峡谷",
-      "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
-      "fetchedAt": "2026-10-22T11:55:02.241614+00:00",
-      "verified": true,
-      "sourceId": "nps-grand-canyon-news"
-    },
-    {
-      "id": "nps-yellowstone-news-9de46266a193c1dbcba8",
-      "title": "Yellowstone visitation statistics for July 2026",
-      "url": "https://www.nps.gov/yell/learn/news/26019.htm",
-      "region": "美国 · 黄石",
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-11T06:22:00-05:00",
-      "sourceLabel": "美国国家公园管理局 · 黄石",
-      "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=yell",
-      "fetchedAt": "2026-10-22T11:55:02.293146+00:00",
-      "verified": true,
-      "sourceId": "nps-yellowstone-news"
-    },
-    {
-      "id": "nps-grand-canyon-news-332deaff9a9f33d63fdc",
-      "title": "Grand Canyon National Park Implements South Rim Water Conservation Measures Following Transcanyon Waterline Break",
-      "url": "https://www.nps.gov/grca/learn/news/water-conservation-measures-initiated-august-2026.htm",
-      "region": "美国 · 大峡谷",
-      "center": [
-        -112.113,
-        36.106
-      ],
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-05T07:55:00-05:00",
-      "sourceLabel": "美国国家公园管理局 · 大峡谷",
-      "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
-      "fetchedAt": "2026-10-22T11:55:02.241614+00:00",
-      "verified": true,
-      "sourceId": "nps-grand-canyon-news"
-    },
-    {
-      "id": "nsw-npws-park-alerts-cb2204c73fde76373e9c",
-      "title": "Other planned events · Bugong National Park",
-      "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/bugong-national-park/local-alerts",
-      "region": "澳大利亚 · 新南威尔士州",
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-03T14:27:36+11:00",
-      "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-      "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-      "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
-      "verified": true,
-      "sourceId": "nsw-npws-park-alerts"
-    },
-    {
-      "id": "nsw-npws-park-alerts-f8e33eb6f77568b5a6cb",
-      "title": "Other planned events · Cambewarra Range Nature Reserve",
-      "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/cambewarra-range-nature-reserve/local-alerts",
-      "region": "澳大利亚 · 新南威尔士州",
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-03T14:27:36+11:00",
-      "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-      "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-      "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
-      "verified": true,
-      "sourceId": "nsw-npws-park-alerts"
-    },
-    {
-      "id": "nsw-npws-park-alerts-710d4a7a2487cfc8603e",
-      "title": "Other planned events · Burrinjuck Nature Reserve",
-      "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/burrinjuck-nature-reserve/local-alerts",
-      "region": "澳大利亚 · 新南威尔士州",
-      "industry": "开放管理",
-      "importance": "中",
-      "publishedAt": "2026-08-03T12:24:52+11:00",
-      "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-      "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-      "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
-      "verified": true,
-      "sourceId": "nsw-npws-park-alerts"
     }
   ],
   "withheldItems": [
+    {
+      "record": {
+        "id": "nps-grand-canyon-news-5a53e3c812411b544f92",
+        "title": "Increased Water Restrictions Take Effect August 13 at Grand Canyon National Park",
+        "url": "https://www.nps.gov/grca/learn/news/greater-water-conservation-measures-aug-13-2026.htm",
+        "region": "美国 · 大峡谷",
+        "center": [
+          -112.113,
+          36.106
+        ],
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-12T06:12:00-05:00",
+        "sourceLabel": "美国国家公园管理局 · 大峡谷",
+        "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
+        "fetchedAt": "2026-10-22T11:55:02.241614+00:00",
+        "verified": true,
+        "sourceId": "nps-grand-canyon-news"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
+    {
+      "record": {
+        "id": "nps-yellowstone-news-9de46266a193c1dbcba8",
+        "title": "Yellowstone visitation statistics for July 2026",
+        "url": "https://www.nps.gov/yell/learn/news/26019.htm",
+        "region": "美国 · 黄石",
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-11T06:22:00-05:00",
+        "sourceLabel": "美国国家公园管理局 · 黄石",
+        "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=yell",
+        "fetchedAt": "2026-10-22T11:55:02.293146+00:00",
+        "verified": true,
+        "sourceId": "nps-yellowstone-news"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
+    {
+      "record": {
+        "id": "nps-grand-canyon-news-332deaff9a9f33d63fdc",
+        "title": "Grand Canyon National Park Implements South Rim Water Conservation Measures Following Transcanyon Waterline Break",
+        "url": "https://www.nps.gov/grca/learn/news/water-conservation-measures-initiated-august-2026.htm",
+        "region": "美国 · 大峡谷",
+        "center": [
+          -112.113,
+          36.106
+        ],
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-05T07:55:00-05:00",
+        "sourceLabel": "美国国家公园管理局 · 大峡谷",
+        "sourceUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
+        "fetchedAt": "2026-10-22T11:55:02.241614+00:00",
+        "verified": true,
+        "sourceId": "nps-grand-canyon-news"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
+    {
+      "record": {
+        "id": "nsw-npws-park-alerts-f8e33eb6f77568b5a6cb",
+        "title": "Other planned events · Cambewarra Range Nature Reserve",
+        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/cambewarra-range-nature-reserve/local-alerts",
+        "region": "澳大利亚 · 新南威尔士州",
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-03T14:27:36+11:00",
+        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
+        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
+        "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
+        "verified": true,
+        "sourceId": "nsw-npws-park-alerts"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
+    {
+      "record": {
+        "id": "nsw-npws-park-alerts-cb2204c73fde76373e9c",
+        "title": "Other planned events · Bugong National Park",
+        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/bugong-national-park/local-alerts",
+        "region": "澳大利亚 · 新南威尔士州",
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-03T14:27:36+11:00",
+        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
+        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
+        "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
+        "verified": true,
+        "sourceId": "nsw-npws-park-alerts"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
+    {
+      "record": {
+        "id": "nsw-npws-park-alerts-710d4a7a2487cfc8603e",
+        "title": "Other planned events · Burrinjuck Nature Reserve",
+        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/burrinjuck-nature-reserve/local-alerts",
+        "region": "澳大利亚 · 新南威尔士州",
+        "industry": "开放管理",
+        "importance": "中",
+        "publishedAt": "2026-08-03T12:24:52+11:00",
+        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
+        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
+        "fetchedAt": "2026-10-22T11:55:05.569115+00:00",
+        "verified": true,
+        "sourceId": "nsw-npws-park-alerts"
+      },
+      "reason": "publication-expired",
+      "reviewedAt": "2026-11-13T06:09:06.686038+00:00"
+    },
     {
       "record": {
         "id": "qld-qpws-park-alerts-65321c4578daeed5f44d",
@@ -12723,114 +12747,6 @@
       },
       "reason": "not-in-current-feed",
       "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-42dff595be361dc347cf",
-        "title": "Fire bans · Safety alerts · Kanangra-Boyd National Park",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/kanangraboyd-national-park/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-18T08:37:08+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-378ab14274b02799a0a6",
-        "title": "Fire bans · Evans Crown Nature Reserve",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/evans-crown-nature-reserve/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-18T08:37:08+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-03e2b3546bc778a38e48",
-        "title": "Fire bans · Closed parks · Jenolan Karst Conservation Reserve",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/jenolan-karst-conservation-reserve/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-18T08:37:08+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-3a90d0acad2addfab666",
-        "title": "Closed parks · Jubullum Flat Camp Aboriginal Area",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/jubullum-flat-camp-aboriginal-area/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-17T08:37:40+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-465d09ed72ac590b917d",
-        "title": "Closed parks · Muogamarra Nature Reserve",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/muogamarra-nature-reserve/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-16T09:04:16+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
-    },
-    {
-      "record": {
-        "id": "nsw-npws-park-alerts-5eaadeb194dc5b6a73ae",
-        "title": "Closed areas · Wingham Brush Nature Reserve",
-        "url": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/wingham-brush-nature-reserve/local-alerts",
-        "region": "澳大利亚 · 新南威尔士州",
-        "industry": "开放管理",
-        "importance": "中",
-        "publishedAt": "2026-09-16T08:22:59+11:00",
-        "sourceLabel": "© State of New South Wales · NSW 国家公园警示",
-        "sourceUrl": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
-        "fetchedAt": "2026-10-17T05:18:47.617531+00:00",
-        "verified": true,
-        "sourceId": "nsw-npws-park-alerts"
-      },
-      "reason": "not-in-current-feed",
-      "reviewedAt": "2026-10-17T05:31:41.607490+00:00"
     }
   ],
   "publicationPolicy": {
@@ -12838,9 +12754,9 @@
     "scope": "metadata-links-only",
     "maxFreshnessAgeDays": 90,
     "maxPublicationAgeDays": 90,
-    "reviewedAt": "2026-10-22T11:55:05.953658+00:00",
-    "withheldCount": 179,
-    "expiredCount": 179,
+    "reviewedAt": "2026-11-13T06:09:06.686038+00:00",
+    "withheldCount": 6,
+    "expiredCount": 6,
     "accessVerified": false
   }
 }

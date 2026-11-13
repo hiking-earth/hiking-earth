@@ -621,7 +621,8 @@ def validate_news_catalog(data, now=None):
                 or collection_status.get('cachedItemsRevalidated') is not True
                 or reviewed_at != generated_at):
             raise ValueError('news: collection status fields are invalid')
-        expected_state = ('success' if failed == 0 else
+        expected_state = ('cached-review-only' if attempted == 0 and state == 'cached-review-only' else
+                          'success' if failed == 0 else
                           'all-attempted-sources-failed' if attempted and failed == attempted else 'partial')
         if state != expected_state:
             raise ValueError('news: collection status does not match its source outcomes')

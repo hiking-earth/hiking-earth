@@ -10,10 +10,14 @@ async function loadRoute() {
   const compiled = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
+  const sourceExports = {};
+  const sourceRegistry = await readFile(new URL('../data/catalog-sources.ts', import.meta.url), 'utf8');
+  new Function('exports', ts.transpileModule(sourceRegistry, {compilerOptions: {module: ts.ModuleKind.CommonJS}}).outputText)(sourceExports);
   const exports = {};
   const require = (specifier) => {
     if (specifier === "next/server") return { NextResponse: { json: (body, init) => new Response(JSON.stringify(body), init) } };
     if (specifier === "../../../data/catalog-limits") return { CATALOG_PAGE_SIZE: 400, CATALOG_SOURCE_LIMIT: 250000 };
+    if (specifier === "../../../data/catalog-sources") return sourceExports;
     throw new Error(`Unexpected route dependency: ${specifier}`);
   };
   new Function("require", "exports", compiled)(require, exports);

@@ -18,7 +18,7 @@
     "setup": "npm ci && npm --prefix clients/app ci && npm --prefix clients/desktop ci",
     "dev:client": "npm --prefix clients/app run dev:h5",
     "dev:desktop": "npm --prefix clients/desktop run dev",
-    "build:desktop": "npm --prefix clients/desktop run build -- --bundles app --config src-tauri/tauri.local.conf.json",
+    "build:desktop": "npm --prefix clients/desktop run build -- --bundles app --config src-tauri/tauri.candidate.conf.json",
     "check:client": "npm --prefix clients/app run type-check"
   },
   "dependencies": {
