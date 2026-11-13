@@ -1,8 +1,8 @@
 {
   "sourceRepository": "hiking-earth/hiking-earth-build-archives",
   "tag": "archive-20261030",
-  "publicationStatus": "withheld",
-  "reason": "Source archive is truncated and contains local machine paths; no confirmed credentials in readable content.",
+  "publicationStatus": "deleted-for-privacy",
+  "reason": "Owner requested deletion of private information. The source release and its four truncated cache parts containing machine paths were deleted; only audited Git history and this checksum manifest were merged.",
   "assets": [
     {
       "name": "macos-gps-cache.tar.gz.part0001",
