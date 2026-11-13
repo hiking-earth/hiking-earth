@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Greenland",
+  "source": "Geofabrik official fixed Greenland extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 145055,
+  "catalogCountAfter": 145099,
+  "catalogRecordDelta": 44,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/greenland-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/greenland.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 26195922,
+      "officialMd5Verified": "2a41099159039c9f7a95a4194d0b2769",
+      "sha256": "1dd62feb71723867384ddf331e3fea1dda3b63e6ee95391d957f989afff63b4e",
+      "candidateRelations": 44,
+      "importedRelations": 44,
+      "skippedIncompleteRelations": 0,
+      "skippedNestedRelations": 1,
+      "netCatalogRecordDelta": 44
+    }
+  ],
+  "catalogSnapshot": "94e2e7cb4b524f2d10dd8fef895ade7d0076d36e1462406ea800db3dfade095a",
+  "pageCount": 363,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1089,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 363 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

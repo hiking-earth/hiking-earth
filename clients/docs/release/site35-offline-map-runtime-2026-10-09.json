@@ -1,0 +1,11 @@
+{
+  "site_version": 35,
+  "package": "banff-20261007.pmtiles",
+  "network_test": "CDP Network.emulateNetworkConditions offline=true on acceptance tab",
+  "saved_map_visible": true,
+  "zoom_in_action": "completed; road and water geometry visible afterward",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-35/banff-map-offline-zoom.png",
+  "network_restored": true,
+  "limits": ["already loaded application; no offline cold start proved", "not native device airplane-mode acceptance", "regional sample only"],
+  "visual_issue": "green buttons inherited light text; offline and moderation source changed to dark text; rebuild and redeploy pending"
+}

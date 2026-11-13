@@ -1,0 +1,19 @@
+{
+  "runId": 38023079206,
+  "source": "075bd7dd5fa5a631903f93e43751092458dc6b51",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": 6,
+  "platforms": [
+    "mac-arm64",
+    "mac-x64",
+    "windows-x64",
+    "linux-x64"
+  ],
+  "draft": true,
+  "assetCount": 13,
+  "largestAssetBytes": 150055416,
+  "allAssetsUnder500MB": true,
+  "formalRelease": false,
+  "nativeBusinessAcceptance": false
+}

@@ -1,0 +1,53 @@
+name: Build shared client candidates
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches: [main]
+    paths: ['app/**', 'shared/**', 'scripts/check-package-budget.py', '.github/workflows/client-build.yml']
+permissions:
+  contents: read
+concurrency:
+  group: shared-client-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: ${{ vars.CLIENT_BUILD_READY == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [h5, mp-weixin]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify generated shared palette
+        run: |
+          node scripts/sync-design-palette.mjs
+          git diff --exit-code -- app/src/pages.json shared/design/palette.css shared/design/palette.scss
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+        working-directory: app
+      - name: Check client types and photo lifecycle regressions
+        run: |
+          npm --prefix app run type-check
+          node --test app/tests/desktop-location.test.cjs app/tests/privacy-location.test.cjs scripts/tests/photo-selection.test.cjs scripts/tests/gear-backend.test.cjs
+      - name: Build candidate
+        working-directory: app
+        env:
+          VITE_CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+        run: npm run build:${{ matrix.platform }}
+      - name: Enforce 500 MB client install budget
+        run: >-
+          python3 scripts/check-package-budget.py
+          "app/dist/build/${{ matrix.platform }}"
+          --report "$RUNNER_TEMP/client-${{ matrix.platform }}-size-budget.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: client-${{ matrix.platform }}-${{ github.sha }}
+          path: app/dist/build/${{ matrix.platform }}/
+          if-no-files-found: error
+          retention-days: 30

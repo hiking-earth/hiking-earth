@@ -1,0 +1,44 @@
+[
+  {
+    "collection": "user_libraries",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "client_accounts",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "client_sessions",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "client_rate_limits",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "user_documents",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "team_messages",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "user_notifications",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  }
+]

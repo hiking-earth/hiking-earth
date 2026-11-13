@@ -1,0 +1,19 @@
+{
+  "sourceBase": "0f9ad57",
+  "directDependency": "vue-i18n@9.14.5",
+  "nestedIntlifyVersion": "9.14.5",
+  "advisory": "https://github.com/intlify/vue-i18n/security/advisories/GHSA-x8qp-wqqm-57ph",
+  "checks": {
+    "interpolationSmoke": "passed",
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "diffCheck": "passed"
+  },
+  "limitations": [
+    "DCloud root Intlify dependencies remain at 9.1.9.",
+    "Version 9 is deprecated; major migration compatibility remains unverified.",
+    "New build has not been deployed or accepted on devices.",
+    "Post-patch full audit still running when this report was written."
+  ]
+}

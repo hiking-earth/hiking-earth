@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-08T15:40:22.801154+00:00",
+  "tlsVerifiedResolvedRequests": {
+    "osmPage0": {
+      "ok": true,
+      "total": 40000,
+      "snapshot": "57a0010118a5ec363b1b720ce04aec31e4179169a1a541f715e1781ca5e3a220"
+    },
+    "hkCurrent": {
+      "ok": false
+    },
+    "hkPinnedCurrent": {
+      "ok": false
+    }
+  },
+  "localSameHandler": {
+    "source": "hk",
+    "total": 167,
+    "upstreamAvailable": true,
+    "snapshot": "406670e1fc340d25c63dd7fa0adb17efb268d58d67607c82dc97366734d93f2b"
+  },
+  "productionManifest": {
+    "snapshot": "406670e1fc340d25c63dd7fa0adb17efb268d58d67607c82dc97366734d93f2b",
+    "total": 167
+  },
+  "next": "Inspect deployed handler/package and cloud logs after deployment authorization; do not assume local handler equals remote",
+  "limits": [
+    "No production deployment",
+    "No DNS system change",
+    "Cloud HK failure not only client DNS; exact server cause unproven"
+  ]
+}

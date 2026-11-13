@@ -1,0 +1,36 @@
+{
+  "run": 37618218088,
+  "runStatus": "completed",
+  "runConclusion": "success",
+  "sourceCommit": "fa7fc961022f6f70d6b0f313da5722e503e52d8c",
+  "candidate": "desktop-26",
+  "draft": true,
+  "updaterPlatforms": [
+    "windows-x86_64",
+    "darwin-aarch64",
+    "darwin-x86_64",
+    "linux-x86_64"
+  ],
+  "armArtifact": {
+    "bytes": 33677343,
+    "unpackedBytes": 37635880,
+    "sha256": "112814716516cc29417a26c6898ab4a1b0babc08d2dbeafed0a08fee51957b5d",
+    "pinnedKeySignatureVerified": true,
+    "budgetPassed": true
+  },
+  "actualMacChecks": [
+    "old candidate quit; pgrep confirmed no old process",
+    "exact extracted desktop26 launched",
+    "66747 discovery records restored",
+    "four stored maps restored",
+    "Yosemite local archive opened and roads and river rendered",
+    "zoom button activated; plus minus compass icons visible"
+  ],
+  "screenshot": "desktop26-map-controls-2026-10-07.png",
+  "limits": [
+    "Network remained enabled",
+    "All-platform build success is not Windows/Linux/Intel runtime acceptance",
+    "Automatic install update rollback and final release gate remain pending",
+    "No global offline coverage or legal route access claim"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-08T15:11:22.967628+00:00",
+  "change": "@babel/core 7.25.2 -> 7.29.7; retained major 7",
+  "lockRegeneration": "Only stale core lock entry regenerated after override alone left installed version unchanged",
+  "checks": {
+    "installedCore": "7.29.7",
+    "typescriptPluginRegression": 1,
+    "postinstallVueBackport": "passed",
+    "typecheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "diffCheck": "passed"
+  },
+  "auditBefore": {
+    "info": 0,
+    "low": 18,
+    "moderate": 7,
+    "high": 16,
+    "critical": 0,
+    "total": 41
+  },
+  "auditAfter": {
+    "info": 0,
+    "low": 0,
+    "moderate": 5,
+    "high": 35,
+    "critical": 0,
+    "total": 40
+  },
+  "targetedBabelAdvisoryAfter": "absent",
+  "newDirectAdvisoryPackages": [],
+  "limits": [
+    "Remaining audit severity counts changed; no claim of broad vulnerability clearance",
+    "Build compatibility is not native runtime acceptance",
+    "Not deployed or included in desktop37/Site33"
+  ]
+}

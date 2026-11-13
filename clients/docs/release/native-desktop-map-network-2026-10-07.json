@@ -1,0 +1,35 @@
+{
+  "sourceBase": "fead108",
+  "commands": [
+    "map_catalog",
+    "map_download"
+  ],
+  "limits": {
+    "catalogBytes": 262144,
+    "mapBytes": 67108864,
+    "concurrentRequests": 1,
+    "timeoutSeconds": 120,
+    "connectTimeoutSeconds": 15,
+    "redirects": false,
+    "fixedDistributionHost": "hiking-earth.nanyu20050927.chatgpt.site"
+  },
+  "checks": {
+    "typeCheck": "passed",
+    "javascriptTests": 11,
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "cargoCheck": "passed",
+    "cargoTests": {
+      "filenameValidation": "passed",
+      "publicCatalogRequest": "passed",
+      "actualMapDownloadBytes": 1168799,
+      "actualMapShaMatchesCatalog": true
+    }
+  },
+  "limitations": [
+    "New native adapter not yet packaged or accepted in Tauri window.",
+    "Binary IPC and persistent map rendering need device acceptance.",
+    "Public hosted static map CORS remains absent; native transport handles desktop requests."
+  ],
+  "networkChange": "Enabled reqwest system-proxy feature; subsequent requests passed. Previous failure root cause not conclusively established."
+}

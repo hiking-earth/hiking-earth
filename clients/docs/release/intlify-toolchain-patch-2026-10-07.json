@@ -1,0 +1,27 @@
+{
+  "sourceBase": "4f3f76d",
+  "overrideScope": "@dcloudio/uni-cli-shared",
+  "intlifyVersion": "9.14.5",
+  "checks": {
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "unsafeFlatKeyRejected": "passed",
+    "ordinaryInterpolation": "passed",
+    "resolvedVersions": "passed"
+  },
+  "audit": {
+    "info": 0,
+    "low": 17,
+    "moderate": 10,
+    "high": 18,
+    "critical": 0,
+    "total": 45
+  },
+  "intlifyAuditEntries": [],
+  "limitations": [
+    "Not deployed or device accepted.",
+    "Framework compiler compatibility only checked by current H5 and WeChat builds.",
+    "Other audit entries remain."
+  ]
+}

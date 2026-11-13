@@ -1,0 +1,887 @@
+name: Refresh public hiking catalog
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish audited catalog from the default branch; otherwise collect only'
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      publish:
+        type: boolean
+        required: false
+        default: false
+    secrets:
+      TENCENT_SECRET_ID:
+        required: false
+      TENCENT_SECRET_KEY:
+        required: false
+      ROUTE_AUDIT_WORKER_TOKEN:
+        required: false
+      DURUNUBI_SERVICE_KEY:
+        required: false
+permissions:
+  contents: write
+concurrency:
+  group: route-catalog-update
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      CATALOG_PUBLICATION_ALLOWED: ${{ inputs.publish && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+    # Explicit step limits currently total 350 minutes within the 360-minute job ceiling.
+    # The budget guard below preserves at least 10 minutes for runner/action overhead.
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Use the caller's ref: a manual run checks its selected branch, while
+          # the default-branch scheduler checks out the same merged source revision.
+          # Publication promotes only validated public data, never client releases.
+          ref: ${{ github.ref }}
+      - name: Record checked-out collector source revision
+        id: source_revision
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install EPSG conversion dependency for SwissTLM3D
+        timeout-minutes: 4
+        run: python -m pip install --disable-pip-version-check pyproj==3.8.0
+      - name: Verify route workflow Python entrypoints and imports
+        timeout-minutes: 1
+        run: python scripts/check-route-workflow-entrypoints.py
+      - name: Verify route collector and publication time budget
+        timeout-minutes: 1
+        run: python scripts/validate-route-workflow-budget.py
+      - name: Merge production OSM discoveries and PBF refresh evidence
+        timeout-minutes: 10
+        run: python scripts/merge-production-osm-catalog.py --production-ref origin/main
+      - name: Collect USDA source records
+        id: usda
+        timeout-minutes: 10
+        continue-on-error: true
+        run: python scripts/update-usfs-catalog.py
+      - name: Collect recent OSM changes
+        id: osm_incremental
+        timeout-minutes: 30
+        continue-on-error: true
+        run: python scripts/update-route-catalog.py
+      - name: Collect Hong Kong AFCD trails
+        id: hk
+        timeout-minutes: 5
+        continue-on-error: true
+        run: python scripts/update-hk-catalog.py
+      - name: Collect New Zealand DOC walking routes
+        id: nzdoc
+        timeout-minutes: 25
+        continue-on-error: true
+        run: python scripts/update-nzdoc-catalog.py
+      - name: Collect Parks Canada trails
+        id: parkscanada
+        timeout-minutes: 25
+        continue-on-error: true
+        run: python scripts/update-canada-parks-catalog.py
+      - name: Collect NPS public hiking and pedestrian trail references
+        id: nps_public_trails
+        timeout-minutes: 25
+        continue-on-error: true
+        run: python scripts/update-nps-public-trails-catalog.py
+      - name: Collect Victorian Government walking-track references
+        id: victoria_recreation_tracks
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python scripts/update-victoria-recreation-tracks.py
+      - name: Collect Queensland QPWS walking-track references
+        id: queensland_qpws_trails
+        timeout-minutes: 20
+        continue-on-error: true
+        run: python scripts/update-queensland-qpws-trails.py
+      - name: Collect Taiwan Tourism Administration trail references
+        id: taiwan_trails
+        timeout-minutes: 3
+        continue-on-error: true
+        run: python scripts/update-taiwan-trails-catalog.py
+      - name: Collect Korea Tourism Organization DuruNubi GPX references
+        id: korea_durunubi_trails
+        timeout-minutes: 5
+        continue-on-error: true
+        env:
+          DURUNUBI_SERVICE_KEY: ${{ secrets.DURUNUBI_SERVICE_KEY }}
+        run: python scripts/update-korea-durunubi-trails.py
+      - name: Collect named SwissTLM3D hiking references
+        id: swisstopo_wanderwege
+        timeout-minutes: 15
+        continue-on-error: true
+        run: python scripts/update-swisstopo-wanderwege.py
+      - name: Collect NSW NPWS walking tracks
+        id: nsw_npws
+        timeout-minutes: 12
+        continue-on-error: true
+        run: python scripts/update-nsw-npws-catalog.py
+      - name: Collect Natural England national trails
+        id: england
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python scripts/update-england-national-trails.py
+      - name: Collect Natural Resources Wales national trails
+        id: wales
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python scripts/update-wales-national-trails.py
+      - name: Collect Japan Ministry of the Environment Tokai Nature Trail GPX
+        id: japan_tokai
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python scripts/update-japan-tokai-trails.py
+      - name: Collect Argyll and Bute adopted core paths
+        id: scotland_argyll
+        timeout-minutes: 12
+        continue-on-error: true
+        run: python scripts/update-scotland-argyll-corepaths.py
+      - name: Collect Mid Ulster public rights of way
+        id: ni_midulster
+        timeout-minutes: 5
+        continue-on-error: true
+        run: python scripts/update-ni-midulster-prow.py
+      - name: Collect Norfolk public rights of way
+        id: norfolk_prow
+        timeout-minutes: 10
+        continue-on-error: true
+        run: python scripts/update-norfolk-prow.py
+      - name: Collect Cambridgeshire public rights of way
+        id: cambridgeshire_prow
+        timeout-minutes: 5
+        continue-on-error: true
+        run: python scripts/update-cambridgeshire-prow.py
+      - name: Audit source access and closure signals for human review
+        id: access_audit
+        timeout-minutes: 2
+        run: python scripts/audit-route-access-signals.py --output "$RUNNER_TEMP/route-access-review.json" --chunks-dir "$RUNNER_TEMP/route-access-review-chunks" --summary-file "$GITHUB_STEP_SUMMARY"
+      - name: Preserve complete route review queue shards
+        id: preserve_access_queue
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-access-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/route-access-review.json
+            ${{ runner.temp }}/route-access-review-chunks/*.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Publish route review snapshot shards to the admin console
+        id: publish_access_queue
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+          WORKER_TOKEN: ${{ secrets.ROUTE_AUDIT_WORKER_TOKEN }}
+          REPORT_PATH: ${{ runner.temp }}/route-access-review.json
+          CHUNKS_DIR: ${{ runner.temp }}/route-access-review-chunks
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, re, sys, urllib.request
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          summary = Path(os.environ['GITHUB_STEP_SUMMARY'])
+          output = Path(os.environ['GITHUB_OUTPUT'])
+          if os.environ.get('CATALOG_PUBLICATION_ALLOWED') != 'true':
+              with output.open('a') as stream:
+                  stream.write('required=false\n')
+              with summary.open('a') as stream:
+                  stream.write('Collection-only run: human-review queue retained as an artifact; cloud delivery and production publication are disabled.\n')
+              raise SystemExit(0)
+          endpoint, token = os.environ.get('CLIENT_API_URL', ''), os.environ.get('WORKER_TOKEN', '')
+          MAX_MANIFEST_BYTES = 1024 * 1024
+          MAX_CHUNK_BYTES = 1024 * 1024
+          MAX_CHUNKS = 200
+          def read_bounded(path, limit, label):
+              path = Path(path)
+              if path.is_symlink() or not path.is_file():
+                  raise RuntimeError(f'{label} is not a regular file')
+              with path.open('rb') as stream:
+                  payload = stream.read(limit + 1)
+              if len(payload) > limit:
+                  raise RuntimeError(f'{label} exceeds the {limit}-byte budget')
+              return payload
+          report = json.loads(read_bounded(os.environ['REPORT_PATH'], MAX_MANIFEST_BYTES,
+                                           'route review manifest').decode('utf-8'))
+          required = report.get('reviewCandidateCount', 0) > 0 or report.get('reviewCandidatesTruncated') is True
+          output.open('a', encoding='utf-8').write(f"required={'true' if required else 'false'}\n")
+          if not required and not endpoint and not token:
+              summary.open('a', encoding='utf-8').write('本轮没有路线访问限制候选；未调用审核队列接口。\n')
+              sys.exit(0)
+          if not required and (not endpoint or not token):
+              summary.open('a', encoding='utf-8').write('本轮没有路线访问限制候选；审核队列配置不完整但无需发布候选。\n')
+              sys.exit(0)
+          if not endpoint or not token:
+              summary.open('a', encoding='utf-8').write('存在路线访问限制候选但审核云端配置不完整；分片附件仍保留，本轮不会发布目录。请同时配置CLIENT_API_URL和ROUTE_AUDIT_WORKER_TOKEN。\n')
+              sys.exit(1)
+          if report.get('schemaVersion') != 2 or report.get('reviewCandidatesTruncated') is not False:
+              summary.open('a', encoding='utf-8').write('路线审核清单不完整或版本不支持；分片附件仍保留，本轮不会发布目录。\n')
+              sys.exit(1)
+          chunks = report.get('chunks')
+          if (not isinstance(chunks, list) or len(chunks) > MAX_CHUNKS
+                  or any(not isinstance(item, dict)
+                         or type(item.get('index')) is not int or not 0 <= item['index'] < MAX_CHUNKS
+                         or type(item.get('count')) is not int or not 1 <= item['count'] <= 100
+                         or type(item.get('bytes')) is not int or not 2 <= item['bytes'] <= MAX_CHUNK_BYTES
+                         or not isinstance(item.get('sha256'), str)
+                         or not re.fullmatch(r'[a-f0-9]{64}', item['sha256'])
+                         for item in chunks)
+                  or len({item['index'] for item in chunks}) != len(chunks)):
+              summary.open('a', encoding='utf-8').write('路线审核分片清单格式无效或超出容量限制；本轮不会发布目录。\n')
+              sys.exit(1)
+          try:
+              parsed_endpoint = urlsplit(endpoint)
+              endpoint_hostname = parsed_endpoint.hostname
+              # Accessing .port forces urllib's parser to reject malformed ports.
+              _ = parsed_endpoint.port
+          except ValueError:
+              parsed_endpoint = None
+              endpoint_hostname = None
+          if (parsed_endpoint is None or len(endpoint) > 2048
+                  or any(ord(char) <= 0x20 or ord(char) == 0x7f for char in endpoint)
+                  or '\\' in endpoint or '#' in endpoint
+                  or parsed_endpoint.scheme != 'https'
+                  or not endpoint_hostname or parsed_endpoint.username is not None
+                  or parsed_endpoint.password is not None or parsed_endpoint.fragment):
+              summary.open('a', encoding='utf-8').write('路线审核接口地址无效；只接受格式正确、不含凭据、空白或片段的HTTPS地址。本轮不会发布目录。\n')
+              sys.exit(1)
+          def post(action, data):
+              body = json.dumps({'action': action, 'data': {'workerToken': token, **data}},
+                                ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+              request = urllib.request.Request(endpoint, data=body,
+                  headers={'Content-Type': 'application/json'}, method='POST')
+              return request
+          class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          def send(action, data):
+              request = post(action, data)
+              try:
+                  opener = urllib.request.build_opener(NoRedirectHandler())
+                  with opener.open(request, timeout=45) as response:
+                      response_body = response.read(2 * 1024 * 1024 + 1)
+                      if len(response_body) > 2 * 1024 * 1024:
+                          raise RuntimeError(f'{action} response exceeds the byte budget')
+                      result = json.loads(response_body.decode('utf-8'))
+              except Exception as error:
+                  raise RuntimeError(f'{action} failed: {type(error).__name__}') from error
+              if not isinstance(result, dict) or result.get('ok') is not True or not isinstance(result.get('data'), dict):
+                  raise RuntimeError(f'{action} was not accepted')
+              return result['data']
+          try:
+              # The bearer token and candidate pages are sent only to the configured HTTPS endpoint.
+              receipt = send('route-audit.worker.begin', {'manifest': report})
+              if receipt.get('accepted') is not True or receipt.get('snapshot') != report.get('snapshot'):
+                  raise RuntimeError('snapshot begin was not accepted')
+              if receipt.get('unchanged') is not True:
+                  chunk_dir = Path(os.environ['CHUNKS_DIR'])
+                  for descriptor in chunks:
+                      chunk_path = chunk_dir / f"page-{descriptor['index']:03d}.json"
+                      payload = read_bounded(chunk_path, MAX_CHUNK_BYTES,
+                                             f"route review chunk {descriptor['index']}")
+                      if len(payload) != descriptor['bytes'] or hashlib.sha256(payload).hexdigest() != descriptor['sha256']:
+                          raise RuntimeError(f"local chunk {descriptor['index']} failed integrity check")
+                      items = json.loads(payload)
+                      receipt = send('route-audit.worker.chunk', {
+                          'snapshot': report['snapshot'], 'index': descriptor['index'], 'items': items})
+                      if receipt.get('accepted') is not True or receipt.get('sha256') != descriptor['sha256']:
+                          raise RuntimeError(f"cloud chunk {descriptor['index']} was not accepted")
+              receipt = send('route-audit.worker.commit', {'snapshot': report['snapshot']})
+          except Exception as error:
+              summary.open('a', encoding='utf-8').write('路线风险候选分片同步或完整性提交失败；附件仍保留，本轮不会发布目录。错误类型：' + type(error).__name__ + '\n')
+              sys.exit(1)
+          if (receipt.get('accepted') is not True
+                  or not isinstance(receipt.get('snapshot'), str)
+                  or receipt.get('snapshot') != report.get('snapshot')
+                  or receipt.get('candidateCount') != report.get('reviewCandidateCount')
+                  or receipt.get('listedCount') != report.get('listedCount')
+                  or receipt.get('truncated') is not False):
+              summary.open('a', encoding='utf-8').write('路线风险候选未获云端确认；工作流附件仍保留。\n')
+              sys.exit(1)
+          summary.open('a', encoding='utf-8').write(f"完整路线风险队列已分片同步并校验：{receipt['listedCount']}条候选；快照={receipt['snapshot']}。\n")
+          PY
+      - name: Collect official announcements
+        id: content
+        timeout-minutes: 3
+        continue-on-error: true
+        run: python scripts/update-official-content.py
+      - name: Record collection outcomes
+        id: outcomes
+        if: always()
+        timeout-minutes: 4
+        env:
+          COLLECTOR_SOURCE_SHA: ${{ steps.source_revision.outputs.sha }}
+          USDA_OUTCOME: ${{ steps.usda.outcome }}
+          OSM_INCREMENTAL_OUTCOME: ${{ steps.osm_incremental.outcome }}
+          OSM_RECONCILIATION_OUTCOME: paused-public-global-sweep
+          ACCESS_AUDIT_OUTCOME: ${{ steps.access_audit.outcome }}
+          HK_OUTCOME: ${{ steps.hk.outcome }}
+          NZDOC_OUTCOME: ${{ steps.nzdoc.outcome }}
+          PARKSCANADA_OUTCOME: ${{ steps.parkscanada.outcome }}
+          NPS_PUBLIC_TRAILS_OUTCOME: ${{ steps.nps_public_trails.outcome }}
+          VICTORIA_RECREATION_TRACKS_OUTCOME: ${{ steps.victoria_recreation_tracks.outcome }}
+          QUEENSLAND_QPWS_TRAILS_OUTCOME: ${{ steps.queensland_qpws_trails.outcome }}
+          TAIWAN_TRAILS_OUTCOME: ${{ steps.taiwan_trails.outcome }}
+          DURUNUBI_TRAILS_OUTCOME: ${{ steps.korea_durunubi_trails.outcome }}
+          SWISSTOPO_WANDERWEGE_OUTCOME: ${{ steps.swisstopo_wanderwege.outcome }}
+          NSW_NPWS_OUTCOME: ${{ steps.nsw_npws.outcome }}
+          ENGLAND_OUTCOME: ${{ steps.england.outcome }}
+          WALES_OUTCOME: ${{ steps.wales.outcome }}
+          JAPAN_TOKAI_OUTCOME: ${{ steps.japan_tokai.outcome }}
+          SCOTLAND_ARGYLL_OUTCOME: ${{ steps.scotland_argyll.outcome }}
+          NI_MIDULSTER_OUTCOME: ${{ steps.ni_midulster.outcome }}
+          NORFOLK_PROW_OUTCOME: ${{ steps.norfolk_prow.outcome }}
+          CAMBRIDGESHIRE_PROW_OUTCOME: ${{ steps.cambridgeshire_prow.outcome }}
+          ACCESS_QUEUE_ARTIFACT_OUTCOME: ${{ steps.preserve_access_queue.outcome }}
+          ACCESS_QUEUE_SYNC_OUTCOME: ${{ steps.publish_access_queue.outcome }}
+          ACCESS_QUEUE_SYNC_REQUIRED: ${{ steps.publish_access_queue.outputs.required }}
+          CONTENT_OUTCOME: ${{ steps.content.outcome }}
+        run: |
+          echo "### Hiking catalog collection" >> "$GITHUB_STEP_SUMMARY"
+          echo "Route access audit: $ACCESS_AUDIT_OUTCOME; an unsuccessful audit blocks catalog publication." >> "$GITHUB_STEP_SUMMARY"
+          echo "USDA step: $USDA_OUTCOME; OSM recent-change script step: $OSM_INCREMENTAL_OUTCOME; OSM worldwide full-membership sweep: $OSM_RECONCILIATION_OUTCOME; Hong Kong AFCD: $HK_OUTCOME; New Zealand DOC: $NZDOC_OUTCOME; Parks Canada: $PARKSCANADA_OUTCOME; NPS public trails: $NPS_PUBLIC_TRAILS_OUTCOME; Victoria recreation tracks: $VICTORIA_RECREATION_TRACKS_OUTCOME; NSW NPWS: $NSW_NPWS_OUTCOME; Natural England: $ENGLAND_OUTCOME; Natural Resources Wales: $WALES_OUTCOME; Japan MOE Tokai trail: $JAPAN_TOKAI_OUTCOME; Argyll and Bute core paths: $SCOTLAND_ARGYLL_OUTCOME; Mid Ulster public rights of way: $NI_MIDULSTER_OUTCOME; Norfolk public rights of way: $NORFOLK_PROW_OUTCOME; Cambridgeshire public rights of way: $CAMBRIDGESHIRE_PROW_OUTCOME; SwissTLM3D named references: $SWISSTOPO_WANDERWEGE_OUTCOME; Taiwan Tourism Administration trails: $TAIWAN_TRAILS_OUTCOME; Korea Tourism Organization DuruNubi: $DURUNUBI_TRAILS_OUTCOME; official notices: $CONTENT_OUTCOME" >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY'
+          import datetime, hashlib, json, os
+          from collections import Counter
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, str(Path('scripts').resolve()))
+          from catalog_collection_status import news_source_status, pbf_catalog_coverage, pbf_refresh_status, pbf_route_provenance_status
+          from catalog_sources import PUBLIC_CATALOG_FILES, PUBLIC_CATALOG_LABELS
+          MAX_SOURCE_CATALOG_BYTES = 128 * 1024 * 1024
+          MAX_SOURCE_REGISTRY_BYTES = 1024 * 1024
+          MAX_PBF_REFRESH_REPORT_BYTES = 2 * 1024 * 1024
+          MAX_COLLECTION_STATUS_BYTES = 4 * 1024 * 1024
+
+          def read_bounded_bytes(path, limit, label):
+              path = Path(path)
+              if path.is_symlink() or not path.is_file():
+                  raise ValueError(f'{label} is not a regular file')
+              with path.open('rb') as stream:
+                  payload = stream.read(limit + 1)
+              if len(payload) > limit:
+                  raise ValueError(f'{label} exceeds the {limit}-byte budget')
+              return payload
+
+          def read_bounded_json(path, limit, label):
+              return json.loads(read_bounded_bytes(path, limit, label).decode('utf-8'))
+
+          root = Path('shared/data')
+          sources = [
+              (PUBLIC_CATALOG_LABELS.get(source, source),
+               root / relative_path.removeprefix('data/'),
+               'items' if source == 'news' else 'routes')
+              for source, relative_path in PUBLIC_CATALOG_FILES.items()
+          ]
+          outcomes = dict(zip(('usfs','osm_incremental','osm_reconciliation','hk','nzdoc','parkscanada','nsw-npws','england','wales','japan-tokai','scotland-argyll','ni-midulster','norfolk-prow','cambridgeshire-prow','news'), (os.environ.get(key, 'unknown') for key in ('USDA_OUTCOME','OSM_INCREMENTAL_OUTCOME','OSM_RECONCILIATION_OUTCOME','HK_OUTCOME','NZDOC_OUTCOME','PARKSCANADA_OUTCOME','NSW_NPWS_OUTCOME','ENGLAND_OUTCOME','WALES_OUTCOME','JAPAN_TOKAI_OUTCOME','SCOTLAND_ARGYLL_OUTCOME','NI_MIDULSTER_OUTCOME','NORFOLK_PROW_OUTCOME','CAMBRIDGESHIRE_PROW_OUTCOME','CONTENT_OUTCOME'))))
+          outcomes['route_access_audit'] = os.environ.get('ACCESS_AUDIT_OUTCOME', 'unknown')
+          outcomes['route_access_queue_artifact'] = os.environ.get('ACCESS_QUEUE_ARTIFACT_OUTCOME', 'unknown')
+          outcomes['route_access_queue_sync'] = os.environ.get('ACCESS_QUEUE_SYNC_OUTCOME', 'unknown')
+          outcomes['route_access_queue_sync_required'] = os.environ.get('ACCESS_QUEUE_SYNC_REQUIRED', 'false') == 'true'
+          outcomes['catalog_publication_requested'] = os.environ.get('CATALOG_PUBLICATION_ALLOWED') == 'true'
+          outcomes['osm'] = outcomes['osm_reconciliation']
+          outcomes['nps-public-trails'] = os.environ.get('NPS_PUBLIC_TRAILS_OUTCOME', 'unknown')
+          outcomes['victoria-recreation-tracks'] = os.environ.get('VICTORIA_RECREATION_TRACKS_OUTCOME', 'unknown')
+          outcomes['queensland-qpws-trails'] = os.environ.get('QUEENSLAND_QPWS_TRAILS_OUTCOME', 'unknown')
+          outcomes['taiwan-trails'] = os.environ.get('TAIWAN_TRAILS_OUTCOME', 'unknown')
+          outcomes['korea-durunubi-trails'] = os.environ.get('DURUNUBI_TRAILS_OUTCOME', 'unknown')
+          outcomes['swisstopo-wanderwege'] = os.environ.get('SWISSTOPO_WANDERWEGE_OUTCOME', 'unknown')
+          snapshots = {}
+          rows = ['| Source snapshot | Records | Generated |', '|---|---:|---|']
+          for label, path, key in sources:
+              raw = read_bounded_bytes(path, MAX_SOURCE_CATALOG_BYTES, f'{label} source snapshot')
+              data = json.loads(raw.decode('utf-8'))
+              if path.name == 'osm.json':
+                  osm = data
+              elif path.name == 'usfs.json':
+                  usfs = data
+              snapshots[label] = {'records': len(data.get(key, [])), 'generatedAt': data.get('generatedAt'), 'sha256': hashlib.sha256(raw).hexdigest()}
+              rows.append(f"| {label} | {len(data.get(key, []))} | {data.get('generatedAt', 'unknown')} |")
+          backfill = osm.get('backfill', {})
+          membership = osm.get('backfillState', {})
+          region_names = ('china','japan','south-asia','europe','north-america','oceania','south-america','africa')
+          refresh_counts = osm.get('lastRefreshCounts', {})
+          if not isinstance(refresh_counts, dict):
+              refresh_counts = osm.get('coverage', {})
+          if not isinstance(refresh_counts, dict):
+              refresh_counts = {}
+          source_cursors = osm.get('sourceCursors', {}) if isinstance(osm.get('sourceCursors'), dict) else {}
+          failures = osm.get('failures', []) if isinstance(osm.get('failures'), list) else []
+          failed_regions = {item.get('region'): str(item.get('error', 'source request failed'))[:500] for item in failures if isinstance(item, dict) and isinstance(item.get('region'), str)}
+          if outcomes['osm_incremental'] == 'success':
+              region_attempts = {}
+              for region in region_names:
+                  if region in failed_regions:
+                      region_attempts[region] = {'status': 'failed', 'error': failed_regions[region]}
+                  elif region in refresh_counts:
+                      region_attempts[region] = {'status': 'success', 'records': refresh_counts[region], 'cursor': source_cursors.get(region)}
+                  else:
+                      region_attempts[region] = {'status': 'not-reported'}
+              refreshed = sum(1 for item in region_attempts.values() if item['status'] == 'success')
+              failed = sum(1 for item in region_attempts.values() if item['status'] == 'failed')
+              not_reported = sum(1 for item in region_attempts.values() if item['status'] == 'not-reported')
+              osm_incremental_status = 'success' if refreshed == len(region_names) and failed == 0 else 'partial' if refreshed else 'failure'
+          else:
+              region_attempts = {region: {'status': 'step-' + outcomes['osm_incremental']} for region in region_names}
+              refreshed = failed = 0; not_reported = len(region_names)
+              osm_incremental_status = 'failure' if outcomes['osm_incremental'] == 'failure' else 'unknown'
+          outcomes['osm_incremental_step'] = outcomes['osm_incremental']
+          outcomes['osm_incremental'] = osm_incremental_status
+          usfs_progress = usfs.get('backfill', {})
+          reconciliation = {
+              'osm': {
+                  'supported': membership.get('reconciliationVersion') == 1,
+                  'cycleStartedAt': membership.get('cycleStartedAt'),
+                  'lastCompletedAt': membership.get('lastCompletedAt'),
+                  'lastRemovedFromDiscovery': membership.get('lastRemovedFromDiscovery'),
+              'pendingTiles': backfill.get('pendingTiles'),
+              'currentCycleComplete': membership.get('reconciliationVersion') == 1 and backfill.get('pendingTiles') == 0,
+              'scheduled': False,
+              'pauseReason': 'Public Overpass documentation discourages stitching bounding boxes to scrape worldwide data; use regional extracts or an owner-approved sustainable service.',
+              'lastAttemptSucceeded': None,
+              'incrementalAttemptSucceeded': osm_incremental_status == 'success',
+              'incrementalOutcome': osm_incremental_status,
+              'incrementalRegions': region_attempts,
+              },
+              'usfs': {
+                  'supported': usfs_progress.get('reconciliationVersion') == 2,
+                  'cycleStartedAt': usfs_progress.get('cycleStartedAt'),
+                  'lastCompletedAt': usfs_progress.get('lastCompletedAt'),
+                  'lastRemovedFromDiscovery': usfs_progress.get('lastRemovedFromDiscovery'),
+                  'nextObjectId': usfs_progress.get('nextObjectId'),
+                  'currentCycleComplete': usfs_progress.get('reconciliationVersion') == 2 and usfs_progress.get('nextObjectId') is None and bool(usfs_progress.get('lastCompletedAt')),
+                  'lastAttemptSucceeded': outcomes['usfs'] == 'success',
+              },
+              'hk': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['hk'] == 'success',
+              },
+              'nzdoc': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['nzdoc'] == 'success',
+              },
+              'parkscanada': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['parkscanada'] == 'success',
+              },
+              'nps-public-trails': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['nps-public-trails'] == 'success',
+              },
+              'victoria-recreation-tracks': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['victoria-recreation-tracks'] == 'success',
+              },
+              'queensland-qpws-trails': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['queensland-qpws-trails'] == 'success',
+              },
+              'taiwan-trails': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['taiwan-trails'] == 'success',
+              },
+              'korea-durunubi-trails': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['korea-durunubi-trails'] == 'success',
+              },
+              'swisstopo-wanderwege': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['swisstopo-wanderwege'] == 'success',
+              },
+              'nsw-npws': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['nsw-npws'] == 'success',
+              },
+              'england': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['england'] == 'success',
+              },
+              'wales': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['wales'] == 'success',
+              },
+              'japan-tokai': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['japan-tokai'] == 'success',
+              },
+              'scotland-argyll': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['scotland-argyll'] == 'success',
+              },
+              'ni-midulster': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['ni-midulster'] == 'success',
+              },
+              'norfolk-prow': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['norfolk-prow'] == 'success',
+              },
+              'cambridgeshire-prow': {
+                  'mode': 'complete-source-replacement',
+                  'lastAttemptSucceeded': outcomes['cambridgeshire-prow'] == 'success',
+              },
+          }
+          for source, progress in reconciliation.items():
+              rows.append(f"| Membership reconciliation: {source} | last removed {progress.get('lastRemovedFromDiscovery', 'not recorded')} | complete {progress.get('currentCycleComplete', 'not applicable')}; attempt {outcomes[source]} |")
+          pbf_refreshes = []
+          for region in ('africa', 'asia', 'europe', 'south-america', 'oceania', 'north-america', 'central-america', 'antarctica', 'china', 'japan'):
+              reports = sorted(Path('docs/release').glob(f'osm-{region}-pbf-refresh-*.json'))
+              if not reports:
+                  pbf_refreshes.append({'region': region, 'status': 'not-recorded', 'accessVerified': False, 'navigableGeometryAdded': False})
+                  rows.append(f'| Geofabrik PBF refresh: {region} | no report | source coverage not established |')
+                  continue
+              report_path = reports[-1]
+              try:
+                  summary = pbf_refresh_status(read_bounded_json(
+                      report_path, MAX_PBF_REFRESH_REPORT_BYTES, f'{region} PBF refresh report'))
+                  summary['report'] = str(report_path)
+                  summary['status'] = 'partial' if int(summary.get('lastRunFailureCount') or 0) else 'success'
+              except (OSError, ValueError, json.JSONDecodeError, TypeError):
+                  summary = {'region': region, 'report': str(report_path), 'status': 'invalid-report', 'accessVerified': False, 'navigableGeometryAdded': False}
+              pbf_refreshes.append(summary)
+              rows.append(f"| Geofabrik PBF refresh: {region} | {summary.get('latestSourceCount', 0)} source snapshots; last run {summary.get('lastRunSuccessCount', 'unknown')} succeeded / {summary.get('lastRunFailureCount', 'unknown')} failed | {summary.get('lastCompletedAt', 'not recorded')} | access verified: false |")
+          pbf_coverage = pbf_catalog_coverage(osm)
+          for item in pbf_coverage:
+              schedule = 'scheduled monthly' if item['scheduledRefresh'] else 'no scheduled PBF refresh'
+              rows.append(f"| Geofabrik PBF catalog: {item['region']} | {item['sourceCount']} sources; newest source {item.get('newestSourceTimestamp', 'unknown')} | {schedule}; discovery only |")
+          provenance = pbf_route_provenance_status(osm)
+          rows.append(f"| OSM route source provenance | {provenance['routesWithPbfSource']} / {provenance['totalRoutes']} routes have PBF source attribution; {provenance['legacyOrUnattributedRoutes']} legacy/unattributed; {provenance['invalidProvenanceRoutes']} invalid | global withdrawal safe: {provenance['safeForGlobalWithdrawal']} |")
+          regions = Counter(route.get('region', 'unknown') for route in osm.get('routes', []))
+          rows.append('| OSM records by region | ' + '; '.join(f'{name}: {count}' for name, count in sorted(regions.items())) + ' | source tags only |')
+          rows.append(f"| OSM grid backfill | {backfill.get('completedTiles', 0)} complete / {backfill.get('pendingTiles', 0)} pending | cycle {backfill.get('cycle', 0)} |")
+          rows.append(f"| OSM recent changes | {refreshed} / {len(region_names)} regions refreshed; {failed} reported failures; {not_reported} not reported | {osm_incremental_status} (step {outcomes['osm_incremental_step']}) |")
+          rows.extend(f"| OSM recent changes: {region} | {item['status']} | {item.get('records', item.get('error', ''))} |" for region, item in region_attempts.items())
+          budget = osm.get('sourceBudget', {})
+          rows.append(f"| OSM public API budget | {budget.get('downloadedBytes', 0)} / {budget.get('dailyByteLimit', 8388608)} bytes; {budget.get('queryCount', 0)} / {budget.get('dailyQueryLimit', 64)} queries | UTC day {budget.get('dateUTC', 'not recorded')} |")
+          news = read_bounded_json(root/'content/official-news.json', MAX_SOURCE_CATALOG_BYTES,
+                                   'official notice snapshot')
+          news_refresh = news.get('collectionStatus', {})
+          if isinstance(news_refresh, dict):
+              rows.append(f"| Official notice snapshot review | {news_refresh.get('state', 'legacy/unknown')} | {news_refresh.get('failedSourceCount', 'unknown')} / {news_refresh.get('attemptedSourceCount', 'unknown')} feeds failed; cached-item policy revalidated: {news_refresh.get('cachedItemsRevalidated', 'unknown')} |")
+          registry = read_bounded_json(root/'content/official-sources.json', MAX_SOURCE_REGISTRY_BYTES,
+                                       'official source registry')
+          news_states = {source['id']: source for source in news.get('sources', [])}
+          news_counts = Counter(item.get('sourceId', 'unknown') for item in news.get('items', []))
+          news_sources = []
+          for source in registry['sources']:
+              state = news_states.get(source['id'], {})
+              source_status = news_source_status(source, state, news_counts[source['id']])
+              news_sources.append(source_status)
+              withheld = source_status['lastWithheldCount']
+              expired = source_status['lastExpiredCount']
+              reasons = ', '.join(source_status['lastWithheldReasons']) or 'none'
+              rows.append(f"| Official notices: {source['id']} | {news_counts[source['id']]} | {source_status['status']}; feed verification {source_status['feedVerificationStatus']}; last success {state.get('lastSuccess', 'none')}; withheld {withheld if withheld is not None else 'unknown'}; expired {expired if expired is not None else 'unknown'}; reasons {reasons} |")
+          status = {'schemaVersion': 1, 'checkedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'runId': os.environ['GITHUB_RUN_ID'], 'sourceCommit': os.environ['COLLECTOR_SOURCE_SHA'], 'outcomes': outcomes, 'newsRefresh': news_refresh if isinstance(news_refresh, dict) else {}, 'newsSources': news_sources, 'reconciliation': reconciliation, 'pbfExtractRefreshes': pbf_refreshes, 'pbfCatalogCoverage': pbf_coverage, 'pbfRouteProvenance': provenance, 'snapshots': snapshots, 'accessVerified': False}
+          status_path = Path('shared/public-catalog/collection-status.json')
+          status_path.parent.mkdir(parents=True, exist_ok=True)
+          status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + '\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('\n'.join(rows) + '\n')
+          PY
+          echo "Failed sources retain their previous catalog. Automatic collection does not verify trail access or produce navigable geometry." >> "$GITHUB_STEP_SUMMARY"
+      - name: Require a complete route review queue before catalog publication
+        id: complete_access_queue
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' }}
+        env:
+          REPORT_PATH: ${{ runner.temp }}/route-access-review.json
+          CHUNKS_DIR: ${{ runner.temp }}/route-access-review-chunks
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, sys
+          from pathlib import Path
+
+          MAX_REVIEW_MANIFEST_BYTES = 1024 * 1024
+          MAX_REVIEW_CHUNK_BYTES = 1024 * 1024
+
+          def read_bounded_regular_file(path, limit, label):
+              path = Path(path)
+              if path.is_symlink() or not path.is_file():
+                  raise ValueError(f'{label} is not a regular file')
+              with path.open('rb') as stream:
+                  payload = stream.read(limit + 1)
+              if len(payload) > limit:
+                  raise ValueError(f'{label} exceeds the {limit}-byte budget')
+              return payload
+
+          manifest_payload = read_bounded_regular_file(
+              os.environ['REPORT_PATH'], MAX_REVIEW_MANIFEST_BYTES, 'route review manifest')
+          manifest = json.loads(manifest_payload.decode('utf-8'))
+          chunks = manifest.get('chunks')
+          sources = manifest.get('sources')
+          listed = 0
+          total_bytes = 0
+          complete = (manifest.get('schemaVersion') == 2
+                      and isinstance(sources, dict) and 0 < len(sources) <= 64
+                      and isinstance(chunks, list)
+                      and len(chunks) <= 200
+                      and manifest.get('reviewCandidatesTruncated') is False
+                      and isinstance(manifest.get('listedCount'), int)
+                      and not isinstance(manifest.get('listedCount'), bool)
+                      and 0 <= manifest['listedCount'] <= 20000
+                      and isinstance(manifest.get('reviewCandidateCount'), int)
+                      and not isinstance(manifest.get('reviewCandidateCount'), bool)
+                      and manifest['reviewCandidateCount'] >= 0
+                      and isinstance(manifest.get('candidateBytes'), int)
+                      and not isinstance(manifest.get('candidateBytes'), bool)
+                      and 0 <= manifest['candidateBytes'] <= 48 * 1024 * 1024
+                      and manifest.get('reviewCandidateCount') == manifest.get('listedCount'))
+          if complete:
+              for source in sources.values():
+                  if (not isinstance(source, dict) or not isinstance(source.get('routeCount'), int)
+                          or isinstance(source.get('routeCount'), bool) or source['routeCount'] < 0
+                          or not isinstance(source.get('negativeSignalCount'), int)
+                          or isinstance(source.get('negativeSignalCount'), bool) or source['negativeSignalCount'] < 0
+                          or source['negativeSignalCount'] > source['routeCount']
+                          or ('sourceChangeCount' in source and (not isinstance(source.get('sourceChangeCount'), int)
+                              or isinstance(source.get('sourceChangeCount'), bool) or source['sourceChangeCount'] < 0
+                              or source['sourceChangeCount'] > source['routeCount']))):
+                      complete = False
+                      break
+              complete = complete and sum(source['negativeSignalCount'] + source.get('sourceChangeCount', 0)
+                                          for source in sources.values()) == manifest['reviewCandidateCount']
+          if complete:
+              for index, descriptor in enumerate(chunks):
+                  path = Path(os.environ['CHUNKS_DIR']) / f'page-{index:03d}.json'
+                  if (not isinstance(descriptor, dict) or descriptor.get('index') != index
+                          or not isinstance(descriptor.get('count'), int)
+                          or isinstance(descriptor.get('count'), bool) or not 1 <= descriptor['count'] <= 100
+                          or not isinstance(descriptor.get('bytes'), int)
+                          or isinstance(descriptor.get('bytes'), bool) or not 2 <= descriptor['bytes'] <= MAX_REVIEW_CHUNK_BYTES
+                          or total_bytes + descriptor['bytes'] > manifest['candidateBytes']
+                          or path.is_symlink() or not path.is_file()):
+                      complete = False
+                      break
+                  try:
+                      payload = read_bounded_regular_file(
+                          path, MAX_REVIEW_CHUNK_BYTES, f'route review chunk {index}')
+                      items = json.loads(payload.decode('utf-8'))
+                  except (OSError, UnicodeDecodeError, ValueError, json.JSONDecodeError):
+                      complete = False
+                      break
+                  if (len(payload) != descriptor.get('bytes')
+                          or hashlib.sha256(payload).hexdigest() != descriptor.get('sha256')
+                          or not isinstance(items, list) or len(items) != descriptor.get('count')):
+                      complete = False
+                      break
+                  listed += len(items)
+                  total_bytes += len(payload)
+              complete = (complete and listed == manifest['listedCount']
+                          and total_bytes == manifest.get('candidateBytes'))
+          if complete:
+              core = {key: value for key, value in manifest.items() if key != 'snapshot'}
+              canonical = json.dumps(core, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
+              complete = hashlib.sha256(canonical).hexdigest() == manifest.get('snapshot')
+          if not complete:
+              Path(os.environ['GITHUB_STEP_SUMMARY']).open('a', encoding='utf-8').write(
+                  '路线审核分片缺失、超容量或完整性校验失败；保留审核附件并阻止发布新目录。\n')
+              print('Incomplete or corrupt route review shard manifest; catalog publication is blocked.', file=sys.stderr)
+              raise SystemExit(1)
+          Path(os.environ['GITHUB_STEP_SUMMARY']).open('a', encoding='utf-8').write(
+              f"路线审核队列完整：{listed}条候选，{len(chunks)}个分片已校验。\n")
+          PY
+      - name: Report catalog publication blocked by route access audit failure
+        if: ${{ !cancelled() && steps.access_audit.outcome != 'success' }}
+        run: echo 'Catalog publication skipped because the route access audit did not complete successfully. Existing published catalog remains unchanged.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Report catalog publication blocked by route review queue persistence failure
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' && (steps.preserve_access_queue.outcome != 'success' || steps.publish_access_queue.outcome != 'success') }}
+        run: echo 'Catalog publication skipped because the route review queue could not be preserved or its configured cloud delivery was not accepted. Existing published catalog remains unchanged.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Report catalog publication blocked by incomplete route review queue
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' && steps.complete_access_queue.outcome != 'success' }}
+        run: echo 'Catalog publication skipped because some route risk candidates are missing from the bounded human-review queue. Existing published catalog remains unchanged.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Fail run when route review queue persistence fails
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' && (steps.preserve_access_queue.outcome != 'success' || steps.publish_access_queue.outcome != 'success') }}
+        run: exit 1
+      - name: Prepare immutable compressed catalog pages
+        id: prepare_catalog
+        if: ${{ !cancelled() && steps.access_audit.outcome == 'success' && steps.complete_access_queue.outcome == 'success' && steps.preserve_access_queue.outcome == 'success' && steps.publish_access_queue.outcome == 'success' && steps.outcomes.outcome == 'success' }}
+        timeout-minutes: 10
+        env:
+          CONTENT_OUTCOME: ${{ steps.content.outcome }}
+        run: |
+          if [ "$CONTENT_OUTCOME" = "success" ]; then
+            if python scripts/prepare-catalog-pages.py; then
+              news_publishable=true
+              echo "news_publishable=true" >> "$GITHUB_OUTPUT"
+              echo "catalog_prepared=true" >> "$GITHUB_OUTPUT"
+            else
+              echo 'Official notice collection completed, but its catalog failed publication validation; retrying with route catalogs only and preserving the current production notice snapshot.' >> "$GITHUB_STEP_SUMMARY"
+              python scripts/prepare-catalog-pages.py --exclude-source news
+              news_publishable=false
+              echo "news_publishable=false" >> "$GITHUB_OUTPUT"
+              echo "catalog_prepared=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo 'Official notice collection failed; prepare validated route catalogs while retaining the existing production notice snapshot.' >> "$GITHUB_STEP_SUMMARY"
+            python scripts/prepare-catalog-pages.py --exclude-source news
+            news_publishable=false
+            echo "news_publishable=false" >> "$GITHUB_OUTPUT"
+            echo "catalog_prepared=true" >> "$GITHUB_OUTPUT"
+          fi
+          NEWS_PUBLISHABLE="$news_publishable" CONTENT_OUTCOME="$CONTENT_OUTCOME" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, str(Path('scripts').resolve()))
+          from catalog_collection_status import news_publication_status
+          status_path = Path('shared/public-catalog/collection-status.json')
+          MAX_COLLECTION_STATUS_BYTES = 4 * 1024 * 1024
+          if status_path.is_symlink() or not status_path.is_file():
+              raise ValueError('collection status is not a regular file')
+          with status_path.open('rb') as stream:
+              status_payload = stream.read(MAX_COLLECTION_STATUS_BYTES + 1)
+          if len(status_payload) > MAX_COLLECTION_STATUS_BYTES:
+              raise ValueError('collection status exceeds its byte budget')
+          status = json.loads(status_payload.decode('utf-8'))
+          status['newsPublication'] = news_publication_status(
+              os.environ.get('NEWS_PUBLISHABLE') == 'true',
+              os.environ.get('CONTENT_OUTCOME', 'unknown'),
+          )
+          status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Publish changed snapshot
+        id: publish
+        if: ${{ !cancelled() && env.CATALOG_PUBLICATION_ALLOWED == 'true' && steps.access_audit.outcome == 'success' && steps.complete_access_queue.outcome == 'success' && steps.preserve_access_queue.outcome == 'success' && steps.publish_access_queue.outcome == 'success' && steps.outcomes.outcome == 'success' && steps.prepare_catalog.outcome == 'success' }}
+        timeout-minutes: 10
+        run: |
+          git add shared/data/catalog/ shared/data/content/ shared/data/offline/ shared/public-catalog/ app/cloudfunctions/catalog-feed/snapshots/ app/cloudfunctions/client-api/business/catalog-feed/snapshots/ 'docs/release/osm-*-pbf-refresh-*.json'
+          if git diff --cached --quiet -- shared/data/catalog/ shared/data/content/ shared/data/offline/ shared/public-catalog/ app/cloudfunctions/catalog-feed/snapshots/ app/cloudfunctions/client-api/business/catalog-feed/snapshots/; then
+            echo "catalog_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "catalog_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          if git diff --cached --quiet -- app/cloudfunctions/catalog-feed/snapshots/ app/cloudfunctions/client-api/business/catalog-feed/snapshots/; then
+            echo "cloudbase_snapshots_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "cloudbase_snapshots_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'hiking-earth-catalog[bot]'
+          git config user.email 'catalog@users.noreply.github.com'
+          git commit -m 'data: refresh sourced hiking discovery catalogs'
+          # Preserve source/doc commits added while the collectors were running.
+          # A concurrent data conflict stops publication rather than overwriting it.
+          case "${GITHUB_REF:?}" in
+            refs/heads/*) target_branch="${GITHUB_REF#refs/heads/}" ;;
+            *) echo "Catalog refresh requires a branch ref; refusing to push from $GITHUB_REF" >&2; exit 1 ;;
+          esac
+          git check-ref-format "refs/heads/$target_branch"
+          git pull --rebase origin "$target_branch"
+          expected_commit=$(git rev-parse HEAD)
+          git push origin "HEAD:refs/heads/$target_branch"
+          remote_commit=$(git ls-remote origin "refs/heads/$target_branch" | cut -f1)
+          test "$remote_commit" = "$expected_commit" || { echo "Catalog branch readback mismatch: expected $expected_commit, received $remote_commit" >&2; exit 1; }
+          echo "Verified catalog source commit on origin: $remote_commit"
+      - name: Publish validated pages to production read branch
+        id: publish_public_catalog
+        if: ${{ !cancelled() && steps.publish.outcome == 'success' }}
+        timeout-minutes: 10
+        env:
+          NEWS_PUBLISHABLE: ${{ steps.prepare_catalog.outputs.news_publishable }}
+        run: |
+          if [ "$NEWS_PUBLISHABLE" = "true" ]; then
+            python scripts/publish-public-catalog.py
+          else
+            python scripts/publish-public-catalog.py --exclude-source news
+          fi
+      - name: Set up Node.js for CloudBase CLI
+        if: ${{ !cancelled() && steps.prepare_catalog.outputs.catalog_prepared == 'true' && steps.publish.outcome == 'success' && steps.publish_public_catalog.outcome == 'success' && steps.publish.outputs.cloudbase_snapshots_changed == 'true' && vars.HIKING_CATALOG_AUTODEPLOY == 'true' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+      - name: Deploy changed catalog snapshots to CloudBase
+        if: ${{ !cancelled() && steps.prepare_catalog.outputs.catalog_prepared == 'true' && steps.publish.outcome == 'success' && steps.publish_public_catalog.outcome == 'success' && steps.publish.outputs.cloudbase_snapshots_changed == 'true' && vars.HIKING_CATALOG_AUTODEPLOY == 'true' }}
+        timeout-minutes: 40
+        env:
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+          CLOUDBASE_ENV_ID: ${{ vars.CLOUDBASE_ENV_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$TENCENT_SECRET_ID"
+          test -n "$TENCENT_SECRET_KEY"
+          test -n "$CLOUDBASE_ENV_ID"
+          node --version
+          npm install --global @cloudbase/cli@2.6.16
+          CLI_PATH="$(command -v tcb)"
+          node "$CLI_PATH" login --apiKeyId "$TENCENT_SECRET_ID" --apiKey "$TENCENT_SECRET_KEY"
+          BACKUP_DIR="$RUNNER_TEMP/hiking-catalog-cloudbase-$GITHUB_RUN_ID"
+          python3 scripts/deploy-client-functions.py \
+            --cloudbase-cli "$CLI_PATH" \
+            --node "$(command -v node)" \
+            --env "$CLOUDBASE_ENV_ID" \
+            --backup-dir "$BACKUP_DIR" \
+            --functions catalog-feed client-api
+      - name: Report CloudBase deployment skipped because auto-deploy is disabled
+        if: ${{ !cancelled() && steps.prepare_catalog.outputs.catalog_prepared == 'true' && steps.publish.outcome == 'success' && steps.publish_public_catalog.outcome == 'success' && steps.publish.outputs.cloudbase_snapshots_changed == 'true' && vars.HIKING_CATALOG_AUTODEPLOY != 'true' }}
+        run: echo 'Catalog snapshots were committed and the public read branch was updated, but changed CloudBase function snapshots were not deployed because HIKING_CATALOG_AUTODEPLOY is not explicitly true. Cloud clients may continue serving the previous deployed snapshot until an authorized deployment is performed.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Report CloudBase deployment skipped because public catalog publication failed
+        if: ${{ !cancelled() && steps.prepare_catalog.outputs.catalog_prepared == 'true' && steps.publish.outcome == 'success' && steps.publish_public_catalog.outcome != 'success' && steps.publish.outputs.cloudbase_snapshots_changed == 'true' }}
+        run: echo 'Source snapshots were committed, but publication to the public read branch did not succeed. CloudBase deployment was skipped to prevent client platforms from serving different catalog generations. Existing public and CloudBase snapshots remain the recovery point.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Report incomplete collection sources
+        if: ${{ !cancelled() && steps.outcomes.outcome == 'success' }}
+        timeout-minutes: 1
+        env:
+          PREPARE_CATALOG_OUTCOME: ${{ steps.prepare_catalog.outcome }}
+          SOURCE_SNAPSHOT_COMMIT_OUTCOME: ${{ steps.publish.outcome }}
+          PUBLICATION_OUTCOME: ${{ steps.publish_public_catalog.outcome }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, str(Path('scripts').resolve()))
+          from catalog_sources import PUBLIC_CATALOG_FILES, PUBLIC_CATALOG_LABELS
+          status_path = Path('shared/public-catalog/collection-status.json')
+          MAX_COLLECTION_STATUS_BYTES = 4 * 1024 * 1024
+          if status_path.is_symlink() or not status_path.is_file():
+              raise ValueError('collection status is not a regular file')
+          with status_path.open('rb') as stream:
+              status_payload = stream.read(MAX_COLLECTION_STATUS_BYTES + 1)
+          if len(status_payload) > MAX_COLLECTION_STATUS_BYTES:
+              raise ValueError('collection status exceeds its byte budget')
+          status = json.loads(status_payload.decode('utf-8'))
+          outcomes = status.get('outcomes', {})
+          sources = {source: 'osm_incremental' if source == 'osm' else source
+                     for source in PUBLIC_CATALOG_FILES}
+          incomplete = {source: outcomes.get(outcome, 'unknown') for source, outcome in sources.items()
+                        if outcomes.get(outcome) != 'success'}
+          news_publication = status.get('newsPublication')
+          if not isinstance(news_publication, dict) or news_publication.get('state') != 'candidate-validated':
+              state = news_publication.get('state', 'missing') if isinstance(news_publication, dict) else 'missing'
+              reason = news_publication.get('reason') if isinstance(news_publication, dict) else None
+              incomplete['official-notice-publication'] = f'{state}' + (f' ({reason})' if reason else '')
+          prepare = os.environ.get('PREPARE_CATALOG_OUTCOME', 'unknown')
+          source_commit = os.environ.get('SOURCE_SNAPSHOT_COMMIT_OUTCOME', 'unknown')
+          publication = os.environ.get('PUBLICATION_OUTCOME', 'unknown')
+          if prepare != 'success':
+              incomplete['catalog-preparation'] = prepare
+          publication_requested = os.environ.get('CATALOG_PUBLICATION_ALLOWED') == 'true'
+          if not publication_requested:
+              print('Collection-only run: no source commit, production read-branch update, cloud review delivery or CloudBase deployment was requested.')
+          if publication_requested and source_commit != 'success':
+              incomplete['source-snapshot-commit'] = source_commit
+          if publication_requested and publication != 'success':
+              incomplete['production-publication'] = publication
+          if incomplete:
+              print('Some sources failed or only partially refreshed:')
+              for source, result in incomplete.items():
+                  print(f'- {PUBLIC_CATALOG_LABELS.get(source, source)}: {result}')
+              if prepare != 'success':
+                  print(f'Production publication was not attempted because catalog preparation did not succeed (prepare={prepare}, source commit={source_commit}, production publish={publication}). Existing production snapshots remain unchanged.')
+              elif publication == 'success':
+                  print(f'The production read-branch publication step completed (source commit={source_commit}); sources that failed collection retained their previous validated snapshots.')
+              elif publication == 'skipped':
+                  print(f'Production publication was skipped (source commit={source_commit}); existing production snapshots remain unchanged.')
+              else:
+                  print(f'Production publication did not complete (prepare={prepare}, source commit={source_commit}, production publish={publication}); inspect commit and remote readback logs before deciding whether production changed.')
+              raise SystemExit(1)
+          print('All configured source collectors completed successfully.')
+          PY

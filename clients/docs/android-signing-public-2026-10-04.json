@@ -1,0 +1,10 @@
+{
+  "packageName": "earth.hiking.app",
+  "dcloudAppId": "__UNI__93C5C2F",
+  "versionName": "0.1.0",
+  "versionCode": 1,
+  "certificateSha256": "62785fe8cd8a1f492028938311c6326d0c5aae9e3d7bd97d4d18249d232e968b",
+  "certificateSha1": "96632670c5be03716d8520168d5a67067b8907e5",
+  "certificateMd5": "e0967733c148d6f0f78db389b3bea9ed",
+  "privateMaterialInRepository": false
+}

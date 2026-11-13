@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-10T08:06:03.196508+00:00",
+  "sourceCommit": "a8fa4868889ea906060b83ef4ed2586a77b3d74d",
+  "path": "/Users/nanyu/.local/share/hiking-earth/delivery/wechat-5db77d2-candidate.zip",
+  "bytes": 497417,
+  "sha256": "f577ba41f0ef79443c09ad1bf16c82c808e6eb99079959013d9053e7c6321483",
+  "archiveIntegrityPassed": true,
+  "uploaded": false,
+  "officialRelease": false,
+  "candidateOnly": true,
+  "recordingCommit": "5db77d2"
+}

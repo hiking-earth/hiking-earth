@@ -1,0 +1,387 @@
+{
+  "collections": [
+    {
+      "name": "companion_posts",
+      "description": "约伴帖（UGC，发布前机审）",
+      "schema": [
+        [
+          "openid",
+          "String",
+          "发布人 openid"
+        ],
+        [
+          "nickname",
+          "String",
+          "昵称"
+        ],
+        [
+          "routeId",
+          "String",
+          "关联路线 id"
+        ],
+        [
+          "title",
+          "String",
+          "标题"
+        ],
+        [
+          "content",
+          "String",
+          "内容"
+        ],
+        [
+          "departDate",
+          "String",
+          "出发日期"
+        ],
+        [
+          "maxMembers",
+          "Number",
+          "人数上限"
+        ],
+        [
+          "members",
+          "Array",
+          "已报名 openid"
+        ],
+        [
+          "createdAt",
+          "Number",
+          "创建时间戳"
+        ],
+        [
+          "status",
+          "String",
+          "open/full/closed"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "teams",
+      "description": "组队",
+      "schema": [
+        [
+          "name",
+          "String",
+          "队名"
+        ],
+        [
+          "inviteCode",
+          "String",
+          "6 位邀请码"
+        ],
+        [
+          "createdBy",
+          "String",
+          "创建人 openid"
+        ],
+        [
+          "createdAt",
+          "Number",
+          "创建时间戳"
+        ],
+        [
+          "active",
+          "Boolean",
+          "是否激活"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "team_members",
+      "description": "队员实时位置（敏感个人信息，覆盖式更新，不留历史）",
+      "schema": [
+        [
+          "teamId",
+          "String",
+          "队伍 id"
+        ],
+        [
+          "openid",
+          "String",
+          "队员 openid"
+        ],
+        [
+          "nickname",
+          "String",
+          "昵称"
+        ],
+        [
+          "latitude",
+          "Number",
+          "纬度"
+        ],
+        [
+          "longitude",
+          "Number",
+          "经度"
+        ],
+        [
+          "updatedAt",
+          "Number",
+          "更新时间戳"
+        ],
+        [
+          "isLeader",
+          "Boolean",
+          "是否队长"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "sos_events",
+      "description": "一键求救事件",
+      "schema": [
+        [
+          "openid",
+          "String",
+          "发起人"
+        ],
+        [
+          "latitude",
+          "Number",
+          "纬度"
+        ],
+        [
+          "longitude",
+          "Number",
+          "经度"
+        ],
+        [
+          "message",
+          "String",
+          "附言"
+        ],
+        [
+          "triggeredAt",
+          "Number",
+          "触发时间"
+        ],
+        [
+          "resolvedAt",
+          "Number",
+          "解除时间"
+        ],
+        [
+          "status",
+          "String",
+          "active/resolved"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "tracks",
+      "description": "云同步轨迹（仅本人可读，云函数控制）",
+      "schema": [
+        [
+          "owner",
+          "String",
+          "归属 openid"
+        ],
+        [
+          "trackId",
+          "String",
+          "本地轨迹 id"
+        ],
+        [
+          "name",
+          "String",
+          "轨迹名"
+        ],
+        [
+          "routeId",
+          "String",
+          "关联路线"
+        ],
+        [
+          "points",
+          "Array",
+          "轨迹点"
+        ],
+        [
+          "distanceM",
+          "Number",
+          "里程"
+        ],
+        [
+          "ascentM",
+          "Number",
+          "爬升"
+        ],
+        [
+          "startedAt",
+          "Number",
+          "开始时间"
+        ],
+        [
+          "endedAt",
+          "Number",
+          "结束时间"
+        ],
+        [
+          "syncedAt",
+          "Number",
+          "同步时间"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "guide_items",
+      "description": "装备导购条目（运营维护）",
+      "schema": [
+        [
+          "title",
+          "String",
+          "标题"
+        ],
+        [
+          "category",
+          "String",
+          "分类"
+        ],
+        [
+          "summary",
+          "String",
+          "简介"
+        ],
+        [
+          "image",
+          "String",
+          "图片"
+        ],
+        [
+          "link",
+          "String",
+          "第三方跳转链接"
+        ],
+        [
+          "priceHint",
+          "String",
+          "价格参考"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "community_reports",
+      "description": "举报，仅管理端处理",
+      "schema": [
+        [
+          "reporter",
+          "String",
+          "举报人"
+        ],
+        [
+          "postId",
+          "String",
+          "帖子"
+        ],
+        [
+          "reason",
+          "String",
+          "原因"
+        ],
+        [
+          "createdAt",
+          "Number",
+          "时间"
+        ],
+        [
+          "status",
+          "String",
+          "pending/resolved"
+        ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "client_account_merges",
+      "description": "统一账号身份合并任务（包含受保护的续跑凭据摘要与迁移状态，仅可信云函数访问）",
+      "schema": [
+        ["status", "String", "running/complete"],
+        ["targetAccountId", "String", "目标账号文档 ID"],
+        ["target", "Object", "目标账号身份快照"],
+        ["sources", "Array", "来源账号及历史身份别名快照"],
+        ["phone", "Object", "经 HMAC 处理的已授权手机号标识"],
+        ["phoneHash", "String", "续跑任务手机号检索键（HMAC）"],
+        ["wechat", "Object", "微信 AppID/OpenID/UnionID 身份快照"],
+        ["secretHash", "String", "续跑令牌 SHA-256 摘要"],
+        ["phaseIndex", "Number", "当前迁移阶段"],
+        ["sourceIndex", "Number", "当前身份迁移游标"],
+        ["migrated", "Number", "已处理记录数"],
+        ["sessionExpiresAt", "Number", "短期续跑会话过期时间"],
+        ["createdAt", "Number", "创建时间戳"],
+        ["updatedAt", "Number", "更新时间戳"],
+        ["completedAt", "Number", "完成时间戳"],
+        ["sourceIdentities", "Array", "合并完成后返回客户端的来源身份" ]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "client_account_merge_library_archives",
+      "description": "账号合并时因容量超限而保留的来源收藏/行程，仅可信云函数可列出与恢复",
+      "schema": [
+        ["targetAccountId", "String", "目标账号文档 ID"],
+        ["sourceIdentity", "String", "来源身份"],
+        ["favorites", "Array", "来源收藏原样备份"],
+        ["plans", "Array", "来源行程原样备份"],
+        ["sourceVersion", "Number", "来源资料版本"],
+        ["sourceUpdatedAt", "Number", "来源更新时间"],
+        ["createdAt", "Number", "归档时间"]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    },
+    {
+      "name": "route_access_audit_snapshots",
+      "description": "公开路线目录限制信号的定时筛查快照，仅供可信云函数和授权审核员读取；不代表路线关闭或授予通行权",
+      "schema": [
+        ["schemaVersion", "Number", "快照格式版本"],
+        ["snapshot", "String", "规范化快照 SHA-256"],
+        ["generatedAt", "String", "源目录扫描时间"],
+        ["publishedAt", "Number", "云端接收时间"],
+        ["candidateCount", "Number", "全部风险候选数量"],
+        ["listedCount", "Number", "快照内候选数量，上限2000"],
+        ["truncated", "Boolean", "候选是否超过存储上限"],
+        ["sourceCount", "Number", "已扫描来源数"],
+        ["bytes", "Number", "序列化快照字节数"],
+        ["items", "Array", "人工复核候选，不包含开放或导航授权"]
+      ],
+      "rule": {
+        "read": false,
+        "write": false
+      }
+    }
+  ]
+}

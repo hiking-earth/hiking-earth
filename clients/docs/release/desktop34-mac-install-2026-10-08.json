@@ -1,0 +1,22 @@
+{
+  "source": "b9b421e9d43dd860c0e07471690a668b3f243cd4",
+  "candidate": "desktop-34",
+  "bytes": 71192939,
+  "sha256": "2fe1a719204fa0872cfb65d10f39a00a1527162cd35658fd144893779a54f32a",
+  "remoteDigestMatch": true,
+  "dmgVerify": "passed",
+  "codesignDeepStrict": "passed",
+  "installPath": "/Users/nanyu/Applications/\u5f92\u6b65\u5730\u7403.app",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-33/installed-backup/\u5f92\u6b65\u5730\u7403.app",
+  "actualLaunch": "home visible",
+  "globeDrag": "unproven: CUA drag left pointer at origin and no visible rotation",
+  "screenshotBefore": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-34/mac-home-before-drag.png",
+  "screenshotAfter": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-34/mac-home-after-drag.png",
+  "pending": [
+    "globe native drag acceptance",
+    "business flows",
+    "update rollback",
+    "other platform runtime",
+    "formal publication"
+  ]
+}

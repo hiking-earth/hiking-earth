@@ -1,0 +1,8 @@
+{
+  "source": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/june/world.200406.3x5400x2700.jpg",
+  "sourcePage": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/",
+  "credit": "NASA Earth Observatory",
+  "description": "June 2004 satellite composite, not live satellite imagery",
+  "processing": "1024x512 indexed 256-color texture for geographic sphere rendering",
+  "sha256": "140f981259b067c48424b7956a95b170fda8ca1005549f1e6e6d136b60e5ebf4"
+}

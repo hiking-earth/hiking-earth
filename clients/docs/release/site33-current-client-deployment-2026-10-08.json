@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-08",
+  "sourceCommit": "a40cd50347eb48ff5298ebe321e3cc27dc04ce34",
+  "savedVersionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_636594e99b188191b1b3dcc127167415",
+  "deploymentId": "appgdep_6ac7b064456c81918d67f80572eb8285",
+  "deploymentStatus": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "access": "public",
+  "clientSource": "d8db8d9",
+  "webSource": "d85e09b",
+  "archiveSha256": "5b3afff1f39d17bea48879f750e1027ab5a25d7576bca9761e411ca4ff03718c",
+  "archiveBytes": 112609280,
+  "actualBrowser": "Reloaded /client; realistic satellite globe and shared green layout rendered",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/site33-client.png",
+  "limits": [
+    "Dependency audit warnings remain",
+    "All business flows not accepted",
+    "Physical iPhone not accepted",
+    "Root framework consistency gap remains"
+  ]
+}

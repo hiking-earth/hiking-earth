@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "importedAt": "2026-10-11T11:30:29Z",
+  "source": {
+    "provider": "Geofabrik / OpenStreetMap contributors",
+    "region": "Australia and Oceania",
+    "sourceUrl": "https://download.geofabrik.de/australia-oceania-261009.osm.pbf",
+    "sourcePage": "https://download.geofabrik.de/australia-oceania.html",
+    "sourceTimestamp": "2026-10-09T20:21:04Z",
+    "bytes": 1571847904,
+    "md5": "09fe0ef6c398e18f6e9b580815d2275c",
+    "sha256": "c1dea85996434fca5f62acd7dd4f9be8c6f110004a93b8e343b301fbe816afc3",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "import": {
+    "sourceId": "australia-oceania/261009",
+    "candidateRelations": 1398,
+    "importedRelations": 1398,
+    "skippedIncompleteRelations": 0,
+    "skippedNestedRelations": 21,
+    "catalogCountBefore": 151351,
+    "catalogCountAfter": 152747,
+    "netNewRelations": 1396,
+    "regionCountAfter": 1398,
+    "catalogGeneratedAt": "2026-10-11T11:30:29Z",
+    "catalogSha256": "9a26163dfb4a470ccf6dafa011f908aae5e4471c50c9bea8b2406e5d9ba19834"
+  },
+  "distribution": {
+    "snapshot": "9a26163dfb4a470ccf6dafa011f908aae5e4471c50c9bea8b2406e5d9ba19834",
+    "records": 152747,
+    "pages": 382,
+    "copies": [
+      "shared/public-catalog/osm",
+      "app/cloudfunctions/catalog-feed/snapshots/osm",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots/osm"
+    ],
+    "manifestIndexAndPageHashesVerified": true,
+    "filesByteIdenticalAcrossCopies": true,
+    "previousSnapshotRetained": "9766fe4d4778c4ccd7f3399bf23455e01ff512d48460d93d38bee495fa9e701e"
+  },
+  "boundaries": {
+    "discoveryRecordsOnly": true,
+    "newRecordsPendingRouteAndAccessReview": true,
+    "navigableTracksAdded": false,
+    "productionDeployed": false,
+    "productTestsRun": false,
+    "clientBuildRun": false,
+    "deviceAcceptanceRun": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-09T15:22:18.733598+00:00",
+  "scope": "Local Python script unit regressions; excludes runtime platform acceptance",
+  "passed": true,
+  "files": [
+    {
+      "file": "scripts/tests/android-pack-output.test.py",
+      "passed": true,
+      "summary": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/catalog-collection-status.test.py",
+      "passed": true,
+      "summary": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/catalog-publication-validation.test.py",
+      "passed": true,
+      "summary": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/desktop-promotion-platforms.test.py",
+      "passed": true,
+      "summary": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/import-osm-pbf-catalog.test.py",
+      "passed": true,
+      "summary": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/iphone-release-acceptance.test.py",
+      "passed": true,
+      "summary": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/official-content-policy.test.py",
+      "passed": true,
+      "summary": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/offline-map-install.test.py",
+      "passed": true,
+      "summary": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.022s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/offline-map-inventory.test.py",
+      "passed": true,
+      "summary": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/offline-region-batch.test.py",
+      "passed": true,
+      "summary": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/offline-region-builder.test.py",
+      "passed": true,
+      "summary": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.528s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/package-budget.test.py",
+      "passed": true,
+      "summary": "...\n----------------------------------------------------------------------\nRan 3 tests in 1.083s\n\nOK\n"
+    },
+    {
+      "file": "scripts/tests/public-catalog-publish.test.py",
+      "passed": true,
+      "summary": "Verified production commit cb9ae8fe37ecc266a984b65aa42686803f263c74\nFrom /var/folders/gl/n7g561ys7pngz8w4rf1y7g6h0000gn/T/tmp4dri_7qe/remote\n * branch            main       -> FETCH_HEAD\nTo /var/folders/gl/n7g561ys7pngz8w4rf1y7g6h0000gn/T/tmp4dri_7qe/remote.git\n   ab503ad..cb9ae8f  cb9ae8fe37ecc266a984b65aa42686803f263c74 -> main\n...\n----------------------------------------------------------------------\nRan 3 tests in 0.572s\n\nOK\n"
+    }
+  ],
+  "testCount": 80,
+  "appNodeRegression": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "scope": "local app unit tests",
+    "log": "/tmp/hiking-app-regression-current.log"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "d6b97c464c46e34857106f8926592ce6804f973e",
+  "platform": "mp-weixin",
+  "buildPassed": true,
+  "compiledCoordinatesAndResetPresent": true,
+  "files": [
+    {
+      "path": "pages/offline/offline.wxml",
+      "sha256": "fe012e236d51772e0aac80adacd3309eba7b2632ea8feea6de0c1b1c5f24ab6b",
+      "bytes": 5036
+    },
+    {
+      "path": "pages/offline/offline.wxss",
+      "sha256": "eda527c032191a8fe85e59059e6a8d60cc51ed985643b582a2abaf92bb68128e",
+      "bytes": 952
+    },
+    {
+      "path": "pages/offline/offline.js",
+      "sha256": "b70b6291666ba5bdb30d815f72768a21c46cf0606eae0f84c12d079d3bc60b1b",
+      "bytes": 151569
+    },
+    {
+      "path": "services/basemap-catalog.js",
+      "sha256": "8dcbd60f83500198b1854727ae3eebaec6e5b7a8cf631327ade6a8c0d25309fd",
+      "bytes": 2536
+    }
+  ],
+  "deviceRuntimeAccepted": false,
+  "uploaded": false
+}

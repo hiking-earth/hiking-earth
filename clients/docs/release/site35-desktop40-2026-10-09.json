@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-09",
+  "site": {
+    "id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_19270ef02ff8819189ec213e3ee99e18",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "version_number": 35,
+    "source": {
+      "commit_sha": "75ff1912ddaec52402619b993694c15bc702b1dc"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000060588206a3458415f1c7b67f",
+      "content_hash": "sha256:c0f190312f2d04392d87f9976083fdec48b47e634e870179be1af9627cfe552d",
+      "size_bytes": 112609280,
+      "file_count": 1240
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ac835108e70819196acf28eba8dc0ca",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "title": "徒步地球全球徒步路线",
+    "version_id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_19270ef02ff8819189ec213e3ee99e18",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6a82b2fd4d348191830f591595297f7c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-09T00:28:20.840836+00:00"
+  },
+  "client_commit": "1a54d04a216087f66cfb44bfb2c57a36247ee19c",
+  "tests": {
+    "node_passed": 140,
+    "failed": 0,
+    "log": "/tmp/hiking-rate-guard-all-tests.log"
+  },
+  "desktop": {
+    "candidate": "desktop-40",
+    "workflow": 37805394684,
+    "jobs_succeeded": 6,
+    "assets": 13,
+    "max_asset_bytes": 150026744,
+    "mac_arm_signature_verified": true,
+    "mac_arm_sha256": "e4fbfec8722b0351544ad0bfc34381bf5b78b33b4ae9f386cd7076da33d4ed57",
+    "installed": false
+  },
+  "limitations": [
+    "Site35 runtime acceptance pending",
+    "Desktop40 installation and runtime acceptance pending",
+    "No formal release gate enabled",
+    "Cloud diagnostic source not deployed; owner authentication remains required"
+  ]
+}

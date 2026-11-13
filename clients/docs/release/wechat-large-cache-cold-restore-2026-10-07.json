@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-07T04:41:27.640846+00:00",
+  "candidateSource": "a89e42a",
+  "buildExitCode": 0,
+  "actualSimulatorSaved": {
+    "osm": 26852,
+    "usfs": 40000,
+    "hk": 167
+  },
+  "coldRestore": {
+    "osm": false,
+    "usfs": false,
+    "hk": true
+  },
+  "actualPublicCacheFiles": [
+    {
+      "source": "osm",
+      "bytes": 10994287,
+      "routes": 26852,
+      "sourceValidatorPassed": true
+    },
+    {
+      "source": "usfs",
+      "bytes": 17855531,
+      "routes": 40000,
+      "sourceValidatorPassed": true
+    },
+    {
+      "source": "hk",
+      "bytes": 967324,
+      "routes": 167,
+      "sourceValidatorPassed": true
+    }
+  ],
+  "networkOfflineAfterReopen": true,
+  "offlinePersistedAcrossReopen": false,
+  "networkRestoredOnline": true,
+  "passed": false,
+  "rootCause": "unconfirmed; valid files persist on disk but large caches fail to restore through Mini Program file API",
+  "next": "Inspect bounded file API diagnostics; implement chunked cache if large read transport limits are confirmed; retest cold restore. No proof of full offline acceptance."
+}

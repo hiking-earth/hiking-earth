@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "US South",
+  "source": "Geofabrik official fixed US South extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 138656,
+  "catalogCountAfter": 141598,
+  "catalogRecordDelta": 2942,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us-south-261005",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us-south.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 4137736911,
+      "officialMd5Verified": "396edc4bcbd21d4e0aee11496cd3b3a3",
+      "sha256": "a25ee8b6d871901c1a781612ee5379b89dbb6b526d5fe4bc4fea0280e8e191aa",
+      "candidateRelations": 2965,
+      "importedRelations": 2942,
+      "skippedIncompleteRelations": 23,
+      "skippedNestedRelations": 29,
+      "netCatalogRecordDelta": 2942
+    }
+  ],
+  "catalogSnapshot": "c13467716e2c7d9b979b6fe786bc2f4ad15209357eeb1717d60d39b2b2cba4fd",
+  "pageCount": 354,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1062,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 354 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

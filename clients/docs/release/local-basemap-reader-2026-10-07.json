@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-07T05:04:08.400614+00:00",
+  "sourceCommit": "6a84a7a",
+  "pmtilesLibrary": "4.5.0 exact",
+  "tests": {
+    "passed": 4,
+    "skipped": 0,
+    "includes": "actual Lantau archive local header, metadata and center MVT tile read; bounded ranges and no remote style URLs"
+  },
+  "typecheckExitCode": 0,
+  "initialH5BuildExitCode": 0,
+  "miniProgramBuildExitCode": 0,
+  "h5RebuildAndStaticServerSession": 21159,
+  "uiEntry": "H5/desktop offline page local File picker; files not uploaded or persisted yet",
+  "sourceSchema": "Protomaps v4 MVT only",
+  "geometryLayers": [
+    "earth",
+    "landuse",
+    "water",
+    "buildings",
+    "roads",
+    "paths",
+    "boundaries"
+  ],
+  "browserVisualAcceptance": {
+    "passed": true,
+    "scope": "Local H5 page loaded actual Lantau PMTiles through File chooser; roads, land and water visible; console error/warn list empty. Network-disconnected reload and persistence not verified.",
+    "screenshot": "local-basemap-render-2026-10-07.png"
+  },
+  "nativeAndMiniProgramPmtilesRenderer": false,
+  "labelsAndTerrain": false,
+  "downloadAndPersistenceManagement": false,
+  "publicDeployment": false,
+  "remainingDependenciesAudit": "103 pre-existing noncritical findings remain; no critical issue claim added",
+  "finalH5BuildExitCode": 0
+}

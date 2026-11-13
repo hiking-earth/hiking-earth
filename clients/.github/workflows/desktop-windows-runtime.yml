@@ -1,0 +1,80 @@
+name: desktop-windows-runtime
+on:
+  workflow_dispatch:
+    inputs:
+      build_run_id:
+        description: Existing desktop-release run ID
+        required: true
+        type: string
+      expected_commit:
+        description: Full source commit of that build
+        required: true
+        type: string
+permissions:
+  actions: read
+  contents: read
+jobs:
+  launch-existing-candidate:
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - name: Verify candidate provenance
+        uses: actions/github-script@v7
+        env:
+          BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          EXPECTED_COMMIT: ${{ inputs.expected_commit }}
+        with:
+          script: |
+            if (!/^[1-9][0-9]{0,19}$/.test(process.env.BUILD_RUN_ID) || !/^[a-f0-9]{40}$/.test(process.env.EXPECTED_COMMIT)) throw new Error('Invalid build identity');
+            const run = (await github.rest.actions.getWorkflowRun({...context.repo, run_id: process.env.BUILD_RUN_ID})).data;
+            if (run.head_sha !== process.env.EXPECTED_COMMIT || run.event === 'pull_request' || !run.path.endsWith('desktop-release.yml')) throw new Error('Unexpected candidate source');
+            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {...context.repo, run_id: process.env.BUILD_RUN_ID, filter: 'latest', per_page: 100});
+            if (!jobs.some(job => job.name === 'build-desktop (windows-latest, x86_64-pc-windows-msvc, msi)' && job.conclusion === 'success')) throw new Error('Windows build has not succeeded');
+      - uses: actions/download-artifact@v4
+        with:
+          name: desktop-windows-build
+          path: candidate
+          run-id: ${{ inputs.build_run_id }}
+          github-token: ${{ github.token }}
+      - name: Launch built program and preserve bounded smoke evidence
+        shell: pwsh
+        env:
+          BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          EXPECTED_COMMIT: ${{ inputs.expected_commit }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $programs = @(Get-ChildItem candidate -Filter hiking-earth-desktop.exe -Recurse -File)
+          if ($programs.Count -ne 1) { throw 'Expected exactly one built program' }
+          $program = $programs[0]
+          $record = [ordered]@{schemaVersion=1; buildRun=$env:BUILD_RUN_ID; sourceCommit=$env:EXPECTED_COMMIT; sha256=(Get-FileHash $program.FullName -Algorithm SHA256).Hash.ToLower(); platform='windows-x64'; scope='Process launch only, not UI or business acceptance'; observedSeconds=20; passed=$false}
+          New-Item -ItemType Directory evidence -Force | Out-Null
+          $process = $null
+          try {
+            $process = Start-Process -FilePath $program.FullName -WorkingDirectory $program.DirectoryName -PassThru
+            if ($process.WaitForExit(20000)) { $record.exitCode=$process.ExitCode; throw 'Candidate exited during startup observation' }
+            $record.passed=$true
+          } finally {
+            try {
+              if ($null -ne $process -and -not $process.HasExited) {
+                $process.CloseMainWindow() | Out-Null
+                if (-not $process.WaitForExit(5000)) {
+                  $process.Kill()
+                  if (-not $process.WaitForExit(5000)) { throw 'Candidate did not terminate after cleanup' }
+                }
+              }
+              $record.cleanupSucceeded=$true
+            } catch {
+              $record.passed=$false
+              $record.cleanupSucceeded=$false
+              throw
+            } finally {
+              $record | ConvertTo-Json | Set-Content evidence/windows-launch.json -Encoding utf8
+            }
+          }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-launch-evidence
+          path: evidence/windows-launch.json
+          if-no-files-found: warn
+          retention-days: 14

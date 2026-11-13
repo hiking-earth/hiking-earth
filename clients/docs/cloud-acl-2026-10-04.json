@@ -1,0 +1,44 @@
+[
+  {
+    "collection": "tracks",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "team_members",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "teams",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "sos_events",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "community_reports",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "companion_posts",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  },
+  {
+    "collection": "guide_items",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  }
+]

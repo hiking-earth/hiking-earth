@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-07T04:55:56.036527+00:00",
+  "stage": "regional acquisition; client renderer not integrated",
+  "sourceBuild": "20261006.pmtiles",
+  "sourceVersion": "4.15.2",
+  "officialCliVersion": "1.31.2",
+  "officialCliZipSha256Verified": true,
+  "region": "Hong Kong Lantau bounded sample",
+  "bytes": 703312,
+  "sha256": "0409eb2823ec94a23c97e1cad86abd9bf1630267ed0e82181815c0226ca52386",
+  "header": {
+    "tile_compression": "gzip",
+    "tile_type": "mvt",
+    "minzoom": 8,
+    "maxzoom": 15,
+    "bounds": [
+      113.92,
+      22.2,
+      113.99,
+      22.26
+    ],
+    "center": [
+      113.955,
+      22.23,
+      8
+    ]
+  },
+  "metadataLayerIds": [
+    "boundaries",
+    "buildings",
+    "earth",
+    "landcover",
+    "landuse",
+    "places",
+    "pois",
+    "roads",
+    "water"
+  ],
+  "osmReplicationTime": "2026-10-06T04:00:00Z",
+  "structureVerified": true,
+  "tileContentOrRenderingAccepted": false,
+  "license": "ODbL-1.0 Produced Work; OSM attribution required",
+  "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+  "builderTests": 5,
+  "builderLiveSession": 47621,
+  "terrainIncluded": false,
+  "globalCoverageClaim": "upstream planetary source; two regional samples extracted and structure-verified; client rendering pending",
+  "builderLiveExitCode": 0,
+  "secondRegion": {
+    "id": "monaco",
+    "name": "摩纳哥及周边",
+    "bounds": [
+      7.4,
+      43.7,
+      7.45,
+      43.75
+    ],
+    "bytes": 1168799,
+    "sha256": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+    "minZoom": 8,
+    "maxZoom": 15
+  }
+}

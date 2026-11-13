@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-10T04:26:07.233Z",
+  "scope": "Live Site40 proxy with public coffee JPEG; excludes device UI, phone verification and class accuracy",
+  "fixtureSha256": "84b3e46185474c6067fac8c8db30d7c2a15367d231b5c72d8cf525e321248d9b",
+  "passed": false,
+  "failure": "fetch failed",
+  "checks": [
+    {
+      "name": "Unauthenticated photo inference denied",
+      "passed": true
+    },
+    {
+      "name": "Isolated account registered",
+      "passed": true
+    },
+    {
+      "name": "Isolated account removed",
+      "passed": true
+    }
+  ]
+}

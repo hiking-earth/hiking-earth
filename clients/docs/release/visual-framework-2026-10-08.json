@@ -1,0 +1,19 @@
+{
+  "clientSource": "8cdbba3",
+  "webSource": "c798ad5",
+  "verified": [
+    "H5 desktop drag and zoom",
+    "1280x720 and 390x844 responsive layout",
+    "Mac native candidate opened, sans font verified",
+    "H5 and WeChat compiled",
+    "131 Node regression passed before final font-only fix"
+  ],
+  "limits": [
+    "Mac native drag not yet verified",
+    "wechat simulator and device not yet accepted",
+    "public website remains Site28",
+    "companion endpoint timeout",
+    "debug Mac bundle is visual candidate, not signed updater"
+  ],
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/mac-home.png"
+}

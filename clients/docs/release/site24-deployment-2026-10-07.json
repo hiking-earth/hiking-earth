@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-07T11:45:34.231Z",
+  "siteVersion": 24,
+  "siteSource": "c387195382de707a47382cab6105aebd058f534d",
+  "clientSource": "35aee8f81c508179e88c50dd72b5755ed977ad81",
+  "websiteSource": "2e7e18cf58fe2d90e7950915573d73e67539b75f",
+  "versionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_f58dfc3955ec819181ca19b1db9aa42a",
+  "deploymentId": "appgdep_6ac63044a7a88191a4694d561c556577",
+  "status": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "archive": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_000000008fc0820790f40a6b96304cca",
+    "content_hash": "sha256:b6861da2fa056ea210c93efa303edfad6618b2f1f77d44336a397e6e7ddf5482",
+    "size_bytes": 54794240,
+    "file_count": 600
+  },
+  "realBrowserCupCandidate": "99%",
+  "sameOriginAccountChecks": 58,
+  "limitations": [
+    "One real photo proves the tested sample only, not recognition accuracy across equipment classes.",
+    "Python direct HTML resource check returned403; browser page and model inference rendered successfully.",
+    "iPhone physical-device PWA acceptance and mini-program repaired picker runtime acceptance pending.",
+    "All-platform release is not complete."
+  ]
+}

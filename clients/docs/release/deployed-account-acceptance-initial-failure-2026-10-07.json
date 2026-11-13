@@ -1,0 +1,1 @@
+{"passed":false,"checkedAt":"2026-10-07T01:59:00.087Z","scope":"initial pre-fix HTTP registration","failure":"register isolated account 0 failed","diagnosis":"FUNCTIONS_PARAM_INVALID: old SCF route pointed to HTTP function"}

@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "075bd7dd5fa5a631903f93e43751092458dc6b51",
+  "buildRun": 38023079206,
+  "dmgBytes": 71213115,
+  "dmgSha256": "a173d39a9ae8e749093bd578cdd998a24ce7027e106a8fa37b9bfaf3a35a43ea",
+  "imageChecksum": "VALID",
+  "codesignDeepStrict": "passed",
+  "appBytes": 75113488,
+  "runtimeAccepted": false,
+  "installed": false,
+  "scope": "Downloaded cloud candidate mounted read-only and signature verified; no native UI acceptance",
+  "githubReleaseId": 408629789,
+  "remoteDigestMatches": true,
+  "remoteDigest": "sha256:a173d39a9ae8e749093bd578cdd998a24ce7027e106a8fa37b9bfaf3a35a43ea"
+}

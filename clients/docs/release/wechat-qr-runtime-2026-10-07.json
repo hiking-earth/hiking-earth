@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-07T04:16:26.895Z",
+  "claimStatus": 200,
+  "claimOk": true,
+  "claimedStatus": "signed-in",
+  "hasSession": true,
+  "signoutStatus": 200,
+  "signoutOk": true,
+  "scope": "Actual developer simulator scan image -> device inspection -> human-visible confirm UI -> HTTP claim -> signout; not phone camera or browser automatic polling",
+  "revokedSession": {
+    "status": 401,
+    "ok": false,
+    "code": "SESSION_EXPIRED"
+  },
+  "replay": {
+    "status": 400,
+    "ok": false
+  },
+  "uiConfirmed": true,
+  "productionDomainValidated": false,
+  "privateDataRead": false,
+  "remaining": [
+    "physical camera and real WeChat device",
+    "actual browser/desktop polling UI",
+    "background catalog errors observed separately"
+  ],
+  "passed": true
+}

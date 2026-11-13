@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-10T03:08:58.367Z",
+  "passed": true,
+  "scope": "Live Sites proxy weather, catalog, expired token and anonymous QR lifecycle; no production account login or device confirmation claim.",
+  "checks": [
+    {
+      "name": "same-origin weather",
+      "passed": true
+    },
+    {
+      "name": "same-origin catalog",
+      "passed": true,
+      "count": 167
+    },
+    {
+      "name": "expired credential remains isolated and uncached",
+      "passed": true
+    },
+    {
+      "name": "same-origin QR challenge",
+      "passed": true
+    },
+    {
+      "name": "test challenge cancelled",
+      "passed": true
+    }
+  ]
+}

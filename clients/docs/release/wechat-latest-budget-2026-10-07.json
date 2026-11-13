@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "limitBytes": 500000000,
+  "passed": true,
+  "files": [
+    {
+      "path": "/Users/nanyu/Documents/AI\u5de5\u5177/02_Codex\u6570\u636e_0907/worktrees/2f39/\u5f92\u6b65\u8f6f\u4ef6/app/dist/build/mp-weixin",
+      "installedBytes": 759367,
+      "coverage": "directory contents, symlinks not counted twice",
+      "limitBytes": 500000000,
+      "passed": true
+    }
+  ],
+  "note": "Installed payload of DMG/MSI/AppImage/DEB requires separate directory measurement; runtime user data is excluded.",
+  "wechatMainPackage": {
+    "bytes": 759367,
+    "conservativeLimitBytes": 2000000,
+    "passed": true,
+    "previousBytes": 2273703,
+    "removedUnusedNativeHTMLBytes": 1514336,
+    "uploadAcceptance": false
+  },
+  "nativeMapPreserved": {
+    "build": "app",
+    "sha256": "e123230eff2befb91aa9b297693f3cf8d04b528a1576102ac5cf930e97506ebb",
+    "matchedSource": true
+  }
+}

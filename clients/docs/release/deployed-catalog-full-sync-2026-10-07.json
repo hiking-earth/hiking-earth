@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-07T04:34:27.530Z",
+  "scope": "Public full bounded OSM and USFS snapshots; no credentials; same snapshot enforced; no automatic retries",
+  "sources": [
+    {
+      "source": "osm",
+      "pages": 68,
+      "items": 26852,
+      "failures": [],
+      "snapshot": "995fb94e77bca8695de3080e31f683db094f51c98295b6e5c01ddd69316df38e",
+      "total": 26852,
+      "passed": true
+    },
+    {
+      "source": "usfs",
+      "pages": 100,
+      "items": 40000,
+      "failures": [],
+      "snapshot": "08a096489f5294c131c8be4936316936605806e0155aeb5bab953ed68e77706e",
+      "total": 40000,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

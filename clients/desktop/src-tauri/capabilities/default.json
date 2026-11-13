@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "徒步地球桌面端默认权限（壳模式，无需额外能力）",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

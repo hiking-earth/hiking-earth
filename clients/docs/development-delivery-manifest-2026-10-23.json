@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "clientCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+  "webCommit": "6ce560f757963fe502ed544baef9875f71239f9c",
+  "resourceRun": 39890955343,
+  "desktopRun": 39890961106,
+  "scope": "Development candidates only; not a stable release or acceptance report",
+  "artifacts": [
+    {
+      "kind": "x86_64-unknown-linux-gnu",
+      "path": "output/candidates/desktop-run-39890961106-download2/desktop-candidate-x86_64-unknown-linux-gnu-545c01f91c4f9c37f339ad25753bf4de49bf7970/clients/clients/desktop/src-tauri/target/x86_64-unknown-linux-gnu/release/bundle/appimage/徒步地球_0.2.3_amd64.AppImage",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 100415992,
+      "sha256": "58c3e12bd074c9ef20d75bc9a582156c88c66a1ca5524116b290e2009ee449a6",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "x86_64-unknown-linux-gnu",
+      "path": "output/candidates/desktop-run-39890961106-download2/desktop-candidate-x86_64-unknown-linux-gnu-545c01f91c4f9c37f339ad25753bf4de49bf7970/clients/clients/desktop/src-tauri/target/x86_64-unknown-linux-gnu/release/bundle/deb/徒步地球_0.2.3_amd64.deb",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 22169468,
+      "sha256": "2ff89b2e7d3642cc23d6b5d6f413ff6f7008b0851ce0c05a1cb8cb093147911d",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "x86_64-pc-windows-msvc",
+      "path": "output/candidates/desktop-run-39890961106-download2/desktop-candidate-x86_64-pc-windows-msvc-545c01f91c4f9c37f339ad25753bf4de49bf7970/clients/clients/desktop/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/msi/徒步地球_0.2.3_x64_zh-CN.msi",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 21598208,
+      "sha256": "da53656b58ad7ab1518d4c5f2e206d97e2aec0e42391a24501750ad2ea9b093e",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "aarch64-apple-darwin",
+      "path": "output/candidates/desktop-run-39890961106-download2/desktop-candidate-aarch64-apple-darwin-545c01f91c4f9c37f339ad25753bf4de49bf7970/clients/clients/desktop/src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/徒步地球_0.2.3_aarch64.dmg",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 21308717,
+      "sha256": "93757a3dbefbbfb711d8d8d61f65460d7fda38b896269abe55ef35335cddb071",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "x86_64-apple-darwin",
+      "path": "output/candidates/desktop-run-39890961106-download2/desktop-candidate-x86_64-apple-darwin-545c01f91c4f9c37f339ad25753bf4de49bf7970/clients/clients/desktop/src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/徒步地球_0.2.3_x64.dmg",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 21779095,
+      "sha256": "716203cff7f4ff8e47a028be73ea016aa5b51316e704891a4ed0c246e429d441",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "mp-weixin-resources",
+      "path": "output/candidates/client-resources-run-39890955343/mp-weixin-resources-545c01f.zip",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 575731,
+      "sha256": "27155e94207b2a5487200f1ec1c02c19aac03d9a345b5029dd32fd5230e67650",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "app-resources",
+      "path": "output/candidates/client-resources-run-39890955343/app-resources-545c01f.zip",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 18161522,
+      "sha256": "f29c2b4e75fa1c5642d85a88e9f30052a0939c8b5fbaba3965638bc80c55f078",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "h5-resources",
+      "path": "output/candidates/client-resources-run-39890955343/h5-resources-545c01f.zip",
+      "sourceCommit": "545c01f91c4f9c37f339ad25753bf4de49bf7970",
+      "bytes": 67929303,
+      "sha256": "c678db6baaf6a2438509d6a596fa8a5dcd93d9c085d3e6dc8c2ebe0f96cd2bc1",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "website",
+      "path": "output/candidates/web-terrain-20261023/delivery-node24/website-candidate.tar.gz",
+      "sourceCommit": "6ce560f757963fe502ed544baef9875f71239f9c",
+      "bytes": 116918800,
+      "sha256": "77f67b3fd3814c40e9aa96aee1c020f08229e7613df25260f051db6b0ee10e42",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "static-fallback",
+      "path": "output/candidates/static-fallback-6ce560f.zip",
+      "sourceCommit": "6ce560f757963fe502ed544baef9875f71239f9c",
+      "bytes": 1201059,
+      "sha256": "1d9362b3848ba4840268f60675db5b39cc88ece65f2051457a83f87eaf02f9f4",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "cloud-source",
+      "path": "output/candidates/cloud-mainline-20261023/cloud-source-candidate.zip",
+      "sourceCommit": "dc0fa2d86da92f921b3f4f780c1ac2c750b128c7",
+      "bytes": 107109650,
+      "sha256": "19a17d1d71cb1b8e6d87a60c2583da1d30c501474ef3e0a6efe1498b2d6ffac8",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    },
+    {
+      "kind": "regional-terrain-data",
+      "path": "output/candidates/terrain-data-hk-lantau-system-python-20261023/terrain.zip",
+      "sourceCommit": "9d7dda1d8f3aa99dab26a1833d7ddc87c961f1f6",
+      "bytes": 135386,
+      "sha256": "769c1693295a011bd961ed2ccb467e4aef88a3beb373b8abf921fb3bd2318885",
+      "candidate": true,
+      "tested": false,
+      "published": false
+    }
+  ],
+  "androidApk": null,
+  "iosIpa": null,
+  "stableReady": false
+}

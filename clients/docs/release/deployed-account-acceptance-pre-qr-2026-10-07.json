@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "scope": "deployed HTTP account/library workflow; excludes client UI and native/device permissions",
+  "checkedAt": "2026-10-07T02:17:11.434Z",
+  "passed": true,
+  "failure": "",
+  "checks": [
+    {
+      "name": "register isolated account 0",
+      "passed": true
+    },
+    {
+      "name": "register isolated account 1",
+      "passed": true
+    },
+    {
+      "name": "library read",
+      "passed": true
+    },
+    {
+      "name": "library versioned save",
+      "passed": true
+    },
+    {
+      "name": "library account isolation",
+      "passed": true
+    },
+    {
+      "name": "library next revision",
+      "passed": true
+    },
+    {
+      "name": "reject stale library snapshot",
+      "passed": true
+    },
+    {
+      "name": "retain newer library snapshot",
+      "passed": true
+    },
+    {
+      "name": "reject malformed duplicate library",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated data denied",
+      "passed": true
+    },
+    {
+      "name": "second device session",
+      "passed": true
+    },
+    {
+      "name": "cross session recovery",
+      "passed": true
+    },
+    {
+      "name": "session signout",
+      "passed": true
+    },
+    {
+      "name": "signed out token rejected",
+      "passed": true
+    },
+    {
+      "name": "isolated account cleanup",
+      "passed": true
+    },
+    {
+      "name": "isolated account cleanup",
+      "passed": true
+    }
+  ]
+}

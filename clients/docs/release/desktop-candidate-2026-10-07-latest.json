@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "3c227a402f7983bc4f5241d34f7f26704195645a",
+  "workflowRun": 37564366409,
+  "url": "https://github.com/hiking-earth/clients/actions/runs/37564366409",
+  "statusAtDispatch": "in_progress",
+  "platforms": ["macos-aarch64", "macos-x86_64", "windows-x86_64", "linux-x86_64"],
+  "includes": ["confirmed mini-program QR login", "route forecasts", "local H5 gear recognition model", "package budget gate", "Intel updater publication gate"],
+  "releaseChannel": "draft candidate",
+  "accepted": false,
+  "notes": "Compile status is not runtime acceptance. Stable update requires strictly newer version, unified acceptance and signature checks. Check the exact run before any retry."
+}

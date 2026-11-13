@@ -1,0 +1,259 @@
+# 桌面端跨平台构建：push tag（如 v0.1.1）后自动出 Windows MSI / macOS DMG / Linux 包并挂到 GitHub Release
+# 无需本地 Windows 机器——Windows 安装包由 GitHub 的 windows-latest _runner 构建
+name: desktop-release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      TAURI_SIGNING_PRIVATE_KEY:
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_id: ${{ steps.release.outputs.id }}
+      tag: ${{ steps.release.outputs.tag }}
+    steps:
+      - name: Create one shared candidate release
+        id: release
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const tag = context.ref.startsWith('refs/tags/') ? context.ref.slice(10) : `desktop-${context.runNumber}`;
+            const releases = await github.paginate(github.rest.repos.listReleases, {...context.repo, per_page: 100});
+            const matches = releases.filter(release => release.tag_name === tag);
+            if (matches.length > 1) throw new Error('Multiple releases share candidate tag; reconcile before rerun');
+            const release = matches[0] || (await github.rest.repos.createRelease({...context.repo, tag_name: tag, target_commitish: context.sha, name: `Hiking Earth candidate ${tag}`, body: 'Candidate artifacts; unified acceptance required before publication.', draft: true, prerelease: false})).data;
+            if (!release.draft) throw new Error('Candidate release must remain draft');
+            core.setOutput('id', String(release.id));
+            core.setOutput('tag', tag);
+  build-desktop:
+    needs: prepare-release
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            bundles: app,dmg
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            bundles: app,dmg
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            bundles: msi
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            bundles: appimage,deb
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 安装 Linux 依赖
+        if: matrix.os == 'ubuntu-22.04'
+        timeout-minutes: 12
+        run: |
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o APT::Update::Error-Mode=any update
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf xvfb dbus-x11
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop/src-tauri
+
+      - name: 安装客户端依赖
+        working-directory: app
+        run: npm ci
+
+      - name: 安装 Tauri CLI
+        working-directory: desktop
+        run: npm ci
+
+      - name: 构建并上传 Release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
+          VITE_CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+        with:
+          releaseId: ${{ needs.prepare-release.outputs.release_id }}
+          projectPath: desktop
+          args: --verbose --target ${{ matrix.target }} --bundles ${{ matrix.bundles }}
+          tagName: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('desktop-{0}', github.run_number) }}
+          releaseName: "徒步地球桌面端 ${{ github.ref_name }}"
+          releaseBody: "本地完整客户端候选版本，包含轨迹和账号/组队/社区页面；正式发布前需统一验收。"
+          releaseCommitish: ${{ github.sha }}
+          includeUpdaterJson: false
+          releaseDraft: true
+          prerelease: false
+
+      - name: Verify full macOS application code signature
+        if: matrix.os == 'macos-latest'
+        shell: bash
+        run: |
+          count=0
+          while IFS= read -r -d '' application; do
+            codesign --verify --deep --strict "$application"
+            count=$((count + 1))
+          done < <(find desktop/src-tauri/target/${{ matrix.target }}/release/bundle/macos -maxdepth 1 -type d -name '*.app' -print0)
+          test "$count" -gt 0
+
+      - name: macOS packaged application launch check
+        if: matrix.os == 'macos-latest'
+        timeout-minutes: 2
+        shell: bash
+        env:
+          APP_BUNDLE_DIR: desktop/src-tauri/target/${{ matrix.target }}/release/bundle/macos
+          BUILD_TARGET: ${{ matrix.target }}
+        run: python3 scripts/acceptance/smoke-macos-bundle.py
+
+      - name: Enforce 500 MB candidate package budget
+        shell: bash
+        run: |
+          count=0
+          while IFS= read -r -d '' artifact; do
+            python3 scripts/check-package-budget.py "$artifact"
+            count=$((count + 1))
+          done < <(find desktop/src-tauri/target/${{ matrix.target }}/release/bundle -type f \( -name '*.dmg' -o -name '*.msi' -o -name '*.AppImage' -o -name '*.deb' -o -name '*.tar.gz' -o -name '*.zip' \) -print0)
+          test "$count" -gt 0
+
+      - name: Verify updater signatures against pinned public key
+        shell: bash
+        run: |
+          count=0
+          while IFS= read -r -d '' signature; do
+            node scripts/verify-desktop-updater.mjs "${signature%.sig}"
+            count=$((count + 1))
+          done < <(find desktop/src-tauri/target/${{ matrix.target }}/release/bundle -type f -name '*.sig' -print0)
+          test "$count" -gt 0
+
+      - name: Linux virtual-display process launch check
+        if: matrix.os == 'ubuntu-22.04'
+        timeout-minutes: 2
+        shell: bash
+        env:
+          CANDIDATE_BINARY: desktop/src-tauri/target/x86_64-unknown-linux-gnu/release/hiking-earth-desktop
+        run: |
+          test -x "$CANDIDATE_BINARY"
+          mkdir -p runtime-evidence
+          set +e
+          timeout --kill-after=5s 25s dbus-run-session -- xvfb-run -a "$CANDIDATE_BINARY" > runtime-evidence/linux-launch.log 2>&1
+          launch_status=$?
+          set -e
+          export LAUNCH_STATUS="$launch_status"
+          python3 - <<'PYCODE'
+          import hashlib, json, os, pathlib
+          binary = pathlib.Path(os.environ['CANDIDATE_BINARY'])
+          result = {'schemaVersion': 1, 'sourceCommit': os.environ['GITHUB_SHA'], 'platform': 'linux-x64', 'sha256': hashlib.sha256(binary.read_bytes()).hexdigest(), 'scope': 'Virtual-display process launch only, not UI or business acceptance', 'observedSeconds': 25, 'exitStatus': int(os.environ['LAUNCH_STATUS']), 'passed': os.environ['LAUNCH_STATUS'] == '124'}
+          pathlib.Path('runtime-evidence/linux-launch.json').write_text(json.dumps(result, indent=2) + '\n')
+          PYCODE
+          test "$launch_status" -eq 124
+
+      - name: Preserve Linux launch evidence
+        if: always() && matrix.os == 'ubuntu-22.04'
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-linux-launch-evidence
+          path: runtime-evidence/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Windows bounded process launch check
+        if: matrix.os == 'windows-latest'
+        timeout-minutes: 2
+        shell: pwsh
+        env:
+          BUILD_RUN_ID: ${{ github.run_id }}
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $programs = @(Get-Item desktop/src-tauri/target/x86_64-pc-windows-msvc/release/hiking-earth-desktop.exe)
+          if ($programs.Count -ne 1) { throw 'Expected exactly one built program' }
+          $program = $programs[0]
+          $record = [ordered]@{schemaVersion=1; buildRun=$env:BUILD_RUN_ID; sourceCommit=$env:EXPECTED_COMMIT; sha256=(Get-FileHash $program.FullName -Algorithm SHA256).Hash.ToLower(); platform='windows-x64'; scope='Process launch only, not UI or business acceptance'; observedSeconds=20; passed=$false}
+          New-Item -ItemType Directory evidence -Force | Out-Null
+          $process = $null
+          try {
+            $process = Start-Process -FilePath $program.FullName -WorkingDirectory $program.DirectoryName -PassThru
+            if ($process.WaitForExit(20000)) { $record.exitCode=$process.ExitCode; throw 'Candidate exited during startup observation' }
+            $record.passed=$true
+          } finally {
+            try {
+              if ($null -ne $process -and -not $process.HasExited) {
+                $process.CloseMainWindow() | Out-Null
+                if (-not $process.WaitForExit(5000)) {
+                  $process.Kill()
+                  if (-not $process.WaitForExit(5000)) { throw 'Candidate did not terminate after cleanup' }
+                }
+              }
+              $record.cleanupSucceeded=$true
+            } catch {
+              $record.passed=$false
+              $record.cleanupSucceeded=$false
+              throw
+            } finally {
+              $record | ConvertTo-Json | Set-Content evidence/windows-launch.json -Encoding utf8
+            }
+          }
+      - name: Preserve Windows launch evidence
+        if: always() && matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-launch-evidence
+          path: evidence/windows-launch.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Preserve macOS launch evidence
+        if: always() && matrix.os == 'macos-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-launch-evidence-${{ matrix.target }}
+          path: runtime-evidence/macos-launch.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: 保存 Windows 程序与打包产物
+        if: always() && matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-windows-build
+          path: |
+            desktop/src-tauri/target/x86_64-pc-windows-msvc/release/hiking-earth-desktop.exe
+            desktop/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/
+          if-no-files-found: warn
+          retention-days: 14
+
+  finalize-updater:
+    needs: [prepare-release, build-desktop]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate complete updater manifest after all platforms succeed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_ID: ${{ needs.prepare-release.outputs.release_id }}
+          RELEASE_TAG: ${{ needs.prepare-release.outputs.tag }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" > metadata.json
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate-assets
+          node scripts/prepare-desktop-update-manifest.mjs metadata.json candidate-assets candidate-assets/latest.json "$GITHUB_SHA"
+          gh release upload "$RELEASE_TAG" candidate-assets/latest.json --repo "$GITHUB_REPOSITORY" --clobber

@@ -1,0 +1,21 @@
+{
+  "candidate": "desktop-40",
+  "client_commit": "1a54d04a216087f66cfb44bfb2c57a36247ee19c",
+  "installed_path": "/Users/nanyu/Applications/徒步地球.app",
+  "previous_backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-39/installed-backup/徒步地球.app",
+  "codesign_deep_strict": "passed",
+  "actual_launch": "passed",
+  "process_observed": 26582,
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-40/mac-installed-home.png",
+  "catalog_observed": {
+    "hk": "saved 167",
+    "usfs": "saved 40000 of 50089; remainder online",
+    "osm": "saved 26852; refresh finished"
+  },
+  "acceptance": "partial",
+  "pending": [
+    "globe drag rotation",
+    "account and multi-device business acceptance",
+    "formal update release"
+  ]
+}

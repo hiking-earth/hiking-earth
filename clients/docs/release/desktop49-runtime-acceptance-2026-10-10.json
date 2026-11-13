@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-10T14:07:31Z",
+  "workflowRun": 38057543139,
+  "sourceCommit": "65047a9c3f22382df4d61e59eed0e39170b3ca68",
+  "releaseTag": "desktop-49",
+  "draft": true,
+  "workflowConclusion": "failure",
+  "platforms": {
+    "windows-x64": {
+      "build": "passed",
+      "processLaunch": "passed",
+      "observedSeconds": 20,
+      "cleanupSucceeded": true,
+      "sha256": "6a14f622c5106daec21c8cf11e3ed9aa01fae47c8093f5ff6ef60714b8e94a18",
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    },
+    "linux-x64": {
+      "build": "passed",
+      "virtualDisplayProcessLaunch": "passed",
+      "observedSeconds": 25,
+      "processExitStatus": 124,
+      "sha256": "89b773e21ed1f895e549f177c10fc53ce4efdd74ea4a7770b8175c9dc205fb91",
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    },
+    "macos-aarch64": {
+      "build": "passed",
+      "codeSignature": "passed",
+      "processLaunch": "failed",
+      "failureCause": "Smoke-check helper received a relative app bundle path and then changed cwd, so the process launcher could not find the bundle.",
+      "packageBudget": "not-reached",
+      "updaterSignature": "not-reached"
+    },
+    "macos-x64": {
+      "build": "passed",
+      "codeSignature": "passed",
+      "processLaunch": "failed",
+      "failureCause": "Smoke-check helper received a relative app bundle path and then changed cwd, so the process launcher could not find the bundle.",
+      "packageBudget": "not-reached",
+      "updaterSignature": "not-reached"
+    }
+  },
+  "acceptanceScope": "Packaged process launch checks only; no UI or end-to-end business acceptance.",
+  "followUpRun": 38057992651,
+  "followUpSourceCommit": "33de068",
+  "followUpStatusAtCheck": "in_progress",
+  "releaseReady": false
+}

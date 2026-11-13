@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "maxItemsPerFeed": 100,
+  "sources": [
+    {
+      "id": "nps-grand-canyon-news",
+      "label": "美国国家公园管理局 · 大峡谷",
+      "url": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
+      "region": "美国 · 大峡谷",
+      "center": [
+        -112.113,
+        36.106
+      ],
+      "articleHosts": [
+        "www.nps.gov"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+      "verifiedLinkAt": "2026-10-10",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "feedReview": {
+        "label": "美国国家公园管理局 · 大峡谷",
+        "region": "美国 · 大峡谷",
+        "center": [
+          -112.113,
+          36.106
+        ],
+        "url": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
+        "articleHosts": [
+          "www.nps.gov"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+        "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+      },
+      "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+    },
+    {
+      "id": "nps-grand-canyon-backcountry",
+      "label": "美国国家公园管理局 · 大峡谷步道公告",
+      "url": "https://www.nps.gov/grca/planyourvisit/upload/grca-backcountry.xml",
+      "region": "美国 · 大峡谷",
+      "center": [
+        -112.113,
+        36.106
+      ],
+      "articleHosts": [
+        "www.nps.gov"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+      "verifiedLinkAt": "2026-10-10",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "feedReview": {
+        "label": "美国国家公园管理局 · 大峡谷步道公告",
+        "region": "美国 · 大峡谷",
+        "center": [
+          -112.113,
+          36.106
+        ],
+        "url": "https://www.nps.gov/grca/planyourvisit/upload/grca-backcountry.xml",
+        "articleHosts": [
+          "www.nps.gov"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+        "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+      },
+      "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+    },
+    {
+      "id": "nps-yellowstone-news",
+      "label": "美国国家公园管理局 · 黄石",
+      "url": "https://www.nps.gov/feeds/getNewsRSS.htm?id=yell",
+      "region": "美国 · 黄石",
+      "articleHosts": [
+        "www.nps.gov"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "evidenceUrl": "https://www.nps.gov/yell/learn/news/index.htm",
+      "verifiedLinkAt": "2026-10-07",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-07",
+      "feedReview": {
+        "label": "美国国家公园管理局 · 黄石",
+        "region": "美国 · 黄石",
+        "url": "https://www.nps.gov/feeds/getNewsRSS.htm?id=yell",
+        "articleHosts": [
+          "www.nps.gov"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://www.nps.gov/yell/learn/news/index.htm",
+        "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+      },
+      "licenseEvidenceUrl": "https://www.nps.gov/aboutus/disclaimer.htm"
+    },
+    {
+      "id": "hk-government-outdoor-news",
+      "label": "香港特区政府新闻公报 · 户外相关标题筛选",
+      "url": "https://www.info.gov.hk/gia/rss/general_zh.xml",
+      "region": "中国 · 香港",
+      "articleHosts": [
+        "www.info.gov.hk"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "titleKeywords": [
+        "郊野",
+        "行山",
+        "遠足",
+        "远足",
+        "徒步",
+        "步道",
+        "露營",
+        "露营",
+        "地質公園",
+        "地质公园",
+        "登山",
+        "泳灘",
+        "泳滩"
+      ],
+      "evidenceUrl": "https://data.gov.hk/en-data/dataset/hk-isd-gnmis-gnmis/resource/68cd851b-703d-41cc-9da2-e63f8afb8fc0",
+      "verifiedLinkAt": "2026-10-07",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-07",
+      "feedReview": {
+        "label": "香港特区政府新闻公报 · 户外相关标题筛选",
+        "region": "中国 · 香港",
+        "url": "https://www.info.gov.hk/gia/rss/general_zh.xml",
+        "articleHosts": [
+          "www.info.gov.hk"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://data.gov.hk/en-data/dataset/hk-isd-gnmis-gnmis/resource/68cd851b-703d-41cc-9da2-e63f8afb8fc0",
+        "licenseEvidenceUrl": "https://data.gov.hk/en/terms-and-conditions",
+        "titleKeywords": [
+          "郊野",
+          "行山",
+          "遠足",
+          "远足",
+          "徒步",
+          "步道",
+          "露營",
+          "露营",
+          "地質公園",
+          "地质公园",
+          "登山",
+          "泳灘",
+          "泳滩"
+        ]
+      },
+      "licenseEvidenceUrl": "https://data.gov.hk/en/terms-and-conditions"
+    },
+    {
+      "id": "nsw-npws-park-alerts",
+      "label": "© State of New South Wales · NSW 国家公园警示",
+      "url": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
+      "region": "澳大利亚 · 新南威尔士州",
+      "articleHosts": [
+        "www.nationalparks.nsw.gov.au"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "includeCategoriesInTitle": true,
+      "maxItems": 100,
+      "evidenceUrl": "https://www.nationalparks.nsw.gov.au/safety/alerts-subscribe",
+      "licenseEvidenceUrl": "https://www.nsw.gov.au/departments-and-agencies/dcceew/copyright-and-disclaimer",
+      "verifiedLinkAt": "2026-10-16",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-16",
+      "feedReview": {
+        "label": "© State of New South Wales · NSW 国家公园警示",
+        "region": "澳大利亚 · 新南威尔士州",
+        "url": "https://www.nationalparks.nsw.gov.au/api/rssfeed/get",
+        "articleHosts": [
+          "www.nationalparks.nsw.gov.au"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://www.nationalparks.nsw.gov.au/safety/alerts-subscribe",
+        "licenseEvidenceUrl": "https://www.nsw.gov.au/departments-and-agencies/dcceew/copyright-and-disclaimer",
+        "includeCategoriesInTitle": true
+      }
+    },
+    {
+      "id": "qld-qpws-park-alerts",
+      "label": "© State of Queensland · 昆士兰公园通行与步道设施警示",
+      "url": "https://parks.qld.gov.au/xml/rss/parkalerts.xml",
+      "region": "澳大利亚 · 昆士兰",
+      "articleHosts": [
+        "parks.qld.gov.au"
+      ],
+      "format": "rss",
+      "reuse": "metadata-links-only",
+      "maxItems": 100,
+      "evidenceUrl": "https://www.detsi.qld.gov.au/help/feeds",
+      "licenseEvidenceUrl": "https://www.detsi.qld.gov.au/help/legal/copyright",
+      "verifiedLinkAt": "2026-10-16",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-16",
+      "feedReview": {
+        "label": "© State of Queensland · 昆士兰公园通行与步道设施警示",
+        "region": "澳大利亚 · 昆士兰",
+        "url": "https://parks.qld.gov.au/xml/rss/parkalerts.xml",
+        "articleHosts": [
+          "parks.qld.gov.au"
+        ],
+        "format": "rss",
+        "reuse": "metadata-links-only",
+        "evidenceUrl": "https://www.detsi.qld.gov.au/help/feeds",
+        "licenseEvidenceUrl": "https://www.detsi.qld.gov.au/help/legal/copyright"
+      }
+    }
+  ]
+}

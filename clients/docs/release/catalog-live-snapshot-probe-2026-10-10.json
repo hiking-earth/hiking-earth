@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-10T15:55:32.222Z",
+  "scope": "Unauthenticated live catalog first-window probe against current public GitHub manifests; no route access or navigation claims",
+  "sources": [
+    {
+      "source": "osm",
+      "passed": true,
+      "httpStatus": 200,
+      "ok": true,
+      "expectedSnapshot": "5e4a1e26d9688210cb44a9fcbd76d81d1bbf14bdcefd8adcfb590cbe564807a1",
+      "actualSnapshot": "5e4a1e26d9688210cb44a9fcbd76d81d1bbf14bdcefd8adcfb590cbe564807a1",
+      "expectedTotal": 146007,
+      "actualTotal": 146007,
+      "returned": 400,
+      "upstreamAvailable": true,
+      "complete": false
+    },
+    {
+      "source": "usfs",
+      "passed": true,
+      "httpStatus": 200,
+      "ok": true,
+      "expectedSnapshot": "c4a55ec2fbc846ec0490452e3d067dc4d483c7c6972b920ebc2133e002c269ca",
+      "actualSnapshot": "c4a55ec2fbc846ec0490452e3d067dc4d483c7c6972b920ebc2133e002c269ca",
+      "expectedTotal": 9241,
+      "actualTotal": 9241,
+      "returned": 400,
+      "upstreamAvailable": true,
+      "complete": false
+    },
+    {
+      "source": "hk",
+      "passed": false,
+      "httpStatus": 400,
+      "ok": false,
+      "expectedSnapshot": "346f9593b0e7d597e7db907a6e57e6d95f16708fd02aa13634eccedd1ecc1427",
+      "actualSnapshot": null,
+      "expectedTotal": 167,
+      "actualTotal": null,
+      "returned": 0,
+      "upstreamAvailable": false,
+      "complete": false,
+      "error": "资料暂时不可用，请保留上次成功同步的数据并稍后重试"
+    },
+    {
+      "source": "news",
+      "passed": true,
+      "httpStatus": 200,
+      "ok": true,
+      "expectedSnapshot": "a3f332c322175c16c970ab88ff29655e44d7776107f885f3002237d5d798cef3",
+      "actualSnapshot": "a3f332c322175c16c970ab88ff29655e44d7776107f885f3002237d5d798cef3",
+      "expectedTotal": 203,
+      "actualTotal": 203,
+      "returned": 203,
+      "upstreamAvailable": true,
+      "complete": true
+    }
+  ],
+  "passed": false
+}

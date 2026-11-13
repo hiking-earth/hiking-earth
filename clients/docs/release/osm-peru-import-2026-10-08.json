@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-08T02:05:22+08:00",
+  "source": "Geofabrik official regional OSM PBF",
+  "sourceUrl": "https://download.geofabrik.de/south-america/peru-261005.osm.pbf",
+  "sourceInfoUrl": "https://download.geofabrik.de/south-america/peru.html",
+  "sourceTimestamp": "2026-10-05T20:21:35Z",
+  "bytes": 256410442,
+  "md5": "8e25b15586f6aeb2dcaab603434cd7a5",
+  "sha256": "aedd5e4358f8b5b44671180f93697465e31dcec368e483760396711a788f6aee",
+  "import": {
+    "sourceId": "south-america/peru/261005",
+    "region": "south-america",
+    "candidateRelations": 26,
+    "importedRelations": 25,
+    "skippedIncompleteRelations": 1,
+    "skippedNestedRelations": 1
+  },
+  "catalogDelta": {
+    "beforeCount": 27215,
+    "afterCount": 27240,
+    "added": 25,
+    "updated": 0,
+    "removed": 0,
+    "southAmericaBefore": 366,
+    "southAmericaAfter": 391,
+    "sha256": "7d28ffcd300838ed82c592bf7fa87048c127188fa2ef8b58490a4af01ce2ed7f"
+  },
+  "distribution": {
+    "osmPages": 69,
+    "copies": [
+      "shared/public-catalog",
+      "app/cloudfunctions/catalog-feed/snapshots",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots"
+    ],
+    "manifestsMatch": true,
+    "allPagePayloadsDecodeAsJson": true,
+    "compressedPageBytesMatch": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

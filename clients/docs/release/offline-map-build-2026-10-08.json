@@ -1,0 +1,705 @@
+{
+  "checkedAt": "2026-10-07T17:41:21.040294+00:00",
+  "source": "Protomaps official build",
+  "upstreamBuild": "20261007.pmtiles",
+  "pmtilesCli": {
+    "version": "1.31.2",
+    "releaseAsset": "go-pmtiles-1.31.2_Darwin_arm64.zip",
+    "sha256": "40528f7f616fcbf91207cd48c8fc023d213f6d86c0cbf1f748732803d1880f3d"
+  },
+  "generatedPacks": [
+    {
+      "schemaVersion": 1,
+      "id": "annapurna",
+      "name": "安纳布尔纳周边局部底图",
+      "bounds": [
+        83.85,
+        28.45,
+        84.0,
+        28.6
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 464863,
+      "sha256": "99293932ae1c3c3833895fe21828ee028616707dc7143dff53e98ecacae651c3",
+      "file": "annapurna-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:37:05.535870+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "aoraki",
+      "name": "奥拉基库克山周边局部底图",
+      "bounds": [
+        170.1,
+        -43.8,
+        170.25,
+        -43.65
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 720816,
+      "sha256": "f8766b6c7613f92c50cdf512fe77e58f5b99c5bfd4d043ddeca5c965cbf3b8cd",
+      "file": "aoraki-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:38:07.068653+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "banff",
+      "name": "班夫国家公园周边局部底图",
+      "bounds": [
+        -116.25,
+        51.15,
+        -116.1,
+        51.3
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 811892,
+      "sha256": "cb3a4c7cf33ecfda928a1f15fbf796517a7dfa54ae0cbf7d749caf7d9f1fcacd",
+      "file": "banff-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:36:27.794478+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blue-mountains",
+      "name": "澳大利亚蓝山周边局部底图",
+      "bounds": [
+        150.25,
+        -33.75,
+        150.4,
+        -33.6
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 2965996,
+      "sha256": "6a8f8d6659f796fc9343f54915df622278cafa3209d81a0f9ccd2d3bf3b12f4d",
+      "file": "blue-mountains-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:40:35.961662+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "cappadocia",
+      "name": "卡帕多奇亚周边局部底图",
+      "bounds": [
+        34.8,
+        38.55,
+        34.95,
+        38.7
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 1190071,
+      "sha256": "dcf2f3bbc49bc4b94ea28d01ff997bd5f6dd640b60aeeb54ff7fa4a6242c4daf",
+      "file": "cappadocia-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:40:52.243871+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "chamonix",
+      "name": "霞慕尼周边局部底图",
+      "bounds": [
+        6.8,
+        45.86,
+        6.94,
+        45.98
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 2648390,
+      "sha256": "d974e51bbf22f05c198568b2da17a91b538d12ce3d719cfbdd111813d63241fd",
+      "file": "chamonix-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:35:31.088592+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "dolomites",
+      "name": "多洛米蒂周边局部底图",
+      "bounds": [
+        11.65,
+        46.45,
+        11.8,
+        46.6
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 3791992,
+      "sha256": "3b41637cb6fc7614d5ce6025d95723ab0ecd626d506df065ba784eed3b3554b2",
+      "file": "dolomites-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:36:50.771795+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "el-chalten",
+      "name": "埃尔查尔滕周边局部底图",
+      "bounds": [
+        -73.0,
+        -49.4,
+        -72.85,
+        -49.25
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 827431,
+      "sha256": "4544d5ddf2309573735768f8734d0349e19fb0f64457682255c9e3ec84e2f225",
+      "file": "el-chalten-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:40:22.500859+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "everest",
+      "name": "珠峰地区周边局部底图",
+      "bounds": [
+        86.7,
+        27.85,
+        86.85,
+        28.0
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 700471,
+      "sha256": "171c85ba22ff1bf34e63b2dbe7e40316d44ab7ea63a464152a784d5ba880068e",
+      "file": "everest-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:37:24.666597+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "fuji",
+      "name": "富士山周边局部底图",
+      "bounds": [
+        138.66,
+        35.3,
+        138.8,
+        35.42
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 845089,
+      "sha256": "c80ae604c7de0351e4ef2e4fdf13a6f3b06473f8a067ecba8c68d12bda79847f",
+      "file": "fuji-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:35:17.221022+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "grand-canyon",
+      "name": "大峡谷周边局部底图",
+      "bounds": [
+        -112.2,
+        36.05,
+        -112.05,
+        36.2
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 1428708,
+      "sha256": "ebaf48f858cf6749b323478bb7506444405a3f6d1069daaceac9a2774da4b065",
+      "file": "grand-canyon-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:40:07.225618+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "iceland-highlands",
+      "name": "冰岛高地周边局部底图",
+      "bounds": [
+        -19.2,
+        63.95,
+        -19.05,
+        64.1
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 371156,
+      "sha256": "53bb8e17b1b33b746159c17f2e244ff1b3684bc0e2c8b8922a53faa3468af14a",
+      "file": "iceland-highlands-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:39:52.415129+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "kilimanjaro",
+      "name": "乞力马扎罗周边局部底图",
+      "bounds": [
+        37.3,
+        -3.15,
+        37.45,
+        -3.0
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 260059,
+      "sha256": "e0d09aefa1a22a1e5ea134e24137238f24a44744a5179c6ed9f5f0bc4653f6da",
+      "file": "kilimanjaro-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:38:56.634390+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "kumano-kodo",
+      "name": "熊野古道周边局部底图",
+      "bounds": [
+        135.55,
+        33.75,
+        135.7,
+        33.9
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 811573,
+      "sha256": "6aa22fdfb186ff07759da9632fc3a011bfbf103099984abc677cb845923c7fc3",
+      "file": "kumano-kodo-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:37:40.531384+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "lake-district",
+      "name": "英国湖区周边局部底图",
+      "bounds": [
+        -3.15,
+        54.35,
+        -3.0,
+        54.5
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 3889764,
+      "sha256": "8fe57871bde0c0acd635bced2a2aeee334bfaadc0df2520dce1d2cded7879ef9",
+      "file": "lake-district-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:39:35.302300+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "lantau",
+      "name": "香港大屿山局部底图",
+      "bounds": [
+        113.92,
+        22.2,
+        113.99,
+        22.26
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 703302,
+      "sha256": "659122aa3d724e932e8b799134cdbed0c12cd0eef61f17a87bc6ec0c60558b89",
+      "file": "lantau-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:35:01.432568+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "madeira",
+      "name": "马德拉岛周边局部底图",
+      "bounds": [
+        -17.1,
+        32.65,
+        -16.95,
+        32.8
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 3608483,
+      "sha256": "95738a79a0e7dafdf5d10791493860dd07ed829bf378ca98e9a26c91984dce0a",
+      "file": "madeira-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:39:11.386578+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "milford-track",
+      "name": "米尔福德步道周边局部底图",
+      "bounds": [
+        167.8,
+        -44.7,
+        167.95,
+        -44.55
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 667979,
+      "sha256": "ff74f7042402efde44f10e588628e9c87e5627d844d3f175182245cfeaf63b89",
+      "file": "milford-track-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:38:21.243545+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "table-mountain",
+      "name": "桌山周边局部底图",
+      "bounds": [
+        18.35,
+        -34.02,
+        18.48,
+        -33.9
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 4484693,
+      "sha256": "1a508ea257eb5d2757bd53e2845295a3b131faf1fcb40704e11fe6cb6475e845",
+      "file": "table-mountain-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:36:09.983475+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "torres-del-paine",
+      "name": "百内国家公园周边局部底图",
+      "bounds": [
+        -73.05,
+        -51.05,
+        -72.9,
+        -50.9
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 322671,
+      "sha256": "ca5fb450dacf6fa849cd3fec602318961b8d2bf478596e1e8861bc112b6db3d8",
+      "file": "torres-del-paine-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:38:43.861606+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "world-overview",
+      "name": "全球离线概览底图（缩放0–5级）",
+      "bounds": [
+        -180.0,
+        -85.05112878,
+        180.0,
+        85.05112878
+      ],
+      "minZoom": 0,
+      "maxZoom": 5,
+      "bytes": 15049547,
+      "sha256": "0ef4fdda656e07bef9b0c126266ee4597315a68a3273cbc9922e7af40fb99f4a",
+      "file": "world-overview-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:34:43.272163+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Whole-world low-zoom overview only; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet.",
+      "scope": "global-overview"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "yosemite-valley",
+      "name": "优胜美地谷周边局部底图",
+      "bounds": [
+        -119.65,
+        37.68,
+        -119.5,
+        37.8
+      ],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "bytes": 2317599,
+      "sha256": "46169da0cb56d1bbb379fa9ee3f4b1eee1e9083754ccc90e36bd01d600869029",
+      "file": "yosemite-valley-20261007.pmtiles",
+      "format": "pmtiles-v3",
+      "builtAt": "2026-10-07T17:35:47.339175+00:00",
+      "upstream": {
+        "url": "https://build.protomaps.com/20261007.pmtiles",
+        "build": "20261007.pmtiles",
+        "version": "4.15.2",
+        "planetBlake3": "3d3a3479affa7c98babcac4b211254f59d42c668cfc8b6a12ea5d54f8ed3d7b1",
+        "planetChecksumVerified": false
+      },
+      "license": "ODbL-1.0 Produced Work",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "sourcePolicy": "https://docs.protomaps.com/basemaps/downloads",
+      "note": "Basemap; no terrain elevations or current trail access permission. Publish extracted file on our release channel; do not hotlink the planet."
+    }
+  ],
+  "generatedPackCount": 22,
+  "generatedPackBytes": 48882545,
+  "worldOverview": {
+    "file": "world-overview-20261007.pmtiles",
+    "bytes": 15049547,
+    "minZoom": 0,
+    "maxZoom": 5,
+    "terrainIncluded": false,
+    "globalDetailedTrailCoverage": false
+  },
+  "clientCatalog": {
+    "entryCount": 23,
+    "referencedBytes": 50051344,
+    "limitBytes": 500000000,
+    "withinLimit": true
+  },
+  "localPmtilesFiles": {
+    "count": 23,
+    "totalBytes": 50051344,
+    "note": "Only the current catalog-referenced generated packs remain."
+  },
+  "verification": {
+    "allGeneratedPacksPmtilesVerifyPassed": true,
+    "copiedAssetsMatchManifestSha256": true,
+    "allGeneratedPacksBelow64MiB": true,
+    "sourceCopyrightAttributionPresent": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "updateInstaller": {
+    "unreferencedGeneratedPacksPruned": true,
+    "verifiedClientCatalogBytes": 50051344
+  }
+}

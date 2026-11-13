@@ -1,0 +1,29 @@
+{
+  "sourceBase": "662537c",
+  "patches": {
+    "ws": "8.21.0",
+    "source-map-js": "1.2.2",
+    "jpeg-js": "0.4.4"
+  },
+  "validation": {
+    "runtimeSmokeChecks": 3,
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "diffCheck": "passed"
+  },
+  "productionAudit": {
+    "info": 0,
+    "low": 17,
+    "moderate": 11,
+    "high": 23,
+    "critical": 0,
+    "total": 51
+  },
+  "patchedEntriesAbsent": true,
+  "limitations": [
+    "51 affected dependency entries remain; counts include propagated dependency entries, not unique CVEs.",
+    "New builds have not been deployed or accepted on devices.",
+    "Framework and toolchain advisories need further review."
+  ]
+}

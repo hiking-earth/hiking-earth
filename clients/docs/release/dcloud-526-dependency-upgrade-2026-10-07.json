@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-07",
+  "scope": "uni-app DCloud stable dependency upgrade preflight",
+  "dcloudCompiler": "5.26 (Vue 3)",
+  "dcloudPackageVersion": "3.0.0-5020620260917001",
+  "validation": {
+    "typeCheck": { "command": "npm run type-check", "exitCode": 0 },
+    "h5Build": { "command": "npm run build:h5", "exitCode": 0 },
+    "wechatMiniProgramBuild": { "command": "npm run build:mp-weixin", "exitCode": 0 },
+    "productionAuditAfterUpdate": {
+      "command": "npm audit --omit=dev --json",
+      "info": 0,
+      "low": 18,
+      "moderate": 7,
+      "high": 17,
+      "critical": 0,
+      "total": 42
+    },
+    "fullAuditAfterSafeFix": {
+      "command": "npm audit fix",
+      "exitCode": 1,
+      "remaining": { "low": 24, "moderate": 17, "high": 48, "critical": 0, "total": 89 }
+    }
+  },
+  "decision": "Keep the coherent DCloud stable package set because type-check, H5, and WeChat builds pass. Do not apply npm audit fix --force: it proposes replacing @dcloudio/uni-cli-shared with 0.2.994 and moving pinned Rollup outside its stated range. Security findings remain a release gate and need a framework-compatible upstream fix or narrowly validated overrides.",
+  "limitations": [
+    "This is a dependency compatibility preflight, not the final cross-platform acceptance run.",
+    "No native iOS/Android/macOS build, mini-program upload, or real-device acceptance was performed in this preflight.",
+    "The H5 and WeChat outputs are local candidates and are not deployed or submitted."
+  ]
+}

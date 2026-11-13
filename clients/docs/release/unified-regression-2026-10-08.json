@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "complete": false,
+  "date": "2026-10-08",
+  "clientSourceCommit": "61796578b3368c48e3039c096d2972cdabb0edd5",
+  "node": {
+    "passed": 125,
+    "failed": 0,
+    "skipped": 0,
+    "tapSha256": "fc65f4ffdea5374333c15e5fff50466a33fdf5ed6f4db0bc8c5a0eafcea8ce20"
+  },
+  "python": {
+    "suites": 11,
+    "tests": 72,
+    "initialFailedSuites": [
+      "scripts/tests/offline-region-batch.test.py"
+    ],
+    "correctedSuite": {
+      "file": "scripts/tests/offline-region-batch.test.py",
+      "passed": 3,
+      "failed": 0
+    },
+    "suiteCounts": {
+      "scripts/tests/catalog-collection-status.test.py": 3,
+      "scripts/tests/catalog-publication-validation.test.py": 15,
+      "scripts/tests/desktop-promotion-platforms.test.py": 5,
+      "scripts/tests/import-osm-pbf-catalog.test.py": 3,
+      "scripts/tests/iphone-release-acceptance.test.py": 5,
+      "scripts/tests/official-content-policy.test.py": 7,
+      "scripts/tests/offline-map-install.test.py": 13,
+      "scripts/tests/offline-map-inventory.test.py": 8,
+      "scripts/tests/offline-region-batch.test.py": 3,
+      "scripts/tests/offline-region-builder.test.py": 7,
+      "scripts/tests/package-budget.test.py": 3
+    }
+  },
+  "scope": "Local regression with isolated fixtures. No production phone login, physical permissions, published stores or deployed-source verification is implied."
+}

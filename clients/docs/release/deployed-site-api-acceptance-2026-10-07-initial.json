@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-07T03:26:14.560Z",
+  "passed": false,
+  "scope": "Live Sites proxy weather, catalog, expired token and anonymous QR lifecycle; no production account login or device confirmation claim.",
+  "checks": [
+    {
+      "name": "live site API",
+      "passed": false,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    }
+  ]
+}

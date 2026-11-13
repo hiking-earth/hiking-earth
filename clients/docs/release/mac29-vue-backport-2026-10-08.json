@@ -1,0 +1,30 @@
+{
+  "complete": false,
+  "desktopCandidate": {
+    "tag": "desktop-29",
+    "source": "96d55a344866048aee2a0556a4adade6c161b686",
+    "armPackageBytes": 71366778,
+    "armPackageSha256": "5f2fa90583e33ea1b6436ff29597701217216c922a0b9abfccd0ba54de2804bc",
+    "signatureVerified": true,
+    "launchCommandSucceeded": true,
+    "nativeAccessibilityHomeRendered": true,
+    "restoredCachedRoutes": 66747,
+    "freshFullCatalogVerified": false
+  },
+  "vueBackport": {
+    "advisory": "GHSA-g2v6-rqmx-r4w6",
+    "upstreamCommit": "a2b40db9a83b36ed9da3a16403cf8f040262d73f",
+    "dependencyVersion": "3.4.21",
+    "patchedFiles": 3,
+    "postinstallHook": true,
+    "typeCheck": true,
+    "h5Build": true,
+    "weixinBuild": true,
+    "behaviorTestsPassed": 2,
+    "cleanInstallDryRun": true,
+    "npmVersionAdvisoryStillExpected": true,
+    "cleanInstallPassed": true,
+    "postinstallAppliedDuringCleanInstall": true
+  },
+  "scope": "Mac startup and cached home rendering only; not cloud sync, fresh catalog, permissions, login, installer upgrades or final source acceptance."
+}

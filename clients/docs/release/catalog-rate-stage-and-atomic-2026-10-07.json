@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-07T04:33:59.798088+00:00",
+  "diagnosticCommit": "44bc95a",
+  "diagnosticDeploymentVerified": true,
+  "observedSimulatorFailureCode": "PUBLIC_RATE_LIMIT_FAILED",
+  "confirmedFailureStage": "catalog rate counter",
+  "sdkRootCause": "unconfirmed; CLS returned no diagnostic logs",
+  "fixCommit": "947da08",
+  "fix": "conditional atomic increment with unique initialization; preserves existing counter; unknown result fails closed",
+  "tests": {
+    "passed": 12,
+    "scope": "mocked database atomic ceiling, competing instances, uncertain commits, unknown result, legacy limiter and bounded public error classification"
+  },
+  "reference": "https://docs.cloudbase.net/en/api-reference/server/node-sdk/database/update",
+  "fixDeployment": "running session31480",
+  "runtimeAcceptance": false
+}

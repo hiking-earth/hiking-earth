@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-08T14:56:02.534824+00:00",
+  "installed": "/Users/nanyu/Applications/徒步地球.app",
+  "candidate": "desktop-37",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-34/installed-backup/徒步地球.app",
+  "installedSignature": "codesign --verify --deep --strict passed",
+  "pid": 28111,
+  "homepage": "actual native app visible",
+  "newsAcceptance": {
+    "status": "passed for fresh announcement snapshot",
+    "snapshot": "b267d25bf3dd7e6c6aeb7a31bf143263e3703fb6be14ecc715f15a1f09f8e8f9",
+    "upstreamAvailable": true,
+    "generatedAt": "2026-10-08T14:49:56.418203+00:00",
+    "total": 203,
+    "actualNativePage": "Timestamp advanced from bundled 2026-10-07T17:12 to 2026-10-08T14:49:56.418203+00:00; prior format error absent",
+    "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-37/mac-news-refresh.png"
+  },
+  "limits": [
+    "App signing is adhoc; Apple notarization not claimed",
+    "No broad business or all-end acceptance claim",
+    "Desktop37 remains draft and stable release disabled"
+  ]
+}

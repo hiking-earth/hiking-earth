@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Europe: Iberia",
+  "source": "Geofabrik official Spain and Portugal country PBF snapshots derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 48807,
+  "catalogCountAfter": 49059,
+  "catalogRecordDelta": 252,
+  "successfulExtracts": [
+    {
+      "sourceId": "europe/portugal-latest",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/portugal.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 424970644,
+      "officialMd5Verified": "782afd000a15b530b10d8be5c379de49",
+      "sha256": "6d6c78d7b2f71af44170ea247692fc1eb46793e967e3e74958baa834153954a6",
+      "candidateRelations": 1349,
+      "importedRelations": 1304,
+      "skippedIncompleteRelations": 45,
+      "skippedNestedRelations": 13,
+      "netCatalogRecordDelta": 246
+    },
+    {
+      "sourceId": "europe/spain-latest",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/spain.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 1489074290,
+      "officialMd5Verified": "2d40e41a5610262d488c3294524036f5",
+      "sha256": "d1bc84199660e3cbfcac5b25e2be2da1c43d2222b5d01995887debbfe2ede387",
+      "candidateRelations": 6226,
+      "importedRelations": 6048,
+      "skippedIncompleteRelations": 178,
+      "skippedNestedRelations": 93,
+      "netCatalogRecordDelta": 6
+    }
+  ],
+  "catalogSnapshot": "26ff204c03099a13302f5b5b0a391f3f56629163f3c772be818179b1925a7b2f",
+  "pageCount": 123,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 369,
+  "interpretation": "Relation identities overlap across national and existing regional extracts. Counts are discovery records only, not current legal access, safety verification, or navigable GPS tracks.",
+  "distributionCheck": "All three manifests are byte-identical; all 123 gzip pages in each copy are byte-identical across copies and each decompressed page SHA-256 matches the manifest. This is local data integrity only; it does not prove deployment or client behavior."
+}

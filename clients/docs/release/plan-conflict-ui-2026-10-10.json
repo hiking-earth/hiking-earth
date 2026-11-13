@@ -1,0 +1,31 @@
+{
+  "scope": "Actual two Chrome sessions plan UI and automatic sync engine triggered via immediate sync; excludes timed polling, tracks, physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "plan created through UI and saved by automatic sync engine",
+      "passed": true
+    },
+    {
+      "name": "same-account plan automatically restored in isolated second browser",
+      "passed": true
+    },
+    {
+      "name": "concurrent plan edits preserve local and remote versions and show conflict",
+      "passed": true
+    },
+    {
+      "name": "explicit confirmed cloud restore resolves conflict",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T13:37:38.647Z"
+}

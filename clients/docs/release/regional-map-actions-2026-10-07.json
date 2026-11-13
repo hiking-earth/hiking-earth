@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-07T06:57:39.657514+00:00",
+  "runId": 37584117304,
+  "sourceCommit": "147b4e2289237df35f1cbb3efca86e75e2ea2bdd",
+  "runConclusion": "success",
+  "downloadedArtifact": "regional-maps-37584117304-1",
+  "reverifiedUsingSource": "e8875ca",
+  "config": "shared/maps/regions.json",
+  "bytes": 10998547,
+  "build": "20261006.pmtiles",
+  "maps": [
+    {
+      "id": "chamonix",
+      "bytes": 2648395,
+      "sha256": "1904feced294b660bde15a10a36c641d6f3b0c4eab24ac649c88c6f7e009dd42",
+      "structuralVerify": true
+    },
+    {
+      "id": "fuji",
+      "bytes": 845089,
+      "sha256": "83c16fbc4a8d6b6cae4d9a80edd0ff4583c770f786901c4441326beeeacf9db5",
+      "structuralVerify": true
+    },
+    {
+      "id": "lantau",
+      "bytes": 703312,
+      "sha256": "0409eb2823ec94a23c97e1cad86abd9bf1630267ed0e82181815c0226ca52386",
+      "structuralVerify": true
+    },
+    {
+      "id": "table-mountain",
+      "bytes": 4484153,
+      "sha256": "8dfc071ad8f4554860be0d9e0ed4db012f0077378d003f6accc13807441e2662",
+      "structuralVerify": true
+    },
+    {
+      "id": "yosemite-valley",
+      "bytes": 2317598,
+      "sha256": "a5f9aa645af052e8bdadbe3e895bdad6feb50bdc1273678b2d38a0da19fd6d76",
+      "structuralVerify": true
+    }
+  ],
+  "deployed": false,
+  "globalCoverage": false
+}

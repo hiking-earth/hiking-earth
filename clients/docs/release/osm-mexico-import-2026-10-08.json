@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Mexico",
+  "source": "Geofabrik official fixed Mexico extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 145045,
+  "catalogCountAfter": 145055,
+  "catalogRecordDelta": 10,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/mexico-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/mexico.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 646475028,
+      "officialMd5Verified": "01d5fe90e16f91be040f17ef975fe3f4",
+      "sha256": "d05534aae322fa099d68e04138724853078564ffdb8c2d78e572c31d08f2c0b0",
+      "candidateRelations": 18,
+      "importedRelations": 11,
+      "skippedIncompleteRelations": 7,
+      "skippedNestedRelations": 6,
+      "netCatalogRecordDelta": 10
+    }
+  ],
+  "catalogSnapshot": "40283b5cac7140e04ffccc1002d9b7b7c9f6b503f2651b8769394ba21fc5fbe8",
+  "pageCount": 363,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1089,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 363 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only; it does not prove product behavior, deployment or remote runtime."
+}

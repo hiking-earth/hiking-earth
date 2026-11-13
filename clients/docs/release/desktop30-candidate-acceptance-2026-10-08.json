@@ -1,0 +1,97 @@
+{
+  "run": 37733587161,
+  "source": "1a229550cbd35196bbe791a03632c4691791b428",
+  "buildJobsPassed": 6,
+  "candidateTag": "desktop-30",
+  "draft": true,
+  "assets": [
+    {
+      "name": "latest.json",
+      "size": 2622,
+      "digest": "sha256:3b4b58f450f88eec86fe8178a55aaeef734c5b052785b045fa40f72139d3f968"
+    },
+    {
+      "name": "_0.2.3_aarch64.dmg",
+      "size": 71621766,
+      "digest": "sha256:80a487abbc4fbc647c2ffed5d8264e84784799db625f45255cecb9384a2f76a8"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage",
+      "size": 150022648,
+      "digest": "sha256:4894a062d0d8321c3e4a55dc9906bffc0d69069b3d4078c3f68a6e2a454a672e"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage.sig",
+      "size": 444,
+      "digest": "sha256:0b54dd1ec8b442125b05166582907d931d5451696ca1ec6827b0475bc3bc4fc9"
+    },
+    {
+      "name": "_0.2.3_amd64.deb",
+      "size": 71770744,
+      "digest": "sha256:1cf8986d8bfbaf3ecaa7d69c4def38a221e2d0936542d4a94de0be04b9d9a9ab"
+    },
+    {
+      "name": "_0.2.3_amd64.deb.sig",
+      "size": 436,
+      "digest": "sha256:3f4d1401d79cf220824c18f48a7f667e1f6f40303c3ae945de8217e506036cc3"
+    },
+    {
+      "name": "_0.2.3_x64.dmg",
+      "size": 71365299,
+      "digest": "sha256:6b71e7bb9cd168b3da7dade1ce7f3486ad7dfc6b264426eac8c9de338dbdc09d"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi",
+      "size": 71413760,
+      "digest": "sha256:6a3581b61bb9882769078809877d7812d8283eda27a656e8cb4080cbfdf4d525"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi.sig",
+      "size": 444,
+      "digest": "sha256:bd376c5e3667c2f43b2c21ac6503aa5307f077406261f40879ab5b72216f2926"
+    },
+    {
+      "name": "_aarch64.app.tar.gz",
+      "size": 71559722,
+      "digest": "sha256:5281287825b998901b77db44c69db85d1b35f9dca75e7c520c11e48b6f64ec59"
+    },
+    {
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:2e30e698cefb654b049d4aa7491a5b95b7cff3cf7ce164c4b6840c4492de7046"
+    },
+    {
+      "name": "_x64.app.tar.gz",
+      "size": 71279940,
+      "digest": "sha256:56abe762d5fe0e5725606092d77f8b7f7ed974bb0f0703c48e37f9ed89e8eed2"
+    },
+    {
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:13ba0c8fd0ea18143fe130a53957ca17ad162d03d4044626b75561b34cd50317"
+    }
+  ],
+  "largestBytes": 150022648,
+  "manifestPlatforms": [
+    "darwin-aarch64",
+    "darwin-x86_64",
+    "windows-x86_64",
+    "linux-x86_64"
+  ],
+  "macArm": {
+    "packageBytes": 71559722,
+    "sha256": "5281287825b998901b77db44c69db85d1b35f9dca75e7c520c11e48b6f64ec59",
+    "remoteDigestMatched": true,
+    "updaterSignatureVerified": true,
+    "actualCandidateProcessPath": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-30/runtime/徒步地球.app/Contents/MacOS/hiking-earth-desktop",
+    "launchPassed": true,
+    "satelliteHomeAndGreenPassed": true,
+    "zoomButtonPassed": true,
+    "dragAcceptance": false,
+    "dragObservation": "Native CUA drag attempts did not produce visible rotation; source defect vs input automation unresolved",
+    "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-30/mac-home.png"
+  },
+  "appRegression": "16 passed, 0 failed",
+  "formalReleaseReady": false,
+  "remaining": "DMG installation, full account/sync/offline/upgrade acceptance and other OS runtime not established"
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-13",
+  "milestone": "queensland-qpws-trails-discovery-catalog-source",
+  "status": "local-source-data-and-pagination-prepared-not-deployed",
+  "source": {
+    "datasetUrl": "https://www.data.qld.gov.au/dataset/queensland-parks-and-wildlife-service-access",
+    "layerUrl": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/Environment/ParksTerrestrialProtectedAreas/MapServer/5",
+    "license": "Creative Commons Attribution 4.0 International",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "datasetLastUpdated": "2025-08-31",
+    "filter": "subcat = 'Tracks and Trails'",
+    "attribution": "Contains Queensland Government data from Queensland Parks and Wildlife Service (QPWS) Estate access. © The State of Queensland (Department of Environment and Science) 2020. Licensed under CC BY 4.0.",
+    "layerCopyright": "Official Walking track layer metadata: © The State of Queensland (Department of Environment and Science) 2020.",
+    "serviceRootCopyright": "The MapServer root metadata separately shows 2022; the layer-specific copyright is used for attribution."
+  },
+  "collection": {
+    "sourceFeatureCount": 4312,
+    "catalogRouteCount": 4312,
+    "withheldRecords": 0,
+    "statusPolicy": "All records remain 待核验; source tags and simplified reference lines do not establish present-day access, public permission, closure state, completeness, or navigation suitability.",
+    "sourceSnapshot": "shared/data/catalog/queensland-qpws-trails.json",
+    "sha256": "da34c8e8d91e8efc76113858e0ec72f1c218fdbcccf2df5c99ab7cf985999477",
+    "pages": 11,
+    "pageSize": 400
+  },
+  "implementation": {
+    "collector": "scripts/update-queensland-qpws-trails.py",
+    "scheduledWorkflow": ".github/workflows/route-catalog-update.yml",
+    "staticPageGenerator": "scripts/prepare-catalog-pages.py",
+    "catalogValidator": "scripts/catalog_publication_validation.py",
+    "clientSearchAndCache": [
+      "app/src/services/catalog-cache.ts",
+      "app/src/services/public-data.ts",
+      "app/src/services/route-catalog.ts",
+      "app/src/services/catalog-search.ts",
+      "app/src/components/RouteSearchPicker.vue",
+      "app/src/pages/index/index.vue",
+      "web/app/page.tsx"
+    ],
+    "deploymentAllowlist": [
+      "app/cloudfunctions/catalog-feed/index.js",
+      "app/cloudfunctions/client-api/business/catalog-feed/index.js",
+      "web/app/api/catalog/route.ts",
+      "web/app/api/catalog/search/route.ts"
+    ]
+  },
+  "verification": {
+    "sourceCollection": "completed; 4312 source IDs reconciled; zero geometry records withheld",
+    "staticPages": "completed; 11 pages generated from validated local snapshot",
+    "productTests": "not run by user instruction; deferred to unified acceptance phase",
+    "build": "not run",
+    "deployment": "not run",
+    "deviceAcceptance": "not run"
+  },
+  "remaining": [
+    "Commit the new source and generated catalog pages together with code.",
+    "Run all product tests and builds after feature freeze, then deploy the website and CloudBase catalog functions.",
+    "Verify the public directory endpoint and complete client search on Mac, iPhone/PWA, and WeChat Mini Program."
+  ]
+}

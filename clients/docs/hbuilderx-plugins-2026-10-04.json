@@ -1,0 +1,84 @@
+{
+  "hbuilderxVersion": "5.26.2026091802",
+  "platform": "macosx-arm64",
+  "repository": "https://update.dcloud.net.cn/hbuilderx/upgrade_repositories/5.26.2026091802/macosx-arm64/plugins/index.json",
+  "plugins": [
+    {
+      "name": "uni_modules",
+      "version": "1.0.7-2026063000",
+      "md5": "6d7520d7601efad07dd9a6878d1a2808",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "node18",
+      "version": "1.0.0.2026070820",
+      "md5": "472d7551d5fc0bb79d727c299f77cf2b",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "unicloud",
+      "version": "2.0.70-2026091812",
+      "md5": "d13fe8b7af33385e7477e4b976074bde",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "uni_helpers",
+      "version": "3.0.1-2026081817",
+      "md5": "3c4edc0f34671ccab087bae3f9a84880",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "uniapp-uts-v1",
+      "version": "5.26.2026091619.3958",
+      "md5": "22be49fa2d45ac100dda91e29ea224e7",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "uniapp-cli-vite",
+      "version": "5.26.2026091411.1611",
+      "md5": "e99fa5fae3e0a59a0a7f76c87dc44dcd",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "app-safe-pack",
+      "version": "2.0.0.2026030912",
+      "md5": "0e0edf72e1945fbc0d98740d50ca6ae1",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "launcher-tools",
+      "version": "1.0.3.2026070617",
+      "md5": "7a78978b9ee6f1507db6b07247379218",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "node_modules",
+      "version": "1.0.0.2022092012",
+      "md5": "9aeafe1760f4d26ea52746698589b6f0",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "amazon-corretto",
+      "version": "21.2.0",
+      "md5": "ab06b4554a688f7e4bda916c0dffd209",
+      "downloadChecksumMatched": true,
+      "installed": true
+    },
+    {
+      "name": "launcher",
+      "version": "5.26.2026091620.2526",
+      "md5": "b73921f7e2f09d3c7fa54b66d0bff6d0",
+      "downloadChecksumMatched": true,
+      "installed": true
+    }
+  ]
+}

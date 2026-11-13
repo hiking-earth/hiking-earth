@@ -1,0 +1,10 @@
+{
+  "site_version": 35,
+  "package": "banff-20261007.pmtiles",
+  "size_visible": "0.77 MiB",
+  "download_and_validation_ui": "passed: 地图已校验并保存",
+  "reload_persistence": "passed",
+  "reopen_saved_map": "passed: 已读取本机道路与地物底图",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-35/banff-map-restored.png",
+  "not_covered": ["network-disconnected execution", "global detailed terrain coverage", "native and WeChat persistence", "navigation legality"]
+}

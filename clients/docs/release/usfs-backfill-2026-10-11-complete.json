@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-10T21:56:23.341587+00:00",
+  "source": "USDA Forest Service public TrailNFS feature service",
+  "sourceFilter": "trail_name IS NOT NULL",
+  "scope": "complete reconciliation cycle for this eligible source layer; discovery records only",
+  "backfill": {
+    "successfulBoundedRuns": 5,
+    "successfulPages": 22,
+    "pageSize": 1000,
+    "startRecords": 40173,
+    "endRecords": 50091,
+    "netNewUniqueIds": 9918,
+    "completedCycles": 4,
+    "reconciliationVersion": 2,
+    "cycleComplete": true,
+    "lastRemovedFromDiscovery": 0,
+    "nextObjectId": null,
+    "allRowsRemainDiscoveryOnly": true
+  },
+  "snapshot": {
+    "sha256": "f90a07a1aea993bef77a31421d3af476cbb99a66cc6501b7d7c2bca3b61aa2f8",
+    "previousSnapshot": "8b742b9c9e638b84db87ef3f8673dc086a549d8094643894e3e7994088216f90",
+    "records": 50091,
+    "rawBytes": 30078565,
+    "publicPages": 126,
+    "pageHashesValid": true,
+    "indexHashValid": true,
+    "catalogFeedMirrors": 2,
+    "mirrorsByteIdentical": true,
+    "publicPrepare": "passed"
+  },
+  "execution": {
+    "systemPython": "Python 3.9.6 completed the bounded source runs successfully",
+    "frameworkPython": "Python 3.14 certificate-chain failure was avoided by using the system Python; no TLS verification was disabled",
+    "sourceSnapshotRetainedOnFailure": true,
+    "tests": "not run; deferred to unified final validation",
+    "clientBuild": "not run",
+    "deployment": "not run"
+  },
+  "limitations": [
+    "A full cycle means the current service query filter was exhausted; it does not prove complete US trail coverage or current legal access.",
+    "No status, permission, safety, navigation geometry, or public endpoint deployment was inferred from the catalog."
+  ]
+}

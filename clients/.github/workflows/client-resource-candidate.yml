@@ -1,0 +1,66 @@
+name: Compile client resource candidates without publication
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: client-resource-candidate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  compile:
+    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: h5
+            command: build:h5
+          - platform: mp-weixin
+            command: build:mp-weixin
+          - platform: app
+            command: build:app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+        working-directory: app
+      - name: Prepare native map renderer
+        if: matrix.platform == 'app'
+        run: node scripts/build-map-viewer.cjs
+        working-directory: app
+      - name: Compile resources only
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run ${{ matrix.command }} 2>&1 | tee "$RUNNER_TEMP/compiler-${{ matrix.platform }}.log"
+        working-directory: app
+        env:
+          VITE_DESKTOP: 'false'
+          VITE_PUBLIC_BASE: /client-app/
+      - name: Record compiled resources and source commit
+        run: python3 scripts/record-client-resource-candidate.py --directory app/dist/build/${{ matrix.platform }} --platform ${{ matrix.platform }} --expected-commit "$GITHUB_SHA" --output "$RUNNER_TEMP/client-resource-source.json"
+      - name: Match generated WeChat AppID to source
+        if: matrix.platform == 'mp-weixin'
+        run: node scripts/check-miniprogram-appid.cjs app/dist/build/mp-weixin
+      - name: Inspect WeChat resource package budget
+        if: matrix.platform == 'mp-weixin'
+        run: node scripts/miniprogram-budget.cjs dist/build/mp-weixin "$RUNNER_TEMP/wechat-budget.json"
+        working-directory: app
+      - name: Preserve compiler resources and records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-resource-${{ matrix.platform }}-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            app/dist/build/${{ matrix.platform }}/
+            ${{ runner.temp }}/client-resource-source.json
+            ${{ runner.temp }}/wechat-budget.json
+            ${{ runner.temp }}/compiler-${{ matrix.platform }}.log
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14

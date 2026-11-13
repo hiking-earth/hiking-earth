@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-07T04:43:47.165360+00:00",
+  "sourceCommit": "eefe4b5",
+  "tests": {
+    "passed": 7,
+    "scope": "mocked transfer-size restriction; large JSON exact restoration, unicode boundary, legacy small cache, corrupt/missing parts, oversized writes, interrupted commit"
+  },
+  "typecheckExitCode": 0,
+  "miniProgramBuildExitCode": 0,
+  "compiledCacheSha256": "8b8fb6272ebd2b0f2cbe471e50577d915998e64298cbe7a35666783a70209618",
+  "candidateCopied": true,
+  "oldCandidateBackup": "wechat-before-chunked-cache-20261007",
+  "runtimeColdRestoreAccepted": false,
+  "rootCause": "Large-file restore failure observed; exact file API limitation remains unconfirmed"
+}

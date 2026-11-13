@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Germany",
+  "source": "Geofabrik official fixed Germany extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 72072,
+  "catalogCountAfter": 124773,
+  "catalogRecordDelta": 52701,
+  "successfulExtracts": [
+    {
+      "sourceId": "europe/germany-261006",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/germany.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 4855437391,
+      "officialMd5Verified": "54bfa1f59b52c09d7a9b0f5cbf457b9b",
+      "sha256": "c3e5695a2775537406b841b1d7c1f69c2b2c18190fe098a1b9de7442b0f859b8",
+      "candidateRelations": 53760,
+      "importedRelations": 52853,
+      "skippedIncompleteRelations": 907,
+      "skippedNestedRelations": 364,
+      "netCatalogRecordDelta": 52701
+    }
+  ],
+  "catalogSnapshot": "9cc1af2b089387da9bebd803f4466f22c6b16add64e4ff9fcb9f4e7cf772a7c1",
+  "pageCount": 312,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 936,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 312 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

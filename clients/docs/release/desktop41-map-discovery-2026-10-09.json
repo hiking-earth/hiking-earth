@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-09T15:02:58.295420+00:00",
+  "scope": "Installed Mac desktop41 visible UI only; excludes physical airplane mode and new source runtime",
+  "checks": [
+    {
+      "name": "three catalog sources refresh",
+      "status": "failed",
+      "evidence": "All three source rows showed update failed; local 66747 records retained."
+    },
+    {
+      "name": "local map inventory restored after desktop update",
+      "status": "passed",
+      "evidence": "Yosemite, Chamonix, Monaco and Fuji displayed."
+    },
+    {
+      "name": "saved Yosemite map parsed",
+      "status": "passed",
+      "evidence": "UI displayed local roads/landcover read and Map controls."
+    },
+    {
+      "name": "map automatically revealed after clicking saved map",
+      "status": "failed",
+      "evidence": "Viewport stayed at saved map cards, viewer outside viewport."
+    }
+  ],
+  "diagnostic": {
+    "directCloudDomain": "curl DNS resolving timed out after 15004 milliseconds",
+    "causality": "DNS timeout observed concurrently; not proof of sole cause"
+  },
+  "sourceFix": "offline.vue adds scroll-into-view target and reveal on map open; type check, H5 and WeChat builds passed; new source runtime acceptance pending",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-41/mac-sync-failure.png"
+}

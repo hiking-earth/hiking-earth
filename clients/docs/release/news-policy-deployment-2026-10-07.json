@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-07T12:29:00.904201+00:00",
+  "sourceCommit": "d0937e0",
+  "functions": [
+    "catalog-feed",
+    "client-api"
+  ],
+  "remoteSourceReadback": "all file paths and hashes matched frozen deployment sources",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/backups/news-policy-20261007-104447",
+  "http": {
+    "status": 200,
+    "ok": true,
+    "snapshot": "386fc3e99f75f71474c70651d39e9007d17d0b0995c613651721a32e6376dbb1",
+    "total": 203,
+    "scope": "metadata-links-only",
+    "maxFreshnessAgeDays": 90,
+    "withheldCount": 0,
+    "accessVerified": false,
+    "hasWithheldItems": false
+  },
+  "limits": [
+    "Only cloud source and news HTTP response checked; no trail-access validity claim",
+    "Latest site and desktop source not yet deployed"
+  ]
+}

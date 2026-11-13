@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-12T01:31:38.050595+00:00",
+  "sourceUrl": "https://maps.norfolk.gov.uk/arcgis/rest/services/layers_ext/highways/MapServer/2",
+  "catalog": "shared/data/catalog/norfolk-prow.json",
+  "records": 8096,
+  "status": "待核验",
+  "catalogBytes": 4320630,
+  "catalogSha256": "a6ddbbd2609c5188088f8eb2a8b8f98fb652bad23f5c94eb96294b5792c42e0e",
+  "licenseMetadata": "Open Government Licence v3.0; data.gov.uk lists Creative Commons Attribution",
+  "attribution": "Contains Norfolk County Council Public Rights of Way data. © Norfolk County Council and © Crown copyright and database rights 2019 Ordnance Survey 100019340. Licensed under Open Government Licence v3.0; source metadata also lists Creative Commons Attribution.",
+  "routeStatusPolicy": "These are Norfolk public-rights-of-way interpretation records. Approximate linework is not a legal alignment, live access status, complete trail, or navigation guidance; all records remain 待核验.",
+  "publicSnapshot": "a6ddbbd2609c5188088f8eb2a8b8f98fb652bad23f5c94eb96294b5792c42e0e",
+  "publicPages": 21,
+  "manifestSha256": "b5da537098d4c62c888353ec704baf1f02e4f1ce2ce458cce41f0fa8a27e0a80",
+  "generatedStaticCopies": [
+    "shared/public-catalog/norfolk-prow",
+    "app/cloudfunctions/catalog-feed/snapshots/norfolk-prow",
+    "app/cloudfunctions/client-api/business/catalog-feed/snapshots/norfolk-prow"
+  ],
+  "deployment": "not deployed",
+  "functionalTesting": "not run; deferred to unified acceptance after feature completion",
+  "websitePackaging": "allowlist updated; source repository pin and generated website package must be advanced during final release packaging"
+}

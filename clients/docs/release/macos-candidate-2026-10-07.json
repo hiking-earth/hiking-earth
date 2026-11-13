@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "stage": "candidate-build-only",
+  "clientSourceCommit": "f6e1ad7251e4dd4c52c179f4f94e0a52dea191ce",
+  "platform": "macos-aarch64",
+  "version": "0.2.1",
+  "acceptance": "pending",
+  "files": [
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/desktop/src-tauri/target/release/bundle/dmg/徒步地球_0.2.1_aarch64.dmg",
+      "size": 4006732,
+      "sha256": "7acfa4631820cfb7466d2cf92ff6e77c26fbd31dcd8769c3fbdb7ac4a5f69007"
+    },
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/desktop/src-tauri/target/release/bundle/macos/徒步地球.app.tar.gz",
+      "size": 3946679,
+      "sha256": "2b127a463f8d657658de2e826f569df2939790ddbad26aef0e261f8f7ee5e211"
+    },
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/desktop/src-tauri/target/release/bundle/macos/徒步地球.app.tar.gz.sig",
+      "size": 432,
+      "sha256": "071e699c924673036990d405412092dd00b092d5d75b689601d5be9dde7f4e37"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+name: Build optional regional terrain candidate
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'Public region ID (no personal coordinates)'
+        required: true
+        type: string
+      bbox:
+        description: 'Public WGS84 west,south,east,north; max 256 tiles'
+        required: true
+        type: string
+      zoom:
+        description: 'Elevation tile zoom 0..14; does not establish source precision'
+        required: true
+        default: '10'
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: terrain-candidate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build candidate only
+        env:
+          REGION_ID: ${{ inputs.id }}
+          REGION_BBOX: ${{ inputs.bbox }}
+          REGION_ZOOM: ${{ inputs.zoom }}
+        run: python scripts/build-terrain-region.py --id "$REGION_ID" --bbox "$REGION_BBOX" --zoom "$REGION_ZOOM" --output "$RUNNER_TEMP/terrain-candidate"
+      - name: Record source identity
+        run: git rev-parse HEAD > "$RUNNER_TEMP/terrain-candidate/source-commit.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: terrain-candidate-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/terrain-candidate/
+          if-no-files-found: error
+          retention-days: 30

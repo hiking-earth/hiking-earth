@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "f6a082b46f4a93ef09eb4dde932c8dc699412935",
+  "platform": "linux-x64",
+  "sha256": "d96680eb3a1e05a4c953df8068e0a1ec4820832a411dc95d95734b2e4370bf14",
+  "scope": "Virtual-display process launch only, not UI or business acceptance",
+  "observedSeconds": 25,
+  "exitStatus": 124,
+  "passed": true
+}

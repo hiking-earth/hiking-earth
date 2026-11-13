@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-08T15:23:58.882348+00:00",
+  "source": "6928f60440e40059d6f6f94add8a8f1f4a686341",
+  "cleanInstallBuilds": {
+    "h5": "passed",
+    "weixin": "passed"
+  },
+  "logs": [
+    "/tmp/hiking-clean-ci-h5.log",
+    "/tmp/hiking-clean-ci-wechat.log"
+  ],
+  "desktopRun": {
+    "id": 37800341174,
+    "url": "https://github.com/hiking-earth/clients/actions/runs/37800341174",
+    "status": "queued",
+    "jobs": [
+      {
+        "name": "prepare-release",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "build-desktop (macos-latest, x86_64-apple-darwin, app,dmg)",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "build-desktop (ubuntu-22.04, x86_64-unknown-linux-gnu, appimage,deb)",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "build-desktop (macos-latest, aarch64-apple-darwin, app,dmg)",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "build-desktop (windows-latest, x86_64-pc-windows-msvc, msi)",
+        "status": "in_progress",
+        "conclusion": ""
+      }
+    ]
+  },
+  "limits": [
+    "Desktop build still running, not accepted",
+    "H5 and WeChat builds are not device acceptance",
+    "Circular chunk warning remains",
+    "No new website deployment"
+  ]
+}

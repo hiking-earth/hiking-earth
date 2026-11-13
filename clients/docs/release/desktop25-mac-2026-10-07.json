@@ -1,0 +1,39 @@
+{
+  "sourceCommit": "35aee8f81c508179e88c50dd72b5755ed977ad81",
+  "runId": 37615557175,
+  "buildJobs": "all six success",
+  "release": "desktop-25",
+  "draft": true,
+  "updaterPlatforms": [
+    "windows-x86_64",
+    "darwin-aarch64",
+    "darwin-x86_64",
+    "linux-x86_64"
+  ],
+  "updaterManifestSha256": "df2667f1147c8ecaafa31427db6d6cc909386e2d1dcacdc1692d508f0f7feb26",
+  "macArm": {
+    "downloadBytes": 33677324,
+    "unpackedBytes": 37635880,
+    "sha256": "1b0348a965cc231e0aee5abe5bbe645466ec4d484ece1cab5b18901b0c9f51ad",
+    "signatureVerified": true
+  },
+  "actualMacChecks": [
+    "new app launched after prior app quit and no process confirmed",
+    "66747 discovery records restored",
+    "public cup photo picker returned image",
+    "real local cup inference candidate99%",
+    "prior three regional maps restored",
+    "Yosemite download SHA saved and visible roads water land rendered"
+  ],
+  "observedRecoverableErrors": [
+    "Initial Yosemite download rejected while native catalog request occupied bounded network slot; retry succeeded",
+    "Initial latest.json asset download TLS handshake timeout; retry succeeded"
+  ],
+  "limitations": [
+    "Online during tests; no airplane-mode proof",
+    "New Yosemite cold-restart persistence still pending",
+    "Mac account/social UI and updater installation rollback still pending",
+    "Intel Windows Linux build success is not runtime acceptance",
+    "Draft release remains unpublished; stable gate remains false"
+  ]
+}

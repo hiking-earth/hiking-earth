@@ -1,0 +1,13 @@
+{
+  "scope": "npm audit --omit=dev app",
+  "source": "f9962c4",
+  "vulnerabilities": {
+    "info": 0,
+    "low": 14,
+    "moderate": 14,
+    "high": 28,
+    "critical": 0,
+    "total": 56
+  },
+  "affectedComponentsNotYetReviewed": true
+}

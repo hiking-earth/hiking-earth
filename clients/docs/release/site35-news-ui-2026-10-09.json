@@ -1,0 +1,12 @@
+{
+  "site_version": 35,
+  "actual_browser": "Codex in-app browser",
+  "anonymous_profile_entry": "passed",
+  "news_entry_and_render": "passed",
+  "collected_at_visible": "2026-10-08T23:22:19.699795+00:00",
+  "source_dates_visible": true,
+  "historical_content_warning_visible": true,
+  "search": {"query": "Transcanyon", "matching_items_visible": 4, "result": "passed"},
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-35/news-search.png",
+  "not_covered": ["external original-link navigation", "manual refresh", "all global news coverage", "authenticated account business", "offline map downloads"]
+}

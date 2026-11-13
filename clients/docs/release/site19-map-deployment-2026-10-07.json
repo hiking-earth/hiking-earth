@@ -1,0 +1,50 @@
+{
+  "package": {
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "commit_sha": "9268e8a7c438b97e27846a9098e07a9d7014f4ce",
+    "archive": "/Users/nanyu/.local/share/hiking-earth/acceptance/sites-019-regional-20261007.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_42efdd4973c08191a87dbd7a6341af0e",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "version_number": 19,
+    "source": {
+      "commit_sha": "9268e8a7c438b97e27846a9098e07a9d7014f4ce"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000b18082079611b510f8425b7e",
+      "content_hash": "sha256:56a115de6b38dfecda4c253ae7896c4c09ebd203c84ac111d508d1c7b898b51a",
+      "size_bytes": 54773760,
+      "file_count": 595
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ac5e5504558819189dd659802c2628b",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "title": "徒步地球全球徒步路线",
+    "version_id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_42efdd4973c08191a87dbd7a6341af0e",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6a82b2fd4d348191830f591595297f7c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-07T06:23:36.203823+00:00"
+  },
+  "clientSource": "51e1a663c1fd9fb0f98e09662fee39b484eed5bc",
+  "browserAcceptance": {
+    "environment": "Codex IAB online desktop browser",
+    "package": "lantau-20261006.pmtiles",
+    "downloadAndSave": true,
+    "reloadInventoryRestore": true,
+    "renderAfterReload": true,
+    "networkDisabled": false,
+    "physicalIPhone": false,
+    "screenshot": "site19-lantau-runtime-2026-10-07.png"
+  }
+}

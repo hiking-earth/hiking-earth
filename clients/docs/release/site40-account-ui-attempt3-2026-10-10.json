@@ -1,0 +1,27 @@
+{
+  "scope": "Actual isolated Chrome account UI; excludes WeChat identity and native permissions",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "nickname save through UI",
+      "passed": true
+    },
+    {
+      "name": "confirmed logout through UI",
+      "passed": true
+    },
+    {
+      "name": "logged-out controls restored",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T04:38:48.428Z"
+}

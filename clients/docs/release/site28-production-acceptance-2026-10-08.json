@@ -1,0 +1,30 @@
+{
+  "complete": false,
+  "siteVersion": 28,
+  "sourceCommit": "e0309e3792f0f529bc531ae7fc556b07e9cece54",
+  "clientSource": "61796578b3368c48e3039c096d2972cdabb0edd5",
+  "deploymentId": "appgdep_6ac6fd6aa5448191aed5d626e959725d",
+  "status": "succeeded",
+  "audience": "public",
+  "archiveBytes": 109813760,
+  "archiveSha256": "9dbbdf39b4396969b0695484e0ed21ec6aead5fb38ebd7c10ce69b04b2a2d464",
+  "browserChecks": {
+    "homeRendered": true,
+    "mapRegionRendered": true,
+    "osmManifest": {
+      "total": 145986,
+      "pageSize": 400,
+      "snapshot": "ba73d45ffc1cddcd6c7f3ad6a27862d34182b5bde6886bf39ac183f6ed4e9c69"
+    }
+  },
+  "limitations": [
+    "Unauthenticated urllib returned HTTP403; browser navigation succeeded.",
+    "Physical devices, cloud business operations, account login and store releases remain unverified."
+  ],
+  "cloudPreflight": {
+    "cli": "3.8.5",
+    "attempts": 2,
+    "error": "network timeout at Tencent tcb_refresh",
+    "remoteFunctionsMutated": false
+  }
+}

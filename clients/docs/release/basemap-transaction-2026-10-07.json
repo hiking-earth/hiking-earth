@@ -1,0 +1,11 @@
+{
+  "unitTestsPassed": 5,
+  "backend": "fake-indexeddb6.2.4 dev-only",
+  "transactionTests": "Concurrent saves under scaled 300-byte budget: two commit one abort; injected add abort retains prior record; delete releases capacity",
+  "mapValidationStubbed": true,
+  "actualBrowserQuotaExhaustion": false,
+  "typecheckExitCode": 0,
+  "recordCountGuard": 4096,
+  "productionBudgetBytes": 201326592,
+  "publicDeployment": false
+}

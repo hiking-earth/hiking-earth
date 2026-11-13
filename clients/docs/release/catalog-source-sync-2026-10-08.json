@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "records": 145986,
+  "sourceBytesBefore": 76398164,
+  "sourceBytesAfter": 55678097,
+  "sourceSnapshot": "ba73d45ffc1cddcd6c7f3ad6a27862d34182b5bde6886bf39ac183f6ed4e9c69",
+  "previousSnapshot": "029f3b26febdbe7e4dd44cd3e071e625455436722118e0cdc846002d7f5fc36f",
+  "pageCount": 365,
+  "copies": 3,
+  "pageAndIndexHashesUnchanged": true,
+  "scope": "Local source serialization and distribution integrity only. Product tests, builds and deployment not run for these changes."
+}

@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-07T03:13:45.730Z",
+  "passed": false,
+  "scope": "Gateway preflight and real response CORS for desktop and public site. Opaque null origins are unsupported; UI acceptance separate.",
+  "checks": [
+    {
+      "origin": "tauri://localhost",
+      "status": "passed",
+      "preflightStatus": 204,
+      "responseStatus": 200,
+      "allowedOrigin": "tauri://localhost"
+    },
+    {
+      "origin": "https://hiking-earth.nanyu20050927.chatgpt.site",
+      "status": "failed",
+      "error": "Invalid CORS origin: null; requested https://hiking-earth.nanyu20050927.chatgpt.site; OPTIONS; HTTP 204"
+    }
+  ]
+}

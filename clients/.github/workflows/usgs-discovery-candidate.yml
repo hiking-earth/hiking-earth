@@ -1,0 +1,28 @@
+name: Collect USGS discovery candidate only
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 4 7 * *'
+permissions:
+  contents: read
+concurrency:
+  group: usgs-discovery-candidate
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: vars.HIKING_USGS_DISCOVERY_READY == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect bounded discovery candidate
+        run: python scripts/update-usgs-trails-catalog.py --output "$RUNNER_TEMP/usgs-candidate/usgs-trails.json" --max-seconds 1200
+      - uses: actions/upload-artifact@v4
+        with:
+          name: usgs-discovery-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/usgs-candidate/usgs-trails.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Alaska",
+  "source": "Geofabrik official fixed Alaska extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 145055,
+  "catalogCountAfter": 145055,
+  "catalogRecordDelta": 0,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us/alaska-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us/alaska.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 144067158,
+      "officialMd5Verified": "4ff00038da2a2a31cc89984fa2c03b14",
+      "sha256": "e74d56972334ac2c072fe65547a944e8480852f4e66842bb144ba626b0201e0b",
+      "candidateRelations": 54,
+      "importedRelations": 53,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 0,
+      "netCatalogRecordDelta": 0
+    }
+  ],
+  "catalogSnapshot": "94e2e7cb4b524f2d10dd8fef895ade7d0076d36e1462406ea800db3dfade095a",
+  "pageCount": 363,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1089,
+  "interpretation": "The 53 complete relations refreshed existing discovery records; there were no new unique catalog records. OSM records do not prove current access, permits, safety or navigable tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 363 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

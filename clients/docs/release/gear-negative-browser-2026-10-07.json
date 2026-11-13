@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-07T08:45:25.752001+00:00",
+  "siteVersion": 23,
+  "fixtureSource": "https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd/demo/image2.jpg",
+  "fixtureBytes": 53918,
+  "fixtureSha256": "7a39fd04aba15c9cef8d3ef687596b79738c1b940b68c0ee02829d9c90f4f120",
+  "actualUiChecks": {
+    "fileChooserSelection": "passed",
+    "inferenceReachedTerminalResult": "passed",
+    "unsupportedObjectNegativeResult": "passed: equipment count0 and unsupported-class explanation",
+    "genericChecklistClearlySeparated": "passed"
+  },
+  "screenshot": "gear-negative-browser-2026-10-07.png",
+  "limitations": [
+    "Negative sample only; no positive equipment accuracy acceptance.",
+    "No network trace proof of no image upload in this check.",
+    "No WeChat or native phone model acceptance."
+  ],
+  "localDiagnosticBuild": {
+    "session": 95620,
+    "compileAndAppBundle": "completed",
+    "overallExit": 1,
+    "reason": "updater private signing key unavailable locally",
+    "source": "9aa8a74 frontend; excludes subsequent progress-message edit"
+  }
+}

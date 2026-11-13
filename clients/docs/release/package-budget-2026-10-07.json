@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "limitBytes": 500000000,
+  "passed": true,
+  "files": [
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/desktop/src-tauri/target/release/bundle/macos/徒步地球.app",
+      "installedBytes": 7443000,
+      "coverage": "directory contents, symlinks not counted twice",
+      "limitBytes": 500000000,
+      "passed": true
+    },
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/desktop/src-tauri/target/release/bundle/dmg/徒步地球_0.2.1_aarch64.dmg",
+      "downloadBytes": 4006732,
+      "coverage": "download only",
+      "limitBytes": 500000000,
+      "passed": true
+    },
+    {
+      "path": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/app/dist/build/mp-weixin",
+      "installedBytes": 2206150,
+      "coverage": "directory contents, symlinks not counted twice",
+      "limitBytes": 500000000,
+      "passed": true
+    }
+  ],
+  "note": "Installed payload of DMG/MSI/AppImage/DEB requires separate directory measurement; runtime user data is excluded."
+}

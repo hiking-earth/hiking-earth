@@ -1,0 +1,79 @@
+import { UTSAndroid } from 'io.dcloud.uts';
+import Intent from 'android.content.Intent';
+import Activity from 'android.app.Activity';
+import { HikingFiles } from 'earth.hiking.files';
+let choosing = false;
+let resultCallback: ((code: Int, result: Int, data?: Intent) => void) | null = null;
+export function chooseBinaryFile(success: (path: string) => void, cancel: () => void, fail: (message: string) => void): void {
+  if (choosing) { fail('请先完成当前文件选择'); return; }
+  const activity = UTSAndroid.getUniActivity();
+  if (activity == null) { fail('当前页面不能选择文件'); return; }
+  const requestCode: Int = 7355;
+  const callback: (code: Int, result: Int, data?: Intent) => void = (code: Int, result: Int, data?: Intent) => {
+    if (code != requestCode) return;
+    if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!);
+    resultCallback = null; choosing = false;
+    if (result != Activity.RESULT_OK || data == null) { cancel(); return; }
+    const uri = data.getData(); if (uri == null) { fail('压缩包位置无效'); return; }
+    try { success(HikingFiles.copyMapArchive(activity, uri)); }
+    catch (e) { fail('无法读取压缩包或文件超过192 MiB'); }
+  };
+  choosing = true; resultCallback = callback; UTSAndroid.onAppActivityResult(callback);
+  try { const intent = new Intent(Intent.ACTION_OPEN_DOCUMENT); intent.addCategory(Intent.CATEGORY_OPENABLE); intent.setType('application/zip'); activity.startActivityForResult(intent, requestCode); }
+  catch (e) { choosing = false; if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!); resultCallback = null; fail('系统文件选择器无法打开'); }
+}
+export function removeBinaryFile(path: string): boolean {
+  const context = UTSAndroid.getAppContext(); if (context == null) return false;
+  try { return HikingFiles.removeMapArchive(context, path); } catch (e) { return false; }
+}
+export function chooseTextFile(success: (text: string) => void, cancel: () => void, fail: (message: string) => void): void {
+  if (choosing) { fail('请先完成当前文件选择'); return; }
+  const activity = UTSAndroid.getUniActivity();
+  if (activity == null) { fail('当前页面不能选择文件'); return; }
+  const requestCode: Int = 7353;
+  const callback: (code: Int, result: Int, data?: Intent) => void = (code: Int, result: Int, data?: Intent) => {
+    if (code != requestCode) return;
+    if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!);
+    resultCallback = null;
+    choosing = false;
+    if (result != Activity.RESULT_OK || data == null) { cancel(); return; }
+    const uri = data.getData();
+    if (uri == null) { fail('文件位置无效'); return; }
+    try { success(HikingFiles.read(activity, uri)); }
+    catch (e) { fail('读取失败，请选择不超过5 MB的UTF-8文本文件'); }
+  };
+  choosing = true; resultCallback = callback; UTSAndroid.onAppActivityResult(callback);
+  try {
+    const intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+    intent.addCategory(Intent.CATEGORY_OPENABLE); intent.setType('*/*');
+    activity.startActivityForResult(intent, requestCode);
+  } catch (e) { choosing = false; if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!);
+    resultCallback = null; fail('系统文件选择器无法打开'); }
+}
+
+export function saveTextFile(name: string, text: string, mimeType: string, success: () => void, cancel: () => void, fail: (message: string) => void): void {
+  if (choosing) { fail('请先完成当前文件选择'); return; }
+  const activity = UTSAndroid.getUniActivity();
+  if (activity == null) { fail('当前页面不能保存文件'); return; }
+  const callback: (code: Int, result: Int, data?: Intent) => void = (code: Int, result: Int, data?: Intent) => {
+    if (code != 7354) return;
+    if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!);
+    resultCallback = null; choosing = false;
+    if (result != Activity.RESULT_OK || data == null) { cancel(); return; }
+    const uri = data.getData(); if (uri == null) { fail('文件保存位置无效'); return; }
+    try { HikingFiles.write(activity, uri, text); success(); } catch (e) { fail('文件保存失败，请检查所选位置和空间'); }
+  };
+  choosing = true; resultCallback = callback; UTSAndroid.onAppActivityResult(callback);
+  try {
+    const intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+    intent.addCategory(Intent.CATEGORY_OPENABLE); intent.setType(mimeType);
+    intent.putExtra(Intent.EXTRA_TITLE, name); activity.startActivityForResult(intent, 7354);
+  } catch (e) { choosing = false; if (resultCallback != null) UTSAndroid.offAppActivityResult(resultCallback!);
+    resultCallback = null; fail('系统文件保存界面无法打开'); }
+}
+
+export function verifyApk(path: string, hash: string, size: number): boolean {
+  const context = UTSAndroid.getAppContext();
+  if (context == null) return false;
+  try { return HikingFiles.verifyApk(context, path, hash, size.toLong()); } catch(e) { return false; }
+}

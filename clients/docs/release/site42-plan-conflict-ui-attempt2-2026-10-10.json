@@ -1,0 +1,16 @@
+{
+  "scope": "Actual two Chrome sessions plan UI and automatic sync engine triggered via immediate sync; excludes timed polling, tracks, physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input:visible').nth(1)\u001b[22m\n",
+  "checkedAt": "2026-10-10T13:08:22.657Z"
+}

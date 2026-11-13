@@ -1,0 +1,11 @@
+{
+  "sourceCommit": "0dfcdcf9b3d0bce37798a36788211809a065f93d",
+  "sourceScope": "client source at HEAD; concurrent gateway timeout edit is server-only",
+  "fileCount": 168,
+  "bytes": 2272276,
+  "limitBytes": 500000000,
+  "buildExitCode": 0,
+  "limitations": [
+    "Build and size only; not latest device acceptance or production upload"
+  ]
+}

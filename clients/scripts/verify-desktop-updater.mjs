@@ -1,0 +1,22 @@
+import {readFileSync,statSync} from 'node:fs';
+import {createHash,createPublicKey,verify} from 'node:crypto';
+import path from 'node:path';
+const filename=process.argv[2];
+if(!filename)throw new Error('Usage: node scripts/verify-desktop-updater.mjs <updater artifact>');
+const config=JSON.parse(readFileSync(new URL('../desktop/src-tauri/tauri.conf.json',import.meta.url),'utf8'));
+function packet(text){const lines=text.trim().split(/\r?\n/);if(lines.length!==2||!lines[0].startsWith('untrusted comment:'))throw new Error('Invalid public key');return Buffer.from(lines[1],'base64');}
+const publicPacket=packet(Buffer.from(config.plugins.updater.pubkey,'base64').toString('utf8'));
+if(publicPacket.length!==42)throw new Error('Invalid public key length');
+const key=createPublicKey({key:Buffer.concat([Buffer.from('302a300506032b6570032100','hex'),publicPacket.subarray(10)]),format:'der',type:'spki'});
+let text=readFileSync(filename+'.sig','utf8').trim();
+if(!text.startsWith('untrusted comment:'))text=Buffer.from(text,'base64').toString('utf8').trim();
+const lines=text.split(/\r?\n/);if(lines.length!==4||!lines[0].startsWith('untrusted comment:')||!lines[2].startsWith('trusted comment: '))throw new Error('Invalid signature envelope');
+const signature=Buffer.from(lines[1],'base64');
+if(signature.length!==74||!signature.subarray(2,10).equals(publicPacket.subarray(2,10)))throw new Error('Signature identity mismatch');
+const bytes=readFileSync(filename),algorithm=signature.subarray(0,2).toString('ascii');
+if(!['ED','Ed'].includes(algorithm))throw new Error('Unsupported signature algorithm');
+const payload=algorithm==='ED'?createHash('blake2b512').update(bytes).digest():bytes;
+if(!verify(null,payload,key,signature.subarray(10)))throw new Error('Artifact signature invalid');
+const comment=lines[2].slice('trusted comment: '.length);
+if(!verify(null,Buffer.concat([signature.subarray(10),Buffer.from(comment)]),key,Buffer.from(lines[3],'base64')))throw new Error('Trusted comment signature invalid');
+console.log(JSON.stringify({artifact:path.basename(filename),size:statSync(filename).size,sha256:createHash('sha256').update(bytes).digest('hex'),signatureVerified:true}));

@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-09T15:19:13.141864+00:00",
+  "siteVersion": 37,
+  "sourceCommit": "298431ba638b93a303d24f368b1c6890c6c90b70",
+  "clientCommit": "828daf2d8d95ae5320211f500ab26ff8ecc5c74e",
+  "savedVersion": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_9d6fd53189548191918dd5cccf980d01",
+  "deploymentId": "appgdep_6ac9055a3e2c8191a0be173d59f9add7",
+  "status": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "localArchive": {
+    "bytes": 98966970,
+    "sha256": "28ebfbe7f1b5909be0e566dbb01dc241634d880bc0c8bf9eeffcaa0499211aed"
+  },
+  "serverArchive": {
+    "bytes": 110581760,
+    "sha256": "94788b93a0dabb115c742a33b340420dc8d8997ffe8ee0d1c75d4cd0a4b07e98",
+    "fileCount": 1139
+  },
+  "checks": [
+    {
+      "name": "public deployment",
+      "status": "passed"
+    },
+    {
+      "name": "four saved map packages retained",
+      "status": "passed"
+    },
+    {
+      "name": "Banff saved map automatically revealed",
+      "status": "passed",
+      "zoomControlBounds": {
+        "top": 100.26416015625,
+        "bottom": 129.26416015625,
+        "viewportHeight": 720
+      }
+    },
+    {
+      "name": "local map read and landcover waterways rendered",
+      "status": "passed"
+    }
+  ],
+  "scope": "Live IAB shared H5 client; excludes iPhone physical device, native mobile and WeChat acceptance",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-37/banff-auto-reveal.png",
+  "transportNote": "Deployment response transport closed; recovered deployment id from saved version and status succeeded. No duplicate deploy."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "0.2.3",
+  "prompt": "template",
+  "title": "隐私与服务说明",
+  "message": "欢迎使用徒步地球。轨迹优先保存在本机，定位、后台记录、云端轨迹备份、队友位置共享和照片分析由你分别开启。登录与云端社交会使用账号服务；显示在线地图时会请求地图服务。请先阅读<a href=\"https://hiking-earth.nanyu20050927.chatgpt.site/privacy\">隐私说明</a>与<a href=\"https://hiking-earth.nanyu20050927.chatgpt.site/terms\">使用规则</a>，以及<a href=\"https://dcloud.io/license/appprivacy.html\">DCloud App引擎隐私说明</a>。同意本说明不会自动开启上述数据授权。",
+  "buttonAccept": "阅读并同意",
+  "buttonRefuse": "暂不同意",
+  "hrefLoader": "system"
+}

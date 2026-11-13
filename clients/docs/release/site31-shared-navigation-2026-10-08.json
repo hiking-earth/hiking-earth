@@ -1,0 +1,20 @@
+{
+  "siteVersion": 31,
+  "siteSource": "3f5271ba731c98c4a6782275ff53c05b73f72955",
+  "clientSource": "275a15c32759595273343b0e35672a0d7e97113c",
+  "deploymentId": "appgdep_6ac7325055f081919433d5ace5b0a679",
+  "status": "succeeded",
+  "archiveSHA256": "c07151cc6461e0da945d6cd1e9f53594918a633abdb1d8544daba163e0b5cc65",
+  "visual": "Published /client has only shared five-entry navigation; green rgb(184,243,107)",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/site31-client.png",
+  "regression": {
+    "initial": "63 passed,16 failed due missing dependency modules during concurrent preparation",
+    "afterPreparationFinished": "122 passed,0 failed"
+  },
+  "desktopRun": 37735263338,
+  "limitations": [
+    "Website root still original MapLibre implementation",
+    "iPhone touch and native Mac drag not accepted",
+    "Formal release not ready"
+  ]
+}

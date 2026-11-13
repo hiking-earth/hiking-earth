@@ -1,0 +1,42 @@
+name: Discover licensed scenic image candidates
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: scenic-image-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    if: vars.HIKING_SCENIC_DISCOVERY_READY == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Discover metadata-only candidates
+        run: python3 scripts/discover-commons-scenic-images.py
+      - name: Open or update candidate review request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          branch: automation/scenic-image-candidates
+          delete-branch: true
+          add-paths: shared/data/content/scenic-image-candidates.json
+          commit-message: 'chore: refresh scenic image review candidates'
+          title: 'Review newly discovered scenic image candidates'
+          body: |
+            This automated change contains metadata-only candidates discovered through the official Wikimedia Commons API.
+
+            Nothing is published to the client catalog. Review each source file, location, author, license, attribution, privacy and other rights before manually promoting an image to `scenic-images.json`.
+
+            A search result or license metadata is not proof that an image depicts the target region or that all rights are cleared.

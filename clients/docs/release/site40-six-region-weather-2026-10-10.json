@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-10T09:35:44.728Z",
+  "scope": "Six representative regions via actual public Site40 API. Does not prove every location, client cache behavior or native devices.",
+  "checks": [
+    {
+      "region": "China",
+      "latitude": 34.49,
+      "longitude": 113.06,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    },
+    {
+      "region": "Europe",
+      "latitude": 59.91,
+      "longitude": 10.75,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    },
+    {
+      "region": "North America",
+      "latitude": 40.71,
+      "longitude": -74.01,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    },
+    {
+      "region": "South America",
+      "latitude": -33.45,
+      "longitude": -70.67,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    },
+    {
+      "region": "Africa",
+      "latitude": -1.29,
+      "longitude": 36.82,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    },
+    {
+      "region": "Oceania",
+      "latitude": -33.87,
+      "longitude": 151.21,
+      "status": 200,
+      "passed": true,
+      "provider": "MET Norway",
+      "forecastStatus": "available"
+    }
+  ],
+  "passed": true
+}

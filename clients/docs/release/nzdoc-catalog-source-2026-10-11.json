@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceName": "New Zealand Department of Conservation walking and tramping experiences",
+  "sourceLayer": "DOC_Walking_Experiences / layer 1",
+  "sourceUrl": "https://services1.arcgis.com/3JjYDyG3oajxU6HO/ArcGIS/rest/services/DOC_Walking_Experiences/FeatureServer/1",
+  "sourceTermsUrl": "https://www.doc.govt.nz/our-work/maps-and-data/terms-and-conditions/",
+  "sourceMapsUrl": "https://www.doc.govt.nz/our-work/maps-and-data/",
+  "license": "CC-BY-3.0-NZ",
+  "attribution": "Crown Copyright: Department of Conservation Te Papa Atawhai 2026",
+  "collectedAt": "2026-10-11T00:35:11.036303+00:00",
+  "records": 1349,
+  "rawJsonBytes": 2477176,
+  "publicSnapshot": "162348cc90a1303a0c01d63cb99533630429fee8fd7437b93060d38fb47c0a12",
+  "publicPages": 4,
+  "publicIndexSha256": "3fa4f786165a0bf51a3bff994cda63a4b16f416dec4d3e70caa0f81b9744f5ef",
+  "compressedPageBytes": [203172, 148068, 201780, 88881],
+  "publicationPolicy": {
+    "discoveryOnly": true,
+    "status": "待核验",
+    "geometry": "近似步道中心线，仅参考示意，不作导航轨迹",
+    "access": "不能从图层存在推断路线开放、许可、适宜性或安全；出行前查看DOC当前关闭公告并向当地办公室确认",
+    "update": "自动采集每次完整替换；如任一分页缺失、重复或格式错误，保留上一份完整目录"
+  },
+  "implementation": [
+    "新增按OBJECTID分批拉取、WGS84转换、有限简化、完整性检查和原子写入的采集器",
+    "接入六小时自动采集工作流、来源许可验证、不可导航来源字段、分页快照与两函数随包回退",
+    "接入网页与共享客户端目录、在线搜索和来源选择器"
+  ],
+  "validationBoundary": "已从官方源完整收集1349条记录并准备源码与分页集成；尚未运行产品功能测试、客户端构建、云部署或端上验收。"
+}

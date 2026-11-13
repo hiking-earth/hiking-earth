@@ -1,0 +1,27 @@
+{
+  "scope": "Actual two Chrome sessions plan UI and automatic sync engine triggered via immediate sync; excludes timed polling, tracks, physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "afterSelection": "收藏与行程\n收藏与行程\n资料保存在本机。登录后开启“自动同步”，收藏和行程会同步到当前账号的其他设备；未开启时可在本页手动保存或恢复。行程不会改变路线的开放状态。\n收藏路线\n在路线详情中收藏路线。\n创建行程\n太室山景区入口—峻极峰登山步道\n河南 · 登封\n清除\n出发日期 YYYY-MM-DD\n集合点、交通、住宿和装备备忘\n保存行程\n云端资料\n保存收藏与行程到当前账号\n恢复当前账号的收藏与行程",
+  "inputs": [
+    {
+      "visible": true,
+      "parent": "<div class=\"uni-input-wrapper\"><div class=\"uni-input-placeholder input-placeholder\" data-v-0a61301f=\"\" data-v-47d96ef7=\"\" style=\"display: none;\">按路线名称或地区搜索</div><input type=\"text\" maxlength=\"100\" step=\"\" enterkeyhint=\"done\" class=\"uni-input-input\" autocomplete=\"off\" inputmode=\"text\"></div>"
+    },
+    {
+      "visible": true,
+      "parent": "<div class=\"uni-input-wrapper\"><div class=\"uni-input-placeholder input-placeholder\" data-v-47d96ef7=\"\">出发日期 YYYY-MM-DD</div><input type=\"text\" maxlength=\"140\" step=\"\" enterkeyhint=\"done\" class=\"uni-input-input\" autocomplete=\"off\" inputmode=\"text\"></div>"
+    }
+  ],
+  "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input:visible').nth(1)\u001b[22m\n",
+  "checkedAt": "2026-10-10T13:09:38.465Z"
+}

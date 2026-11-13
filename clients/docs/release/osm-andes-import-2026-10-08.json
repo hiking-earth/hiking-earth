@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-08T02:11:11+08:00",
+  "sources": [
+    {
+      "name": "Peru",
+      "sourceUrl": "https://download.geofabrik.de/south-america/peru-261005.osm.pbf",
+      "sourceInfoUrl": "https://download.geofabrik.de/south-america/peru.html",
+      "sourceTimestamp": "2026-10-05T20:21:35Z",
+      "bytes": 256410442,
+      "md5": "8e25b15586f6aeb2dcaab603434cd7a5",
+      "sha256": "aedd5e4358f8b5b44671180f93697465e31dcec368e483760396711a788f6aee",
+      "candidateRelations": 26,
+      "importedRelations": 25,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 1
+    },
+    {
+      "name": "Ecuador",
+      "sourceUrl": "https://download.geofabrik.de/south-america/ecuador-261006.osm.pbf",
+      "sourceInfoUrl": "https://download.geofabrik.de/south-america/ecuador.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 125587257,
+      "md5": "a7a55d573308741ea711ceb7b6e58706",
+      "sha256": "22a520f87612347787e284edcebf7a1075f4df8147a09ea2fb4519d66ae29e3d",
+      "candidateRelations": 71,
+      "importedRelations": 70,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 1
+    },
+    {
+      "name": "Bolivia",
+      "sourceUrl": "https://download.geofabrik.de/south-america/bolivia-261005.osm.pbf",
+      "sourceInfoUrl": "https://download.geofabrik.de/south-america/bolivia.html",
+      "sourceTimestamp": "2026-10-05T20:21:35Z",
+      "bytes": 174027451,
+      "md5": "069609f46d8a505b6d7f1933cbeeb18b",
+      "sha256": "13a2577bced548f3296ac3e9154af42aea14f709612bd7a7234ddfbc3586f10a",
+      "candidateRelations": 14,
+      "importedRelations": 13,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 0
+    }
+  ],
+  "aggregate": {
+    "candidateRelations": 111,
+    "importedRelations": 108,
+    "skippedIncompleteRelations": 3,
+    "skippedNestedRelations": 2,
+    "beforeCount": 27215,
+    "afterCount": 27322,
+    "added": 107,
+    "updated": 1,
+    "removed": 0,
+    "southAmericaBefore": 366,
+    "southAmericaAfter": 473,
+    "sha256": "e9c049aac4b06c809d6c0c355490abe3e9f1332e154c680b26145fdda5e208d3"
+  },
+  "distribution": {
+    "osmPages": 69,
+    "copies": [
+      "shared/public-catalog",
+      "app/cloudfunctions/catalog-feed/snapshots",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots"
+    ],
+    "manifestsMatch": true,
+    "allPagePayloadsDecodeAsJson": true,
+    "compressedPageBytesMatch": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

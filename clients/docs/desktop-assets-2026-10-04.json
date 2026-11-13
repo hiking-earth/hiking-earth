@@ -1,0 +1,22 @@
+[
+  {
+    "file": "desktop/dist/delivery/_0.1.0_aarch64.dmg",
+    "bytes": 2030047,
+    "sha256": "ef5e0244c4bc6d3a5f241a39c2ebce7aaab8ab31c4f3c4f1063387b8778b151f"
+  },
+  {
+    "file": "desktop/dist/delivery/_0.1.0_amd64.AppImage",
+    "bytes": 80370168,
+    "sha256": "cda0d425f72a43cd120f9c132f5b5383513b8a00a751bcc06fe89e8682fc15a7"
+  },
+  {
+    "file": "desktop/dist/delivery/_0.1.0_amd64.deb",
+    "bytes": 1787524,
+    "sha256": "232d9af13487a48612dfc1a572cd1cd6ba8ba89f23804abab730c2c04906cf0b"
+  },
+  {
+    "file": "desktop/dist/delivery/_0.1.0_x64_zh-CN.msi",
+    "bytes": 2220032,
+    "sha256": "133d004c0b731c63ce2fa89df3910d85e566f47c345a67fd589cc0c3b5983340"
+  }
+]

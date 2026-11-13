@@ -1,0 +1,165 @@
+name: Build free regional offline maps
+on:
+  push:
+    branches: [main, codex/mobile-privacy-controls]
+    paths:
+      - '.github/workflows/offline-map-build.yml'
+      - 'scripts/plan-offline-region.py'
+      - 'scripts/build-offline-region.py'
+      - 'scripts/build-offline-regions.py'
+      - 'scripts/export-offline-map-inventory.py'
+      - 'scripts/export-custom-map-distribution.py'
+      - 'scripts/install-offline-map-batch.py'
+      - 'shared/maps/regions.json'
+  workflow_call:
+    inputs:
+      custom_latitude:
+        type: string
+        required: false
+        default: ''
+      custom_longitude:
+        type: string
+        required: false
+        default: ''
+      custom_radius_km:
+        type: string
+        required: false
+        default: '5'
+      custom_name:
+        type: string
+        required: false
+        default: 'Selected area'
+    outputs:
+      download_url:
+        description: Verified custom map archive URL
+        value: ${{ jobs.maps.outputs.download_url }}
+      bytes:
+        description: Verified custom map archive size in bytes
+        value: ${{ jobs.maps.outputs.bytes }}
+      sha256:
+        description: SHA-256 of the verified custom map archive
+        value: ${{ jobs.maps.outputs.sha256 }}
+  workflow_dispatch:
+    inputs:
+      custom_latitude:
+        description: 'Optional selected-area latitude; leave blank for configured regions'
+        type: string
+        default: ''
+      custom_longitude:
+        description: 'Selected-area longitude (-180..180)'
+        type: string
+        default: ''
+      custom_radius_km:
+        description: 'Selected-area radius in kilometres (1..10)'
+        type: string
+        default: '5'
+      custom_name:
+        description: 'Selected-area display name'
+        type: string
+        default: 'Selected area'
+  schedule:
+    - cron: '43 3 * * 1'
+permissions:
+  contents: write
+concurrency:
+  group: offline-map-build-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  maps:
+    if: vars.OFFLINE_MAP_BUILD_READY == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    outputs:
+      download_url: ${{ steps.publish-custom.outputs.download_url }}
+      bytes: ${{ steps.publish-custom.outputs.bytes }}
+      sha256: ${{ steps.publish-custom.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned official PMTiles tool
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/pmtiles"
+          curl --fail --location --retry 2 --max-time 120 \
+            https://github.com/protomaps/go-pmtiles/releases/download/v1.31.2/go-pmtiles_1.31.2_Linux_x86_64.tar.gz \
+            -o "$RUNNER_TEMP/pmtiles/tool.tar.gz"
+          echo '3ed7dbf4ec2e6dfe5e25b6f70d1ffc932729f93c86db353bf514dd71010a312f  '"$RUNNER_TEMP/pmtiles/tool.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/pmtiles/tool.tar.gz" -C "$RUNNER_TEMP/pmtiles" pmtiles
+          "$RUNNER_TEMP/pmtiles/pmtiles" version
+      - name: Select configured or requested region
+        id: select-region
+        env:
+          CUSTOM_LATITUDE: ${{ inputs.custom_latitude }}
+          CUSTOM_LONGITUDE: ${{ inputs.custom_longitude }}
+          CUSTOM_RADIUS: ${{ inputs.custom_radius_km }}
+          CUSTOM_NAME: ${{ inputs.custom_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p regional-maps
+          if [ -n "$CUSTOM_LATITUDE" ] || [ -n "$CUSTOM_LONGITUDE" ]; then
+            python scripts/plan-offline-region.py --latitude="$CUSTOM_LATITUDE" --longitude="$CUSTOM_LONGITUDE" --radius-km="$CUSTOM_RADIUS" --name="$CUSTOM_NAME" --output regional-maps/request.json
+            echo 'CUSTOM_REGION=true' >> "$GITHUB_ENV"
+            echo 'custom_region=true' >> "$GITHUB_OUTPUT"
+          else
+            cp shared/maps/regions.json regional-maps/request.json
+            echo 'CUSTOM_REGION=false' >> "$GITHUB_ENV"
+            echo 'custom_region=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build selected regions from one upstream snapshot
+        env:
+          CUSTOM_REGION: ${{ steps.select-region.outputs.custom_region }}
+        run: |
+          args=()
+          if [ "$CUSTOM_REGION" = 'true' ]; then args+=(--custom-delivery); fi
+          python scripts/build-offline-regions.py --regions regional-maps/request.json --output regional-maps --pmtiles "$RUNNER_TEMP/pmtiles/pmtiles" "${args[@]}"
+      - name: Verify distributable map inventory
+        run: python scripts/export-offline-map-inventory.py --input regional-maps --output regional-maps/catalog.json --regions regional-maps/request.json
+      - name: Export custom maps for separate static distribution
+        if: env.CUSTOM_REGION == 'true'
+        run: python scripts/export-custom-map-distribution.py --input regional-maps --regions regional-maps/request.json --output regional-maps/distribution
+      - name: Update client map catalog and immutable source assets
+        if: env.CUSTOM_REGION == 'false'
+        run: |
+          set -euo pipefail
+          python scripts/install-offline-map-batch.py --input regional-maps --regions regional-maps/request.json --pmtiles "$RUNNER_TEMP/pmtiles/pmtiles"
+          git add app/map-assets/static/offline-maps/ app/src/data/basemap-packs.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'hiking-earth-maps[bot]'
+          git config user.email 'maps@users.noreply.github.com'
+          git commit -m 'data: update verified regional offline maps'
+          git push
+      - name: Preserve maps, checksums and failure checkpoints
+        # Custom requests contain user-entered coordinates. Do not publish the
+        # runner's diagnostic artifact for those jobs; the verified release
+        # bundle remains the explicit, consented public deliverable.
+        if: always() && steps.select-region.outputs.custom_region != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: regional-maps-${{ github.run_id }}-${{ github.run_attempt }}
+          path: regional-maps/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Publish verified custom maps as durable free downloads
+        id: publish-custom
+        if: env.CUSTOM_REGION == 'true' && success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="offline-maps-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/package-custom-map-delivery.py --input regional-maps/distribution --output regional-maps/custom-maps.zip
+          gh release create "$tag" regional-maps/custom-maps.zip \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --latest=false \
+            --title "Verified regional offline maps $GITHUB_RUN_ID" \
+            --notes "Verified regional basemap bundle with checksums, source inventory and attribution. Not a trail access approval or terrain elevation dataset."
+          echo "download_url=https://github.com/$GITHUB_REPOSITORY/releases/download/$tag/custom-maps.zip" >> "$GITHUB_OUTPUT"
+          echo "bytes=$(stat -c '%s' regional-maps/custom-maps.zip)" >> "$GITHUB_OUTPUT"
+          echo "sha256=$(sha256sum regional-maps/custom-maps.zip | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+      - name: Record delivery boundary
+        if: always()
+        run: |
+          echo 'Configured verified batches update the source catalog; custom regions are downloadable artifacts and do not enlarge the application bundle; partial runs retain its prior version. Public site deployment and runtime acceptance remain separate. Basemaps do not verify trail access or provide terrain elevations.' >> "$GITHUB_STEP_SUMMARY"

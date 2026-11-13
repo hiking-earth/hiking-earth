@@ -1,0 +1,140 @@
+name: Process authenticated custom offline map requests
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: offline-map-request-worker
+  cancel-in-progress: false
+
+jobs:
+  claim:
+    if: vars.OFFLINE_MAP_BUILD_READY == 'true'
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      has_request: ${{ steps.claim.outputs.has_request }}
+      request_json: ${{ steps.claim.outputs.request_json }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: claim
+        name: Claim one queued request or report that the worker is not configured
+        env:
+          CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+          WORKER_TOKEN: ${{ secrets.OFFLINE_MAP_WORKER_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, secrets, sys
+
+          import importlib.util
+          worker_file = os.path.join(os.environ['GITHUB_WORKSPACE'], 'scripts', 'offline-map-worker-request.py')
+          spec = importlib.util.spec_from_file_location('offline_map_worker_request', worker_file)
+          worker = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(worker)
+          post_offline_map_worker = worker.post_offline_map_worker
+
+          output = os.environ['GITHUB_OUTPUT']
+          if not os.environ.get('CLIENT_API_URL') or not os.environ.get('WORKER_TOKEN'):
+              with open(output, 'a', encoding='utf-8') as f:
+                  f.write('has_request=false\n')
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+                  f.write('离线地图请求队列未启用：需要配置CLIENT_API_URL和OFFLINE_MAP_WORKER_TOKEN。\n')
+              sys.exit(0)
+
+          try:
+              result = post_offline_map_worker('offline-map.worker.next', {},
+                  endpoint=os.environ['CLIENT_API_URL'], token=os.environ['WORKER_TOKEN'])
+          except Exception as error:
+              raise SystemExit('离线地图队列领取失败：' + type(error).__name__)
+          if result.get('ok') is not True or not isinstance(result.get('data'), dict):
+              raise SystemExit('离线地图队列服务返回无效结果')
+          item = result['data'].get('request')
+          if item is None:
+              with open(output, 'a', encoding='utf-8') as f:
+                  f.write('has_request=false\n')
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+                  f.write('当前没有待处理的自选区域地图申请。\n')
+              sys.exit(0)
+          required = ('id', 'leaseId', 'name', 'latitude', 'longitude', 'radiusKm')
+          if not isinstance(item, dict) or any(key not in item for key in required):
+              raise SystemExit('离线地图申请字段无效')
+          if not isinstance(item['id'], str) or not isinstance(item['leaseId'], str):
+              raise SystemExit('离线地图申请编号无效')
+          if not isinstance(item['name'], str) or len(item['name']) > 65:
+              raise SystemExit('离线地图区域名称无效')
+          if any(type(item[key]) not in (int, float) for key in ('latitude', 'longitude', 'radiusKm')):
+              raise SystemExit('离线地图申请坐标无效')
+          encoded = json.dumps(item, ensure_ascii=False, separators=(',', ':'))
+          delimiter = 'MAP_REQUEST_' + secrets.token_hex(12)
+          with open(output, 'a', encoding='utf-8') as f:
+              f.write('has_request=true\n')
+              f.write(f'request_json<<{delimiter}\n{encoded}\n{delimiter}\n')
+          PY
+
+  build:
+    needs: claim
+    if: needs.claim.outputs.has_request == 'true'
+    # Only this reusable workflow publishes the verified map release or
+    # updates the configured regional catalog.
+    permissions:
+      contents: write
+    uses: ./.github/workflows/offline-map-build.yml
+    with:
+      custom_latitude: ${{ format('{0}', fromJson(needs.claim.outputs.request_json).latitude) }}
+      custom_longitude: ${{ format('{0}', fromJson(needs.claim.outputs.request_json).longitude) }}
+      custom_radius_km: ${{ format('{0}', fromJson(needs.claim.outputs.request_json).radiusKm) }}
+      custom_name: ${{ fromJson(needs.claim.outputs.request_json).name }}
+
+  complete:
+    timeout-minutes: 5
+    needs: [claim, build]
+    if: always() && needs.claim.outputs.has_request == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Save the build result for the requesting account
+        env:
+          CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+          WORKER_TOKEN: ${{ secrets.OFFLINE_MAP_WORKER_TOKEN }}
+          REQUEST_JSON: ${{ needs.claim.outputs.request_json }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DOWNLOAD_URL: ${{ needs.build.outputs.download_url }}
+          MAP_BYTES: ${{ needs.build.outputs.bytes }}
+          MAP_SHA256: ${{ needs.build.outputs.sha256 }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+
+          import importlib.util
+          worker_file = os.path.join(os.environ['GITHUB_WORKSPACE'], 'scripts', 'offline-map-worker-request.py')
+          spec = importlib.util.spec_from_file_location('offline_map_worker_request', worker_file)
+          worker = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(worker)
+          post_offline_map_worker = worker.post_offline_map_worker
+
+          item = json.loads(os.environ['REQUEST_JSON'])
+          succeeded = os.environ.get('BUILD_RESULT') == 'success'
+          data = {'requestId': item['id'],
+                  'leaseId': item['leaseId'], 'status': 'complete' if succeeded else 'failed'}
+          if succeeded:
+              data.update(downloadUrl=os.environ['DOWNLOAD_URL'], bytes=int(os.environ['MAP_BYTES']),
+                          sha256=os.environ['MAP_SHA256'])
+          try:
+              result = post_offline_map_worker('offline-map.worker.complete', data,
+                  endpoint=os.environ['CLIENT_API_URL'], token=os.environ['WORKER_TOKEN'])
+          except Exception as error:
+              raise SystemExit('离线地图构建结果保存失败：' + type(error).__name__)
+          receipt = result.get('data')
+          if result.get('ok') is not True or not isinstance(receipt, dict) or receipt.get('accepted') is not True:
+              raise SystemExit('离线地图构建结果未被队列接受')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+              f.write('自选区域地图请求已更新为：' + data['status'] + '。\n')
+          PY

@@ -1,0 +1,32 @@
+{
+  "run": 37950957778,
+  "sourceCommit": "16915c259d2ea9ffd000e0250b126789a9c9ce4c",
+  "release": "desktop-42",
+  "version": "0.2.3",
+  "installedApp": "/Users/nanyu/Applications/徒步地球.app",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/pre-update-local-candidate.app",
+  "binarySha256": "5c1ec7f6e863ffd53b987a569ba639a38b2a8ec33b340a84c3cbc51b89cab7ec",
+  "signatureVerification": "codesign --verify --deep --strict passed before and after installation",
+  "accepted": [
+    "Application launches to satellite globe home",
+    "My and Track navigation opens",
+    "Four saved maps retained: yosemite-valley, chamonix, monaco, fuji",
+    "Saved Yosemite map opens and scrolls map into visible viewport",
+    "Zoom in changes visible map extent and displays detailed roads and waterways"
+  ],
+  "screenshots": [
+    "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/map-visible.png",
+    "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/map-after-zoom.png"
+  ],
+  "unproven": [
+    "Globe drag did not yield reliable rotation evidence; computer window coordinate mapping changed during checks",
+    "Full account, sync, background location and upgrade rollback acceptance",
+    "Physical iPhone and WeChat acceptance",
+    "Linux build remains in_progress at latest check"
+  ],
+  "observations": [
+    "Hong Kong catalog update failed and retained cached data",
+    "USFS showed 9100 cached records during refresh; full sync completion not established"
+  ],
+  "formalReleaseReady": false
+}

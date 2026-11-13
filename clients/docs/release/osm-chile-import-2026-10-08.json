@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-08T01:54:18+08:00",
+  "source": "Geofabrik official regional OSM PBF",
+  "sourceUrl": "https://download.geofabrik.de/south-america/chile-261006.osm.pbf",
+  "sourceInfoUrl": "https://download.geofabrik.de/south-america/chile.html",
+  "sourceTimestamp": "2026-10-06T20:21:06Z",
+  "bytes": 348774552,
+  "md5": "e2d74627b4a482bc1feecc6ba9f895c5",
+  "sha256": "181e9cf8532f68d777abec3b74c287303fbd472db4b2553b6d9f6a0f3a7d42d5",
+  "import": {
+    "sourceId": "south-america/chile/261006",
+    "region": "south-america",
+    "candidateRelations": 320,
+    "importedRelations": 308,
+    "skippedIncompleteRelations": 12,
+    "skippedNestedRelations": 6
+  },
+  "catalogDelta": {
+    "beforeCount": 26852,
+    "afterCount": 27160,
+    "added": 308,
+    "updated": 0,
+    "removed": 0,
+    "southAmericaBefore": 3,
+    "southAmericaAfter": 311,
+    "sha256": "972b0b0e0fd6aed26ff703d6ce229b34608cf1d4b6f222f9b7dddaf2c87a09ac"
+  },
+  "distribution": {
+    "osmPages": 68,
+    "copies": [
+      "shared/public-catalog",
+      "app/cloudfunctions/catalog-feed/snapshots",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots"
+    ],
+    "manifestAndPagePayloadHashesMatch": true,
+    "compressedPageBytesMatch": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

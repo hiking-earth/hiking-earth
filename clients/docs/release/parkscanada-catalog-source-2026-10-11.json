@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "sourceName": "Parks Canada Trails APCA",
+  "sourceUrl": "https://services2.arcgis.com/wCOMu5IS7YdSyPNx/arcgis/rest/services/vw_Trails_Sentiers_APCA_V2_FGP/FeatureServer/0",
+  "datasetPage": "https://open.canada.ca/data/en/dataset/64a90e8d-5bc0-4027-8645-b5881b4068d4",
+  "license": "Open Government Licence - Canada",
+  "licenseUrl": "https://open.canada.ca/en/open-government-licence-canada/",
+  "attribution": "Contains information licensed under the Open Government Licence – Canada. Source: Parks Canada (Trails APCA).",
+  "collectedAt": "2026-10-11T00:55:32.911787+00:00",
+  "records": 1349,
+  "rawJsonBytes": 1052872,
+  "publicSnapshot": "e80662f98ec0f875f6cd72cb64971e52693106f0826f56aa3c97da3d96c30e5a",
+  "publicPages": 4,
+  "publicIndexSha256": "aeb07d7a28c94555297cb2ea83cf7abddc974248df6db15de73cf6ff3e64ee5e",
+  "compressedPageBytes": [45304, 46164, 62267, 26538],
+  "updateFrequency": "weekly",
+  "sourceCoverage": "Parks Canada states dataset coverage is not necessarily complete; includes trails in parks, historic sites and marine conservation areas under Parks Canada responsibility.",
+  "publicationPolicy": {
+    "discoveryOnly": true,
+    "status": "待核验",
+    "geometry": "simplified reference lines, not navigation tracks",
+    "access": "Never infer that a trail is open, permitted, suitable or safe from the existence of a source record.",
+    "fallback": "Keep the previous whole catalog if any source page is incomplete or invalid; replace atomically only after every requested object ID is collected."
+  },
+  "validationBoundary": "Data source inspection and complete collection succeeded; immutable paged data was prepared. No product functional tests, client builds, deployment or device acceptance have run."
+}

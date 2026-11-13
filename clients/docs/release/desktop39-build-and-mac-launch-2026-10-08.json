@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-08T15:33:09.392551+00:00",
+  "run": 37800341174,
+  "status": "completed",
+  "conclusion": "success",
+  "candidate": "desktop-39",
+  "sourceCommit": "6928f60440e40059d6f6f94add8a8f1f4a686341",
+  "assetCount": 13,
+  "largestBytes": 150026744,
+  "manifest": {
+    "remoteDigestMatches": true,
+    "platformCount": 4,
+    "allUrlsPinnedTo": "desktop-39"
+  },
+  "mac": {
+    "installed": "/Users/nanyu/Applications/徒步地球.app",
+    "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-37/installed-backup/徒步地球.app",
+    "installedCodesign": "passed",
+    "launchHome": "passed",
+    "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-39/mac-installed-home.png",
+    "displayedLocalRouteCount": 66747
+  },
+  "limits": [
+    "Candidate remains draft",
+    "Native route-refresh click had no immediate visible state change, refresh not accepted",
+    "Account sync updater acceptance incomplete",
+    "Other desktop runtime acceptance not performed"
+  ]
+}

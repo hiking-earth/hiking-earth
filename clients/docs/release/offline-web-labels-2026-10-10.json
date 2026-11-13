@@ -1,0 +1,22 @@
+{
+  "scope": "H5 and desktop shared offline map embedded place/POI system-font label source",
+  "checks": {
+    "regressionTests": 176,
+    "targetedMarkerIntegrationTests": 3,
+    "typeCheck": "passed",
+    "h5Build": "passed"
+  },
+  "behavior": [
+    "Chinese names preferred; same bounded placement as native canvas",
+    "Plain text DOM markers, no glyph network requests",
+    "Stable idle signature prevents marker rebuild loops",
+    "Map movement updates labels and releases prior markers",
+    "Malformed label source retains roads view"
+  ],
+  "limits": [
+    "Marker integration uses injected map/DOM doubles, not browser screenshot acceptance",
+    "Not publicly deployed or included in downloaded Mac candidate44",
+    "Current GitHub read returns EOF; no new push attempted after retry ceiling"
+  ],
+  "formalReady": false
+}

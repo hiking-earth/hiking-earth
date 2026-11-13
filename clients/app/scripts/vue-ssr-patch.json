@@ -1,0 +1,9 @@
+{
+  "packageVersion": "3.4.21",
+  "upstream": "https://github.com/vuejs/core/commit/a2b40db9a83b36ed9da3a16403cf8f040262d73f",
+  "files": {
+    "shared.cjs.js": "7d41bd7fb7ddaa5b9b408d61235990205eabfe5736ac279399f0ea5531d9c3fa",
+    "shared.esm-bundler.js": "84052e948a75e01a987b726c7fafa042e0911348c22168252644bf9146f9cef9",
+    "shared.cjs.prod.js": "3d611e52ff9c0034f141dae19ba4a9c1f85e2999bb67e6ae307c33cd4c1e4fff"
+  }
+}

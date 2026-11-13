@@ -1,0 +1,26 @@
+{
+  "version": 25,
+  "siteSource": "50667e1b11e8000e60fb73a639535bfc906d0a66",
+  "clientSource": "fa7fc961022f6f70d6b0f313da5722e503e52d8c",
+  "savedVersion": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_bfa8f60e06888191a402c5745094ba80",
+  "deployment": "appgdep_6ac6367608dc81918481f961c6393b12",
+  "deploymentStatus": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "localCompressedArchiveBytes": 44833013,
+  "localCompressedArchiveSHA256": "2282d681340166ccb2435f3351b29e4062d1175240cee221aa55a878811cbfc6",
+  "nativeArchiveBytes": 54794240,
+  "nativeArchiveFileCount": 600,
+  "checks": [
+    "prepared client CSS contains native control selectors",
+    "live public page restored three stored regional map files",
+    "first map Lantau loaded roads and coastline",
+    "three native controls 29px with SVG icons",
+    "clicked zoom-in and visible map screenshot"
+  ],
+  "screenshot": "site25-map-controls-2026-10-07.png",
+  "limits": [
+    "first browser navigation observation timed out; same tab subsequently loaded",
+    "network remained enabled",
+    "physical iPhone and all-platform release acceptance remain pending"
+  ]
+}

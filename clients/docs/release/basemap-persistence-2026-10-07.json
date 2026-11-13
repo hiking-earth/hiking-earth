@@ -1,0 +1,17 @@
+{
+  "sourceRuntime": "86dabcd",
+  "h5BuildExitCode": 0,
+  "actualBrowser": "local H5 localhost5179",
+  "file": "lantau.pmtiles",
+  "bytes": 703312,
+  "importSave": true,
+  "reloadListRestore": true,
+  "openRestoredBlobRender": true,
+  "screenshot": "basemap-persistence-2026-10-07.png",
+  "newBudgetValidationUnitTests": 3,
+  "newBudgetValidationRuntime": false,
+  "quotaFailureAndConcurrencyRuntime": false,
+  "disconnectedReload": false,
+  "nativeAndMiniProgram": false,
+  "publicDeployment": false
+}

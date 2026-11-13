@@ -1,0 +1,16 @@
+{
+  "package": "earth.hiking.app",
+  "versionName": "0.1.0",
+  "versionCode": 1,
+  "minSdk": 21,
+  "targetSdk": 28,
+  "debuggable": "false",
+  "file": "app/dist/delivery/hiking-earth-0.1.0-android.apk",
+  "bytes": 14863476,
+  "sha256": "b0c55b9f60e6b30678cef02b3dadd47afa5aade30a9c4bc53a64bac6808166e7",
+  "embeddedAppId": "__UNI__93C5C2F",
+  "zipIntegrityPassed": true,
+  "signatureV1Verified": true,
+  "signatureV2Verified": true,
+  "installedOnDevice": false
+}

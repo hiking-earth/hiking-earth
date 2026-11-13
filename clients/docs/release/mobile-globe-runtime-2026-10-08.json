@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-08",
+  "changes": [
+    "Native uni.base64ToArrayBuffer preferred with fallback preserved",
+    "320px sphere buffer on mobile, 512px desktop; same NASA geographic texture and #b8f36b accent"
+  ],
+  "checks": {
+    "renderer_and_palette_tests": "4 passed",
+    "vue_typecheck": "exit 0",
+    "h5_build": "exit 0",
+    "native_app_resource_build": "exit 0",
+    "wechat_build": "exit 0"
+  },
+  "browser_acceptance": {
+    "viewport": "390x844 CSS pixels, verified through Page.getLayoutMetrics",
+    "result": "Home shows full satellite globe, search, filters and all five navigation entries",
+    "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/mobile-exact-green.png",
+    "scope": "Local H5 responsive browser; not physical iPhone acceptance"
+  },
+  "wechat_runtime": {
+    "login": "Official CLI islogin returned login:true",
+    "open": "Terminal code 10 AppID not found",
+    "tool_logs": [
+      "ENOTFOUND mp.weixin.qq.com",
+      "ENOTFOUND servicewechat.com",
+      "SimulatorHttpService request timeout"
+    ],
+    "result": "Not accepted; no business page entered",
+    "cause": "DNS failure proven; relationship to AppID error and simulator failure not yet established"
+  },
+  "release_ready": false
+}

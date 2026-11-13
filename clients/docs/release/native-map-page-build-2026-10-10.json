@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "b62867655230697980dbdff1a3265c74360b0cf3",
+  "nativeResourcesBuildPassed": true,
+  "wechatBuildPassed": true,
+  "typeCheckPassed": true,
+  "scriptTestsPassed": 168,
+  "nativeInventoryAndDownloadPresentInCompiledService": true,
+  "nativeDeviceRuntimeAccepted": false,
+  "apkProduced": false,
+  "deployed": false,
+  "files": [
+    {
+      "path": "app/src/pages/offline/offline.vue",
+      "sha256": "7957c43ca9d90ed6d3ee734e90b6f859e4f75403c5461e54e673abbc4dcffdf3"
+    },
+    {
+      "path": "app/dist/build/app/app-service.js",
+      "sha256": "a107a2920477c18fd3a31bcc6bab0bb43eac7b9a6e95f6531a1fdf4f336629bf"
+    },
+    {
+      "path": "app/dist/build/mp-weixin/pages/offline/offline.wxml",
+      "sha256": "227ced622fa00641a75f9d142b0fb5943a44692f030d344d73c64dfd6c3ba1e5"
+    }
+  ]
+}

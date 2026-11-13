@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-11",
+  "scope": "shared app home palette token adoption",
+  "referencePalette": "shared/design/palette.json",
+  "files": [
+    "app/src/pages/index/index.vue",
+    "app/src/components/ExploreGlobe.vue"
+  ],
+  "change": {
+    "description": "The home route browser and globe controls now read the exact website-aligned background, panel, surface, text, muted, border, and accent values from the existing app root theme variables.",
+    "preservedLayout": true,
+    "preservedEarthRendering": true
+  },
+  "verification": {
+    "gitDiffCheck": "passed",
+    "functionalTests": "not run; deferred until the unified final validation",
+    "build": "not run; deferred until the unified final validation",
+    "visualRuntimeAcceptance": "pending"
+  },
+  "limitations": [
+    "This reduces duplicated home-page color literals; it does not make all four home-page structures identical.",
+    "No client build, installation, deployment, or device acceptance was performed."
+  ]
+}

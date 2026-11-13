@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-07",
+  "scope": "npm audit --omit=dev on web checkout",
+  "webSource": "fb0014779bef60f1c17354e00a2a9e73d0083b5d",
+  "exitCode": 0,
+  "vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "exclusions": [
+    "development dependencies",
+    "source security review",
+    "runtime exploitation tests",
+    "mobile or desktop dependency trees"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "assets": [
+    {
+      "name": "latest.json",
+      "size": 2622
+    },
+    {
+      "name": "_0.2.3_aarch64.dmg",
+      "size": 33724683
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage",
+      "size": 112454136
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage.sig",
+      "size": 444
+    },
+    {
+      "name": "_0.2.3_amd64.deb",
+      "size": 34180610
+    },
+    {
+      "name": "_0.2.3_amd64.deb.sig",
+      "size": 436
+    },
+    {
+      "name": "_0.2.3_x64.dmg",
+      "size": 33777585
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi",
+      "size": 33783808
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi.sig",
+      "size": 444
+    },
+    {
+      "name": "_aarch64.app.tar.gz",
+      "size": 33677409
+    },
+    {
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432
+    },
+    {
+      "name": "_x64.app.tar.gz",
+      "size": 33688828
+    },
+    {
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432
+    }
+  ],
+  "isDraft": true,
+  "tagName": "desktop-27",
+  "targetCommitish": "80b9fd917a923042850e402c483a4fc4f2cc2436",
+  "checkedAt": "2026-10-07T14:03:54.316641+00:00",
+  "run": 37631475617,
+  "runConclusion": "success",
+  "scope": "Build and download size only; signature and runtime pending"
+}

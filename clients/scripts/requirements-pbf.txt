@@ -1,0 +1,2 @@
+# Pinned region-PBF reader used by scripts/import-osm-pbf-catalog.py.
+osmium==4.3.1

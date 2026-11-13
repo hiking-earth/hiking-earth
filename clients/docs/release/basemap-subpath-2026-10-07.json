@@ -1,0 +1,13 @@
+{
+  "source": "62a4379",
+  "testsPassed": 4,
+  "typecheckExitCode": 0,
+  "h5SubpathBuildExitCode": 0,
+  "base": "/client-app/",
+  "localBrowserDownloadSaveAndRender": true,
+  "desktopURLUnitTests": true,
+  "desktopRuntime": false,
+  "publicDeployment": false,
+  "serverSession": 46310,
+  "officialProtocolSource": "https://docs.rs/tauri/latest/src/tauri/webview/webview_window.rs.html"
+}

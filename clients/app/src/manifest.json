@@ -1,0 +1,77 @@
+{
+    "name" : "徒步地球",
+    "appid" : "__UNI__93C5C2F",
+    "description" : "基于 3D 地球的全球徒步路线发现与行前决策（客户端）",
+    "versionName" : "0.2.3",
+    "versionCode" : "23",
+    "transformPx" : false,
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        "modules" : {
+            "Geolocation" : {}
+        },
+        "distribute" : {
+            "android" : {
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.REQUEST_INSTALL_PACKAGES\"/>"
+                ],
+                "minSdkVersion" : 21,
+                "targetSdkVersion" : 35
+            },
+            "ios" : {
+                "UIBackgroundModes" : [ "location" ],
+                "privacyDescription" : {
+                    "NSLocationWhenInUseUsageDescription" : "用于轨迹记录、沿轨迹导航与精准箭头指向",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "仅在你开启后台轨迹授权并开始记录后，在锁屏时继续保存轨迹到本机",
+                    "NSLocationAlwaysUsageDescription" : "用于你主动开启的后台徒步轨迹记录",
+                    "NSCameraUsageDescription" : "用于你主动拍摄装备照片",
+                    "NSPhotoLibraryUsageDescription" : "用于你主动选择装备照片",
+                    "NSPhotoLibraryAddUsageDescription" : "用于你主动保存照片"
+                },
+                "dSYMs" : false
+            },
+            "sdkConfigs" : {
+                "maps" : {}
+            }
+        }
+    },
+    "quickapp" : {},
+    "mp-weixin" : {
+        "appid" : "wx73248e013d48b534",
+        "setting" : {
+            "urlCheck" : true,
+            "minified" : true
+        },
+        "usingComponents" : true,
+        "lazyCodeLoading" : "requiredComponents",
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "授权后用于导航、轨迹记录及队伍位置共享"
+            }
+        },
+        "requiredPrivateInfos" : [ "getLocation", "startLocationUpdate", "onLocationChange" ]
+    },
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "vueVersion" : "3",
+    "h5" : {
+        "router" : {
+            "mode" : "hash",
+            "base" : "./"
+        }
+    }
+}

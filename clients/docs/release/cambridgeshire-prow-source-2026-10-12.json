@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-12T01:49:57.523019+00:00",
+  "sourceUrl": "https://maps.cambridgeshire.gov.uk/GetOWS.ashx?SERVICE=WFS&VERSION=2.0.0&MAPSOURCE=CCC%2FINSPIRE&REQUEST=GetFeature&TYPENAME=public_rights_of_way&OUTPUTFORMAT=GEOJSON&SRSNAME=EPSG%3A4326",
+  "catalog": "shared/data/catalog/cambridgeshire-prow.json",
+  "records": 4158,
+  "status": "待核验",
+  "catalogBytes": 4398523,
+  "catalogSha256": "f9ae71bdd403fb3b1ea4096412d1baa7ea78ac5b96803c3a9459d2a2a316f3b9",
+  "license": "Open Government Licence v3.0",
+  "attribution": "Contains information licensed under the Open Government Licence v3.0 from Cambridgeshire County Council. Source: Public Rights of Way.",
+  "routeStatusPolicy": "Cambridgeshire County Council says this is a daily-updated electronic working interpretation of the Definitive Map, not the legal record; it can contain errors and anomalies and must not determine exact alignment. All records remain 待核验; geometry is discovery reference only, not navigation guidance.",
+  "publicSnapshot": "f9ae71bdd403fb3b1ea4096412d1baa7ea78ac5b96803c3a9459d2a2a316f3b9",
+  "publicPages": 11,
+  "manifestSha256": "cf828c091a0e5e26eb35a52e82f24369cf2401469d6c8c6a8e61a8774e8428cf",
+  "generatedStaticCopies": [
+    "shared/public-catalog/cambridgeshire-prow",
+    "app/cloudfunctions/catalog-feed/snapshots/cambridgeshire-prow",
+    "app/cloudfunctions/client-api/business/catalog-feed/snapshots/cambridgeshire-prow"
+  ],
+  "websitePackaging": "allowlist updated; fixed client-source ref must advance during final release packaging",
+  "functionalTesting": "not run; deferred until all feature implementation is finished",
+  "deployment": "not deployed"
+}

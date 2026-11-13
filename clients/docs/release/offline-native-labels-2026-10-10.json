@@ -1,0 +1,22 @@
+{
+  "feature": "Embedded offline place/POI labels in shared WeChat/native canvas",
+  "checks": {
+    "targetedTests": 6,
+    "regressionTests": 173,
+    "typeCheck": "passed",
+    "wechatBuild": "passed",
+    "appResourceBuild": "passed"
+  },
+  "behavior": [
+    "Chinese names preferred if provided by tiles",
+    "System fonts only, no online glyph requests",
+    "Prioritized bounded placement; overlapping, duplicate and clipped labels omitted",
+    "Maximum 512 labels per tile and 60 rendered labels"
+  ],
+  "limits": [
+    "No physical phone or WeChat runtime rendering evidence yet",
+    "H5/desktop MapLibre labels remain separate unfinished work",
+    "No elevation data or legal trail navigation supplied"
+  ],
+  "formalReady": false
+}

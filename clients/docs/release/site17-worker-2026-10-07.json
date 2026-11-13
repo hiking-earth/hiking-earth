@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-07T03:55:36.769Z",
+  "version": 17,
+  "status": 200,
+  "matchesBuild": true,
+  "sha256": "06e2eff973362b4c442c9d799ef4812af5992aebdbbaa5758f039df1972bdfe1",
+  "containsPrivateExclusion": true,
+  "scope": "Live worker bytes, not device offline acceptance"
+}

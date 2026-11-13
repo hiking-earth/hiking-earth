@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-07T08:04:14.715748+00:00",
+  "siteVersion": "23",
+  "siteClientSource": "39cfa4c73002273ee21291e177a2b8b6ac1ac4a9",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site/client-app/#/pages/offline/offline",
+  "checks": {
+    "actualDownloadAndSave": "passed: UI reported map verified and saved",
+    "reloadInventoryRestore": "passed: table-mountain-20261006.pmtiles 4.28 MiB present",
+    "reopenSavedMap": "passed: rendered roads land and coast screenshot"
+  },
+  "screenshot": "table-mountain-browser-2026-10-07.png",
+  "limitations": [
+    "Browser remained online; disconnected network acceptance not claimed.",
+    "No desktop native IPC acceptance in this check.",
+    "This regional basemap does not prove legal navigation, labels or elevation."
+  ],
+  "desktopBuildWait": {
+    "run": 37590593039,
+    "status": "in_progress",
+    "source": "589af9d22be92323ec49e8b36f55846d51a0810a"
+  }
+}

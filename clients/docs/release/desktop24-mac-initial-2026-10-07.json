@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-07T08:07:59.390755+00:00",
+  "run": 37590593039,
+  "source": "589af9d22be92323ec49e8b36f55846d51a0810a",
+  "macArm": {
+    "bytes": 33676668,
+    "sha256": "d9a4137a29db482428543091db1e74722c2475d8ed5ea4a4d38f336daa031ab1",
+    "pinnedUpdaterSignatureVerified": true,
+    "safeExtractionBytes": 37635880
+  },
+  "actualWindow": {
+    "version": "0.2.3",
+    "restoredCatalogRecords": 66747,
+    "oldMapInventoryRestored": [
+      "monaco",
+      "fuji"
+    ],
+    "newChamonixDownload": "failed immediately: UI map download failed; repeated after inspection same result"
+  },
+  "change": "Normalize only known native string rejections into Error messages; unknown details not reflected. Three bridge tests and type-check passed. Local app build session95620 still compiling.",
+  "limitations": [
+    "Native binary download not accepted.",
+    "No updater installation or rollback acceptance.",
+    "Root cause of actual UI download failure pending diagnostic build."
+  ]
+}

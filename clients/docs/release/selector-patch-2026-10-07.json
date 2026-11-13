@@ -1,0 +1,24 @@
+{
+  "sourceBase": "b97d032",
+  "parserVersion": "7.1.6",
+  "checks": {
+    "selectorRoundtripAndVisitor": "passed",
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed"
+  },
+  "audit": {
+    "info": 0,
+    "low": 18,
+    "moderate": 7,
+    "high": 16,
+    "critical": 0,
+    "total": 41
+  },
+  "parserAuditEntryPresent": false,
+  "limitations": [
+    "Major parser upgrade checked by current builds; not full device acceptance.",
+    "New build not deployed.",
+    "Other audit entries remain."
+  ]
+}

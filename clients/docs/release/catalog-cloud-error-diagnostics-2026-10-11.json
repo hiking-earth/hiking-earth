@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-11T00:00:00+08:00",
+  "issue": {
+    "source": "hk",
+    "productionCurrentRequest": "HTTP 400, generic catalog unavailable response",
+    "productionPinnedRequest": "HTTP 400, generic catalog unavailable response",
+    "localCurrentHandler": "167 records returned, upstreamAvailable=true",
+    "publicManifestAndPage": "snapshot and uncompressed content hash verified"
+  },
+  "change": {
+    "files": [
+      "app/cloudfunctions/catalog-feed/index.js",
+      "app/cloudfunctions/client-api/business/catalog-feed/index.js",
+      "scripts/tests/catalog-safe-diagnostic.test.cjs"
+    ],
+    "diagnostics": "Cloud function failure logs now include stage and an allowlisted error code only; no error message, path, URL, token, or request fields are logged."
+  },
+  "verification": {
+    "focusedTests": 2,
+    "passed": true,
+    "functionCopiesMatch": true,
+    "diffCheck": true
+  },
+  "deployment": {
+    "deployed": false,
+    "reason": "GitHub Actions has no CloudBase deployment secrets or auto-deploy variable."
+  },
+  "acceptanceBoundary": "Local diagnostics tests pass, but the production HK catalog failure remains unresolved until the updated function can be deployed and its safe runtime error code read."
+}

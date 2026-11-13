@@ -1,0 +1,91 @@
+name: Build desktop candidates without publication
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-candidate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  candidate:
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            bundles: app,dmg
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            bundles: app,dmg
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            bundles: msi
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            bundles: appimage,deb
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop/src-tauri
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        timeout-minutes: 12
+        run: |
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+      - run: npm ci
+        working-directory: app
+      - run: npm ci
+        working-directory: desktop
+      - name: Build candidate only
+        working-directory: desktop
+        shell: bash
+        env:
+          VITE_CLIENT_API_URL: ${{ vars.CLIENT_API_URL }}
+        run: |
+          set -o pipefail
+          npm run tauri -- build --target '${{ matrix.target }}' --bundles '${{ matrix.bundles }}' --config src-tauri/tauri.candidate.conf.json 2>&1 | tee "$RUNNER_TEMP/desktop-candidate-build.log"
+      - name: Record source and installer hashes
+        shell: bash
+        run: >-
+          python scripts/record-desktop-candidate.py
+          --target '${{ matrix.target }}'
+          --bundle-dir 'desktop/src-tauri/target/${{ matrix.target }}/release/bundle'
+          --output '${{ runner.temp }}/desktop-candidate-source.json'
+      - name: Preserve candidate installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-candidate-${{ matrix.target }}-${{ github.sha }}
+          path: |
+            desktop/src-tauri/target/${{ matrix.target }}/release/bundle/**/*.dmg
+            desktop/src-tauri/target/${{ matrix.target }}/release/bundle/**/*.msi
+            desktop/src-tauri/target/${{ matrix.target }}/release/bundle/**/*.deb
+            desktop/src-tauri/target/${{ matrix.target }}/release/bundle/**/*.AppImage
+            ${{ runner.temp }}/desktop-candidate-source.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Preserve build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-candidate-log-${{ matrix.target }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/desktop-candidate-build.log
+          if-no-files-found: warn
+          retention-days: 14

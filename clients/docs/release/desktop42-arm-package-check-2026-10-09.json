@@ -1,0 +1,22 @@
+{
+  "run": 37950957778,
+  "sourceCommit": "16915c259d2ea9ffd000e0250b126789a9c9ce4c",
+  "releaseId": 408042260,
+  "draft": true,
+  "assetId": 625351922,
+  "package": "/tmp/hiking-desktop42/arm64.dmg",
+  "bytes": 71193411,
+  "sha256": "8d4d826ae2a0c4791e4536441fb97d1a97707801b29e55a755cfa7459f3c3e3f",
+  "remoteDigestMatches": true,
+  "diskImageVerification": "VALID",
+  "buildsPassed": [
+    "macOS arm64",
+    "macOS x64",
+    "Windows x64"
+  ],
+  "linuxBuild": "in_progress at check",
+  "limitations": [
+    "Package verification only; this candidate has not been installed or accepted in this check.",
+    "Formal stable release remains disabled."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "limitBytes": 500000000,
+  "passed": true,
+  "files": [
+    {
+      "path": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-17/_aarch64.app.tar.gz",
+      "downloadBytes": 20948580,
+      "coverage": "TAR unpacked regular file sizes",
+      "installedBytes": 24417224,
+      "limitBytes": 500000000,
+      "passed": true
+    },
+    {
+      "path": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-17/_0.2.1_aarch64.dmg",
+      "downloadBytes": 21005563,
+      "coverage": "download only",
+      "limitBytes": 500000000,
+      "passed": true
+    }
+  ],
+  "note": "Installed payload of DMG/MSI/AppImage/DEB requires separate directory measurement; runtime user data is excluded."
+}

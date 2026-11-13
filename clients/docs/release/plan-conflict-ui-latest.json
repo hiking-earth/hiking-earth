@@ -1,0 +1,36 @@
+{
+  "scope": "Actual two Chrome sessions plan UI and automatic sync engine triggered via immediate sync; excludes timed polling, tracks, physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "plan created through UI and saved by automatic sync engine",
+      "passed": true
+    },
+    {
+      "name": "same-account plan automatically restored in isolated second browser",
+      "passed": true
+    },
+    {
+      "name": "concurrent plan edits preserve local and remote versions and show conflict",
+      "passed": true
+    },
+    {
+      "name": "explicit confirmed cloud restore resolves conflict",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "afterRestore": [
+    "",
+    "第一端修改"
+  ],
+  "restorePageText": "收藏与行程\n收藏与行程\n资料保存在本机。登录后开启“自动同步”，收藏和行程会同步到当前账号的其他设备；未开启时可在本页手动保存或恢复。行程不会改变路线的开放状态。\n收藏路线\n在路线详情中收藏路线。\n创建行程\n搜索或选择行程路线（可选）\n按路线名称或地区搜索\n出发日期 YYYY-MM-DD\n集合点、交通、住宿和装备备忘\n保存行程\n太室山景区入口—峻极峰登山步道 · 2026-11-01\n标记装备已检查删除行程\n云端资料\n保存收藏与行程到当前账号\n恢复当前账号的收藏与行程\n已恢复",
+  "checkedAt": "2026-10-10T13:47:53.282Z"
+}

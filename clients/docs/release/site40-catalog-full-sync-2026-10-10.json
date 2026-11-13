@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-10T05:08:16.119Z",
+  "scope": "Live Site40 fixed-snapshot full pagination AND comparison to current source manifest; transport success does not establish latest data deployment",
+  "sources": [
+    {
+      "source": "osm",
+      "pages": 68,
+      "items": 26852,
+      "failures": [],
+      "snapshot": "995fb94e77bca8695de3080e31f683db094f51c98295b6e5c01ddd69316df38e",
+      "total": 26852,
+      "passed": true,
+      "expectedSourceTotal": 146004,
+      "expectedSourceSnapshot": "cab075c49bb6cda3ad000d60a320b6d56e7d68297b05a919603cb99d5b0dceb9",
+      "latestSourceMatches": false
+    },
+    {
+      "source": "usfs",
+      "pages": 126,
+      "items": 50089,
+      "failures": [],
+      "snapshot": "08a096489f5294c131c8be4936316936605806e0155aeb5bab953ed68e77706e",
+      "total": 50089,
+      "passed": true,
+      "expectedSourceTotal": 9228,
+      "expectedSourceSnapshot": "69d35db76761484035d67a93d2c020971c6b617e23df559fe7c23a108d74533f",
+      "latestSourceMatches": false
+    }
+  ],
+  "passed": false,
+  "transportPassed": true,
+  "latestSourceMatches": false,
+  "productionMainObservation": {
+    "total": 146007,
+    "snapshot": "1709f9dc81de4cc8848619ac18ba6ef19704d59c683db87c55915936775d67e2",
+    "scope": "GitHub Contents API main read; not cloud HTTP result"
+  },
+  "diagnosis": "Production public main is newer than local and live cloud fallback; do not overwrite it with older local data."
+}

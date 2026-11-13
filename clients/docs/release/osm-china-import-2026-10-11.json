@@ -1,0 +1,40 @@
+{
+  "source": {
+    "provider": "Geofabrik",
+    "region": "China",
+    "url": "https://download.geofabrik.de/asia/china-261009.osm.pbf",
+    "sourceTimestamp": "2026-10-09T20:21:04Z",
+    "bytes": 1606044504,
+    "officialMd5": "8eef056671a8a85811279d3f2cb8b532",
+    "sha256": "213485102c8fca1f688917683caf3ddeb4677bacf5ffb35612ad04dec75a3668",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "import": {
+    "sourceId": "china/261009",
+    "candidateRelations": 698,
+    "referenceCompleteRelations": 680,
+    "skippedIncompleteRelations": 18,
+    "skippedNestedRelations": 5,
+    "catalogBefore": 152747,
+    "catalogAfter": 152747,
+    "newRelationIds": 0,
+    "updatedExistingRelationRecords": 680,
+    "note": "All imported relation IDs already existed in the discovery catalog; the extract refreshed member-complete bounds, source fields, and fetch timestamps. Existing review status was preserved."
+  },
+  "distribution": {
+    "snapshot": "b21617281bf09bb06309a44b0b760f7c65d33f35d6e21ed884895d91de09ceb1",
+    "previousSnapshot": "9a26163dfb4a470ccf6dafa011f908aae5e4471c50c9bea8b2406e5d9ba19834",
+    "productionSnapshotRetained": "6eed0992ec765e5870be559ef92f8fe48769bfc5ea20e3256ef77f704ba55fdf",
+    "total": 152747,
+    "pages": 382,
+    "threeLocalManifestsEqual": true,
+    "allPageHashesValid": true,
+    "threeCopiesByteIdentical": true
+  },
+  "testsRun": false,
+  "appBuildRun": false,
+  "deployed": false,
+  "deviceAcceptance": false,
+  "routeAccessVerified": false
+}

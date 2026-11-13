@@ -1,0 +1,8 @@
+import { UTSAndroid } from 'io.dcloud.uts';
+import { HikingBackground } from 'earth.hiking.background';
+export function startBackground(owner: string, session: string, changed: () => void, error: (message: string) => void): boolean {
+  return HikingBackground.start(UTSAndroid.getUniActivity()!, owner, session, changed, error);
+}
+export function stopBackground(): void { HikingBackground.stop(UTSAndroid.getAppContext()!); }
+export function backgroundBuffer(owner: string, legacySession: string): string { return HikingBackground.buffer(UTSAndroid.getAppContext()!, owner, legacySession); }
+export function acknowledgeBackground(owner: string, timestamp: number): boolean { return HikingBackground.ack(UTSAndroid.getAppContext()!, owner, timestamp); }

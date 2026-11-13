@@ -1,0 +1,30 @@
+{
+  "source": "1dbd53ad33f0268ccacfa08ef4f5bd525c8d8e4f",
+  "environment": "Official WeChat developer tool 2.02.2608070 simulator",
+  "region": "Monaco sample",
+  "bytes": 1168799,
+  "sha256": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+  "passed": [
+    "SDK download and incremental SHA256 gate",
+    "Temporary and saved PMTiles header/metadata validation",
+    "Saved inventory visible",
+    "Native canvas renders nine tiles at zoom15",
+    "Zoom14 renders nine tiles",
+    "East/west tile movement",
+    "Official CLI project close/open returned success",
+    "Saved inventory restored after project reopen",
+    "View saved map redraws nine tiles at zoom15 without redownload"
+  ],
+  "screenshots": [
+    "wechat-map-runtime-2026-10-07.jpg",
+    "wechat-map-reopen-2026-10-07.jpg"
+  ],
+  "limitations": [
+    "Simulator project reopen, not physical iPhone process acceptance",
+    "Network remained online; complete disconnected cold start not proved",
+    "Production download-domain allowlist not verified",
+    "Single sample region; global regional coverage incomplete",
+    "No labels, terrain, track overlay or lawful-route navigation acceptance"
+  ],
+  "release_ready": false
+}

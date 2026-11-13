@@ -1,0 +1,9 @@
+{
+  "repository": "hiking-earth/hiking-earth",
+  "branch": "codex/client-entry",
+  "webCommit": "fd215f328d3c2d0c9586a23c0515ad938c584066",
+  "clientCommit": "075bd7dd5fa5a631903f93e43751092458dc6b51",
+  "buildExitCode": 0,
+  "pushed": true,
+  "scope": "Web source pin aligned with live Site40 client; does not redeploy or change existing Site40 source"
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "b9d421b6de167e846a5b53262916dada6e6db3e6",
+  "environment": "Official WeChat DevTools 2.02.2608070 simulator",
+  "buildExit": 0,
+  "candidateFileShaChecks": 165,
+  "rawBuildBytes": 2269385,
+  "priorCandidateBackup": "wechat-before-regional-20261007-143356",
+  "checks": {
+    "existingMonacoInventoryRestored": true,
+    "existingMonacoShaVerifiedAndReused": true,
+    "monacoReuseNineTilesRendered": true,
+    "newLantauDownloadedVerifiedSaved": true,
+    "lantauNineTilesRendered": true
+  },
+  "limits": [
+    "Simulator, not physical iPhone",
+    "Production download-domain allowlist not validated",
+    "Network remained online",
+    "New candidate project restart and missing-file UI remain pending",
+    "Tool warnings not fully classified; no clean-console claim"
+  ],
+  "screenshot": "wechat-regional-runtime-2026-10-07.jpg"
+}

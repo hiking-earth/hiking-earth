@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-08T15:29:52.603267+00:00",
+  "run": 37800341174,
+  "candidate": "desktop-39",
+  "sourceCommit": "6928f60440e40059d6f6f94add8a8f1f4a686341",
+  "macArmDmg": {
+    "bytes": 71192599,
+    "sha256": "3c01132d84b31780b6df7e0f76658103b465865be53c95671794ec5f1db98c3f",
+    "remoteDigestMatches": true,
+    "diskImageChecksum": "valid",
+    "codesignDeepStrict": "passed"
+  },
+  "limits": [
+    "No installation or runtime acceptance this turn",
+    "Candidate remains draft",
+    "Other builds and final updater manifest not yet fully verified",
+    "Ad-hoc signature is not Apple notarization"
+  ]
+}

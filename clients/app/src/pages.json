@@ -1,0 +1,215 @@
+{
+  "easycom": {
+    "autoscan": true
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "徒步地球",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/companion/companion",
+      "style": {
+        "navigationBarTitleText": "约伴"
+      }
+    },
+    {
+      "path": "pages/navigation/navigation",
+      "style": {
+        "navigationBarTitleText": "导航"
+      }
+    },
+    {
+      "path": "pages/track/track",
+      "style": {
+        "navigationBarTitleText": "轨迹"
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/route/detail",
+      "style": {
+        "navigationBarTitleText": "路线详情"
+      }
+    },
+    {
+      "path": "pages/navigation/session",
+      "style": {
+        "navigationBarTitleText": "导航中",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/track/detail",
+      "style": {
+        "navigationBarTitleText": "轨迹详情"
+      }
+    },
+    {
+      "path": "pages/guide/manage",
+      "style": {
+        "navigationBarTitleText": "导购资料管理"
+      }
+    },
+    {
+      "path": "pages/guide/guide",
+      "style": {
+        "navigationBarTitleText": "装备导购"
+      }
+    },
+    {
+      "path": "pages/team/team",
+      "style": {
+        "navigationBarTitleText": "组队会合"
+      }
+    },
+    {
+      "path": "pages/gear/scan",
+      "style": {
+        "navigationBarTitleText": "拍照识装备"
+      }
+    },
+    {
+      "path": "pages/my/privacy",
+      "style": {
+        "navigationBarTitleText": "隐私设置"
+      }
+    },
+    {
+      "path": "pages/my/terms",
+      "style": {
+        "navigationBarTitleText": "使用规则与户外安全"
+      }
+    },
+    {
+      "path": "pages/track/import",
+      "style": {
+        "navigationBarTitleText": "导入 GPX"
+      }
+    },
+    {
+      "path": "pages/track/cloud",
+      "style": {
+        "navigationBarTitleText": "云端轨迹"
+      }
+    },
+    {
+      "path": "pages/account/account",
+      "style": {
+        "navigationBarTitleText": "账号管理"
+      }
+    },
+    {
+      "path": "pages/library/library",
+      "style": {
+        "navigationBarTitleText": "收藏与行程"
+      }
+    },
+    {
+      "path": "pages/moderation/moderation",
+      "style": {
+        "navigationBarTitleText": "社区举报处理"
+      }
+    },
+    {
+      "path": "pages/offline/offline",
+      "style": {
+        "navigationBarTitleText": "离线资料"
+      }
+    },
+    {
+      "path": "pages/my/updates",
+      "style": {
+        "navigationBarTitleText": "同步与更新"
+      }
+    },
+    {
+      "path": "pages/companion/social",
+      "style": {
+        "navigationBarTitleText": "日记、留言与队内消息"
+      }
+    },
+    {
+      "path": "pages/my/route-review",
+      "style": {
+        "navigationBarTitleText": "官方路线审核"
+      }
+    },
+    {
+      "path": "pages/route/news",
+      "style": {
+        "navigationBarTitleText": "官方户外公告"
+      }
+    },
+    {
+      "path": "pages/my/import",
+      "style": {
+        "navigationBarTitleText": "迁移旧资料"
+      }
+    },
+    {
+      "path": "pages/map/viewer",
+      "style": {
+        "navigationBarTitleText": "在线地图"
+      }
+    },
+    {
+      "path": "pages/account/qr-confirm",
+      "style": {
+        "navigationBarTitleText": "扫码确认登录"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "徒步地球",
+    "navigationBarBackgroundColor": "#01030a",
+    "backgroundColor": "#01030a"
+  },
+  "tabBar": {
+    "color": "#a7b5aa",
+    "selectedColor": "#b8f36b",
+    "backgroundColor": "#050c12",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/companion/companion",
+        "text": "约伴"
+      },
+      {
+        "pagePath": "pages/navigation/navigation",
+        "text": "导航"
+      },
+      {
+        "pagePath": "pages/track/track",
+        "text": "轨迹"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于轨迹记录、沿轨迹导航与组队位置共享"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdate"
+  ]
+}

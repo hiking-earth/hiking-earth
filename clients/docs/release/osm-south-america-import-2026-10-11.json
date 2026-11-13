@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "provider": "Geofabrik",
+    "region": "south-america",
+    "downloadUrl": "https://download.geofabrik.de/south-america-261008.osm.pbf",
+    "sourcePage": "https://download.geofabrik.de/south-america.html",
+    "sourceTimestamp": "2026-10-08T20:21:06Z",
+    "bytes": 4136471296,
+    "officialMd5": "f787bcd788cf71d3453c920a57adbb42",
+    "localSha256": "92c082b9179606bfeb254a4dd526e9b8c9dfee9ac0bb3f03c45e7aa73c48723b",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "import": {
+    "sourceId": "south-america/261008",
+    "beforeCount": 152747,
+    "afterCount": 153013,
+    "candidateRelations": 741,
+    "importedCompleteRelations": 740,
+    "newRelations": 266,
+    "updatedExistingRelations": 474,
+    "skippedIncompleteRelations": 1,
+    "skippedNestedRelations": 18,
+    "removedRelations": 0,
+    "allImportedRegion": "south-america",
+    "generatedAt": "2026-10-11T12:51:22Z"
+  },
+  "distribution": {
+    "snapshot": "7d996778c541e2dd89edf4caf208ce3a4e5591b07ac6d2a1c03a06bd41c15a1e",
+    "previousSnapshot": "00183493b592e5d65e5c41d742636b5e92b4b4ffa5823822f374925861f99804",
+    "productionSnapshotPreserved": "6eed0992ec765e5870be559ef92f8fe48769bfc5ea20e3256ef77f704ba55fdf",
+    "pages": 383,
+    "manifestCopiesIdentical": true,
+    "indexHashValid": true,
+    "allPageHashesMatch": true,
+    "compressedPagesByteIdenticalAcrossCopies": true,
+    "mergeNote": "Preserved concurrent remote OSM discovery refresh metadata and its added South America relation; the imported PBF record for that overlapping relation is newer. Merged catalog total remains 153013."
+  },
+  "limits": [
+    "Records are OSM discovery references, not route opening/access approval.",
+    "Bounds centers are not navigable tracks or verified trail geometry.",
+    "No product functional tests, builds, deployment, or device acceptance were run."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-07T11:30:58.096Z",
+  "scope": "CloudBase authenticated HTTP gateway with public coffee JPEG; excludes device UI, phone verification and class accuracy",
+  "fixtureSha256": "84b3e46185474c6067fac8c8db30d7c2a15367d231b5c72d8cf525e321248d9b",
+  "passed": true,
+  "failure": "",
+  "inference": {
+    "status": 200,
+    "ok": true,
+    "itemCount": 1
+  },
+  "checks": [
+    {
+      "name": "Unauthenticated photo inference denied",
+      "passed": true
+    },
+    {
+      "name": "Isolated account registered",
+      "passed": true
+    },
+    {
+      "name": "Authenticated real photo inference returns cup candidate",
+      "passed": true
+    },
+    {
+      "name": "Gateway inference elapsed time",
+      "passed": true,
+      "durationMs": 18502
+    },
+    {
+      "name": "Isolated account removed",
+      "passed": true
+    }
+  ]
+}

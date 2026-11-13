@@ -1,0 +1,24 @@
+{
+  "scope": "Existing local H5 build, Chromium in-app browser; not macOS native or physical phone acceptance",
+  "url": "http://localhost:4180/client-app/",
+  "buildIndexSha256": "de8674285901170c42e66828cc0d116787ed7b29f434db3144bf24e1287cc72c",
+  "entryScript": "assets/index-ElBw6MTd.js",
+  "entryScriptSha256": "25a22d199658ecadc97e891f8bdb7afc878bf3c049c142af0319e7dfcc462905",
+  "accepted": [
+    "Mouse press/move/release from (400,320) to (600,360) rotates visible Earth from East Asia to Europe and Africa",
+    "Zoom control changes visible scale from 0.883594 to 1.06031",
+    "Global reset restores East Asia orientation and scale 0.883594"
+  ],
+  "screenshots": [
+    "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/globe-browser-before.png",
+    "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/globe-browser-after-drag.png",
+    "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop42/globe-browser-reset.png"
+  ],
+  "limits": [
+    "Earlier native Mac drag remains unverified; browser result does not establish native tool issue as root cause",
+    "No mini-program touch or physical iPhone acceptance",
+    "This local build requires /client-app/ mount; root-only server produced blank page",
+    "Cloud catalog still fails for Hong Kong; isolated test origin has only seed routes initially"
+  ],
+  "formalReleaseReady": false
+}

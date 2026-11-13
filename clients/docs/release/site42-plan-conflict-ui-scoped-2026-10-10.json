@@ -1,0 +1,12 @@
+{
+  "scope": "Actual two Chrome sessions plan UI and automatic sync engine triggered via immediate sync; excludes timed polling, tracks, physical devices",
+  "checks": [
+    {
+      "name": "isolated UI account removed",
+      "passed": false
+    }
+  ],
+  "passed": false,
+  "error": "fetch failed",
+  "checkedAt": "2026-10-10T13:11:14.128Z"
+}

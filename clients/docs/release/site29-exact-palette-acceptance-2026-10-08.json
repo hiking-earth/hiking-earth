@@ -1,0 +1,25 @@
+{
+  "siteVersion": 29,
+  "siteSource": "42ea543a186c114a210e59c9d495b0947d306ed7",
+  "clientSource": "c6e990c",
+  "versionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_9bfc622b13648191bd7372f0d61ea578",
+  "deploymentId": "appgdep_6ac72939f5f881919185f8511346a050",
+  "deploymentStatus": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "archiveBytes": 100292352,
+  "archiveSha256": "c52a5c5b4842ae146622bf589b316be5aa1e044cceff50dbacc2519d0a05793a",
+  "verified": [
+    "Published client globe loads NASA historical imagery",
+    "Published client primary color rgb(184,243,107) matches website #b8f36b",
+    "Mac native candidate opened, satellite globe and same green visible",
+    "H5 and WeChat build passed",
+    "3 palette and renderer tests passed"
+  ],
+  "limits": [
+    "Not full multi-device acceptance",
+    "Mac candidate not formal updater signing artifact",
+    "Website map homepage still uses its existing map globe; shared satellite globe on /client",
+    "Real mini-program texture runtime and device permissions unverified",
+    "CloudBase preflight returned AUTH_FAILED after DNS override; owner reauthorization required before cloud mutation"
+  ]
+}

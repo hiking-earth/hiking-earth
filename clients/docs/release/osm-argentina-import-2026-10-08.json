@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-08T01:59:40+08:00",
+  "source": "Geofabrik official regional OSM PBF",
+  "sourceUrl": "https://download.geofabrik.de/south-america/argentina-261005.osm.pbf",
+  "sourceInfoUrl": "https://download.geofabrik.de/south-america/argentina.html",
+  "sourceTimestamp": "2026-10-05T20:21:35Z",
+  "bytes": 432319727,
+  "md5": "288cdca6add4f932e23248ee7f53f4dd",
+  "sha256": "e72e0de6314ff186f8a60fbdb9cd3efebd9fa9e4f68a27e0dfc842c952a096f1",
+  "import": {
+    "sourceId": "south-america/argentina/261005",
+    "region": "south-america",
+    "candidateRelations": 119,
+    "importedRelations": 89,
+    "skippedIncompleteRelations": 30,
+    "skippedNestedRelations": 6
+  },
+  "catalogDelta": {
+    "beforeCount": 27160,
+    "afterCount": 27215,
+    "added": 55,
+    "updated": 34,
+    "removed": 0,
+    "southAmericaBefore": 311,
+    "southAmericaAfter": 366,
+    "sha256": "e50acd4379418e8680b5cfddbecf4cdceb0b68af88cbb1af940c4820fbf819e9"
+  },
+  "distribution": {
+    "osmPages": 69,
+    "copies": [
+      "shared/public-catalog",
+      "app/cloudfunctions/catalog-feed/snapshots",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots"
+    ],
+    "manifestAndPagePayloadHashesMatch": true,
+    "compressedPageBytesMatch": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

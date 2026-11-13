@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-10T14:05:00Z",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site/client-app/#/pages/library/library",
+  "viewport": {"width":390,"height":844,"touch":true},
+  "dateInputHeightPx": 44,
+  "typedValue": "2026-11-01",
+  "valueRetained": true,
+  "screenshot": "output/site43-mobile-plan-date.png",
+  "passed": true,
+  "scope": "Public H5 layout and date entry only; not physical iPhone, account or cloud acceptance"
+}

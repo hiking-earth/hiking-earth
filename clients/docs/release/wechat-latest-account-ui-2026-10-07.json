@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-07T13:55:29.363577+00:00",
+  "sourceCommit": "5bbeea7",
+  "tool": "WeChat Developer Tools Stable 2.02.2608070",
+  "project": "app/dist/build/mp-weixin",
+  "observed": [
+    "Latest build loaded",
+    "Directory restored 66747 discovery records",
+    "WeChat login shows success and signed-in profile",
+    "Unified account ID and copy button visible",
+    "Phone integration remains explicitly unavailable"
+  ],
+  "identityIncluded": false,
+  "productionDomainAcceptance": false,
+  "limitations": [
+    "Tool console reports domain/TLS checks disabled in existing local configuration; no setting changed this turn",
+    "No physical device login, QR confirmation or publish acceptance"
+  ]
+}

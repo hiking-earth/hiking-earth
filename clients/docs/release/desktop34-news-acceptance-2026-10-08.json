@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-08T13:35:03.354832+00:00",
+  "platform": "installed macOS desktop-34",
+  "status": "failed-not-accepted",
+  "observed": "公告格式无效，保留本机资料；cached official articles remain visible",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-34/mac-news-format-error.png",
+  "sourceChecks": {
+    "bundledSnapshotAcceptedByCurrentValidator": true,
+    "bundledItemCount": 203,
+    "bundledGeneratedAt": "2026-10-07T17:12:58.694839+00:00",
+    "duplicateIds": 0,
+    "registryIdentityMismatches": 0
+  },
+  "transportChecks": {
+    "directCloudBase": "DNS lookup failed; no response captured",
+    "publicSiteRelay": "HTTP 403 from shell; no authenticated browser response captured"
+  },
+  "limits": [
+    "Remote payload not captured; root cause not established",
+    "Cached article visibility does not prove live announcement refresh",
+    "No validation rules weakened and no speculative fix deployed"
+  ],
+  "next": "Capture actual successful transport payload then compare validation and monotonic timestamp rules"
+}

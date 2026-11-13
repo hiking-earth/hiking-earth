@@ -1,0 +1,8 @@
+[
+  {
+    "collection": "route_reviews",
+    "before": "PRIVATE",
+    "after": "ADMINONLY",
+    "verified": true
+  }
+]

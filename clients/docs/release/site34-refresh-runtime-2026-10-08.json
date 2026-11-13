@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-08T15:56:26.032569+00:00",
+  "siteVersion": 34,
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site/client",
+  "actualBrowser": {
+    "newRefreshText": true,
+    "refreshButtonDisabledAttribute": "true",
+    "hk": "saved 167 offline",
+    "osm": "failed retained local",
+    "usfs": "in flight"
+  },
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-34/client-refresh.png",
+  "limits": [
+    "HK intermittent production failure not proven fixed",
+    "OSM complete refresh not accepted",
+    "USFS response not terminal at observation",
+    "No real iPhone or mini-program device acceptance"
+  ]
+}

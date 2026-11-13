@@ -1,0 +1,22 @@
+{
+  "version": 41,
+  "scope": "Actual Chrome service worker and offline root page; not Safari/iPhone installation",
+  "checks": [
+    {
+      "name": "actual service worker controls public page",
+      "passed": true
+    },
+    {
+      "name": "offline public homepage renders",
+      "passed": true
+    }
+  ],
+  "caches": [
+    {
+      "name": "hiking-earth-110416f8dcdb0336e332c6da1672378b30ea92138327b7cb41278aa63e72512e",
+      "entries": 8
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T12:25:10.174Z"
+}

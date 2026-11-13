@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-07",
+  "observedOperation": "catalog-feed",
+  "observedSource": "usfs",
+  "observedPage": 1,
+  "observedWindowLimit": 40000,
+  "status": 500,
+  "notProven": "Exact SDK error/root cause",
+  "changes": "Sanitized server-side failure stage diagnostic: rate limit/session/business; handler and constrained code only, no request payload/credentials/error message/stack",
+  "syntaxCheckPassed": true,
+  "rateTestsPassed": 4,
+  "deploymentSession": 11728,
+  "deploymentVerified": false,
+  "backupRoot": "/Users/nanyu/.local/share/hiking-earth/backups/cloud-20261007-catalog-diag-r10",
+  "next": "Poll deployment11728 before any restart; then reproduce and inspect sanitized diagnostics"
+}

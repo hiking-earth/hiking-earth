@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "US Pacific",
+  "source": "Geofabrik official fixed US Pacific extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 144978,
+  "catalogCountAfter": 145045,
+  "catalogRecordDelta": 67,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us-pacific-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us-pacific.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 171865617,
+      "officialMd5Verified": "48a0de94d1e54032e51465f6dd73428f",
+      "sha256": "139b66ee5cd9c490e2b5c0842e6336d49872ba9f6e97fe1a66523ba0b88d5cc9",
+      "candidateRelations": 68,
+      "importedRelations": 67,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 0,
+      "netCatalogRecordDelta": 67
+    }
+  ],
+  "catalogSnapshot": "28169b3cb92c1961e00097ca3f046f37b069a04b7eb279793ef407971794bd5a",
+  "pageCount": 363,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1089,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 363 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only; it does not prove product behavior, deployment or remote runtime."
+}

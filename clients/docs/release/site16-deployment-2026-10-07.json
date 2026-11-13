@@ -1,0 +1,36 @@
+{
+  "saved": {
+    "id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_cb88b8d6abcc8191a4eb9706b63b224f",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "version_number": 16,
+    "source": {
+      "commit_sha": "b5c8f8af6cde8799b61b12921a364192daf35830"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000f10081fd8f3b54be969f9782",
+      "content_hash": "sha256:8bba464d726c3f5e8020cc64ba258fb2fff7d8699348805754ce3248429a27c6",
+      "size_bytes": 42567680,
+      "file_count": 589
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ac5c15b8218819194443f0ae0601a08",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "title": "徒步地球全球徒步路线",
+    "version_id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_cb88b8d6abcc8191a4eb9706b63b224f",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6a82b2fd4d348191830f591595297f7c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-07T03:49:58.559183+00:00"
+  },
+  "clientSource": "8e5b7fd",
+  "maplibre": "6.4.1"
+}

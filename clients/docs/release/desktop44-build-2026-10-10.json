@@ -1,0 +1,10 @@
+{
+  "run": 38019207925,
+  "sourceCommit": "ddbd570ae01a096b0d348ed9eb7c99a270bf19fe",
+  "status": "completed",
+  "conclusion": "success",
+  "checkedAt": "2026-10-10",
+  "scope": "Workflow terminal state and retained Windows/Linux launch evidence. Mac archive download and release asset inventory not verified this turn.",
+  "download": "GitHub GraphQL EOF; download session terminal; package directory empty.",
+  "formalReady": false
+}

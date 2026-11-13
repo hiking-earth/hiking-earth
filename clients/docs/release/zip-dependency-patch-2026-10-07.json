@@ -1,0 +1,18 @@
+{
+  "sourceBase": "4a16dcf",
+  "dependency": "adm-zip",
+  "before": "0.5.16",
+  "after": "0.6.1",
+  "checks": {
+    "zipRoundtrip": "passed",
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed",
+    "diffCheck": "passed"
+  },
+  "limitations": [
+    "Full post-patch audit pending.",
+    "Not deployed or device accepted.",
+    "PostCSS override attempts did not change resolved 8.5.6; ineffective configuration removed."
+  ]
+}

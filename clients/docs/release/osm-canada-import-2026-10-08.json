@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Canada",
+  "source": "Geofabrik official fixed Canada extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 143464,
+  "catalogCountAfter": 144978,
+  "catalogRecordDelta": 1514,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/canada-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/canada.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 6514093472,
+      "officialMd5Verified": "2810571b42f40eea77b52f762af8015f",
+      "sha256": "2c2f31fd4db85e963c7c1822e4b49ef220da0d49778a2b5fb30dd51a15150b17",
+      "candidateRelations": 1552,
+      "importedRelations": 1530,
+      "skippedIncompleteRelations": 22,
+      "skippedNestedRelations": 48,
+      "netCatalogRecordDelta": 1514
+    }
+  ],
+  "catalogSnapshot": "2a823478a27c3c5b7bc437a46bfde63edbc8617a5254630f01b6e61d157b3515",
+  "pageCount": 363,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1089,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 363 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only; it does not prove product behavior, deployment or remote runtime."
+}

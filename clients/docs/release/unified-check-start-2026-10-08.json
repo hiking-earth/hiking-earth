@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "complete": false,
+  "date": "2026-10-08",
+  "sourceCommit": "61796578b3368c48e3039c096d2972cdabb0edd5",
+  "runtime": {
+    "node": "22.22.2",
+    "npm": "10.9.7",
+    "officialArchiveSha256": "f8655beb4b86ff6588ed7e02c37f8574b58557bd3e880012814b1a4956fd9d88"
+  },
+  "checks": {
+    "appTypeCheck": {
+      "exitCode": 0
+    },
+    "h5Build": {
+      "exitCode": 0
+    },
+    "weixinBuild": {
+      "exitCode": 0
+    },
+    "websiteProductionBuild": {
+      "exitCode": 0
+    },
+    "webSourceChecks": {
+      "passed": 14,
+      "failed": 0,
+      "scope": "source/contracts, not browser UI acceptance"
+    },
+    "privacyAndRouteValidity": {
+      "passed": 16,
+      "failed": 0
+    },
+    "weatherAndPwaCache": {
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "remaining": "Full business regression, final native/desktop packaging, deployed APIs/browser checks, physical iPhone/other device permissions, mini-program upload and store publication remain incomplete.",
+  "h5": {
+    "files": 95,
+    "bytes": 53925966,
+    "inventorySha256": "dd90c5dc0e3fa42e721cb2e33a3d23f96f0885d31a83d7abab692a3d4e50becb"
+  },
+  "mp-weixin": {
+    "files": 169,
+    "bytes": 770044,
+    "inventorySha256": "b27191d82a4eb77e8090df862de783a985b2228f214f12359f9ae8a53ad23b67"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-07T04:50:17.600625+00:00",
+  "sourceCommit": "eefe4b5",
+  "passed": true,
+  "scope": "Official WeChat developer simulator; actual paginated sync, chunk files and cold-reopen restored labels; debugger set Offline after reopen and later restored Online. Not a physical iPhone or Mini Program production-domain acceptance.",
+  "savedCounts": {
+    "osm": 26852,
+    "usfs": 40000,
+    "hk": 167
+  },
+  "coldRestoreLabels": {
+    "osm": "已恢复上次保存目录",
+    "usfs": "已恢复上次保存目录",
+    "hk": "已恢复上次保存目录"
+  },
+  "displayedDeduplicatedRoutes": 66747,
+  "offlineObservation": true,
+  "networkRestoredOnline": true,
+  "publicChunkFiles": [
+    {
+      "file": "he-catalog-usfs-1.json.parts.json",
+      "parts": 34,
+      "bytes": 17855531,
+      "matchesManifestBytes": true,
+      "routes": 40000,
+      "sha256": "f679e80094918ae3e57f621f9d080ae427a42c5b082bc9607803cc234d4e92a3",
+      "largestPartBytes": 537642
+    },
+    {
+      "file": "he-catalog-hk-1.json.parts.json",
+      "parts": 2,
+      "bytes": 967324,
+      "matchesManifestBytes": true,
+      "routes": 167,
+      "sha256": "b08baece70cf9f04575fc5ccf1c7f6bc8584828d313df3ed3d3cf88d309bcfaa",
+      "largestPartBytes": 528698
+    },
+    {
+      "file": "he-catalog-osm-1.json.parts.json",
+      "parts": 21,
+      "bytes": 10994287,
+      "matchesManifestBytes": true,
+      "routes": 26852,
+      "sha256": "a92eb0255b963410804539b5a3fb653b3fea7268299eb3f2c11b2900d606f5d9",
+      "largestPartBytes": 548374
+    },
+    {
+      "file": "he-catalog-hk-0.json.parts.json",
+      "parts": 2,
+      "bytes": 967324,
+      "matchesManifestBytes": true,
+      "routes": 167,
+      "sha256": "b08baece70cf9f04575fc5ccf1c7f6bc8584828d313df3ed3d3cf88d309bcfaa",
+      "largestPartBytes": 528698
+    }
+  ],
+  "screenshot": "wechat-chunk-cache-restored-2026-10-07.png",
+  "priorLargeFileApiRootCause": "still unconfirmed; chunk implementation passed actual cold restore"
+}

@@ -1,0 +1,170 @@
+{
+  "version": "2.0",
+  "envId": "cloud1-d9g4fl3fu2491914f",
+  "functionRoot": "cloudfunctions",
+  "functions": [
+    {
+      "name": "login",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "微信一键登录取 openid"
+    },
+    {
+      "name": "companion-list",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "约伴帖列表"
+    },
+    {
+      "name": "companion-create",
+      "timeout": 20,
+      "memorySize": 256,
+      "description": "发约伴帖（内容安全机审）"
+    },
+    {
+      "name": "companion-join",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "报名约伴"
+    },
+    {
+      "name": "team-create",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "创建组队"
+    },
+    {
+      "name": "team-join",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "邀请码入队"
+    },
+    {
+      "name": "team-current",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "恢复当前账号已加入的活动队伍"
+    },
+    {
+      "name": "team-report",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "上报队员实时位置"
+    },
+    {
+      "name": "team-locations",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "查询队员位置"
+    },
+    {
+      "name": "sos-trigger",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "一键求救"
+    },
+    {
+      "name": "track-sync",
+      "timeout": 20,
+      "memorySize": 256,
+      "description": "轨迹云同步"
+    },
+    {
+      "name": "guide-list",
+      "timeout": 10,
+      "memorySize": 256,
+      "description": "装备导购列表"
+    },
+    {
+      "name": "gear-scan",
+      "timeout": 60,
+      "memorySize": 256,
+      "description": "拍照识装备（视觉模型）"
+    },
+    {
+      "name": "init-db",
+      "timeout": 60,
+      "memorySize": 256,
+      "description": "一次性初始化 6 个数据库集合"
+    },
+    {
+      "name": "team-leave",
+      "timeout": 10,
+      "memorySize": 256
+    },
+    {
+      "name": "team-stop",
+      "timeout": 10,
+      "memorySize": 256
+    },
+    {
+      "name": "companion-report",
+      "timeout": 10,
+      "memorySize": 256
+    },
+    {
+      "name": "track-manage",
+      "timeout": 20,
+      "memorySize": 256
+    },
+    {
+      "name": "companion-manage",
+      "timeout": 30,
+      "memorySize": 256
+    },
+    {
+      "name": "team-manage",
+      "timeout": 30,
+      "memorySize": 256
+    },
+    {
+      "name": "client-api",
+      "timeout": 120,
+      "memorySize": 512,
+      "runtime": "Nodejs20.19",
+      "installDependency": true,
+      "description": "跨端账号与业务HTTP网关"
+    },
+    {
+      "name": "library-manage",
+      "timeout": 20,
+      "memorySize": 256
+    },
+    {
+      "name": "community-moderate",
+      "timeout": 30,
+      "memorySize": 256
+    },
+    {
+      "name": "social-manage",
+      "timeout": 30,
+      "memorySize": 256,
+      "runtime": "Nodejs20.19"
+    },
+    {
+      "name": "route-manage",
+      "timeout": 30,
+      "memorySize": 256,
+      "runtime": "Nodejs20.19"
+    },
+    {
+      "name": "data-maintenance",
+      "timeout": 120,
+      "memorySize": 256,
+      "runtime": "Nodejs20.19",
+      "triggers": [
+        {
+          "name": "hiking-retention-six-hours",
+          "type": "timer",
+          "config": "0 37 */6 * * * *"
+        }
+      ]
+    },
+    {
+      "name": "catalog-feed",
+      "timeout": 60,
+      "memorySize": 512,
+      "runtime": "Nodejs20.19"
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "schemaVersion": 1,
+  "queries": [
+    {
+      "region": "美国 · 大峡谷",
+      "matchRegions": [
+        "美国 · 大峡谷",
+        "美国·Grand Canyon National Park"
+      ],
+      "query": "Grand Canyon National Park landscape hiking"
+    },
+    {
+      "region": "美国 · 黄石",
+      "matchRegions": [
+        "美国 · 黄石",
+        "Yellowstone National Park",
+        "美国·Yellowstone National Park"
+      ],
+      "query": "Yellowstone National Park trail landscape"
+    },
+    {
+      "region": "中国 · 香港",
+      "matchRegions": [
+        "中国 · 香港",
+        "Hong Kong hiking trail",
+        "中国 · 香港 · 大嶼山",
+        "中国 · 香港 · 新界中區",
+        "中国 · 香港 · 新界北區",
+        "中国 · 香港 · 新界西區",
+        "中国 · 香港 · 西貢",
+        "中国 · 香港 · 香港島"
+      ],
+      "query": "Hong Kong hiking trail landscape"
+    },
+    {
+      "region": "澳大利亚 · 新南威尔士州",
+      "matchRegions": [
+        "澳大利亚 · 新南威尔士州",
+        "New South Wales national park",
+        "澳大利亚·新南威尔士州"
+      ],
+      "query": "New South Wales national park walking track landscape"
+    },
+    {
+      "region": "澳大利亚 · 昆士兰",
+      "matchRegions": [
+        "澳大利亚 · 昆士兰",
+        "Queensland national park",
+        "澳大利亚·昆士兰州"
+      ],
+      "query": "Queensland national park hiking trail landscape"
+    },
+    {
+      "region": "美国·Wrangell-St Elias National Park and Preserve",
+      "matchRegions": [
+        "美国·Wrangell-St Elias National Park and Preserve"
+      ],
+      "query": "Wrangell St Elias National Park Alaska hiking landscape"
+    },
+    {
+      "region": "美国·Yosemite National Park",
+      "matchRegions": [
+        "美国·Yosemite National Park"
+      ],
+      "query": "Yosemite National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Shenandoah National Park",
+      "matchRegions": [
+        "美国·Shenandoah National Park"
+      ],
+      "query": "Shenandoah National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Big Cypress National Preserve",
+      "matchRegions": [
+        "美国·Big Cypress National Preserve"
+      ],
+      "query": "Big Cypress National Preserve hiking landscape"
+    },
+    {
+      "region": "美国·Rocky Mountain National Park",
+      "matchRegions": [
+        "美国·Rocky Mountain National Park"
+      ],
+      "query": "Rocky Mountain National Park trail landscape"
+    },
+    {
+      "region": "美国·Blue Ridge Parkway",
+      "matchRegions": [
+        "美国·Blue Ridge Parkway"
+      ],
+      "query": "Blue Ridge Parkway hiking trail landscape"
+    },
+    {
+      "region": "美国·Chesapeake & Ohio Canal National Historical Park",
+      "matchRegions": [
+        "美国·Chesapeake & Ohio Canal National Historical Park"
+      ],
+      "query": "Chesapeake and Ohio Canal National Historical Park towpath landscape"
+    },
+    {
+      "region": "美国·Grand Teton National Park",
+      "matchRegions": [
+        "美国·Grand Teton National Park"
+      ],
+      "query": "Grand Teton National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Saguaro National Park",
+      "matchRegions": [
+        "美国·Saguaro National Park"
+      ],
+      "query": "Saguaro National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Glacier Bay National Park and Preserve",
+      "matchRegions": [
+        "美国·Glacier Bay National Park and Preserve"
+      ],
+      "query": "Glacier Bay National Park Alaska hiking landscape"
+    },
+    {
+      "region": "美国·Denali National Park and Preserve",
+      "matchRegions": [
+        "美国·Denali National Park and Preserve"
+      ],
+      "query": "Denali National Park Alaska hiking trail landscape"
+    },
+    {
+      "region": "美国·Cape Hatteras National Seashore",
+      "matchRegions": [
+        "美国·Cape Hatteras National Seashore"
+      ],
+      "query": "Cape Hatteras National Seashore walking trail landscape"
+    },
+    {
+      "region": "加拿大",
+      "matchRegions": [
+        "加拿大"
+      ],
+      "query": "Canada national park hiking trail landscape"
+    },
+    {
+      "region": "新西兰",
+      "matchRegions": [
+        "新西兰"
+      ],
+      "query": "New Zealand Great Walks hiking landscape"
+    },
+    {
+      "region": "日本·东海自然步道",
+      "matchRegions": [
+        "日本·东海自然步道"
+      ],
+      "query": "Tokai Nature Trail Japan walking landscape"
+    },
+    {
+      "region": "瑞士·瑞士TLM3D徒步网络",
+      "matchRegions": [
+        "瑞士·瑞士TLM3D徒步网络"
+      ],
+      "query": "Switzerland hiking trail mountain landscape"
+    },
+    {
+      "region": "英国·英格兰·剑桥郡",
+      "matchRegions": [
+        "英国·英格兰·剑桥郡"
+      ],
+      "query": "Cambridgeshire England public footpath landscape"
+    },
+    {
+      "region": "英国·英格兰·诺福克",
+      "matchRegions": [
+        "英国·英格兰·诺福克"
+      ],
+      "query": "Norfolk England public footpath landscape"
+    },
+    {
+      "region": "英国·北爱尔兰·米德阿尔斯特",
+      "matchRegions": [
+        "英国·北爱尔兰·米德阿尔斯特"
+      ],
+      "query": "Mid Ulster Northern Ireland walking trail landscape"
+    },
+    {
+      "region": "英国·苏格兰·阿盖尔-比特",
+      "matchRegions": [
+        "英国·苏格兰·阿盖尔-比特"
+      ],
+      "query": "Argyll and Bute Scotland walking route landscape"
+    },
+    {
+      "region": "英国·威尔士",
+      "matchRegions": [
+        "英国·威尔士"
+      ],
+      "query": "Wales national trail hiking landscape"
+    },
+    {
+      "region": "澳大利亚·维多利亚州",
+      "matchRegions": [
+        "澳大利亚·维多利亚州"
+      ],
+      "query": "Victoria Australia walking track landscape"
+    },
+    {
+      "region": "英国·英格兰",
+      "matchRegions": [
+        "英国·英格兰"
+      ],
+      "query": "England national trail hiking landscape"
+    },
+    {
+      "region": "europe",
+      "matchRegions": [
+        "europe"
+      ],
+      "query": "Europe hiking trail landscape mountains forest"
+    },
+    {
+      "region": "north-america",
+      "matchRegions": [
+        "north-america"
+      ],
+      "query": "North America hiking trail landscape national park"
+    },
+    {
+      "region": "asia",
+      "matchRegions": [
+        "asia"
+      ],
+      "query": "Asia hiking trail landscape mountains forest"
+    },
+    {
+      "region": "south-asia",
+      "matchRegions": [
+        "south-asia"
+      ],
+      "query": "South Asia trekking Himalaya hiking trail landscape"
+    },
+    {
+      "region": "oceania",
+      "matchRegions": [
+        "oceania"
+      ],
+      "query": "Oceania hiking trail landscape mountains coast"
+    },
+    {
+      "region": "africa",
+      "matchRegions": [
+        "africa"
+      ],
+      "query": "Africa hiking trail landscape mountains savanna"
+    },
+    {
+      "region": "south-america",
+      "matchRegions": [
+        "south-america"
+      ],
+      "query": "South America Andes hiking trail landscape"
+    },
+    {
+      "region": "china",
+      "matchRegions": [
+        "china"
+      ],
+      "query": "China hiking trail landscape mountains national park"
+    },
+    {
+      "region": "japan",
+      "matchRegions": [
+        "japan"
+      ],
+      "query": "Japan hiking trail landscape mountains forest"
+    },
+    {
+      "region": "hong-kong",
+      "matchRegions": [
+        "hong-kong"
+      ],
+      "query": "Hong Kong hiking trail landscape country park"
+    },
+    {
+      "region": "美国·National Mall and Memorial Parks",
+      "matchRegions": [
+        "美国·National Mall and Memorial Parks"
+      ],
+      "query": "National Mall and Memorial Parks Washington DC landscape walking trail"
+    },
+    {
+      "region": "美国·Gettysburg National Military Park",
+      "matchRegions": [
+        "美国·Gettysburg National Military Park"
+      ],
+      "query": "Gettysburg National Military Park landscape trail"
+    },
+    {
+      "region": "美国·Rock Creek Park",
+      "matchRegions": [
+        "美国·Rock Creek Park"
+      ],
+      "query": "Rock Creek Park Washington DC hiking trail landscape"
+    },
+    {
+      "region": "美国·Harpers Ferry National Historical Park",
+      "matchRegions": [
+        "美国·Harpers Ferry National Historical Park"
+      ],
+      "query": "Harpers Ferry National Historical Park hiking trail landscape"
+    },
+    {
+      "region": "美国·George Washington Memorial Parkway",
+      "matchRegions": [
+        "美国·George Washington Memorial Parkway"
+      ],
+      "query": "George Washington Memorial Parkway scenic trail landscape"
+    },
+    {
+      "region": "美国·Klondike Gold Rush National Historical Park",
+      "matchRegions": [
+        "美国·Klondike Gold Rush National Historical Park"
+      ],
+      "query": "Klondike Gold Rush National Historical Park Alaska hiking landscape"
+    },
+    {
+      "region": "美国·Big Bend National Park",
+      "matchRegions": [
+        "美国·Big Bend National Park"
+      ],
+      "query": "Big Bend National Park Texas hiking trail landscape"
+    },
+    {
+      "region": "美国·Valley Forge National Historical Park",
+      "matchRegions": [
+        "美国·Valley Forge National Historical Park"
+      ],
+      "query": "Valley Forge National Historical Park walking trail landscape"
+    },
+    {
+      "region": "美国·Channel Islands National Park",
+      "matchRegions": [
+        "美国·Channel Islands National Park"
+      ],
+      "query": "Channel Islands National Park California hiking landscape"
+    },
+    {
+      "region": "美国·Joshua Tree National Park",
+      "matchRegions": [
+        "美国·Joshua Tree National Park"
+      ],
+      "query": "Joshua Tree National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Point Reyes National Seashore",
+      "matchRegions": [
+        "美国·Point Reyes National Seashore"
+      ],
+      "query": "Point Reyes National Seashore hiking trail landscape"
+    },
+    {
+      "region": "美国·Chickamauga and Chattanooga National Military Park",
+      "matchRegions": [
+        "美国·Chickamauga and Chattanooga National Military Park"
+      ],
+      "query": "Chickamauga Chattanooga National Military Park trail landscape"
+    },
+    {
+      "region": "美国·Mesa Verde National Park",
+      "matchRegions": [
+        "美国·Mesa Verde National Park"
+      ],
+      "query": "Mesa Verde National Park hiking landscape"
+    },
+    {
+      "region": "美国·Canyonland National Park",
+      "matchRegions": [
+        "美国·Canyonland National Park"
+      ],
+      "query": "Canyonlands National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Natchez Trace Parkway",
+      "matchRegions": [
+        "美国·Natchez Trace Parkway"
+      ],
+      "query": "Natchez Trace Parkway hiking trail landscape"
+    },
+    {
+      "region": "美国·Prince William Forest Park",
+      "matchRegions": [
+        "美国·Prince William Forest Park"
+      ],
+      "query": "Prince William Forest Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Manassas National Battlefield Park",
+      "matchRegions": [
+        "美国·Manassas National Battlefield Park"
+      ],
+      "query": "Manassas National Battlefield Park walking trail landscape"
+    },
+    {
+      "region": "美国·Yukon-Charley Rivers National Preserve",
+      "matchRegions": [
+        "美国·Yukon-Charley Rivers National Preserve"
+      ],
+      "query": "Yukon Charley Rivers National Preserve Alaska landscape trail"
+    },
+    {
+      "region": "美国·New River Gorge National Park and Preserve",
+      "matchRegions": [
+        "美国·New River Gorge National Park and Preserve"
+      ],
+      "query": "New River Gorge National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Great Falls Park",
+      "matchRegions": [
+        "美国·Great Falls Park"
+      ],
+      "query": "Great Falls Park Virginia hiking trail landscape"
+    },
+    {
+      "region": "美国·Antietam National Battlefield",
+      "matchRegions": [
+        "美国·Antietam National Battlefield"
+      ],
+      "query": "Antietam National Battlefield landscape walking trail"
+    },
+    {
+      "region": "美国·Cumberland Gap National Historical Park",
+      "matchRegions": [
+        "美国·Cumberland Gap National Historical Park"
+      ],
+      "query": "Cumberland Gap National Historical Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Lava Beds National Monument",
+      "matchRegions": [
+        "美国·Lava Beds National Monument"
+      ],
+      "query": "Lava Beds National Monument hiking trail landscape"
+    },
+    {
+      "region": "美国·Navajo National Monument",
+      "matchRegions": ["美国·Navajo National Monument"],
+      "query": "Navajo National Monument hiking trail landscape"
+    },
+    {
+      "region": "美国·Anacostia Park",
+      "matchRegions": ["美国·Anacostia Park"],
+      "query": "Anacostia Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Kenai Fjords National Park",
+      "matchRegions": ["美国·Kenai Fjords National Park"],
+      "query": "Kenai Fjords National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Great Basin National Park",
+      "matchRegions": ["美国·Great Basin National Park"],
+      "query": "Great Basin National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Crater Lake National Park",
+      "matchRegions": ["美国·Crater Lake National Park"],
+      "query": "Crater Lake National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Catoctin Mountain Park",
+      "matchRegions": ["美国·Catoctin Mountain Park"],
+      "query": "Catoctin Mountain Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Little River Canyon National Preserve",
+      "matchRegions": ["美国·Little River Canyon National Preserve"],
+      "query": "Little River Canyon National Preserve hiking trail landscape"
+    },
+    {
+      "region": "美国·Zion National Park",
+      "matchRegions": ["美国·Zion National Park"],
+      "query": "Zion National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Kennesaw Mountain National Battlefield Park",
+      "matchRegions": ["美国·Kennesaw Mountain National Battlefield Park"],
+      "query": "Kennesaw Mountain National Battlefield Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Valles Caldera National Preserve",
+      "matchRegions": ["美国·Valles Caldera National Preserve"],
+      "query": "Valles Caldera National Preserve hiking trail landscape"
+    },
+    {
+      "region": "美国·President's Park (White House)",
+      "matchRegions": ["美国·President's Park (White House)"],
+      "query": "President's Park White House walking trail landscape"
+    },
+    {
+      "region": "美国·Grant-Kohrs Ranch NHS",
+      "matchRegions": ["美国·Grant-Kohrs Ranch NHS"],
+      "query": "Grant-Kohrs Ranch National Historic Site trail landscape"
+    },
+    {
+      "region": "美国·Stones River National Battlefield",
+      "matchRegions": ["美国·Stones River National Battlefield"],
+      "query": "Stones River National Battlefield hiking trail landscape"
+    },
+    {
+      "region": "美国·Chamizal National Memorial",
+      "matchRegions": ["美国·Chamizal National Memorial"],
+      "query": "Chamizal National Memorial trail landscape"
+    },
+    {
+      "region": "美国·Petroglyph National Monument",
+      "matchRegions": ["美国·Petroglyph National Monument"],
+      "query": "Petroglyph National Monument hiking trail landscape"
+    },
+    {
+      "region": "美国·Hopewell Furnance National Historic Site",
+      "matchRegions": ["美国·Hopewell Furnance National Historic Site"],
+      "query": "Hopewell Furnace National Historic Site hiking trail landscape"
+    },
+    {
+      "region": "美国·Bryce Canyon National Park",
+      "matchRegions": ["美国·Bryce Canyon National Park"],
+      "query": "Bryce Canyon National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Glen Canyon National Recreation Area",
+      "matchRegions": ["美国·Glen Canyon National Recreation Area"],
+      "query": "Glen Canyon National Recreation Area hiking trail landscape"
+    },
+    {
+      "region": "美国·Capitol Reef National Park",
+      "matchRegions": ["美国·Capitol Reef National Park"],
+      "query": "Capitol Reef National Park hiking trail landscape"
+    },
+    {
+      "region": "美国·Canyon de Chelly National Monument",
+      "matchRegions": ["美国·Canyon de Chelly National Monument"],
+      "query": "Canyon de Chelly National Monument hiking trail landscape"
+    }
+  ]
+}

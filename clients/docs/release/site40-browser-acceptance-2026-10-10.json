@@ -1,0 +1,48 @@
+{
+  "siteVersion": 40,
+  "clientSource": "075bd7dd5fa5a631903f93e43751092458dc6b51",
+  "checks": [
+    {
+      "name": "live local PMTiles places",
+      "passed": true,
+      "labels": [
+        "塘褔",
+        "長沙",
+        "鹹田",
+        "望東灣",
+        "大芒輋",
+        "䃟石灣",
+        "長沙上村",
+        "貝澳",
+        "長屻石",
+        "Tai Mong Che",
+        "離島區",
+        "水口泥灘",
+        "貝澳泳灘",
+        "Ham Tin Villas",
+        "廟仔墩",
+        "上長沙泳灘",
+        "出水頂",
+        "Botanica Bay"
+      ]
+    },
+    {
+      "name": "offline map zoom and labels",
+      "passed": true,
+      "labels": [
+        "長沙",
+        "長沙下村",
+        "長沙上村",
+        "下長沙泳灘",
+        "美雅花園",
+        "長沙政府度假別墅",
+        "Waterside",
+        "上長沙泳灘",
+        "Botanica Bay"
+      ]
+    }
+  ],
+  "scope": "Public H5 in isolated Chrome; no native or real phone acceptance",
+  "passed": true,
+  "checkedAt": "2026-10-10T04:19:30.776Z"
+}

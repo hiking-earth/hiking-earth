@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-07T03:39:08.782872+00:00",
+  "buildPassed": true,
+  "requiredPrivateInfos": [
+    "getLocation",
+    "startLocationUpdate",
+    "onLocationChange"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "仅在你主动开始导航、轨迹记录或队伍位置共享并授权后，用于提供对应的定位功能"
+    }
+  },
+  "generatedAppJsonSha256": "4acee55b38cdae707f2ffc20a7f9ae0cb985ad517a25a793721f8e1cad2b3cde",
+  "runtimeAccepted": false,
+  "note": "Configuration declaration verified in rebuilt output; no device permission granted or GPS collected. Simulator startup and owner platform API eligibility remain unverified."
+}

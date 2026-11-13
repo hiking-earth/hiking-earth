@@ -1,0 +1,12 @@
+{
+  "scope": "Actual isolated Chrome account UI; excludes WeChat identity and native permissions",
+  "checks": [
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录', exact: true }).last()\u001b[22m\n",
+  "checkedAt": "2026-10-10T04:38:19.775Z"
+}

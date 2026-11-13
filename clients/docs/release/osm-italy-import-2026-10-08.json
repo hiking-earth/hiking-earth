@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Italy",
+  "source": "Geofabrik official Italy country extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 61723,
+  "catalogCountAfter": 72072,
+  "catalogRecordDelta": 10349,
+  "successfulExtracts": [
+    {
+      "sourceId": "europe/italy-latest",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/italy.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 2238384073,
+      "officialMd5Verified": "6229b819c2c227351700bbf45545aaf8",
+      "sha256": "58ae9890fe743dd9be71a66d71e415b75033a00b3123f6c11b2205bb06afe74b",
+      "candidateRelations": 13905,
+      "importedRelations": 13630,
+      "skippedIncompleteRelations": 275,
+      "skippedNestedRelations": 208,
+      "netCatalogRecordDelta": 10349
+    }
+  ],
+  "catalogSnapshot": "f7f99aa5d109ee3b2e4cb21512fedd0a29e6246457f672f6aba35aa3c86f6cde",
+  "pageCount": 181,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 543,
+  "interpretation": "Imported rows remain OSM discovery records requiring current access, permit, and safety verification; relation data does not provide a navigable GPS track.",
+  "distributionCheck": "All three manifests are byte-identical; all compressed pages match across the three source copies and their decompressed SHA-256 values match the current manifest. This is local data integrity only."
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-07",
+  "sourceBeforeFix": "c55639c",
+  "candidate": "/Users/nanyu/.local/share/hiking-earth/acceptance/wechat-gear-c55639c",
+  "domainChecksEnabled": true,
+  "observed": [
+    "Latest0.2.3 gear page rendered with CPU service notice",
+    "Real public coffee JPEG selected using system picker",
+    "Image selection discarded after App Hide/Show; start button remained disabled"
+  ],
+  "fix": "Separate photo selection epoch from hidden-page inference cancellation; defer selected path until page visible; revoke on account change or unload",
+  "typeCheckExitCode": 0,
+  "wechatBuildExitCode": 0,
+  "runtimeRetest": "Incomplete: system picker UI observation failed noWindowsAvailable then timeoutReached twice; no result claimed",
+  "remaining": [
+    "Revalidate real photo picker and consent rejection",
+    "Authorized photo inference UI",
+    "Physical device and production release"
+  ]
+}

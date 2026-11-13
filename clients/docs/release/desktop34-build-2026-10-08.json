@@ -1,0 +1,13 @@
+{
+  "run": 37773461460,
+  "source": "b9b421e9d43dd860c0e07471690a668b3f243cd4",
+  "allSixJobs": "success",
+  "candidate": "desktop-34",
+  "draft": true,
+  "assets": 13,
+  "largestBytes": 150026744,
+  "manifestFourPlatforms": true,
+  "manifestFinalTagUrls": true,
+  "manifestRemoteDigestMatch": true,
+  "pending": "actual runtime, update and rollback, other ends and publication"
+}

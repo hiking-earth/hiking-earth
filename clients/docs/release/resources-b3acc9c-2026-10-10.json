@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "b3acc9c83548510de61ee39d1c6e05517b7c25fd",
+  "scope": "Compiled resources only, not signed installers or publication",
+  "artifacts": [
+    {
+      "platform": "h5",
+      "files": 94,
+      "bytes": 51060750,
+      "sha256": "7b71f8598594d6a62beffb4c558ad05ac8741c4d6491595a109a2517ddebe3e5",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-b3acc9c/h5.zip"
+    },
+    {
+      "platform": "mp-weixin",
+      "files": 176,
+      "bytes": 497431,
+      "sha256": "40cc919a3dbbca1a16cc5bf362f5ffdb8a93689a22a81086228a6d22bc260130",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-b3acc9c/mp-weixin.zip"
+    },
+    {
+      "platform": "app",
+      "files": 61,
+      "bytes": 1086574,
+      "sha256": "bb8bd0fb77d51734fbbbd8206cca626be48032ed4e359ea0f7470b355b05c1c5",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-b3acc9c/app.zip"
+    }
+  ],
+  "untrackedAppSourceInputs": [],
+  "supersedesResourceCandidate": "resources-cabc382",
+  "formalReady": false
+}

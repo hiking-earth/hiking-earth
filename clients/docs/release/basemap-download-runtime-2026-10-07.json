@@ -1,0 +1,12 @@
+{
+  "h5BuildExitCode": 0,
+  "assetHTTP": 200,
+  "bytes": 1168799,
+  "sha256": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+  "actualBrowserDownloadSave": true,
+  "reloadListRestoreAndRender": true,
+  "fixedProblem": "uni-app omitted app/public asset; moved to src/static and changed URL",
+  "networkDisconnectedReload": false,
+  "publicDeployment": false,
+  "nativeAndMiniProgram": false
+}

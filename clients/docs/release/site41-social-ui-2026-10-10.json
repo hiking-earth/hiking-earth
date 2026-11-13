@@ -1,0 +1,31 @@
+{
+  "scope": "Actual isolated Chrome private diary UI; excludes public moderation, teams, native devices and WeChat identity",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "private diary created through actual UI",
+      "passed": true
+    },
+    {
+      "name": "private diary edited through actual UI",
+      "passed": true
+    },
+    {
+      "name": "cloud diary survives page reload",
+      "passed": true
+    },
+    {
+      "name": "confirmed private diary deletion through actual UI",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T12:48:44.872Z"
+}

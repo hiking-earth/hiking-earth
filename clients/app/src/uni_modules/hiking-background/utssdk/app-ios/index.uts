@@ -1,0 +1,6 @@
+export function startBackground(owner: string, session: string, changed: () => void, error: (message: string) => void): boolean {
+  return HikingBackground.start(owner, session, changed, error);
+}
+export function stopBackground(): void { HikingBackground.stop(); }
+export function backgroundBuffer(owner: string, legacySession: string): string { return HikingBackground.buffer(owner, legacySession); }
+export function acknowledgeBackground(owner: string, timestamp: number): boolean { return HikingBackground.ack(owner, timestamp); }

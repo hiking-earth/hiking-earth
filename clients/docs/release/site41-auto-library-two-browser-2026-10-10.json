@@ -1,0 +1,24 @@
+{
+  "scope": "Actual two isolated Chrome sessions automatic favorites on application reload; excludes periodic polling, conflicts, plans, tracks and physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "first browser automatically saves favorite after application reload",
+      "passed": true
+    },
+    {
+      "name": "automatic same-account favorite restored on second isolated browser",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('在路线详情中收藏路线。', { exact: true }) to be visible\u001b[22m\n",
+  "checkedAt": "2026-10-10T12:53:53.318Z"
+}

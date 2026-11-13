@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-07T08:11:26.570167+00:00",
+  "corrects": "desktop24-mac-initial-2026-10-07.json premature failure conclusion",
+  "source": "589af9d22be92323ec49e8b36f55846d51a0810a",
+  "artifactSha256": "d9a4137a29db482428543091db1e74722c2475d8ed5ea4a4d38f336daa031ab1",
+  "checks": {
+    "actualNativeDownload": "passed: later authoritative UI showed chamonix inventory and verified saved message",
+    "actualRendering": "passed screenshot",
+    "quitProcessGone": "passed ps no app executable",
+    "sameCandidateRelaunch": "passed",
+    "savedChamonixInventoryRestore": "passed",
+    "savedMapReopenRendering": "passed screenshot"
+  },
+  "screenshots": [
+    "desktop24-chamonix-2026-10-07.jpg",
+    "desktop24-chamonix-restart-2026-10-07.jpg"
+  ],
+  "explanation": "Initial instant observations retained prior failure text while a later request was active; the later terminal UI result contradicts a blanket download-failed claim. Exact cause of initial rejection remains unproven.",
+  "change": "Clear old message at download start and display downloading/verifying status. Known native errors normalized separately.",
+  "limitations": [
+    "Online during acceptance, no network-disconnected proof.",
+    "No full account/social/updater/rollback acceptance.",
+    "Native remote catalog response not separately instrumented in window."
+  ]
+}

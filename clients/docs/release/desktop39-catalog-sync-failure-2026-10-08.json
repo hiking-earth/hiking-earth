@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-08T15:35:59.972594+00:00",
+  "candidate": "desktop-39",
+  "actualUi": {
+    "osm": "update failed; local retained",
+    "hk": "update failed; local retained",
+    "usfs": "40000 local of 50089 source"
+  },
+  "transportProbe": {
+    "method": "anonymous HTTPS catalog-feed hk page0",
+    "curlExit": 28,
+    "error": "Resolving timed out after 15000 milliseconds"
+  },
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-39/mac-catalog-sync-failure.png",
+  "accepted": false,
+  "limits": [
+    "DNS timeout does not prove sole cause of UI failures",
+    "No system DNS changes or TLS bypass",
+    "No account or private information transmitted"
+  ]
+}

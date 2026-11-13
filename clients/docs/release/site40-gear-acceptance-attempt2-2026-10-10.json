@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-10T04:26:45.224Z",
+  "scope": "Live Site40 proxy with public coffee JPEG; excludes device UI, phone verification and class accuracy",
+  "fixtureSha256": "84b3e46185474c6067fac8c8db30d7c2a15367d231b5c72d8cf525e321248d9b",
+  "passed": true,
+  "failure": "",
+  "failureCode": "",
+  "inference": {
+    "status": 200,
+    "ok": true,
+    "itemCount": 1
+  },
+  "checks": [
+    {
+      "name": "Unauthenticated photo inference denied",
+      "passed": true
+    },
+    {
+      "name": "Isolated account registered",
+      "passed": true
+    },
+    {
+      "name": "Authenticated real photo inference returns cup candidate",
+      "passed": true
+    },
+    {
+      "name": "Gateway inference elapsed time",
+      "passed": true,
+      "durationMs": 20017
+    },
+    {
+      "name": "Isolated account removed",
+      "passed": true
+    }
+  ]
+}

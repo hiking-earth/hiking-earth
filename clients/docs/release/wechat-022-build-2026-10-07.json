@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-07T03:59:30.489239+00:00",
+  "version": "0.2.2",
+  "versionCode": 22,
+  "sourceCommit": "f64fb7a332ade084c32a91224cc47cc63374eed4",
+  "buildPassed": true,
+  "bytes": 2213099,
+  "appJsSha256": "4f87e7956f3d1ed1b4b3441ea3ef352d78236af001b8b780324dfcb5f74700cf",
+  "runtimePassed": false,
+  "warnings": [
+    "Circular account/tracks/cloud chunks",
+    "Sass legacy API"
+  ],
+  "desktopRun": 37569203095,
+  "desktopObservedStatus": "in_progress"
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "51e1a663c1fd9fb0f98e09662fee39b484eed5bc",
+  "githubRun": 37580712941,
+  "releaseId": 405439623,
+  "candidateTag": "desktop-21",
+  "draft": true,
+  "artifact": {
+    "name": "_aarch64.app.tar.gz",
+    "bytes": 33213647,
+    "sha256": "19a110924453d394e2819c77349ede6589f12216b593de2b6707833f176ecdcc",
+    "signatureVerified": true,
+    "extractedRegularBytes": 36702152,
+    "safePathsAndNoLinks": true
+  },
+  "runtime": {
+    "platform": "macOS Apple Silicon",
+    "actualCandidateStarted": true,
+    "restoredCatalogCount": 66747,
+    "priorMonacoInventoryRetained": true,
+    "newFujiPackSavedAndRendered": true,
+    "quitAndProcessExitVerified": true,
+    "relaunchFujiInventoryRestored": true,
+    "renderSavedFujiAfterRelaunch": true,
+    "networkWasOnline": true
+  },
+  "limits": [
+    "Not a physical iPhone or disconnected test",
+    "Not complete account/social/sync acceptance",
+    "Not updater installation or rollback acceptance",
+    "Candidate version remains 0.2.2; final update requires a version greater than installed release",
+    "Not Apple notarization or store publication"
+  ],
+  "screenshot": "desktop21-fuji-runtime-2026-10-07.jpg"
+}

@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-10T07:37:53.409145+00:00",
+  "sourceCommit": "a8fa4868889ea906060b83ef4ed2586a77b3d74d",
+  "catalogRegression": {
+    "passed": 23,
+    "failed": 0
+  },
+  "typeCheckExitCode": 0,
+  "weixinBuildExitCode": 0,
+  "weixinFileCount": 176,
+  "weixinBytes": 1483218,
+  "weixinTreeSha256": "fe49f3052a3bf7caac73104f72c8a1025572871db72f1e50a2fca5a4dd9cd1bf",
+  "strictUrlCheck": true,
+  "ideLoginVerified": true,
+  "uploaded": false,
+  "realDeviceAcceptance": false,
+  "warnings": [
+    "Sass legacy API deprecation",
+    "Existing account/tracks/cloud circular chunk warning"
+  ],
+  "releaseReady": false
+}

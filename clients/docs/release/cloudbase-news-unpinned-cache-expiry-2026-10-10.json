@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-10T15:52:01.152Z",
+  "endpoint": "CloudBase client-api production endpoint",
+  "request": {
+    "action": "catalog-feed",
+    "source": "news",
+    "page": 0,
+    "windowLimit": 400
+  },
+  "httpStatus": 200,
+  "ok": true,
+  "snapshot": "a3f332c322175c16c970ab88ff29655e44d7776107f885f3002237d5d798cef3",
+  "total": 203,
+  "returned": 203,
+  "upstreamAvailable": true,
+  "metadataSourceTotal": 203,
+  "complete": true,
+  "stableReleaseReady": false,
+  "acceptanceBoundary": "Live unpinned catalog response only; does not validate trail access or end-to-end client behavior."
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "scope": "Sites same-origin HTTP account/library/private diary/team/chat/synthetic track workflow; excludes client UI and native/device permissions",
+  "checkedAt": "2026-10-09T14:55:19.936Z",
+  "passed": true,
+  "failure": "",
+  "checks": [
+    {
+      "name": "register isolated account 0",
+      "passed": true
+    },
+    {
+      "name": "register isolated account 1",
+      "passed": true
+    },
+    {
+      "name": "QR start",
+      "passed": true
+    },
+    {
+      "name": "QR pending without login",
+      "passed": true
+    },
+    {
+      "name": "QR confirmation needs authentication",
+      "passed": true
+    },
+    {
+      "name": "QR authenticated approval",
+      "passed": true
+    },
+    {
+      "name": "QR wrong claim secret denied",
+      "passed": true
+    },
+    {
+      "name": "QR one time claim",
+      "passed": true
+    },
+    {
+      "name": "QR replay denied",
+      "passed": true
+    },
+    {
+      "name": "QR issued session valid",
+      "passed": true
+    },
+    {
+      "name": "QR session cleanup",
+      "passed": true
+    },
+    {
+      "name": "library read",
+      "passed": true
+    },
+    {
+      "name": "library versioned save",
+      "passed": true
+    },
+    {
+      "name": "library account isolation",
+      "passed": true
+    },
+    {
+      "name": "library next revision",
+      "passed": true
+    },
+    {
+      "name": "reject stale library snapshot",
+      "passed": true
+    },
+    {
+      "name": "retain newer library snapshot",
+      "passed": true
+    },
+    {
+      "name": "reject malformed duplicate library",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated data denied",
+      "passed": true
+    },
+    {
+      "name": "second device session",
+      "passed": true
+    },
+    {
+      "name": "private diary creation",
+      "passed": true
+    },
+    {
+      "name": "private diary cross-session recovery",
+      "passed": true
+    },
+    {
+      "name": "private diary account isolation",
+      "passed": true
+    },
+    {
+      "name": "other account cannot delete diary",
+      "passed": true
+    },
+    {
+      "name": "private diary next revision",
+      "passed": true
+    },
+    {
+      "name": "private diary stale revision denied",
+      "passed": true
+    },
+    {
+      "name": "ordinary account cannot moderate",
+      "passed": true
+    },
+    {
+      "name": "private test diary cleanup",
+      "passed": true
+    },
+    {
+      "name": "create private test team",
+      "passed": true
+    },
+    {
+      "name": "team creation idempotency",
+      "passed": true
+    },
+    {
+      "name": "nonmember cannot read team chat",
+      "passed": true
+    },
+    {
+      "name": "join private test team",
+      "passed": true
+    },
+    {
+      "name": "ordinary member cannot manage team",
+      "passed": true
+    },
+    {
+      "name": "send private team message",
+      "passed": true
+    },
+    {
+      "name": "team message idempotency",
+      "passed": true
+    },
+    {
+      "name": "member receives message once",
+      "passed": true
+    },
+    {
+      "name": "leader removes member",
+      "passed": true
+    },
+    {
+      "name": "removed member cannot read chat",
+      "passed": true
+    },
+    {
+      "name": "removed member cannot send chat",
+      "passed": true
+    },
+    {
+      "name": "private test team closed",
+      "passed": true
+    },
+    {
+      "name": "closed team rejects admission",
+      "passed": true
+    },
+    {
+      "name": "synthetic track versioned backup",
+      "passed": true
+    },
+    {
+      "name": "synthetic track cross-session restore",
+      "passed": true
+    },
+    {
+      "name": "other account cannot read track",
+      "passed": true
+    },
+    {
+      "name": "other account cannot delete track",
+      "passed": true
+    },
+    {
+      "name": "synthetic track next revision",
+      "passed": true
+    },
+    {
+      "name": "stale track backup rejected",
+      "passed": true
+    },
+    {
+      "name": "stale track deletion rejected",
+      "passed": true
+    },
+    {
+      "name": "track deletion creates revision tombstone",
+      "passed": true
+    },
+    {
+      "name": "deleted track hidden from directory",
+      "passed": true
+    },
+    {
+      "name": "automatic deleted track revival rejected",
+      "passed": true
+    },
+    {
+      "name": "explicit track rebackup allowed",
+      "passed": true
+    },
+    {
+      "name": "synthetic track cleanup",
+      "passed": true
+    },
+    {
+      "name": "cross session recovery",
+      "passed": true
+    },
+    {
+      "name": "session signout",
+      "passed": true
+    },
+    {
+      "name": "signed out token rejected",
+      "passed": true
+    },
+    {
+      "name": "isolated account cleanup",
+      "passed": true
+    },
+    {
+      "name": "isolated account cleanup",
+      "passed": true
+    }
+  ]
+}

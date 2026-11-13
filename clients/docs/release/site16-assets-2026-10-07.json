@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-07T03:50:18.430Z",
+  "version": 16,
+  "maplibre": "6.4.1",
+  "passed": true,
+  "checks": [
+    {
+      "path": "/vendor/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+      "matchesBuild": true
+    },
+    {
+      "path": "/vendor/maplibre/maplibre-gl-shared.mjs",
+      "status": 200,
+      "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785",
+      "matchesBuild": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "28033d7ca1aca06a995080388082cc31de23f4a8270ae4df9327e2654b745671",
+      "matchesBuild": true
+    }
+  ]
+}

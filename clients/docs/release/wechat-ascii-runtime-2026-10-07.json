@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-07",
+  "observed": [
+    "ASCII isolated project displayed discovery route catalog",
+    "My tab displayed account page; QR button squeezed nickname into vertical text",
+    "Rebuild hot reload displays UI version 0.2.2, but screenshot shows styles temporarily absent; visual acceptance remains failed/pending"
+  ],
+  "cause": "Path/project cache difference suspected; exact original loading cause unverified",
+  "changes": [
+    "Move QR entry into separate row",
+    "Prevent avatar/login shrinking and allow account text minimum width zero",
+    "Align UI version 0.2.2 code 22"
+  ],
+  "buildExitCode": 0,
+  "appJsSha256": "4f87e7956f3d1ed1b4b3441ea3ef352d78236af001b8b780324dfcb5f74700cf",
+  "pending": [
+    "resolve/reload missing WXSS after candidate hot reload; verify layout",
+    "actual WeChat login and QR confirmation",
+    "real device acceptance"
+  ],
+  "desktopRun": 37569203095,
+  "desktopJobs": "ARM Mac Windows Linux success; Intel Mac still running"
+}

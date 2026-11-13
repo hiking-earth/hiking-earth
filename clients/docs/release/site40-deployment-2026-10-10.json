@@ -1,0 +1,14 @@
+{
+  "siteVersion": 40,
+  "projectId": "appgprj_6a82b2fd4d348191830f591595297f7c",
+  "savedVersionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_7b63f42be1ec8191816b325dacaebb62",
+  "deploymentId": "appgdep_6ac9bbb9ef388191af9e9732af4a7a14",
+  "source": "444d17a292d910216c40040fb2b66f25121a6bb3",
+  "clientSource": "075bd7dd5fa5a631903f93e43751092458dc6b51",
+  "status": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "audience": "public",
+  "apiChecks": 5,
+  "apiPassed": true,
+  "scope": "Native deployment readback confirms succeeded; API checks do not prove account login or multi-device social behavior."
+}

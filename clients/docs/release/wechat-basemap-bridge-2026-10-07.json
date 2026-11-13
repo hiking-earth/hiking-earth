@@ -1,0 +1,21 @@
+{
+  "scope": "Actual WeChat simulator download and binary bridge",
+  "runtime_observed": [
+    "Initial exact-size read rejected with expected 262144 and actual 262144 bytes",
+    "After intrinsic buffer-brand normalization, flow reached saved-path validation"
+  ],
+  "source_order_inference": "Reaching saved-path validation requires download, SHA256 verification and temporary PMTiles validation to return; permanent save/index/render are not accepted.",
+  "fixes": [
+    "Intrinsic ArrayBuffer brand check and local copy for foreign-realm buffers",
+    "Reserved developer-tool store alias added; actual saved-path compatibility still pending"
+  ],
+  "tests_passed": 19,
+  "wechat_build": "passed",
+  "pending": [
+    "Saved-path recheck after cold compile",
+    "Permanent map inventory commit",
+    "Canvas render and cold restore",
+    "Production download-domain settings"
+  ],
+  "release_ready": false
+}

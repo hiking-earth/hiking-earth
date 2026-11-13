@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-07T11:15:58.710345+00:00",
+  "command": "node scripts/tests/gear-cpu-live.cjs <official coffee JPEG>",
+  "backend": "cpu",
+  "elapsedMs": 2542,
+  "actualPrediction": {
+    "class": "cup",
+    "score": 0.9870814681053162
+  },
+  "modelTransport": "local IO handler; six model files checked against source SHA before load",
+  "input": "300x300 RGB from JPEG, decoder 24MP/128MB limits, input4MiB",
+  "scope": "Real Node CPU inference, not deployed CloudBase or mobile-device acceptance",
+  "next": [
+    "Stage verified local model with cloudfunction",
+    "Bounded JPEG/PNG decode and output mapping",
+    "Preserve account and explicit photo-upload consent gateway",
+    "Deploy and read back source then actual accepted-photo inference",
+    "Verify quota cost remains allowed without activating paid services"
+  ]
+}

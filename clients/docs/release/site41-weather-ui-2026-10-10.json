@@ -1,0 +1,21 @@
+{
+  "siteVersion": 41,
+  "scope": "Actual public H5 weather cache and offline refresh, isolated Chrome; not native devices",
+  "checks": [
+    {
+      "name": "real forecast shown",
+      "passed": true
+    },
+    {
+      "name": "reload reused local fresh cache",
+      "passed": true,
+      "weatherRequests": 1
+    },
+    {
+      "name": "manual offline refresh shows unavailable without network",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T12:22:22.796Z"
+}

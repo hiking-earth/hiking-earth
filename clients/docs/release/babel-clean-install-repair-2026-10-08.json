@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-08T15:17:46.433952+00:00",
+  "babelFix": "Use unconditional @babel/core 7.29.7 override; range selector failed npm ci exact transitive requirements",
+  "checks": {
+    "npmCiDryRun": "passed",
+    "npmCiActual": "passed; 1048 packages installed; Vue CR backport verified",
+    "babelRegression": 1,
+    "typecheck": "passed",
+    "viteActual": "5.2.8",
+    "diffCheck": "passed"
+  },
+  "rejectedAttempt": "Vite 5.4.21 breaks exact peer vite5.2.8 of DCloud plugin; package and lock restored, no deployment",
+  "limits": [
+    "Remaining dependency advisories unresolved",
+    "No new H5/WeChat build run after clean reinstall in this turn",
+    "No website or desktop deployment of this source change"
+  ]
+}

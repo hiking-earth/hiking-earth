@@ -1,0 +1,22 @@
+{
+  "source": "d654ba128a35bf527accd80d98d099cc002a41bc",
+  "candidate": "desktop-33",
+  "dmgBytes": 71192328,
+  "dmgSha256": "cf3c6c73dea3f701b2b171a7140362bc9300c90c133a22284888e9f5ac1fe68b",
+  "remoteDigestMatch": true,
+  "hdiutilVerify": "passed",
+  "codesignDeepStrict": "passed",
+  "sealedResources": "version 2",
+  "installedPath": "/Users/nanyu/Applications/徒步地球.app",
+  "actualProcessPID": 14723,
+  "actualHome": "NASA satellite globe and b8f36b controls visually shown",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-33/mac-installed-home.png",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-31/installed-backup/徒步地球.app",
+  "pending": [
+    "business flow acceptance",
+    "update and rollback acceptance",
+    "other platform runtime",
+    "store publication"
+  ],
+  "releaseState": "draft"
+}

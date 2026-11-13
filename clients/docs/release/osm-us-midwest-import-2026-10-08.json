@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "US Midwest",
+  "source": "Geofabrik official fixed US Midwest extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 141598,
+  "catalogCountAfter": 143464,
+  "catalogRecordDelta": 1866,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us-midwest-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us-midwest.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 2514780516,
+      "officialMd5Verified": "9ad6e4daf13411f28e9bb8095a766b6f",
+      "sha256": "1c5ca41f291ea08ba9c19d286097763e8887da79acebada0a52392631152b438",
+      "candidateRelations": 1876,
+      "importedRelations": 1869,
+      "skippedIncompleteRelations": 7,
+      "skippedNestedRelations": 22,
+      "netCatalogRecordDelta": 1866
+    }
+  ],
+  "catalogSnapshot": "a61edda99216a2e495f7c295ac25ba43032a1681dbea2c6f5e544ea1f862110e",
+  "pageCount": 359,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1077,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 359 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

@@ -1,0 +1,13 @@
+{
+  "version": 32,
+  "source": "73403cb2ff188fdacfc0fd140f8c81b7021c1659",
+  "client": "50e4649",
+  "deployment": "appgdep_6ac737f4f3a88191b7f352abe76b226b",
+  "status": "succeeded",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site/client",
+  "audience": "public",
+  "archiveSha256": "75f0bd7f1e0df42a92be9d449426a9ded04213cf9320989a6745ac3419a93d34",
+  "actualBrowserEyebrowColor": "rgb(184, 243, 107)",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/site32-client.png",
+  "scope": "latest caption and client deployment, not full four-platform acceptance"
+}

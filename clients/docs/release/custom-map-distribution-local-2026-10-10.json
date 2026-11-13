@@ -1,0 +1,10 @@
+{
+  "maps": 5,
+  "bytes": 10998547,
+  "deployed": false,
+  "scope": "Existing five real regional packs; export and PMTiles structure only",
+  "catalogSha256": "5149bba54fb40cea6363b0cbbf872c00c1fd70750b13830cfc58b34271f5cadc",
+  "mapsRendered": false,
+  "newRegionGenerated": false,
+  "publiclyDeployed": false
+}

@@ -1,0 +1,45 @@
+{
+  "package": {
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "commit_sha": "551cd57949b9218cfedd9c43ec45ba1129bd9920",
+    "archive": "/Users/nanyu/.local/share/hiking-earth/acceptance/sites-022-mapcors-worker-20261007.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_554122e84bd881918fa0b64048cdb84a",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "version_number": 22,
+    "source": {
+      "commit_sha": "551cd57949b9218cfedd9c43ec45ba1129bd9920"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000012d881fdb48d14debce1ec11",
+      "content_hash": "sha256:bd7a4b643722a260cc5115d4952c11afb86fc08982fcf843ff0b0ccf4814723c",
+      "size_bytes": 54794240,
+      "file_count": 600
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ac5f857c9148191b397d4daa304b5ef",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "title": "徒步地球全球徒步路线",
+    "version_id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_554122e84bd881918fa0b64048cdb84a",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6a82b2fd4d348191830f591595297f7c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-07T07:44:32.394126+00:00"
+  },
+  "acceptance": {
+    "catalogStatus": 200,
+    "catalogCors": null,
+    "desktopCrossOriginReady": false
+  },
+  "followUp": "Worker headers also ineffective for public static path; prepare standard static _headers configuration. Third deployment verification pending."
+}

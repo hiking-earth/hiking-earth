@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-07",
+  "appid": "wx73248e013d48b534",
+  "firstFailure": {
+    "code": 80058,
+    "reason": "scope.userLocation desc exceeds30",
+    "priorLength": 37
+  },
+  "fix": {
+    "description": "授权后用于导航、轨迹记录及队伍位置共享",
+    "characters": 19
+  },
+  "buildExitCode": 0,
+  "checksPassed": 3,
+  "preview": {
+    "cliReportedSuccess": true,
+    "cliExitCode": 0,
+    "packageBytes": 792259,
+    "qrExists": true,
+    "qrBytes": 48151,
+    "infoExists": true,
+    "privateQrPath": "/Users/nanyu/.local/share/hiking-earth/acceptance/wechat-preview-r3/preview-fixed.png"
+  },
+  "scope": "Official developer tool preview upload only; no real device acceptance or store publication",
+  "pending": [
+    "real QR authentication confirmation",
+    "real device preview/install/permissions",
+    "production domain/privacy configuration",
+    "mini-program audit and release"
+  ]
+}

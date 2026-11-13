@@ -1,0 +1,21 @@
+{
+  "version": 30,
+  "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+  "sourceCommit": "1700e624a3803835a3968afe3544702bc914f7cc",
+  "clientCommit": "1a229550cbd35196bbe791a03632c4691791b428",
+  "savedVersionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_80db2ed46484819181da3951fccb8699",
+  "deploymentId": "appgdep_6ac72dc09fe081919b6b866afd91a90f",
+  "deploymentStatus": "succeeded",
+  "archiveSHA256": "a000fb632f80b27335fc4728284fa6a63f0e7821ed684bcf730b3a3796c82200",
+  "browserAccent": "rgb(184, 243, 107)",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/visual-20261008/site30-client.png",
+  "regression": "scripts/tests/*.test.cjs: 119 passed, 0 failed",
+  "desktopRun": "https://github.com/hiking-earth/clients/actions/runs/37733587161",
+  "desktopState": "Four build jobs in progress at last authoritative check",
+  "releaseReady": false,
+  "limitations": [
+    "Published /client checked, website root remains original MapLibre globe",
+    "Not full device or business acceptance",
+    "WeChat DNS failure persists and AppID error unresolved"
+  ]
+}

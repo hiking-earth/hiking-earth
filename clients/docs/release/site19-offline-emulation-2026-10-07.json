@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "siteVersion": 19,
+  "clientSource": "51e1a663c1fd9fb0f98e09662fee39b484eed5bc",
+  "environment": "Codex IAB desktop browser",
+  "offlineMode": "CDP Network.emulateNetworkConditions offline=true",
+  "checks": {
+    "pageReloadWhileEmulatedOffline": true,
+    "savedLantauInventoryRestored": true,
+    "savedLantauRenderAfterReload": true,
+    "networkEmulationRestoredToOnline": true
+  },
+  "limits": [
+    "Browser network emulation, not physical device airplane mode",
+    "Not browser process restart",
+    "Not iPhone Safari PWA installation or background GPS"
+  ],
+  "screenshot": "site19-offline-emulation-2026-10-07.png"
+}

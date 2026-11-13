@@ -1,0 +1,11 @@
+{
+  "cliVersion": "3.8.5",
+  "command": "fn list --json",
+  "environment": "cloud1-d9g4fl3fu2491914f",
+  "timeoutSeconds": 45,
+  "exit": "timeout",
+  "recognizedErrorCodes": [],
+  "authorizationVerified": false,
+  "remoteFunctionsChanged": false,
+  "privateDiagnosticRetained": true
+}

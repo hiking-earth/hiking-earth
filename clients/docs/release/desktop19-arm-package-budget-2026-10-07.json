@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "limitBytes": 500000000,
+  "passed": true,
+  "files": [
+    {
+      "path": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-19/_aarch64.app.tar.gz",
+      "downloadBytes": 20946355,
+      "coverage": "TAR unpacked regular file sizes",
+      "installedBytes": 24433736,
+      "limitBytes": 500000000,
+      "passed": true
+    }
+  ],
+  "note": "Installed payload of DMG/MSI/AppImage/DEB requires separate directory measurement; runtime user data is excluded.",
+  "sourceCommit": "8c98e6f23f59a113fefc3bea8a404c801de9c0da",
+  "releaseTag": "desktop-19",
+  "sha256": "a5cd9e2b84a33c623f7f372999fe6f4c57e64ef1e7876fb288040806f3e2f5e0",
+  "runtimeAccepted": false
+}

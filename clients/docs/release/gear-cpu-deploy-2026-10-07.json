@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-07T11:22:45.717626+00:00",
+  "function": "gear-scan",
+  "deployment": "commands succeeded and non-node_modules remote source tree SHA verified",
+  "oldVersionBackup": "/Users/nanyu/.local/share/hiking-earth/backups/gear-cpu-20261007/gear-scan",
+  "productionDependencyAudit": {
+    "total": 0,
+    "scope": "function npm dependency audit, not whole app"
+  },
+  "invalidInputsRejected": 5,
+  "localFullFunctionPositive": "cup candidate99% in2401ms",
+  "cloudInvocation": {
+    "first": "API transport ECONNRESET, CLI exit5; no function result",
+    "retry1": {
+      "passed": true,
+      "durationMs": 17808,
+      "memoryBytes": 128225280,
+      "items": [
+        {
+          "name": "杯子 · 候选 99%",
+          "category": "饮食"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Direct cloud invocation passed; account HTTP gateway and mobile UI still need acceptance.",
+    "No cross-platform device photo request acceptance.",
+    "Runtime dependencies shipped in code bundle, dependency files excluded by standard source readback comparator."
+  ]
+}

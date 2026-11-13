@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "stage": "deployed-not-accepted",
+  "projectId": "appgprj_6a82b2fd4d348191830f591595297f7c",
+  "versionId": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_1640da2f8aec81919c96e19fb38b3a5e",
+  "versionNumber": 6,
+  "deploymentId": "appgdep_6ac5a4bb83208191981872961dedfd99",
+  "siteSourceCommit": "24684907f7c109e0e0b2a83cb10160aa0b952f8c",
+  "clientSourceCommit": "f6e1ad7251e4dd4c52c179f4f94e0a52dea191ce",
+  "accessMode": "public",
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+  "status": "succeeded",
+  "updatedAt": "2026-10-07T01:47:52.579624+00:00",
+  "archiveContentHash": "sha256:482e79780060901ce3f237db5fe00110a389718c704d38510beabcef313ceef9",
+  "functionalAcceptance": "pending"
+}

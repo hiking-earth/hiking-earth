@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-09T15:06:02.032273+00:00",
+  "sourceCommit": "db2e7e6",
+  "scope": "Latest local H5 build in IAB, not installed Mac41 or WeChat device",
+  "checks": [
+    {
+      "name": "Monaco download validation and save",
+      "status": "passed",
+      "evidence": "UI reported map verified and saved; local roads and water rendered."
+    },
+    {
+      "name": "download automatically reveals map",
+      "status": "passed",
+      "zoomControlBounds": {
+        "top": 76.15625,
+        "bottom": 105.15625,
+        "viewportHeight": 720
+      }
+    },
+    {
+      "name": "opening same saved package reveals map again",
+      "status": "passed",
+      "zoomControlBounds": {
+        "top": 54,
+        "bottom": 83,
+        "viewportHeight": 720
+      }
+    }
+  ],
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/map-reveal/local-map-visible.png",
+  "deployment": "pending; git SSL_ERROR_SYSCALL, GitHub API TLS handshake timeout"
+}

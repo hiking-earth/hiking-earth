@@ -1,0 +1,110 @@
+{
+  "runId": 37587612797,
+  "source": "83cde42875c28ce36c609960d671821dc6ce00e8",
+  "release": "desktop-22",
+  "draft": true,
+  "jobs": [
+    {
+      "name": "prepare-release",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "build-desktop (windows-latest, x86_64-pc-windows-msvc, msi)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "build-desktop (macos-latest, x86_64-apple-darwin, app,dmg)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "build-desktop (ubuntu-22.04, x86_64-unknown-linux-gnu, appimage,deb)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "build-desktop (macos-latest, aarch64-apple-darwin, app,dmg)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "finalize-updater",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "assets": [
+    {
+      "name": "latest.json",
+      "size": 2622,
+      "digest": "sha256:592d20806885c75dca209868e273be95dc9f086f36fe478003be9957d56941b2"
+    },
+    {
+      "name": "_0.2.3_aarch64.dmg",
+      "size": 33282961,
+      "digest": "sha256:b8c19829ec68a3954c98600d8ee8d919a0e79eec935e4ba378791dc520a29a00"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage",
+      "size": 111987192,
+      "digest": "sha256:f40e997a68dbfb03243d54e6aaf9f9cd3b02f635207899fb060aa8282f52ee30"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage.sig",
+      "size": 444,
+      "digest": "sha256:1cc7224c2a6f63f93c670d194dc6bf882a51c9e854b33ec31e43ec1d1f4b2810"
+    },
+    {
+      "name": "_0.2.3_amd64.deb",
+      "size": 33577154,
+      "digest": "sha256:7680f70d42485d36864d2e0608793b1bd402b1c66945d8983d686e03b9c58536"
+    },
+    {
+      "name": "_0.2.3_amd64.deb.sig",
+      "size": 436,
+      "digest": "sha256:6b513202bab3d56dedb26c5bbfe909846c50fe78c1a3b9f71e3a122503a8b0b8"
+    },
+    {
+      "name": "_0.2.3_x64.dmg",
+      "size": 33198287,
+      "digest": "sha256:5cf8f94eccc92d75653f5a6674cbcda3c2a36ec842e99f4c19f284e98edf61a7"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi",
+      "size": 33398784,
+      "digest": "sha256:ac4a98d11082ea49c04317c137c3abde3b796a9a82dc157c9a74b7caa58be650"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi.sig",
+      "size": 444,
+      "digest": "sha256:81f1d9363b3755421520060ed76e7a63cd27baa5b3e4fb9625782c9fc211d92f"
+    },
+    {
+      "name": "_aarch64.app.tar.gz",
+      "size": 33216226,
+      "digest": "sha256:51af548efe27c16d525aff93eba07d8b4e03a03710e9373b88166c41be98f309"
+    },
+    {
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:88927d6b7476b8ac36e8f1d4b0a37e11cbe187aa14754f9a2eba99cff5d5a279"
+    },
+    {
+      "name": "_x64.app.tar.gz",
+      "size": 33102644,
+      "digest": "sha256:ff60457acc626419457619cd2f169e3ad89e4a1a7c7e11debe298732ac94a977"
+    },
+    {
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:7ddfbd94e8c22427f5309e8cf1f6a1517e3635b5e4421ca75ee234a5b62c04a9"
+    }
+  ],
+  "limitations": [
+    "Build success is not device acceptance.",
+    "Source83cde42 excludes later503c8c8 desktop remote map and39cfa4c version display changes.",
+    "Stable update gate remains disabled."
+  ]
+}

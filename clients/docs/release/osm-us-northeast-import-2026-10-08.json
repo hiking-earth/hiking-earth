@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "US Northeast",
+  "source": "Geofabrik official fixed US Northeast extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 133270,
+  "catalogCountAfter": 138656,
+  "catalogRecordDelta": 5386,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us-northeast-261006",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us-northeast.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 1802937916,
+      "officialMd5Verified": "00ad84183bb648eefa06af48755bd296",
+      "sha256": "ee9261304f84600be41f80e07c69a2fdfbd6e54c278eec0e05a196895f4e91e0",
+      "candidateRelations": 5405,
+      "importedRelations": 5386,
+      "skippedIncompleteRelations": 19,
+      "skippedNestedRelations": 53,
+      "netCatalogRecordDelta": 5386
+    }
+  ],
+  "catalogSnapshot": "03c008143962f36469849039d154dcde63ddc2c5207349251de3bf985d53e4ff",
+  "pageCount": 347,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1041,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 347 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

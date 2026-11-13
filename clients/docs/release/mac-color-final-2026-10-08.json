@@ -1,0 +1,20 @@
+{
+  "source": "50e464997f718d27aed656d5df8cca69aeafbb73",
+  "scope": "local debug macOS candidate only",
+  "accent": "#b8f36b",
+  "fixed": "globe eyebrow retained #3b8b7b; now same website green",
+  "checks": {
+    "paletteTests": 3,
+    "typecheck": "passed",
+    "weixinBuild": "passed",
+    "localMacBuild": "passed",
+    "actualMacHome": "visually verified"
+  },
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-color-final/mac-home.png",
+  "pending": [
+    "production DMG rebuild",
+    "website deployment for latest caption",
+    "iPhone and WeChat runtime acceptance",
+    "full business and release acceptance"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": {
+    "id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_b384d190f9e0819182308799579e152a",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "version_number": 34,
+    "source": {
+      "commit_sha": "85ce4fa42ce4e40683ac877962e4ba3ade6ee1d6"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000638c820688847f78009b2d5c",
+      "content_hash": "sha256:3e30f0d044b31fbca76000334d753e6de5a4ce4e32f03d51ab3a8eeae4563201",
+      "size_bytes": 112609280,
+      "file_count": 1240
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ac7bc6c20f08191a949239f630c4553",
+    "project_id": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "title": "徒步地球全球徒步路线",
+    "version_id": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_b384d190f9e0819182308799579e152a",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6a82b2fd4d348191830f591595297f7c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-08T15:53:35.995669+00:00"
+  },
+  "clientSource": "223dd62c787f564638a27a7190cc7d8130c19c15",
+  "limits": [
+    "Public runtime behavior not yet accepted this turn",
+    "Cloud HK failure unresolved",
+    "Desktop39 does not include refresh progress"
+  ]
+}

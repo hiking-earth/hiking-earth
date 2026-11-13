@@ -1,0 +1,26 @@
+{
+  "scope": "WeChat map persistence implementation",
+  "tests_passed": 10,
+  "typecheck": "passed",
+  "runtime_acceptance": "pending",
+  "limits": {
+    "per_pack_bytes": 67108864,
+    "map_budget_bytes": 201326592,
+    "inventory_entries": 128
+  },
+  "behavior": [
+    "Validate temp archive before save",
+    "Validate saved archive and exact size before committing inventory",
+    "Serialize mutations",
+    "Rollback saved file on inventory failure",
+    "Restore inventory when deletion fails",
+    "Reject reused saved paths without deleting previous file",
+    "Allow developer-tool http://usr/ and http://tmp/ local aliases without network fallback"
+  ],
+  "pending": [
+    "Actual saved-file SDK acceptance and cold restart",
+    "Download with cryptographic checksum",
+    "Global packs, labels, terrain, navigation integration"
+  ],
+  "release_ready": false
+}

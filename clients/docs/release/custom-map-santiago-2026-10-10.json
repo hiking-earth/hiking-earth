@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-10T12:39:05.970657+00:00",
+  "runId": 38052506253,
+  "runPassed": true,
+  "release": "https://github.com/hiking-earth/clients/releases/tag/offline-maps-38052506253-1",
+  "archiveSha256": "c715e96eb323bad708ee94a8d54688910c5f4df355dba0a269402ae3ae6abaa8",
+  "maps": [
+    {
+      "name": "custom-c389e367c6b5cbcb-20261010.pmtiles",
+      "label": "Santiago · 1",
+      "url": "static/offline-maps/custom-c389e367c6b5cbcb-20261010.pmtiles",
+      "bytes": 1302694,
+      "sha256": "bc9efd3529ccb000151e7be0211ba224d095b4b4e6c9390d615fa5383561ffba",
+      "attribution": "© OpenStreetMap contributors · Protomaps",
+      "license": "ODbL-1.0 Produced Work",
+      "bounds": [
+        -70.6808967163,
+        -33.4590909091,
+        -70.6591032837,
+        -33.4409090909
+      ]
+    }
+  ],
+  "downloadAndBytesVerified": true,
+  "clientRenderVerified": false,
+  "enhancedProvenanceChecksDeployed": false
+}

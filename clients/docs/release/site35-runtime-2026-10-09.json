@@ -1,0 +1,11 @@
+{
+  "site_version": 35,
+  "url": "https://hiking-earth.nanyu20050927.chatgpt.site/client",
+  "actual_browser_load": "passed",
+  "saved_catalog_count_visible": 66747,
+  "refresh_progress_visible": true,
+  "refresh_outcome": "in progress at observation",
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/site-35/client-live.png",
+  "mac40_rotation": "not proven: native drag observation did not change globe surface",
+  "overall_acceptance": "partial"
+}

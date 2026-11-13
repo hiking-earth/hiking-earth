@@ -1,0 +1,29 @@
+{
+  "complete": false,
+  "typeCheck": true,
+  "h5Build": true,
+  "weixinBuild": true,
+  "nodeRegression": {
+    "passed": 125,
+    "failed": 0
+  },
+  "rollup": "4.64.2",
+  "audit": {
+    "info": 0,
+    "low": 18,
+    "moderate": 7,
+    "high": 16,
+    "critical": 0,
+    "total": 41
+  },
+  "rollupAdvisoryPresent": false,
+  "cloudAccountAcceptance": "fetch failed before first check; no account created",
+  "cloudDns": "iaas.cloud.tencent.com and cloud.tencent.com failed getaddrinfo; github.com succeeded",
+  "desktopCandidateRun": 37717556972,
+  "desktopCandidateSource": "96d55a344866048aee2a0556a4adade6c161b686",
+  "desktopCandidateState": "in_progress at last check",
+  "notes": [
+    "Remaining dependency warnings unresolved; stable release stays disabled.",
+    "Candidate desktop build precedes Rollup update and must be rebuilt after dependency freeze."
+  ]
+}

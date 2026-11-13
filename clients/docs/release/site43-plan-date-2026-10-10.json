@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-10T13:47:53.282Z",
+  "sourceCommit": "4f3d166a60611b0ef14a03d59e48c6eee0b2c2bb",
+  "clientCommit": "d9e9335269605818bf8fdf317d410bc224adad20",
+  "savedVersion": "appgprj_6a82b2fd4d348191830f591595297f7c~appgver_bcfff26162548191b87cf0b411e3f3ae",
+  "versionNumber": 43,
+  "deployment": {"id":"appgdep_6aca40f584c8819184b670485ce3db94","status":"succeeded","url":"https://hiking-earth.nanyu20050927.chatgpt.site"},
+  "archiveSha256": "997af75ade538b52061a77bf8b474b02c3ae1f0ec24e0f7c32f7b13916dabb20",
+  "h5DateFieldHeightPx": 44,
+  "h5DateTypingVerified": true,
+  "twoBrowserPlanSyncAndConflict": "docs/release/plan-conflict-ui-latest.json",
+  "testAccountCleanupConfirmed": true,
+  "limits": ["manual immediate sync trigger rather than timed poll", "tracks and physical device sync not included", "platform acceptance remains incomplete"]
+}

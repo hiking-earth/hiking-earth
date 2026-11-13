@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-11T01:24:36+08:00",
+  "candidate": "desktop-50",
+  "sourceCommit": "33de06857b2ab9e388129e789fcca3f5342e6621",
+  "version": "0.2.3",
+  "hostArchitecture": "arm64",
+  "updaterArtifact": {
+    "name": "_aarch64.app.tar.gz",
+    "bytes": 71168359,
+    "sha256": "1e8cecf7cadb3c2d391113d53eb235f8fa05e05cc26171e6b9b99ff76a501cd9",
+    "signatureVerified": true
+  },
+  "macOSBundle": {
+    "deepStrictCodeSignature": "passed",
+    "signingIdentity": "ad-hoc",
+    "spctlAssessment": "rejected",
+    "installedToApplications": false
+  },
+  "launch": {
+    "openedIsolatedCandidate": true,
+    "accessibleWindowCount": 1,
+    "visibleContentViaWindowCapture": true,
+    "windowSize": [
+      1080,
+      800
+    ]
+  },
+  "visualChecks": {
+    "3dEarthHome": "visible",
+    "brightGreenAccent": "visible",
+    "routeList": "visible",
+    "sourceAttribution": "visible"
+  },
+  "observedIssue": "The home screen displays 35,988 bundled/local route records; the current online OSM snapshot contains 146,007. These counts have different scopes, so this comparison alone does not prove a candidate data defect. The candidate source predates the latest client branch and is not the final build.",
+  "screenshot": {
+    "localPath": "~/.local/share/hiking-earth/acceptance/desktop-50/mac-window.png",
+    "bytes": 528111,
+    "sha256": "d03b44dde2bf2f51aac99e7526c08e119ca49b0dae419fac21f70098c1a946a7"
+  },
+  "acceptanceBoundary": "Actual isolated macOS ARM candidate UI launch and visual inspection. No login, cloud sync, navigation, or normal Gatekeeper installation acceptance; candidate remains draft."
+}

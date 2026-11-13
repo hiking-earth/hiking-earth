@@ -1,0 +1,89 @@
+{
+  "source": "94507e915eccc00787bbee99e01bb267de40b085",
+  "run": 37575586930,
+  "tag": "desktop-20",
+  "artifact": "_aarch64.app.tar.gz",
+  "bytes": 22135614,
+  "unpackedBytes": 25622600,
+  "sha256": "3f8fb129ddcacb8f90d675ede67df0f586d23f7cc9284ab63f57b1a561e0fb2e",
+  "signatureVerified": true,
+  "nativeAppStarted": true,
+  "newMapEntryPresent": true,
+  "bundledMapReadSHAAndSave": true,
+  "actualGeometryRender": true,
+  "restartPersistence": true,
+  "upgradeFromOldVersion": false,
+  "notarization": false,
+  "allPlatformAcceptance": false,
+  "restartEvidence": "UI quit, ps confirmed desktop20 process absent, full-path relaunch, stored map listed and rendered",
+  "restartScreenshot": "desktop20-mac-restart-2026-10-07.png",
+  "allBuildJobs": "success",
+  "releaseDraft": true,
+  "assets": [
+    {
+      "name": "latest.json",
+      "size": 2622,
+      "digest": "sha256:291aca9eb254d43d079ad40e86e872ea5fbef2f02f66e4ce726f3f8569624cb4"
+    },
+    {
+      "name": "_0.2.2_aarch64.dmg",
+      "size": 22190458,
+      "digest": "sha256:6916581b072bacb1ef04fd9f313db943e116ac0eeb89e294995ccae110112cc3"
+    },
+    {
+      "name": "_0.2.2_amd64.AppImage",
+      "size": 100985336,
+      "digest": "sha256:176e05999dbc53ee91c5cf7be35407fa4937d07b3c97c24b3974dc4b745fb524"
+    },
+    {
+      "name": "_0.2.2_amd64.AppImage.sig",
+      "size": 444,
+      "digest": "sha256:5542a685b4bcc057358389c1259d69c0627dc0874e7b61c49d15571ef8852471"
+    },
+    {
+      "name": "_0.2.2_amd64.deb",
+      "size": 22584370,
+      "digest": "sha256:bac0391cc07cf65cca639d9d031777bf86526ebb0a2c82bddd9193dd470dd827"
+    },
+    {
+      "name": "_0.2.2_amd64.deb.sig",
+      "size": 436,
+      "digest": "sha256:50068e9a4eec7e43c10db205be62ed4b1baa2ac810fb4d31c9a203ce4f4794e2"
+    },
+    {
+      "name": "_0.2.2_x64.dmg",
+      "size": 22193886,
+      "digest": "sha256:0610238b76980a6a7bb342399495574c4b918aa2d0498c6e91ab6b72a5306fc9"
+    },
+    {
+      "name": "_0.2.2_x64_zh-CN.msi",
+      "size": 22396928,
+      "digest": "sha256:a1f64a0bd898132e22a0e430a10a422e006896035dc34cec9dd33e972efb242d"
+    },
+    {
+      "name": "_0.2.2_x64_zh-CN.msi.sig",
+      "size": 444,
+      "digest": "sha256:d0d008c7775ab1556dc8006dfff67405fd77064f5689122360428515d8342cd8"
+    },
+    {
+      "name": "_aarch64.app.tar.gz",
+      "size": 22135614,
+      "digest": "sha256:3f8fb129ddcacb8f90d675ede67df0f586d23f7cc9284ab63f57b1a561e0fb2e"
+    },
+    {
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:08c85342667e215470536678e5df08f79b26ce994537fc478f71829e94365e67"
+    },
+    {
+      "name": "_x64.app.tar.gz",
+      "size": 22111645,
+      "digest": "sha256:d7a4e0e7ba82263defb7580c1bc8b6aaf0bb216bb1139039c763ed3bdaa9454b"
+    },
+    {
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:2b063b3cb31f878da39913843af9247ba4670aade55c8f353b2a43f9716ca3e8"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-10-11T10:56:42+00:00",
+  "source": "Geofabrik official OSM PBF",
+  "sources": [
+    {
+      "sourceId": "europe/norway-latest",
+      "region": "europe",
+      "sourceInfoUrl": "https://download.geofabrik.de/europe/norway.html",
+      "pbfUrl": "https://download.geofabrik.de/europe/norway-latest.osm.pbf",
+      "sourceTimestamp": "2026-10-08T20:21:06Z",
+      "bytes": 1376962056,
+      "officialMd5": "ed3a5306978f6672390022f04c8b1fc6",
+      "sha256": "e020faead59ca5e42a7ab5d84c3fd2249b03f14255509de6adc30d9619bccee2",
+      "candidateRelations": 968,
+      "importedRelations": 919,
+      "skippedIncompleteRelations": 49,
+      "skippedNestedRelations": 17
+    },
+    {
+      "sourceId": "europe/sweden-latest",
+      "region": "europe",
+      "sourceInfoUrl": "https://download.geofabrik.de/europe/sweden.html",
+      "pbfUrl": "https://download.geofabrik.de/europe/sweden-latest.osm.pbf",
+      "sourceTimestamp": "2026-10-08T20:21:06Z",
+      "bytes": 874874207,
+      "officialMd5": "86e3acf4bb45dc4626d53e2abf368083",
+      "sha256": "e123ad2eb4306e719ad06252daeb1e1a26db527b7baa43b4dd0952c7bea028f1",
+      "candidateRelations": 3520,
+      "importedRelations": 3477,
+      "skippedIncompleteRelations": 43,
+      "skippedNestedRelations": 36
+    },
+    {
+      "sourceId": "europe/finland-latest",
+      "region": "europe",
+      "sourceInfoUrl": "https://download.geofabrik.de/europe/finland.html",
+      "pbfUrl": "https://download.geofabrik.de/europe/finland-latest.osm.pbf",
+      "sourceTimestamp": "2026-10-08T20:21:06Z",
+      "bytes": 770648521,
+      "officialMd5": "2b69df1d87ff40a7e1a0aedf9bc950a3",
+      "sha256": "49084e215fc55e647aefc212febb7a1d7be0ba74aa91cb76bd3bd00ad3d4565e",
+      "candidateRelations": 958,
+      "importedRelations": 953,
+      "skippedIncompleteRelations": 5,
+      "skippedNestedRelations": 20
+    }
+  ],
+  "catalogDelta": {
+    "beforeCount": 146010,
+    "afterCount": 151351,
+    "added": 5341,
+    "updated": 0,
+    "removed": 0,
+    "europeBefore": 125186,
+    "europeAfter": 130527,
+    "sha256": "9766fe4d4778c4ccd7f3399bf23455e01ff512d48460d93d38bee495fa9e701e"
+  },
+  "distribution": {
+    "snapshot": "9766fe4d4778c4ccd7f3399bf23455e01ff512d48460d93d38bee495fa9e701e",
+    "pages": 379,
+    "manifestSha256": "f42fb59bdba7c1ae0efccb424e347fc6c586d39cf09346bf2d463043cfdce7f2",
+    "copies": [
+      "shared/public-catalog/osm",
+      "app/cloudfunctions/catalog-feed/snapshots/osm",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots/osm"
+    ],
+    "manifestAndCompressedPagesIdenticalAcrossCopies": true,
+    "verifiedFilesPerCopy": 381
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "allNewRecordsRemainPendingVerification": true,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

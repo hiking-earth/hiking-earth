@@ -1,0 +1,31 @@
+{
+  "endpoint": "https://cloud1-d9g4fl3fu2491914f-1499973049.ap-shanghai.app.tcloudbase.com/client-api",
+  "request": {
+    "action": "catalog-feed",
+    "data": {
+      "source": "hk",
+      "page": 0,
+      "windowLimit": 40000
+    }
+  },
+  "liveHttpStatus": 400,
+  "dnsSeconds": 0.032514,
+  "totalSeconds": 10.271616,
+  "liveResponse": {
+    "ok": false,
+    "errMsg": "资料暂时不可用，请保留上次成功同步的数据并稍后重试"
+  },
+  "localSameHandler": {
+    "total": 167,
+    "items": 167,
+    "upstreamAvailable": true
+  },
+  "githubMainManifestBlob": "fb4237480a240c905cc82e43af4560f9f2b1d0bb",
+  "conclusion": "Public cloud endpoint is reachable; catalog availability fails remotely while local current handler and upstream return 167 records. Exact cloud failure stage is not verified.",
+  "nextRequiredEvidence": "Read deployed function logs and source after CloudBase authorization refresh; do not blame local DNS or change source based on this result.",
+  "limits": [
+    "No cloud deployment performed",
+    "No proof of precise remote root cause",
+    "No full-source sync acceptance"
+  ]
+}

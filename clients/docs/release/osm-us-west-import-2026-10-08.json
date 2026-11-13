@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "US West",
+  "source": "Geofabrik official fixed US West extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 128646,
+  "catalogCountAfter": 133270,
+  "catalogRecordDelta": 4624,
+  "successfulExtracts": [
+    {
+      "sourceId": "north-america/us-west-261005",
+      "region": "north-america",
+      "sourceUrl": "https://download.geofabrik.de/north-america/us-west.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 3412216831,
+      "officialMd5Verified": "87e3b166371f44fdd8d07249368b7a39",
+      "sha256": "a44b5f14139cbc359c4b2ab7ab8900b39e28130488ce4bacfa16fa95e989e4b1",
+      "candidateRelations": 4631,
+      "importedRelations": 4624,
+      "skippedIncompleteRelations": 7,
+      "skippedNestedRelations": 63,
+      "netCatalogRecordDelta": 4624
+    }
+  ],
+  "catalogSnapshot": "dee7a9ad6302b9601433af3259e3daa2c5cb1d232cecb869bc7ba383d97e8a8e",
+  "pageCount": 334,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1002,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 334 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "WeChat download plus streaming SHA256 implementation",
+  "tests_passed": 18,
+  "typecheck": "passed",
+  "wechat_build": "passed before unused-variable cleanup",
+  "public_asset": {
+    "bytes": 1168799,
+    "sha256": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+    "method": "curl HTTP download; not WeChat SDK acceptance"
+  },
+  "hash_chunk_bytes": 262144,
+  "deadline_ms": 120000,
+  "hash_dependency": "@noble/hashes 1.8.0",
+  "npm_workaround": "private npm9.9.4 official registry tarball integrity verified; global npm unchanged",
+  "pending": [
+    "WeChat SDK download domain and actual download",
+    "Saved file recovery and canvas visual acceptance",
+    "Global region catalog and navigation layers"
+  ],
+  "release_ready": false
+}

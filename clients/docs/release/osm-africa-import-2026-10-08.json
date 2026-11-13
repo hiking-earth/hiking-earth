@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Africa",
+  "source": "Geofabrik official fixed Africa PBF derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 145283,
+  "catalogCountAfter": 145986,
+  "catalogRecordDelta": 703,
+  "changedExistingRecords": 191,
+  "successfulExtracts": [
+    {
+      "sourceId": "africa-261006",
+      "region": "africa",
+      "sourceUrl": "https://download.geofabrik.de/africa.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 7929990705,
+      "officialMd5Verified": "db90771a6742ea52f7d2bb9c83f91129",
+      "sha256": "84d9c204ee4b32b5f84e3e457f1766d083c6b8c04c3cf0676490a3ecd25a2346",
+      "candidateRelations": 896,
+      "importedRelations": 894,
+      "skippedIncompleteRelations": 2,
+      "skippedNestedRelations": 20,
+      "netCatalogRecordDelta": 703
+    }
+  ],
+  "catalogSnapshot": "029f3b26febdbe7e4dd44cd3e071e625455436722118e0cdc846002d7f5fc36f",
+  "pageCount": 365,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1095,
+  "interpretation": "The regional extract contributes discovery records only; it does not establish current legal access, safety, permits, or navigable GPS tracks.",
+  "distributionCheck": "All three manifests are byte-identical; all 365 gzip pages in each copy are byte-identical across copies and each decompressed page SHA-256 matches the manifest. This proves local data integrity only; it does not prove deployment or client behavior."
+}

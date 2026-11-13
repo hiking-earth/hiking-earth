@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-10T18:58:55.279576+00:00",
+  "source": "USDA Forest Service public trail feature service",
+  "collection": {
+    "successfulBoundedRuns": 13,
+    "pageSize": 1000,
+    "pagesPerRun": 5,
+    "startRecords": 9241,
+    "endRecords": 37719,
+    "netNewUniqueIds": 28478,
+    "nextObjectId": 9708253,
+    "reconciliationVersion": 2,
+    "cycleComplete": false,
+    "allPreviousSnapshotIdsPreserved": true,
+    "allRowsRemainDiscoveryOnly": true
+  },
+  "failedAttempt": {
+    "attempts": 3,
+    "error": "TLS EOF during source query at historical offset 1000",
+    "previousSnapshotRetained": true,
+    "sameFailureChannelPaused": true
+  },
+  "snapshot": {
+    "sha256": "6e7e349bc928ee257011b3f7e5f7e83ff6121c111217f356dd663dc488ab36e3",
+    "previousSnapshot": "c4a55ec2fbc846ec0490452e3d067dc4d483c7c6972b920ebc2133e002c269ca",
+    "records": 37719,
+    "pages": 95,
+    "allPageHashesValid": true
+  },
+  "verification": {
+    "catalogPublicationTests": 15,
+    "collectionStatusTests": 3,
+    "localUsfsFullManifestPagesAndHashes": "passed",
+    "liveCloudBaseUnpinnedFirstPage": {
+      "httpStatus": 200,
+      "snapshot": "6e7e349bc928ee257011b3f7e5f7e83ff6121c111217f356dd663dc488ab36e3",
+      "sourceTotal": 37719,
+      "returned": 400,
+      "upstreamAvailable": true,
+      "complete": false
+    },
+    "stableReleaseReady": false,
+    "accessVerified": false
+  },
+  "productionPublicCatalogCommit": "76e5d23db1008e6d004c1db8baca5d550b07da1e",
+  "productionStatusCommit": "20d07173c10af1f480174d9339703519e2735ae8",
+  "scope": "USFS route discovery catalog expansion only; does not prove current trail access, legal permission, safety, or navigable geometry."
+}

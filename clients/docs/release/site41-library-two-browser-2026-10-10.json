@@ -1,0 +1,31 @@
+{
+  "scope": "Actual two isolated Chrome sessions manual library save and restore; excludes automatic sync, plans, tracks and physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "first browser saves favorite to actual cloud through UI",
+      "passed": true
+    },
+    {
+      "name": "second isolated browser begins with independent local library",
+      "passed": true
+    },
+    {
+      "name": "second browser restores same-account cloud favorite through UI",
+      "passed": true
+    },
+    {
+      "name": "first browser restores deletion saved by second browser",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T12:51:19.711Z"
+}

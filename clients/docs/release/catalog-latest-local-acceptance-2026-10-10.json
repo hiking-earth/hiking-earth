@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-10T07:09:17.454Z",
+  "runtime": "local Node22 with actual public GitHub main data",
+  "deployedCloudVerified": false,
+  "sourceTotal": 146007,
+  "snapshot": "1709f9dc81de4cc8848619ac18ba6ef19704d59c683db87c55915936775d67e2",
+  "checks": [
+    {
+      "name": "current main first page",
+      "passed": true,
+      "items": 400
+    },
+    {
+      "name": "same snapshot second page",
+      "passed": true,
+      "items": 400
+    },
+    {
+      "name": "800 distinct IDs",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "conclusion": "Latest source and local handler work; production cloud still serves older fallback. Do not overwrite main with older local catalog."
+}

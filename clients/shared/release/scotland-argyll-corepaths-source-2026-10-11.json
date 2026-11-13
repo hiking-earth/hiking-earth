@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "source": "Argyll and Bute Council Adopted Core Paths",
+  "sourceUrl": "https://arcgis.argyll-bute.gov.uk/arcgis/rest/services/Open_Data/MapServer/27",
+  "officialPage": "https://www.argyll-bute.gov.uk/planning-and-building/core-paths",
+  "downloadPage": "https://data-argyll-bute.opendata.arcgis.com/datasets/argyll-bute::open-data-adopted-core-paths/explore",
+  "license": "Open Government Licence v3.0",
+  "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "attribution": "Contains spatial data licensed under Open Government Licence v3.0 from Argyll and Bute Council. Source: Adopted Core Paths.",
+  "sourceDescription": "Council-adopted core access routes for walkers, cyclists, horse riders and other users; physical route types vary and include roads and water routes.",
+  "productPolicy": "Discovery references only. All 964 records remain 待核验; source line is not a verified hiking itinerary, navigation track, current surface/accessibility state, or closure notice.",
+  "generatedAt": "2026-10-11T10:24:05.954921+00:00",
+  "recordCount": 964,
+  "metricDistanceValuesParsed": 951,
+  "catalogBytes": 940607,
+  "catalogSha256": "07dd67f4f547742f710861ecc2955e9f2bb8a69779ff052847dfa4239481c879",
+  "snapshot": "07dd67f4f547742f710861ecc2955e9f2bb8a69779ff052847dfa4239481c879",
+  "snapshotPages": 3,
+  "cloudFallbacksPrepared": 2,
+  "status": "source-integrated-not-deployed"
+}

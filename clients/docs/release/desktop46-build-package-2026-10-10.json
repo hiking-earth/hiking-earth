@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-10T12:31:00.683837+00:00",
+  "runId": 38051734435,
+  "sourceCommit": "f6a082b46f4a93ef09eb4dde932c8dc699412935",
+  "allSixJobsPassed": true,
+  "releaseTag": "desktop-46",
+  "draft": true,
+  "releaseId": 408933316,
+  "assetCount": 13,
+  "maxAssetBytes": 150063608,
+  "macArm": {
+    "path": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop46/packages/_0.2.3_aarch64.dmg",
+    "bytes": 71213165,
+    "sha256": "af75119d4e9ab0dd6e8ae63fb824488c8346c87789174ff42179809ce65c87ba",
+    "remoteDigestMatches": true,
+    "diskImageIntegrityPassed": true,
+    "strictSignaturePassed": true,
+    "mountedReadOnly": true,
+    "detached": true,
+    "installed": false,
+    "businessAcceptance": false
+  },
+  "formalReleaseReady": false
+}

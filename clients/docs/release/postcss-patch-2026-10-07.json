@@ -1,0 +1,20 @@
+{
+  "sourceBase": "1974402",
+  "override": "postcss@8.5.6 -> 8.5.28",
+  "resolvedVersion": "8.5.28",
+  "checks": {
+    "cleanNpmCi": "passed",
+    "cleanStylerResolution": "8.5.28",
+    "cssParseStringify": "passed",
+    "untrustedAbsoluteSourceMapFixtureNotDisclosed": "passed",
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed"
+  },
+  "method": "Removed stale nested lock entry after recoverable backup; npm resolved to existing patched root package.",
+  "limitations": [
+    "Full audit in progress.",
+    "Not deployed or accepted on devices.",
+    "Fixture verification covers one absolute source map case, not all vulnerability classes."
+  ]
+}

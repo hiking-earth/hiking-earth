@@ -1,0 +1,14 @@
+{
+  "scope": "Actual isolated Chrome account UI; excludes WeChat identity and native permissions",
+  "checks": [
+    {
+      "name": "isolated UI account removed",
+      "passed": false
+    }
+  ],
+  "passed": false,
+  "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('账号：4–32位字母或数字')\u001b[22m\n",
+  "checkedAt": "2026-10-10T04:30:54.891Z",
+  "cleanupUnconfirmed": true,
+  "notes": "No secrets written to report; do not assume failed UI test account was deleted. Must reconcile isolated account cleanup when authorized environment access is available."
+}

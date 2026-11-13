@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-08T14:52:23.086800+00:00",
+  "catalogRun": {
+    "id": 37795274184,
+    "status": "completed",
+    "conclusion": "success",
+    "sourceCommit": "3c7d220aa12d7aebe942093df03a82ba5d00c999",
+    "productionCommit": "ce7b776aa79d2252c4b3ae8fa3bbd88bc77e7209",
+    "counts": {
+      "osm": 145987,
+      "usfs": 50089,
+      "hk": 167,
+      "news": 203
+    }
+  },
+  "desktopRun": {
+    "id": 37794713835,
+    "conclusion": "success",
+    "allSixJobs": "success",
+    "tag": "desktop-37",
+    "draft": true,
+    "assetCount": 13,
+    "maxAssetBytes": 150026744,
+    "sourceCommit": "504c555aa19fbb458ac9c12b7e1caa57250e8226",
+    "macDmgBytes": 71192969,
+    "macDmgSha256": "fd3e4483cc6bb5c8bcef0de336fbf6dd261563617addceb0f8f990a87f4290b3",
+    "githubDigestMatched": true,
+    "diskImageVerification": "passed",
+    "bundleCodesignDeepStrict": "passed",
+    "updaterManifest": "four platforms, canonical desktop-37 URLs and signatures present"
+  },
+  "incomplete": [
+    "desktop37 install and runtime acceptance",
+    "production CloudBase latest snapshot request acceptance",
+    "full all-end business acceptance and store publication"
+  ],
+  "mountedAt": "/tmp/hiking-earth-desktop37-mount"
+}

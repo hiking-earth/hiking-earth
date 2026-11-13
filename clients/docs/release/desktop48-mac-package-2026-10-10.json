@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-10T13:50:00Z",
+  "workflowRun": 38056512166,
+  "sourceCommit": "d9e9335269605818bf8fdf317d410bc224adad20",
+  "releaseTag": "desktop-48",
+  "draft": true,
+  "allFourBuildJobs": "success",
+  "macAppleSiliconDmg": "_0.2.3_aarch64.dmg",
+  "sizeBytes": 71215803,
+  "sha256": "6b33667d189d030f56525345db48627c7ef64cafd6bdc6ee766e16819127506a",
+  "githubDigestMatches": true,
+  "hdiutilVerify": "VALID",
+  "codesignVerifyDeepStrict": "passed",
+  "signature": "ad-hoc",
+  "installedOrFullBusinessFlow": false,
+  "releaseReady": false
+}

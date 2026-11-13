@@ -1,0 +1,11 @@
+{
+  "miniBuildExitCode": 0,
+  "h5BuildExitCode": 0,
+  "typecheckExitCode": 0,
+  "miniBytesBefore": 3384224,
+  "miniBytesAfter": 2215425,
+  "bytesRemoved": 1168799,
+  "miniMapRendererImplemented": false,
+  "h5MapSHA": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+  "publicDeploymentUpdated": false
+}

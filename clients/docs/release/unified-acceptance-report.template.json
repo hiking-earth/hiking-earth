@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "complete": false,
+  "version": "",
+  "versionCode": null,
+  "sourceCommit": "",
+  "platforms": {
+    "android": {
+      "status": "pending",
+      "artifactSha256": "",
+      "evidence": []
+    },
+    "h5": {
+      "status": "pending",
+      "evidence": []
+    },
+    "weixin": {
+      "status": "pending",
+      "evidence": []
+    },
+    "web": {
+      "status": "pending",
+      "evidence": []
+    },
+    "windows": {
+      "status": "pending",
+      "updaterArtifactSha256": "",
+      "evidence": []
+    },
+    "macos": {
+      "status": "pending",
+      "updaterArtifactSha256": "",
+      "evidence": []
+    },
+    "macos-aarch64": {
+      "status": "pending",
+      "updaterArtifactSha256": "",
+      "evidence": []
+    },
+    "macos-x86_64": {
+      "status": "pending",
+      "updaterArtifactSha256": "",
+      "evidence": []
+    },
+    "linux": {
+      "status": "pending",
+      "updaterArtifactSha256": "",
+      "evidence": []
+    },
+    "ios": {
+      "status": "pending",
+      "evidence": [],
+      "delivery": "pwa",
+      "device": "physical-iphone",
+      "checks": {
+        "installation": {
+          "status": "pending",
+          "evidence": []
+        },
+        "offlineRestore": {
+          "status": "pending",
+          "evidence": []
+        },
+        "permissionWithdrawal": {
+          "status": "pending",
+          "evidence": []
+        },
+        "update": {
+          "status": "pending",
+          "evidence": []
+        }
+      }
+    }
+  }
+}

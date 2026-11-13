@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-07T03:38:06.019745+00:00",
+  "sourceCommit": "6f5c132",
+  "uniBuildPassed": true,
+  "files": 156,
+  "packageBytes": 2212624,
+  "under500DecimalMB": true,
+  "appJsSha256": "4f87e7956f3d1ed1b4b3441ea3ef352d78236af001b8b780324dfcb5f74700cf",
+  "warnings": [
+    "Sass legacy JS API",
+    "Circular chunk: account -> tracks -> account/cloud"
+  ],
+  "runtimePassed": false,
+  "runtimeEvidence": "Developer tool remains at welcome page and empty page path after compile. CLI reset-fileutils succeeded; CLI engine build exits 255: Cannot GET /engine/build. No login or preview acceptance established."
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "Actual local Chrome H5 only, not packaged desktop or production",
+  "fixture": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/app/map-assets/static/offline-maps/lantau-20261009.pmtiles",
+  "offline": true,
+  "requestCount": 0,
+  "savedMapRows": 1,
+  "visibleResult": "本机已有相同版本，已校验并打开",
+  "regressionTests": 184,
+  "typeCheck": "passed",
+  "h5Build": "passed",
+  "screenshot": "output/playwright/map-reuse-offline.png",
+  "cleanupObservation": "Report and screenshot saved before REPL timeout while closing browser; subsequent process inspection found no remaining test Chrome process."
+}

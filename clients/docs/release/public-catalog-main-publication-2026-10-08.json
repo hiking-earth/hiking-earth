@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-08T14:31:53.543250+00:00",
+  "productionCommit": "4b2cec0226f701cb440d8a52a69e18b72e77da92",
+  "publishedPaths": [
+    "shared/public-catalog",
+    "shared/data/content",
+    "shared/data/offline/hk-afcd.json"
+  ],
+  "validatedCounts": {
+    "osm": 145986,
+    "usfs": 50089,
+    "hk": 167,
+    "news": 203
+  },
+  "verified": "remote main commit exact and public raw news manifest HTTP success, snapshot fdb822d84feed604bba70b5cc94a52cde20c351d7d91df7c53ebd41983aa0f9b",
+  "tests": "1 isolated-index local Git publication regression passed; git diff --check passed",
+  "sourceChanges": "data-only publisher added; development collector workflow invokes publisher after success",
+  "remaining": "CloudBase exact-version request returned ok:false unavailable; production function cannot yet fetch new upstream generation. No claim of live announcement refresh success. Scheduled main workflow has not been migrated to new development implementation.",
+  "releaseReadyChanged": false
+}

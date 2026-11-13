@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "buildRun": "38051734435",
+  "sourceCommit": "f6a082b46f4a93ef09eb4dde932c8dc699412935",
+  "sha256": "1606bbe4f5f2474dab26fcf5e83d54b9cc609300a20f0ea68ce235ada79325d2",
+  "platform": "windows-x64",
+  "scope": "Process launch only, not UI or business acceptance",
+  "observedSeconds": 20,
+  "passed": true,
+  "cleanupSucceeded": true
+}

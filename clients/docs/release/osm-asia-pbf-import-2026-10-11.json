@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "importedAt": "2026-10-11T14:06:21Z",
+  "source": {
+    "provider": "Geofabrik / OpenStreetMap contributors",
+    "region": "Asia",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "sourceOverview": "https://download.geofabrik.de/asia.html",
+    "sourceTimestamp": "2026-10-09T20:21:04Z"
+  },
+  "imports": [
+    {
+      "sourceId": "asia/thailand",
+      "region": "asia",
+      "sourceUrl": "https://download.geofabrik.de/asia/thailand-latest.osm.pbf",
+      "sourceTimestamp": "2026-10-09T20:21:04Z",
+      "sha256": "013730abb5ccf132631ff964947671efd09e642880518ec5d15d9366ec877d00",
+      "bytes": 328454828,
+      "importedAt": "2026-10-11T13:20:08Z",
+      "candidateRelations": 15,
+      "importedRelations": 15,
+      "skippedIncompleteRelations": 0,
+      "skippedNestedRelations": 0,
+      "md5": "cc8437da1be4ead5a8bab5b2aa76a8ca",
+      "sourcePage": "https://download.geofabrik.de/asia/thailand.html"
+    },
+    {
+      "sourceId": "asia/sea-261009",
+      "region": "asia",
+      "sourceUrl": "https://download.geofabrik.de/asia/sea-261009.osm.pbf",
+      "sourceTimestamp": "2026-10-09T20:21:04Z",
+      "sha256": "8adf5c1e1464a1364b8074187ec6c7b3df4d92483c231908dc5437d36794884a",
+      "bytes": 3673241048,
+      "importedAt": "2026-10-11T14:06:21Z",
+      "candidateRelations": 347,
+      "importedRelations": 347,
+      "skippedIncompleteRelations": 0,
+      "skippedNestedRelations": 3,
+      "md5": "a523a7355ccba48c5fff720a97351614",
+      "sourcePage": "https://download.geofabrik.de/asia/sea.html"
+    }
+  ],
+  "catalog": {
+    "before": 153013,
+    "after": 153353,
+    "netNewRecords": 340,
+    "asiaRegionRecords": 340,
+    "generatedAt": "2026-10-11T15:06:56Z",
+    "sha256": "75b879656bfe380864373454f14717b6cef333bcbd7cbdcbef03965a79eda0fb"
+  },
+  "distribution": {
+    "snapshot": "75b879656bfe380864373454f14717b6cef333bcbd7cbdcbef03965a79eda0fb",
+    "previousSnapshot": "3a45f9d00787e6c8ead1cdd780d53d0ed76768a57cb7ff9a5d64674b6f554e06",
+    "total": 153353,
+    "pages": 384,
+    "copies": [
+      "shared/public-catalog/osm",
+      "app/cloudfunctions/catalog-feed/snapshots/osm",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots/osm"
+    ],
+    "manifestIndexAndPageHashesVerified": true,
+    "filesByteIdenticalAcrossCopies": true,
+    "preservedProductionRollback": "6eed0992ec765e5870be559ef92f8fe48769bfc5ea20e3256ef77f704ba55fdf"
+  },
+  "boundaries": {
+    "discoveryRecordsOnly": true,
+    "newRecordsPendingRouteAndAccessReview": true,
+    "navigableTracksAdded": false,
+    "productionDeployed": false,
+    "productTestsRun": false,
+    "clientBuildRun": false,
+    "deviceAcceptanceRun": false
+  },
+  "subregionalRefresh": {
+    "report": "osm-asia-pbf-refresh-2026-10-11.json",
+    "sourceCount": 13,
+    "failedSources": 0,
+    "candidateRelations": 1363,
+    "importedRelations": 1355,
+    "skippedIncompleteRelations": 8,
+    "skippedNestedRelations": 9,
+    "netNewCatalogRecords": 0,
+    "note": "All 1,355 imported India-zone and Indonesia-subregion relations already existed in the OSM catalog; the 3 verified Indonesian extracts with no named hiking relations are recorded as empty, not failed. These refreshes provenance and source coverage without increasing the total."
+  }
+}

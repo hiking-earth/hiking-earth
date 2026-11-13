@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Tanzania",
+  "source": "Geofabrik official fixed Tanzania extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 145273,
+  "catalogCountAfter": 145283,
+  "catalogRecordDelta": 10,
+  "successfulExtracts": [{
+    "sourceId": "africa/tanzania-261006",
+    "region": "africa",
+    "sourceUrl": "https://download.geofabrik.de/africa/tanzania.html",
+    "sourceTimestamp": "2026-10-06T20:21:06Z",
+    "bytes": 706234187,
+    "officialMd5Verified": "721addc5fc00affe97b26825192105ac",
+    "sha256": "98a15f2259e63ddfa06e535804170fca6f9f69082f5112d35be16f139fd5964a",
+    "candidateRelations": 10,
+    "importedRelations": 10,
+    "skippedIncompleteRelations": 0,
+    "skippedNestedRelations": 0,
+    "netCatalogRecordDelta": 10
+  }],
+  "catalogSnapshot": "7bca8c678bf947ab8a939b6b13c7618ab3a35bbe1750cbc2a8e9cbfa3e8eb1b6",
+  "pageCount": 364,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 1092,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 364 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

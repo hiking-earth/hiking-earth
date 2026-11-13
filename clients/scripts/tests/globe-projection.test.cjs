@@ -1,0 +1,4 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),ts=require('../../app/node_modules/typescript');
+const output={};new Function('exports',ts.transpileModule(fs.readFileSync(require.resolve('../../app/src/components/globe-projection.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText)(output);
+test('globe front center horizon and hidden side are correctly projected',()=>{const p=output.projectGlobe(100,22,100,22);assert.ok(Math.abs(p.x)<1e-10&&Math.abs(p.y)<1e-10&&p.z>.99);assert.ok(output.projectGlobe(-80,-22,100,22).z<-.99);assert.ok(Math.abs(output.projectGlobe(90,0,0,0).z)<1e-10);});
+test('drag rotation wraps longitude and clamps poles',()=>{const p=output.rotateGlobe(179,70,-100,1000,100);assert.ok(p.lon>=-180&&p.lon<=180);assert.equal(p.lat,80);});

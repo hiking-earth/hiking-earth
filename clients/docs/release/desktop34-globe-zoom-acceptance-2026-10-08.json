@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-08T14:50:03.305761+00:00",
+  "platform": "installed desktop34 macOS",
+  "accepted": [
+    "Plus button visibly enlarges satellite globe",
+    "Native scroll-down over globe visibly reduces globe size"
+  ],
+  "screenshots": [
+    "mac-globe-before-zoom.png",
+    "mac-globe-after-zoom.png",
+    "mac-globe-after-wheel.png"
+  ],
+  "directory": "/Users/nanyu/.local/share/hiking-earth/acceptance/desktop-34/",
+  "unproven": [
+    "Drag rotation",
+    "All business flows",
+    "Latest desktop rebuilt candidate acceptance"
+  ],
+  "method": "Actual native CUA click and scroll; screenshots compared. No simulated browser event used."
+}

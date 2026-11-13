@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-11",
+  "defaultBranch": {
+    "name": "main",
+    "commit": "32c129c9f9f3010ea0a3699c79e8a653c47347e6",
+    "workflow": ".github/workflows/route-catalog-update.yml",
+    "hasSchedule": true,
+    "collectors": ["USFS", "OSM incremental", "Hong Kong AFCD", "official notices"],
+    "missingCollectors": [
+      "New Zealand DOC",
+      "Parks Canada",
+      "NSW NPWS",
+      "Natural England",
+      "Natural Resources Wales",
+      "Argyll and Bute"
+    ]
+  },
+  "developmentBranch": {
+    "name": "codex/mobile-privacy-controls",
+    "commitAtInspection": "549dbd9410ec8ade66998cedb9abf2fa94f003e2",
+    "workflowContainsAllSixCollectors": true
+  },
+  "impact": "Scheduled runs are defined by the default-branch workflow; therefore the six collectors added only to the development-branch workflow are not yet part of scheduled collection.",
+  "changedProduction": false,
+  "testsRun": false,
+  "deployed": false,
+  "next": "After feature freeze and unified verification, promote the validated workflow to the default branch and verify a scheduled or manually authorized collection run."
+}

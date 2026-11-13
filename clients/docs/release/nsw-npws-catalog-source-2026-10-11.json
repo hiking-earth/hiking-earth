@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-11",
+  "publisher": "NSW Department of Climate Change, Energy, the Environment and Water",
+  "datasetTitle": "Asset Infrastructure - Track Section",
+  "datasetUrl": "https://data.nsw.gov.au/data/dataset/asset-infrastructure-track-section8bfcf",
+  "sourceService": "https://services7.arcgis.com/9nlQUywsHzFwAwIM/arcgis/rest/services/NPWS_Tracks/FeatureServer/0",
+  "license": "Creative Commons Attribution",
+  "licenseUrl": "https://data.nsw.gov.au/data/dataset/asset-infrastructure-track-section8bfcf",
+  "attribution": "© State Government of NSW and NSW Department of Climate Change, Energy, the Environment and Water 2017. Source: NSW NPWS Asset Infrastructure – Track Section.",
+  "portalLastUpdated": "2026-10-04",
+  "portalUpdateFrequency": "asNeeded",
+  "portalTemporalCoverage": "1990-01-01 to 2026-08-13",
+  "sourceLayerFeatureCount": 5872,
+  "selectedAssetTypes": [
+    { "code": 1101, "name": "Walking Track", "records": 4241 },
+    { "code": 1102, "name": "Walking Route", "records": 341 }
+  ],
+  "selectedRecordCount": 4582,
+  "recordSemantics": "Asset segments inside the NPWS asset database, not complete named hiking itineraries.",
+  "publicationPolicy": "All rows remain 待核验. The lines are reference-only, non-navigational, and do not establish access permission, current opening state, safety, or a complete route. Only official Walking Track and Walking Route asset classes are collected; other asset classes are excluded.",
+  "collectionPolicy": "Complete-source replacement only after every ID page, record, geometry, and ID set validates. A failed or incomplete fetch retains the previous catalog."
+}

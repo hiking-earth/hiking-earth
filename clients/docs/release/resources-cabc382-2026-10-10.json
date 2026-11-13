@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "cabc3825edb886bdb2d0143a782052ecea3edea2",
+  "compiledResourceArchives": [
+    {
+      "platform": "h5",
+      "fileCount": 96,
+      "resourceBytes": 56192327,
+      "archiveBytes": 51453579,
+      "sha256": "6e6509d3ee78306f1510f9851943565ddbb2a0c8b706fdc050a6682802c7cf87",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-cabc382/h5.zip",
+      "scope": "Compiled resources, not a signed installable binary or store publication"
+    },
+    {
+      "platform": "mp-weixin",
+      "fileCount": 178,
+      "resourceBytes": 3003589,
+      "archiveBytes": 890260,
+      "sha256": "6105d12bd061a476bbd7ffdc33d631f63f0f4837931450302acc3f47b39b68dc",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-cabc382/mp-weixin.zip",
+      "scope": "Compiled resources, not a signed installable binary or store publication"
+    },
+    {
+      "platform": "app",
+      "fileCount": 61,
+      "resourceBytes": 3822614,
+      "archiveBytes": 1086574,
+      "sha256": "152becbd265c02edbf3da5cc4aab30262b6f149b24f35fc506d424089d89b0a6",
+      "path": "/Users/nanyu/.local/share/hiking-earth/delivery/resources-cabc382/app.zip",
+      "scope": "Compiled resources, not a signed installable binary or store publication"
+    }
+  ],
+  "additionalUntrackedBuildInputs": [
+    {
+      "path": "app/src/static/native-map/viewer.html",
+      "sha256": "65a7cad3c634ec00b82dea2f2bd2e54d5e5a87c9bf770ebf67d5072bb0365730",
+      "bytes": 1514387
+    }
+  ],
+  "formalReady": false,
+  "limits": [
+    "No APK, IPA or desktop binary in these resource archives",
+    "Untracked source assets are recorded separately; git commit alone does not identify all resource inputs",
+    "Not remotely deployed or uploaded"
+  ]
+}

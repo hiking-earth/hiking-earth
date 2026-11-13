@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-07",
+  "function": "client-api",
+  "deployment": "r9 rate limiter",
+  "sourceReadbackVerified": true,
+  "backup": "/Users/nanyu/.local/share/hiking-earth/backups/cloud-20261007-rate-r9/client-api",
+  "before": {
+    "sequential": 200,
+    "concurrentStatuses": [
+      500,
+      200,
+      500,
+      500
+    ]
+  },
+  "afterReport": "deployed-catalog-concurrency-2026-10-07.json",
+  "unitTests": {
+    "passed": 4,
+    "coverage": [
+      "single-instance serialization and ceiling",
+      "three-attempt bound",
+      "queue release after failure",
+      "uncertain commit fail closed"
+    ]
+  },
+  "diagnosis": "Concurrent failure eliminated in this five-request sample after rate counter serialization and bounded transaction retries; original SDK error code unavailable, do not assert exact provider error",
+  "limits": [
+    "Not a load test",
+    "Cross-instance global throughput not proven",
+    "Real mini-program resync and QR confirmation remain pending"
+  ]
+}

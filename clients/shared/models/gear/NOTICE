@@ -1,0 +1,3 @@
+COCO-SSD implementation: TensorFlow.js Models contributors, Apache License 2.0.
+Model files distributed from official TensorFlow.js ssdlite_mobilenet_v2 hosting. See source.json for exact file hashes and source links.
+COCO categories are limited; predictions are candidates and are not equipment safety certification.

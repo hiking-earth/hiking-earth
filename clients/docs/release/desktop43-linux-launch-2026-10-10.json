@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "8ab729b282194c64739a3616850392a1bf34c8fb",
+  "platform": "linux-x64",
+  "sha256": "82e95e287ac9b958c788fb90beebc16235e7b9132a63eda725c6e5d3accf9ad7",
+  "scope": "Virtual-display process launch only, not UI or business acceptance",
+  "observedSeconds": 25,
+  "exitStatus": 124,
+  "passed": true,
+  "run": 38009636229,
+  "release": "desktop-43"
+}

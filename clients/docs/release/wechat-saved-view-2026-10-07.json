@@ -1,0 +1,27 @@
+{
+  "testedAt": "2026-10-07T06:51:18.300069+00:00",
+  "sourceCommit": "736e22f",
+  "platform": "WeChat Developer Tools Stable 2.02.2608070, SDK 3.17.2",
+  "candidateMatchedFiles": 165,
+  "candidateBytesExcludingProjectConfig": 2268689,
+  "passed": [
+    "official CLI project close/open",
+    "candidate generated files match build SHA256",
+    "saved Monaco and Lantau inventory restored",
+    "saved Lantau view button selected map",
+    "actual local canvas rendered zoom 15 and 9 tiles"
+  ],
+  "notProven": [
+    "root cause of prior no-action view behavior",
+    "physical device cold restart/offline",
+    "production legal domains",
+    "full platform acceptance"
+  ],
+  "warningsObserved": [
+    "pre-existing domain/TLS validation bypass setting retained",
+    "tool preload warnings",
+    "legacy canvas2d migration suggestion",
+    "worker reportRealtimeAction unsupported"
+  ],
+  "screenshot": "wechat-saved-view-2026-10-07.jpg"
+}

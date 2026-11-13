@@ -1,0 +1,83 @@
+{
+  "runId": 37588413593,
+  "source": "587d11e4e77fd8e1404a289ca6675e2e442fcfd5",
+  "release": "desktop-23",
+  "draft": true,
+  "assets": [
+    {
+      "name": "latest.json",
+      "size": 2622,
+      "digest": "sha256:db54f213a7ace133ded57d444e687d3e0902b86926467d794531f8144a0e3ba5"
+    },
+    {
+      "name": "_0.2.3_aarch64.dmg",
+      "size": 33282294,
+      "digest": "sha256:bb83d70d2e8c06fc905068dc2b859aaf438bb8c521a506682d870610453b5d31"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage",
+      "size": 111987192,
+      "digest": "sha256:8b426009c2927a0db528e35f9b8612b7cc82b0b2f16e18ba5a1e6307e910ff73"
+    },
+    {
+      "name": "_0.2.3_amd64.AppImage.sig",
+      "size": 444,
+      "digest": "sha256:0e853447b4f594d8c984aad3e4da577837032743c274fff62c16fa88cf7fa63b"
+    },
+    {
+      "name": "_0.2.3_amd64.deb",
+      "size": 33576634,
+      "digest": "sha256:b04c3cc1f7ad47e346cf7c639e8b2ffccedafadada20c8a25b225ae1ab2208de"
+    },
+    {
+      "name": "_0.2.3_amd64.deb.sig",
+      "size": 436,
+      "digest": "sha256:ebf0d70f1bef1f1a0cf2813c4870d692abb9e8760b5f6a055cd4658f81d1f074"
+    },
+    {
+      "name": "_0.2.3_x64.dmg",
+      "size": 33198053,
+      "digest": "sha256:40bade54830f4001113dc4ae307615ebe8de56842293ca6dd083bd5387501534"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi",
+      "size": 33398784,
+      "digest": "sha256:ce1d8261d7e0bc858a3fce1b247ad20bbed861ce74d48a621898038fb1b37dd6"
+    },
+    {
+      "name": "_0.2.3_x64_zh-CN.msi.sig",
+      "size": 444,
+      "digest": "sha256:89551cf1d2a319b9565e65e28ef2530153f8bf14b5082dc858e07ed7680aeb22"
+    },
+    {
+      "name": "_aarch64.app.tar.gz",
+      "size": 33215908,
+      "digest": "sha256:fb9081d336d5862238cb0fbd2eb6ae0a7a7a481ce3bdec1ef03efe8f3a84de3e"
+    },
+    {
+      "name": "_aarch64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:4cead642af0dc166e4530c71b5296ca91d5b7c50eac9809a042057df244e86e3"
+    },
+    {
+      "name": "_x64.app.tar.gz",
+      "size": 33102374,
+      "digest": "sha256:6c8eb946770a2f392ab3cbc254e14f1df6d9fd0a3d6c295a7dcd43594da0eb90"
+    },
+    {
+      "name": "_x64.app.tar.gz.sig",
+      "size": 432,
+      "digest": "sha256:5579035b7adeea050dafe767f3f3253b5f3a974007da618e979ce097963c28c7"
+    }
+  ],
+  "macArmUpdater": {
+    "sha256": "fb9081d336d5862238cb0fbd2eb6ae0a7a7a481ce3bdec1ef03efe8f3a84de3e",
+    "bytes": 33215908,
+    "signatureVerified": true
+  },
+  "limitations": [
+    "No runtime or upgrade acceptance yet.",
+    "Public map CORS still being fixed.",
+    "Stable update remains disabled."
+  ]
+}

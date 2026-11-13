@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-09T15:09:24.153851+00:00",
+  "sourceCommit": "b861ea4",
+  "scope": "Local Mac ARM candidate built offline; not official updater release or Apple notarization",
+  "bytes": 75425344,
+  "binarySha256": "1736ec989510ecd077fdbe38aa2f706163a56d50dbb7c51715f2b64a839480aa",
+  "buildExit": 0,
+  "codesignDeepStrict": "passed",
+  "backup": "/Users/nanyu/.local/share/hiking-earth/acceptance/map-reveal-mac/installed-desktop41-backup.app",
+  "checks": [
+    {
+      "name": "installed candidate launched",
+      "status": "passed"
+    },
+    {
+      "name": "four saved map packages retained",
+      "status": "passed"
+    },
+    {
+      "name": "Yosemite saved map automatically visible",
+      "status": "passed",
+      "evidence": "After click, map occupied visible viewport with roads and waterways."
+    }
+  ],
+  "screenshot": "/Users/nanyu/.local/share/hiking-earth/acceptance/map-reveal-mac/mac-yosemite-visible-zoom.png",
+  "pending": [
+    "Full Mac business acceptance",
+    "Network catalog refresh",
+    "Official signed updater artifacts",
+    "Website deployment",
+    "WeChat and iPhone device acceptance"
+  ]
+}

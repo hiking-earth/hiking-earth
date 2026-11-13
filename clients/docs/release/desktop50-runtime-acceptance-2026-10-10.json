@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-10-10T14:10:19Z",
+  "workflowRun": 38057992651,
+  "workflowConclusion": "success",
+  "sourceCommit": "33de06857b2ab9e388129e789fcca3f5342e6621",
+  "releaseId": "RE_kwDOU5Kc784YYKI2",
+  "releaseTag": "desktop-50",
+  "releaseUrl": "https://github.com/hiking-earth/clients/releases/tag/untagged-cd83e784ac1ee6f01b80",
+  "draft": true,
+  "updaterManifest": {
+    "version": "0.2.3",
+    "notes": "Candidate; full platform acceptance required before public release.",
+    "platforms": [
+      "windows-x86_64",
+      "darwin-aarch64",
+      "darwin-x86_64",
+      "linux-x86_64"
+    ],
+    "allFourPlatformEntriesPresent": true
+  },
+  "platforms": {
+    "windows-x64": {
+      "build": "passed",
+      "processLaunch": "passed",
+      "observedSeconds": 20,
+      "cleanupSucceeded": true,
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    },
+    "linux-x64": {
+      "build": "passed",
+      "virtualDisplayProcessLaunch": "passed",
+      "observedSeconds": 25,
+      "processExitStatus": 124,
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    },
+    "macos-aarch64": {
+      "build": "passed",
+      "deepStrictCodeSignatureVerification": "passed",
+      "processLaunch": "passed",
+      "observedSeconds": 20,
+      "cleanupSucceeded": true,
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    },
+    "macos-x64": {
+      "build": "passed",
+      "deepStrictCodeSignatureVerification": "passed",
+      "processLaunch": "passed",
+      "observedSeconds": 20,
+      "cleanupSucceeded": true,
+      "packageBudget": "passed",
+      "updaterSignature": "passed"
+    }
+  },
+  "launchEvidence": {
+    "windows-x64": {
+      "sha256": "927dfdfb0f7551f5f75dfae448828ed586e8f355e6ea1fe5e3bc7f933a7f0893"
+    },
+    "linux-x64": {
+      "sha256": "89b773e21ed1f895e549f177c10fc53ce4efdd74ea4a7770b8175c9dc205fb91"
+    },
+    "macos-aarch64": {
+      "sha256": "8d5ce93d128b8e387578a770f20c23198fda575d8a2d3e7e3465821fcdfa5236"
+    },
+    "macos-x64": {
+      "sha256": "6ee54e4b486780467d3d0bbd75b56a67e33d8a131469c81cd9ab9e3152ff6f72"
+    }
+  },
+  "assets": [
+    {"name":"latest.json","sizeBytes":2546,"sha256":"436c218af51bec0836e00368277f87c7cb806ce43de5a8a98b1d438c89c6b1eb"},
+    {"name":"_0.2.3_aarch64.dmg","sizeBytes":71215811,"sha256":"6cd5a6f7ba710f731f6d1b843964721d4415a8bfd9a74df05c3a6ae686f8468f"},
+    {"name":"_0.2.3_amd64.AppImage","sizeBytes":150071800,"sha256":"73c4612c84085892d63dc6542bf38995ba7c461aa5b18caf49b3931bd3bb1ce0"},
+    {"name":"_0.2.3_amd64.AppImage.sig","sizeBytes":444,"sha256":"130ad18adb41fc5756c0fe303c0c815f17d60c5e9c0ae54038ad60a71d854da8"},
+    {"name":"_0.2.3_amd64.deb","sizeBytes":71795112,"sha256":"b4438cf1987de2e1d097cf2e7905de5832f8aa731b112b759ab27509f487d051"},
+    {"name":"_0.2.3_amd64.deb.sig","sizeBytes":436,"sha256":"ddfb74f5b637e8dbfb098f440f9d1ddc8495792c8800c7717accbc2ea8f1a4f2"},
+    {"name":"_0.2.3_x64.dmg","sizeBytes":71978421,"sha256":"1edb8f8a958d9b93ee985b7fc10032dafefd5aada28912741d97e610af9e5ab7"},
+    {"name":"_0.2.3_x64_zh-CN.msi","sizeBytes":71438336,"sha256":"35a0ed65a2986116bbfc34b2a145b303e1b99d231218f5284a966f07a5d7a5dd"},
+    {"name":"_0.2.3_x64_zh-CN.msi.sig","sizeBytes":444,"sha256":"862eb9192246584e583cc162644200bae30ba6d82fc64431fd19cf89ebcfde74"},
+    {"name":"_aarch64.app.tar.gz","sizeBytes":71168359,"sha256":"1e8cecf7cadb3c2d391113d53eb235f8fa05e05cc26171e6b9b99ff76a501cd9"},
+    {"name":"_aarch64.app.tar.gz.sig","sizeBytes":432,"sha256":"c85936c461fdbb1432ef7148abc796379fe349485fb292a0387a82c39dda21b1"},
+    {"name":"_x64.app.tar.gz","sizeBytes":71895299,"sha256":"dfcd274553384a310705043dd6a9ada5b786baf7ed083ec9793a299c56c91118"},
+    {"name":"_x64.app.tar.gz.sig","sizeBytes":432,"sha256":"f581b8f42585dbd3358fc4fe24fa9ee51b15851d7509d11b6f8125729313fdb8"}
+  ],
+  "maximumAssetSizeBytes": 150071800,
+  "acceptanceScope": "Build, updater-asset signature checks, package-size budget, and packaged process launch only. No installation, visual UI, login/sync, or end-to-end business acceptance.",
+  "stableRelease": {
+    "ready": false,
+    "version": "0.2.1",
+    "publishedAt": null
+  }
+}

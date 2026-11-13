@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-07T11:11:39.293614+00:00",
+  "siteVersion": 23,
+  "fixtureSource": "https://github.com/tensorflow/tfjs-models/blob/master/mobilenet/demo/coffee.jpg",
+  "fixtureBytes": 30952,
+  "fixtureSha256": "84b3e46185474c6067fac8c8db30d7c2a15367d231b5c72d8cf525e321248d9b",
+  "actualUiResult": {
+    "items": 1,
+    "label": "杯子",
+    "displayedCandidateScore": "99%",
+    "category": "饮食",
+    "terminal": true
+  },
+  "screenshot": "gear-cup-browser-2026-10-07.png",
+  "scope": "One real positive image in public H5 production UI, not an accuracy dataset or all gear-class acceptance.",
+  "limitations": [
+    "No WeChat/native-phone inference acceptance.",
+    "No independent image-upload network trace.",
+    "99% is model confidence, not product accuracy."
+  ]
+}

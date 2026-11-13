@@ -1,0 +1,3 @@
+# Model integrity manifests refer to upstream bytes. Never convert these on checkout.
+shared/models/gear/model.json -text
+shared/models/gear/group1-shard* -text

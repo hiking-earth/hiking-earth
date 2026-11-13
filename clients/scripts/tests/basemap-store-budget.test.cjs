@@ -1,0 +1,6 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),ts=require('../../app/node_modules/typescript');
+const out={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(require.resolve('../../app/src/services/basemap-store.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports:out,Blob,require:()=>({})});
+const row=(id,size=127)=>({id,name:'sample.pmtiles',bytes:size,savedAt:1,blob:new Blob([new Uint8Array(size)])});
+test('valid inventory sums actual blob bytes',()=>assert.equal(out.basemapStorageBytes([row('a'),row('b')]),254));
+test('reject damaged metadata and repeated identities',()=>{for(const rows of [[{...row('a'),bytes:-1}],[{...row('a'),bytes:128}],[row('a'),row('a')],[{...row('a'),savedAt:NaN}]])assert.throws(()=>out.basemapStorageBytes(rows));});
+test('budget is bounded below 500 decimal MB and rejects overage',()=>{assert.ok(out.BASEMAP_BUDGET<500000000);const size=64*1024*1024;assert.equal(out.basemapStorageBytes([row('a',size),row('b',size),row('c',size)]),out.BASEMAP_BUDGET);assert.throws(()=>out.basemapStorageBytes([row('a',size),row('b',size),row('c',size),row('d')]));});

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "buildRun": "38019207925",
+  "sourceCommit": "ddbd570ae01a096b0d348ed9eb7c99a270bf19fe",
+  "sha256": "f7abc9d1226940fac55f66ac0859de28561f7594a32851a702049572f603d648",
+  "platform": "windows-x64",
+  "scope": "Process launch only, not UI or business acceptance",
+  "observedSeconds": 20,
+  "passed": true,
+  "cleanupSucceeded": true,
+  "run": 38019207925,
+  "release": "desktop-44"
+}

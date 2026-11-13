@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Great Britain",
+  "source": "Geofabrik official fixed Great Britain extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 124773,
+  "catalogCountAfter": 128644,
+  "catalogRecordDelta": 3871,
+  "successfulExtracts": [
+    {
+      "sourceId": "europe/great-britain-261006",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/great-britain.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 2183013432,
+      "officialMd5Verified": "3c2f4f8fddc8004355dfdd5d1c284f46",
+      "sha256": "8a9b47e5f3daafe4343c86b8a8de3987602408c1a036dbaf6c9b47338d644715",
+      "candidateRelations": 4650,
+      "importedRelations": 4649,
+      "skippedIncompleteRelations": 1,
+      "skippedNestedRelations": 143,
+      "netCatalogRecordDelta": 3871
+    }
+  ],
+  "catalogSnapshot": "00c912ab14ed8ab766a6934db168cee34516dfe796b10203189b48309217435e",
+  "pageCount": 322,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 966,
+  "interpretation": "Imported rows remain OSM discovery metadata requiring separate current access, permit and safety verification; they do not create navigable GPS tracks. The Great Britain extract excludes Ireland.",
+  "distributionCheck": "The three manifest files are byte-identical. All 322 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

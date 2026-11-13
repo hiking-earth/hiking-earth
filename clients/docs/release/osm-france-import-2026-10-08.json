@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "France",
+  "source": "Geofabrik official France country extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 49059,
+  "catalogCountAfter": 61723,
+  "catalogRecordDelta": 12664,
+  "successfulExtracts": [
+    {
+      "sourceId": "europe/france-latest",
+      "region": "europe",
+      "sourceUrl": "https://download.geofabrik.de/europe/france.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 5094948807,
+      "officialMd5Verified": "30116dfc267333e6915eddf1f5ad1bbd",
+      "sha256": "f3dd401092c3405f3f812ec72ce236cc3914e9ffe1b0bc642a97903ffa9dfe0a",
+      "candidateRelations": 17278,
+      "importedRelations": 16711,
+      "skippedIncompleteRelations": 567,
+      "skippedNestedRelations": 335,
+      "netCatalogRecordDelta": 12664
+    }
+  ],
+  "catalogSnapshot": "c7df371e6a5137599f1274557aba3a0e2d19e5e00ccb00f03fb80541cfcfc7f1",
+  "pageCount": 155,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 465,
+  "interpretation": "Imported rows remain OSM discovery metadata and require current access, permit, and safety verification. Relation import does not create a navigable GPS track.",
+  "distributionCheck": "Three manifests are byte-identical. All 155 compressed pages are byte-identical across the three source copies; decompressed page SHA-256 values match the current manifest. This proves local file integrity only, not remote deployment or client runtime behavior."
+}

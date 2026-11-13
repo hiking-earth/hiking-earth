@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-07T14:24:47.515625Z",
+  "site": {
+    "projectId": "appgprj_6a82b2fd4d348191830f591595297f7c",
+    "audience": "public",
+    "version": 27,
+    "sourceCommit": "40b3cce8039bd4eb2a4b672ca91e0ebcbe135c47",
+    "deploymentId": "appgdep_6ac65625bc6081918d6d8ee63c3cd82f",
+    "status": "succeeded",
+    "url": "https://hiking-earth.nanyu20050927.chatgpt.site",
+    "archive": {
+      "format": "tar",
+      "bytes": 53278720,
+      "files": 599,
+      "sha256": "2d4e1dccdeaa521bf6649939a4be7aca727089a35f642c2a9edb1bd660b1e620"
+    }
+  },
+  "clientSource": "a8c7910435905ee8ae6935f5f312666bbfbf9498",
+  "buildAndTests": {
+    "command": "npm test",
+    "exitCode": 0,
+    "renderedHtmlChecks": { "passed": 13, "failed": 0 },
+    "notes": [
+      "Build verified that the website used the exact pinned client commit.",
+      "Four stale source assertions were updated to match the current route safety, coordinate weather, rendering limits and service-worker registration behavior."
+    ]
+  },
+  "liveHttpChecks": {
+    "homepage": 200,
+    "health": { "http": 200, "status": "ok", "releaseReady": false },
+    "embeddedClientEntry": 200,
+    "embeddedClientAssets": { "passed": 3, "failed": 0 },
+    "routeManifests": {
+      "osm": { "http": 200, "total": 26852, "snapshot": "995fb94e77bca8695de3080e31f683db094f51c98295b6e5c01ddd69316df38e" },
+      "usfs": { "http": 200, "total": 50089, "snapshot": "08a096489f5294c131c8be4936316936605806e0155aeb5bab953ed68e77706e" },
+      "hk": { "http": 200, "total": 167, "snapshot": "3ba90e23b4a9bde618deb0a25cbc1ec6dcb383db78ebf7da03b85849ccb87edd" },
+      "officialNews": { "http": 200, "total": 203, "snapshot": "386fc3e99f75f71474c70651d39e9007d17d0b0995c613651721a32e6376dbb1" }
+    },
+    "catalogPage": { "http": 200, "source": "osm", "total": 26852 },
+    "globalCoordinateWeatherSample": { "http": 200, "status": "available", "provider": "MET Norway", "license": "CC BY 4.0", "sampleCoordinates": [27.98, 86.92] }
+  },
+  "dependencyAudit": {
+    "siteProductionDependencies": { "command": "npm audit --omit=dev", "total": 0 },
+    "uniAppProductionDependencies": { "command": "npm audit --omit=dev", "total": 41, "high": 16, "moderate": 7, "low": 18, "critical": 0, "disposition": "unresolved; assess and update the pinned DCloud dependency set before stable release" }
+  },
+  "scope": "Confirms one website build, source tests and live HTTP checks. It does not confirm physical iPhone, desktop runtime, WeChat upload/login, QR approval, native permissions, complete route legality or stable auto-update readiness."
+}

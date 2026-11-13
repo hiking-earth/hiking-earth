@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>NSLocationUsageDescription</key><string>在你启用定位后，用于显示当前位置、路线导航和记录徒步轨迹。</string>
+  <key>NSLocationWhenInUseUsageDescription</key><string>在你启用定位后，用于显示当前位置、路线导航和记录徒步轨迹。</string>
+</dict></plist>

@@ -1,0 +1,11263 @@
+{
+  "schemaVersion": 1,
+  "queue": [
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        69,
+        25,
+        73
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        73,
+        25,
+        77
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        77,
+        25,
+        81
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        81,
+        25,
+        85
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        85,
+        25,
+        89
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        89,
+        25,
+        93
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        93,
+        25,
+        97
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        97,
+        25,
+        100
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        65,
+        29,
+        69
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        69,
+        29,
+        73
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        73,
+        29,
+        77
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        77,
+        29,
+        81
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        81,
+        29,
+        85
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        85,
+        29,
+        89
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        89,
+        29,
+        93
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        93,
+        29,
+        97
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        25,
+        97,
+        29,
+        100
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        65,
+        33,
+        69
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        69,
+        33,
+        73
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        73,
+        33,
+        77
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        77,
+        33,
+        81
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        81,
+        33,
+        85
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        85,
+        33,
+        89
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        89,
+        33,
+        93
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        93,
+        33,
+        97
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        29,
+        97,
+        33,
+        100
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        65,
+        36,
+        69
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        69,
+        36,
+        73
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        73,
+        36,
+        77
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        77,
+        36,
+        81
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        81,
+        36,
+        85
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        85,
+        36,
+        89
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        89,
+        36,
+        93
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        93,
+        36,
+        97
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        33,
+        97,
+        36,
+        100
+      ]
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        93,
+        9,
+        97
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        73,
+        13,
+        77
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        77,
+        13,
+        81
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        65,
+        17,
+        69
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        73,
+        17,
+        77
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        89,
+        17,
+        93
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        65,
+        21,
+        69
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        73,
+        21,
+        77
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        -11,
+        39,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        -7,
+        39,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        -3,
+        39,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        1,
+        39,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        5,
+        39,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        9,
+        39,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        13,
+        39,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        17,
+        39,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        21,
+        39,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        25,
+        39,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        29,
+        39,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        35,
+        33,
+        39,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        -11,
+        43,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        -7,
+        43,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        -3,
+        43,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        1,
+        43,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        5,
+        43,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        9,
+        43,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        13,
+        43,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        17,
+        43,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        21,
+        43,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        25,
+        43,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        29,
+        43,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        39,
+        33,
+        43,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        -11,
+        47,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        -7,
+        47,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        -3,
+        47,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        1,
+        47,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        5,
+        47,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        9,
+        47,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        13,
+        47,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        17,
+        47,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        21,
+        47,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        25,
+        47,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        29,
+        47,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        43,
+        33,
+        47,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        -11,
+        51,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        -7,
+        51,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        -3,
+        51,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        1,
+        51,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        5,
+        51,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        9,
+        51,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        13,
+        51,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        17,
+        51,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        21,
+        51,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        25,
+        51,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        29,
+        51,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        47,
+        33,
+        51,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        -11,
+        55,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        -7,
+        55,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        -3,
+        55,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        1,
+        55,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        5,
+        55,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        9,
+        55,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        13,
+        55,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        17,
+        55,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        21,
+        55,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        25,
+        55,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        29,
+        55,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        51,
+        33,
+        55,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        -11,
+        59,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        -7,
+        59,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        -3,
+        59,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        1,
+        59,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        5,
+        59,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        9,
+        59,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        13,
+        59,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        17,
+        59,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        21,
+        59,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        25,
+        59,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        29,
+        59,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        55,
+        33,
+        59,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        -11,
+        63,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        -7,
+        63,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        -3,
+        63,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        1,
+        63,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        5,
+        63,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        9,
+        63,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        13,
+        63,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        17,
+        63,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        21,
+        63,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        25,
+        63,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        29,
+        63,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        59,
+        33,
+        63,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        -11,
+        67,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        -7,
+        67,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        -3,
+        67,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        1,
+        67,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        5,
+        67,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        9,
+        67,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        13,
+        67,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        17,
+        67,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        21,
+        67,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        25,
+        67,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        29,
+        67,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        63,
+        33,
+        67,
+        35
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        -11,
+        71,
+        -7
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        -7,
+        71,
+        -3
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        -3,
+        71,
+        1
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        1,
+        71,
+        5
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        5,
+        71,
+        9
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        9,
+        71,
+        13
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        13,
+        71,
+        17
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        17,
+        71,
+        21
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        21,
+        71,
+        25
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        25,
+        71,
+        29
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        29,
+        71,
+        33
+      ]
+    },
+    {
+      "region": "europe",
+      "bbox": [
+        67,
+        33,
+        71,
+        35
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -130,
+        28,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -126,
+        28,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -122,
+        28,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -118,
+        28,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -114,
+        28,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -110,
+        28,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -106,
+        28,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -102,
+        28,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -98,
+        28,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -94,
+        28,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -90,
+        28,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -86,
+        28,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -82,
+        28,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -78,
+        28,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -74,
+        28,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -70,
+        28,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -66,
+        28,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        24,
+        -62,
+        28,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -130,
+        32,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -126,
+        32,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -122,
+        32,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -118,
+        32,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -114,
+        32,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -110,
+        32,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -106,
+        32,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -102,
+        32,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -98,
+        32,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -94,
+        32,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -90,
+        32,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -86,
+        32,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -82,
+        32,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -78,
+        32,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -74,
+        32,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -70,
+        32,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -66,
+        32,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        28,
+        -62,
+        32,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -130,
+        36,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -126,
+        36,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -122,
+        36,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -118,
+        36,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -114,
+        36,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -110,
+        36,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -106,
+        36,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -102,
+        36,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -98,
+        36,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -94,
+        36,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -90,
+        36,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -86,
+        36,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -82,
+        36,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -78,
+        36,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -74,
+        36,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -70,
+        36,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -66,
+        36,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        32,
+        -62,
+        36,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -130,
+        40,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -126,
+        40,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -122,
+        40,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -118,
+        40,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -114,
+        40,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -110,
+        40,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -106,
+        40,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -102,
+        40,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -98,
+        40,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -94,
+        40,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -90,
+        40,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -86,
+        40,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -82,
+        40,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -78,
+        40,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -74,
+        40,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -70,
+        40,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -66,
+        40,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        36,
+        -62,
+        40,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -130,
+        44,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -126,
+        44,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -122,
+        44,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -118,
+        44,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -114,
+        44,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -110,
+        44,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -106,
+        44,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -102,
+        44,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -98,
+        44,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -94,
+        44,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -90,
+        44,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -86,
+        44,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -82,
+        44,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -78,
+        44,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -74,
+        44,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -70,
+        44,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -66,
+        44,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        40,
+        -62,
+        44,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -130,
+        48,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -126,
+        48,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -122,
+        48,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -118,
+        48,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -114,
+        48,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -110,
+        48,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -106,
+        48,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -102,
+        48,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -98,
+        48,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -94,
+        48,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -90,
+        48,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -86,
+        48,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -82,
+        48,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -78,
+        48,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -74,
+        48,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -70,
+        48,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -66,
+        48,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        44,
+        -62,
+        48,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -130,
+        52,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -126,
+        52,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -122,
+        52,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -118,
+        52,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -114,
+        52,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -110,
+        52,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -106,
+        52,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -102,
+        52,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -98,
+        52,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -94,
+        52,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -90,
+        52,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -86,
+        52,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -82,
+        52,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -78,
+        52,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -74,
+        52,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -70,
+        52,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -66,
+        52,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        48,
+        -62,
+        52,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -130,
+        56,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -126,
+        56,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -122,
+        56,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -118,
+        56,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -114,
+        56,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -110,
+        56,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -106,
+        56,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -102,
+        56,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -98,
+        56,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -94,
+        56,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -90,
+        56,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -86,
+        56,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -82,
+        56,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -78,
+        56,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -74,
+        56,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -70,
+        56,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -66,
+        56,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        52,
+        -62,
+        56,
+        -60
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -130,
+        60,
+        -126
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -126,
+        60,
+        -122
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -122,
+        60,
+        -118
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -118,
+        60,
+        -114
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -114,
+        60,
+        -110
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -110,
+        60,
+        -106
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -106,
+        60,
+        -102
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -102,
+        60,
+        -98
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -98,
+        60,
+        -94
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -94,
+        60,
+        -90
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -90,
+        60,
+        -86
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -86,
+        60,
+        -82
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -82,
+        60,
+        -78
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -78,
+        60,
+        -74
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -74,
+        60,
+        -70
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -70,
+        60,
+        -66
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -66,
+        60,
+        -62
+      ]
+    },
+    {
+      "region": "north-america",
+      "bbox": [
+        56,
+        -62,
+        60,
+        -60
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        110,
+        -44,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        114,
+        -44,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        118,
+        -44,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        122,
+        -44,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        126,
+        -44,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        130,
+        -44,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        134,
+        -44,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        138,
+        -44,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        142,
+        -44,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        146,
+        -44,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        150,
+        -44,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        154,
+        -44,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        158,
+        -44,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        162,
+        -44,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        166,
+        -44,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        170,
+        -44,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        174,
+        -44,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -48,
+        178,
+        -44,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        110,
+        -40,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        114,
+        -40,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        118,
+        -40,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        122,
+        -40,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        126,
+        -40,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        130,
+        -40,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        134,
+        -40,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        138,
+        -40,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        142,
+        -40,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        146,
+        -40,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        150,
+        -40,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        154,
+        -40,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        158,
+        -40,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        162,
+        -40,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        166,
+        -40,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        170,
+        -40,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        174,
+        -40,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -44,
+        178,
+        -40,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        110,
+        -36,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        114,
+        -36,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        118,
+        -36,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        122,
+        -36,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        126,
+        -36,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        130,
+        -36,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        134,
+        -36,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        138,
+        -36,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        142,
+        -36,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        146,
+        -36,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        150,
+        -36,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        154,
+        -36,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        158,
+        -36,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        162,
+        -36,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        166,
+        -36,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        170,
+        -36,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        174,
+        -36,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -40,
+        178,
+        -36,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        110,
+        -32,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        114,
+        -32,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        118,
+        -32,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        122,
+        -32,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        126,
+        -32,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        130,
+        -32,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        134,
+        -32,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        138,
+        -32,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        142,
+        -32,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        146,
+        -32,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        150,
+        -32,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        154,
+        -32,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        158,
+        -32,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        162,
+        -32,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        166,
+        -32,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        170,
+        -32,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        174,
+        -32,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -36,
+        178,
+        -32,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        110,
+        -28,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        114,
+        -28,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        118,
+        -28,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        122,
+        -28,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        126,
+        -28,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        130,
+        -28,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        134,
+        -28,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        138,
+        -28,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        142,
+        -28,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        146,
+        -28,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        150,
+        -28,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        154,
+        -28,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        158,
+        -28,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        162,
+        -28,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        166,
+        -28,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        170,
+        -28,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        174,
+        -28,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -32,
+        178,
+        -28,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        110,
+        -24,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        114,
+        -24,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        118,
+        -24,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        122,
+        -24,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        126,
+        -24,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        130,
+        -24,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        134,
+        -24,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        138,
+        -24,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        142,
+        -24,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        146,
+        -24,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        150,
+        -24,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        154,
+        -24,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        158,
+        -24,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        162,
+        -24,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        166,
+        -24,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        170,
+        -24,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        174,
+        -24,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -28,
+        178,
+        -24,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        110,
+        -20,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        114,
+        -20,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        118,
+        -20,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        122,
+        -20,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        126,
+        -20,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        130,
+        -20,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        134,
+        -20,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        138,
+        -20,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        142,
+        -20,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        146,
+        -20,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        150,
+        -20,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        154,
+        -20,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        158,
+        -20,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        162,
+        -20,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        166,
+        -20,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        170,
+        -20,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        174,
+        -20,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -24,
+        178,
+        -20,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        110,
+        -16,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        114,
+        -16,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        118,
+        -16,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        122,
+        -16,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        126,
+        -16,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        130,
+        -16,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        134,
+        -16,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        138,
+        -16,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        142,
+        -16,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        146,
+        -16,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        150,
+        -16,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        154,
+        -16,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        158,
+        -16,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        162,
+        -16,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        166,
+        -16,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        170,
+        -16,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        174,
+        -16,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -20,
+        178,
+        -16,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        110,
+        -12,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        114,
+        -12,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        118,
+        -12,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        122,
+        -12,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        126,
+        -12,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        130,
+        -12,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        134,
+        -12,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        138,
+        -12,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        142,
+        -12,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        146,
+        -12,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        150,
+        -12,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        154,
+        -12,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        158,
+        -12,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        162,
+        -12,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        166,
+        -12,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        170,
+        -12,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        174,
+        -12,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -16,
+        178,
+        -12,
+        179
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        110,
+        -10,
+        114
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        114,
+        -10,
+        118
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        118,
+        -10,
+        122
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        122,
+        -10,
+        126
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        126,
+        -10,
+        130
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        130,
+        -10,
+        134
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        134,
+        -10,
+        138
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        138,
+        -10,
+        142
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        142,
+        -10,
+        146
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        146,
+        -10,
+        150
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        150,
+        -10,
+        154
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        154,
+        -10,
+        158
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        158,
+        -10,
+        162
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        162,
+        -10,
+        166
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        166,
+        -10,
+        170
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        170,
+        -10,
+        174
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        174,
+        -10,
+        178
+      ]
+    },
+    {
+      "region": "oceania",
+      "bbox": [
+        -12,
+        178,
+        -10,
+        179
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -82,
+        -52,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -78,
+        -52,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -74,
+        -52,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -70,
+        -52,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -66,
+        -52,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -62,
+        -52,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -58,
+        -52,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -54,
+        -52,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -50,
+        -52,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -46,
+        -52,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -42,
+        -52,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -56,
+        -38,
+        -52,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -82,
+        -48,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -78,
+        -48,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -74,
+        -48,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -70,
+        -48,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -66,
+        -48,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -62,
+        -48,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -58,
+        -48,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -54,
+        -48,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -50,
+        -48,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -46,
+        -48,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -42,
+        -48,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -52,
+        -38,
+        -48,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -82,
+        -44,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -78,
+        -44,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -74,
+        -44,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -70,
+        -44,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -66,
+        -44,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -62,
+        -44,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -58,
+        -44,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -54,
+        -44,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -50,
+        -44,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -46,
+        -44,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -42,
+        -44,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -48,
+        -38,
+        -44,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -82,
+        -40,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -78,
+        -40,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -74,
+        -40,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -70,
+        -40,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -66,
+        -40,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -62,
+        -40,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -58,
+        -40,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -54,
+        -40,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -50,
+        -40,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -46,
+        -40,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -42,
+        -40,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -44,
+        -38,
+        -40,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -82,
+        -36,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -78,
+        -36,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -74,
+        -36,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -70,
+        -36,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -66,
+        -36,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -62,
+        -36,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -58,
+        -36,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -54,
+        -36,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -50,
+        -36,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -46,
+        -36,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -42,
+        -36,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -40,
+        -38,
+        -36,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -82,
+        -32,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -78,
+        -32,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -74,
+        -32,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -70,
+        -32,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -66,
+        -32,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -62,
+        -32,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -58,
+        -32,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -54,
+        -32,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -50,
+        -32,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -46,
+        -32,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -42,
+        -32,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -36,
+        -38,
+        -32,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -82,
+        -28,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -78,
+        -28,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -74,
+        -28,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -70,
+        -28,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -66,
+        -28,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -62,
+        -28,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -58,
+        -28,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -54,
+        -28,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -50,
+        -28,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -46,
+        -28,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -42,
+        -28,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -32,
+        -38,
+        -28,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -82,
+        -24,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -78,
+        -24,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -74,
+        -24,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -70,
+        -24,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -66,
+        -24,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -62,
+        -24,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -58,
+        -24,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -54,
+        -24,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -50,
+        -24,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -46,
+        -24,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -42,
+        -24,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -28,
+        -38,
+        -24,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -82,
+        -20,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -78,
+        -20,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -74,
+        -20,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -70,
+        -20,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -66,
+        -20,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -62,
+        -20,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -58,
+        -20,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -54,
+        -20,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -50,
+        -20,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -46,
+        -20,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -42,
+        -20,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -24,
+        -38,
+        -20,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -82,
+        -16,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -78,
+        -16,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -74,
+        -16,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -70,
+        -16,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -66,
+        -16,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -62,
+        -16,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -58,
+        -16,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -54,
+        -16,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -50,
+        -16,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -46,
+        -16,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -42,
+        -16,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -20,
+        -38,
+        -16,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -82,
+        -12,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -78,
+        -12,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -74,
+        -12,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -70,
+        -12,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -66,
+        -12,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -62,
+        -12,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -58,
+        -12,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -54,
+        -12,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -50,
+        -12,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -46,
+        -12,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -42,
+        -12,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -16,
+        -38,
+        -12,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -82,
+        -8,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -78,
+        -8,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -74,
+        -8,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -70,
+        -8,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -66,
+        -8,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -62,
+        -8,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -58,
+        -8,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -54,
+        -8,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -50,
+        -8,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -46,
+        -8,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -42,
+        -8,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -12,
+        -38,
+        -8,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -82,
+        -4,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -78,
+        -4,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -74,
+        -4,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -70,
+        -4,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -66,
+        -4,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -62,
+        -4,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -58,
+        -4,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -54,
+        -4,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -50,
+        -4,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -46,
+        -4,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -42,
+        -4,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -8,
+        -38,
+        -4,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -82,
+        0,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -78,
+        0,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -74,
+        0,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -70,
+        0,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -66,
+        0,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -62,
+        0,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -58,
+        0,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -54,
+        0,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -50,
+        0,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -46,
+        0,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -42,
+        0,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        -4,
+        -38,
+        0,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -82,
+        4,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -78,
+        4,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -74,
+        4,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -70,
+        4,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -66,
+        4,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -62,
+        4,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -58,
+        4,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -54,
+        4,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -50,
+        4,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -46,
+        4,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -42,
+        4,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        0,
+        -38,
+        4,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -82,
+        8,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -78,
+        8,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -74,
+        8,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -70,
+        8,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -66,
+        8,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -62,
+        8,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -58,
+        8,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -54,
+        8,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -50,
+        8,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -46,
+        8,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -42,
+        8,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        4,
+        -38,
+        8,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -82,
+        12,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -78,
+        12,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -74,
+        12,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -70,
+        12,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -66,
+        12,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -62,
+        12,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -58,
+        12,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -54,
+        12,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -50,
+        12,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -46,
+        12,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -42,
+        12,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        8,
+        -38,
+        12,
+        -34
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -82,
+        13,
+        -78
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -78,
+        13,
+        -74
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -74,
+        13,
+        -70
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -70,
+        13,
+        -66
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -66,
+        13,
+        -62
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -62,
+        13,
+        -58
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -58,
+        13,
+        -54
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -54,
+        13,
+        -50
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -50,
+        13,
+        -46
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -46,
+        13,
+        -42
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -42,
+        13,
+        -38
+      ]
+    },
+    {
+      "region": "south-america",
+      "bbox": [
+        12,
+        -38,
+        13,
+        -34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        -18,
+        -31,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        -14,
+        -31,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        -10,
+        -31,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        -6,
+        -31,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        -2,
+        -31,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        2,
+        -31,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        6,
+        -31,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        10,
+        -31,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        14,
+        -31,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        18,
+        -31,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        22,
+        -31,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        26,
+        -31,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        30,
+        -31,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        34,
+        -31,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        38,
+        -31,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        42,
+        -31,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        46,
+        -31,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -35,
+        50,
+        -31,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        -18,
+        -27,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        -14,
+        -27,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        -10,
+        -27,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        -6,
+        -27,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        -2,
+        -27,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        2,
+        -27,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        6,
+        -27,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        10,
+        -27,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        14,
+        -27,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        18,
+        -27,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        22,
+        -27,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        26,
+        -27,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        30,
+        -27,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        34,
+        -27,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        38,
+        -27,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        42,
+        -27,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        46,
+        -27,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -31,
+        50,
+        -27,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        -18,
+        -23,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        -14,
+        -23,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        -10,
+        -23,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        -6,
+        -23,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        -2,
+        -23,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        2,
+        -23,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        6,
+        -23,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        10,
+        -23,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        14,
+        -23,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        18,
+        -23,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        22,
+        -23,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        26,
+        -23,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        30,
+        -23,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        34,
+        -23,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        38,
+        -23,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        42,
+        -23,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        46,
+        -23,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -27,
+        50,
+        -23,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        -18,
+        -19,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        -14,
+        -19,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        -10,
+        -19,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        -6,
+        -19,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        -2,
+        -19,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        2,
+        -19,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        6,
+        -19,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        10,
+        -19,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        14,
+        -19,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        18,
+        -19,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        22,
+        -19,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        26,
+        -19,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        30,
+        -19,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        34,
+        -19,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        38,
+        -19,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        42,
+        -19,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        46,
+        -19,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -23,
+        50,
+        -19,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        -18,
+        -15,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        -14,
+        -15,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        -10,
+        -15,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        -6,
+        -15,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        -2,
+        -15,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        2,
+        -15,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        6,
+        -15,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        10,
+        -15,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        14,
+        -15,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        18,
+        -15,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        22,
+        -15,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        26,
+        -15,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        30,
+        -15,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        34,
+        -15,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        38,
+        -15,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        42,
+        -15,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        46,
+        -15,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -19,
+        50,
+        -15,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        -18,
+        -11,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        -14,
+        -11,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        -10,
+        -11,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        -6,
+        -11,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        -2,
+        -11,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        2,
+        -11,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        6,
+        -11,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        10,
+        -11,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        14,
+        -11,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        18,
+        -11,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        22,
+        -11,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        26,
+        -11,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        30,
+        -11,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        34,
+        -11,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        38,
+        -11,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        42,
+        -11,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        46,
+        -11,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -15,
+        50,
+        -11,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        -18,
+        -7,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        -14,
+        -7,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        -10,
+        -7,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        -6,
+        -7,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        -2,
+        -7,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        2,
+        -7,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        6,
+        -7,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        10,
+        -7,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        14,
+        -7,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        18,
+        -7,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        22,
+        -7,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        26,
+        -7,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        30,
+        -7,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        34,
+        -7,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        38,
+        -7,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        42,
+        -7,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        46,
+        -7,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -11,
+        50,
+        -7,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        -18,
+        -3,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        -14,
+        -3,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        -10,
+        -3,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        -6,
+        -3,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        -2,
+        -3,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        2,
+        -3,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        6,
+        -3,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        10,
+        -3,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        14,
+        -3,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        18,
+        -3,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        22,
+        -3,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        26,
+        -3,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        30,
+        -3,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        34,
+        -3,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        38,
+        -3,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        42,
+        -3,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        46,
+        -3,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -7,
+        50,
+        -3,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        -18,
+        1,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        -14,
+        1,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        -10,
+        1,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        -6,
+        1,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        -2,
+        1,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        2,
+        1,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        6,
+        1,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        10,
+        1,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        14,
+        1,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        18,
+        1,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        22,
+        1,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        26,
+        1,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        30,
+        1,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        34,
+        1,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        38,
+        1,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        42,
+        1,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        46,
+        1,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        -3,
+        50,
+        1,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        -18,
+        5,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        -14,
+        5,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        -10,
+        5,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        -6,
+        5,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        -2,
+        5,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        6,
+        5,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        10,
+        5,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        14,
+        5,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        18,
+        5,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        22,
+        5,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        26,
+        5,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        30,
+        5,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        34,
+        5,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        38,
+        5,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        42,
+        5,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        46,
+        5,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        1,
+        50,
+        5,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        -18,
+        9,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        -14,
+        9,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        -10,
+        9,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        -6,
+        9,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        -2,
+        9,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        2,
+        9,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        6,
+        9,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        10,
+        9,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        14,
+        9,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        18,
+        9,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        22,
+        9,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        26,
+        9,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        30,
+        9,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        34,
+        9,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        38,
+        9,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        42,
+        9,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        46,
+        9,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        5,
+        50,
+        9,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        -18,
+        13,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        -14,
+        13,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        -10,
+        13,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        -6,
+        13,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        -2,
+        13,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        2,
+        13,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        6,
+        13,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        10,
+        13,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        14,
+        13,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        18,
+        13,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        22,
+        13,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        26,
+        13,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        30,
+        13,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        34,
+        13,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        38,
+        13,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        42,
+        13,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        46,
+        13,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        9,
+        50,
+        13,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        -18,
+        17,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        -14,
+        17,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        -10,
+        17,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        -6,
+        17,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        -2,
+        17,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        2,
+        17,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        6,
+        17,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        10,
+        17,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        14,
+        17,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        18,
+        17,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        22,
+        17,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        26,
+        17,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        30,
+        17,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        34,
+        17,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        38,
+        17,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        42,
+        17,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        46,
+        17,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        13,
+        50,
+        17,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        -18,
+        21,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        -14,
+        21,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        -10,
+        21,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        -6,
+        21,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        -2,
+        21,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        2,
+        21,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        6,
+        21,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        10,
+        21,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        14,
+        21,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        18,
+        21,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        22,
+        21,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        26,
+        21,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        30,
+        21,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        34,
+        21,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        38,
+        21,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        42,
+        21,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        46,
+        21,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        17,
+        50,
+        21,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        -18,
+        25,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        -14,
+        25,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        -10,
+        25,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        -6,
+        25,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        -2,
+        25,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        2,
+        25,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        6,
+        25,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        10,
+        25,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        14,
+        25,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        18,
+        25,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        22,
+        25,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        26,
+        25,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        30,
+        25,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        34,
+        25,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        38,
+        25,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        42,
+        25,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        46,
+        25,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        21,
+        50,
+        25,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        -18,
+        29,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        -14,
+        29,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        -10,
+        29,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        -6,
+        29,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        -2,
+        29,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        2,
+        29,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        6,
+        29,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        10,
+        29,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        14,
+        29,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        18,
+        29,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        22,
+        29,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        26,
+        29,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        30,
+        29,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        34,
+        29,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        38,
+        29,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        42,
+        29,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        46,
+        29,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        25,
+        50,
+        29,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        -18,
+        33,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        -14,
+        33,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        -10,
+        33,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        -6,
+        33,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        -2,
+        33,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        2,
+        33,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        6,
+        33,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        10,
+        33,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        14,
+        33,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        18,
+        33,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        22,
+        33,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        26,
+        33,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        30,
+        33,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        34,
+        33,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        38,
+        33,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        42,
+        33,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        46,
+        33,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        29,
+        50,
+        33,
+        52
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        -18,
+        37,
+        -14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        -14,
+        37,
+        -10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        -10,
+        37,
+        -6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        -6,
+        37,
+        -2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        -2,
+        37,
+        2
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        2,
+        37,
+        6
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        6,
+        37,
+        10
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        10,
+        37,
+        14
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        14,
+        37,
+        18
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        18,
+        37,
+        22
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        22,
+        37,
+        26
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        26,
+        37,
+        30
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        30,
+        37,
+        34
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        34,
+        37,
+        38
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        38,
+        37,
+        42
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        42,
+        37,
+        46
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        46,
+        37,
+        50
+      ]
+    },
+    {
+      "region": "africa",
+      "bbox": [
+        33,
+        50,
+        37,
+        52
+      ]
+    }
+  ],
+  "completed": [
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        93,
+        42,
+        97
+      ],
+      "watermark": "2026-10-06T15:27:28+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        109,
+        34,
+        113
+      ],
+      "watermark": "2026-10-06T15:28:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        125,
+        46,
+        129
+      ],
+      "watermark": "2026-10-06T15:28:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        85,
+        46,
+        89
+      ],
+      "watermark": "2026-10-06T15:28:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        101,
+        38,
+        105
+      ],
+      "watermark": "2026-10-06T15:28:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        109,
+        26,
+        113
+      ],
+      "watermark": "2026-10-06T15:29:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        109,
+        42,
+        113
+      ],
+      "watermark": "2026-10-06T15:29:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        117,
+        30,
+        121
+      ],
+      "watermark": "2026-10-06T15:30:35+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        113,
+        42,
+        117
+      ],
+      "watermark": "2026-10-06T15:33:40+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        109,
+        30,
+        113
+      ],
+      "watermark": "2026-10-06T15:34:41+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        101,
+        34,
+        105
+      ],
+      "watermark": "2026-10-06T15:34:41+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        105,
+        30,
+        109
+      ],
+      "watermark": "2026-10-06T15:34:41+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        121,
+        34,
+        125
+      ],
+      "watermark": "2026-10-06T15:35:43+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        97,
+        30,
+        101
+      ],
+      "watermark": "2026-10-06T15:37:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        121,
+        42,
+        125
+      ],
+      "watermark": "2026-10-06T15:37:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        117,
+        34,
+        121
+      ],
+      "watermark": "2026-10-06T15:37:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        101,
+        30,
+        105
+      ],
+      "watermark": "2026-10-06T15:39:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        109,
+        38,
+        113
+      ],
+      "watermark": "2026-10-06T15:40:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        113,
+        26,
+        117
+      ],
+      "watermark": "2026-10-06T15:41:51+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        113,
+        38,
+        117
+      ],
+      "watermark": "2026-10-06T15:41:51+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        101,
+        26,
+        105
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T15:47:02+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        109,
+        22,
+        113
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T15:48:03+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        89,
+        30,
+        93
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T15:49:04+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        117,
+        38,
+        121
+      ],
+      "watermark": "2026-10-06T15:50:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        113,
+        30,
+        117
+      ],
+      "watermark": "2026-10-06T15:51:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        117,
+        42,
+        121
+      ],
+      "watermark": "2026-10-06T15:51:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        113,
+        34,
+        117
+      ],
+      "watermark": "2026-10-06T15:52:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        97,
+        26,
+        101
+      ],
+      "watermark": "2026-10-06T15:53:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        125,
+        42,
+        129
+      ],
+      "watermark": "2026-10-06T15:54:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        89,
+        34,
+        93
+      ],
+      "watermark": "2026-10-06T15:54:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        97,
+        38,
+        101
+      ],
+      "watermark": "2026-10-06T15:55:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        105,
+        38,
+        109
+      ],
+      "watermark": "2026-10-06T15:56:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        105,
+        22,
+        109
+      ],
+      "watermark": "2026-10-06T15:56:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        105,
+        34,
+        109
+      ],
+      "watermark": "2026-10-06T15:57:11+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        89,
+        46,
+        93
+      ],
+      "watermark": "2026-10-06T15:57:11+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        121,
+        46,
+        125
+      ],
+      "watermark": "2026-10-06T15:58:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        105,
+        26,
+        109
+      ],
+      "watermark": "2026-10-06T15:58:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        113,
+        22,
+        117
+      ],
+      "watermark": "2026-10-06T15:58:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        101,
+        42,
+        105
+      ],
+      "watermark": "2026-10-06T15:59:12+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        129,
+        46,
+        133
+      ],
+      "watermark": "2026-10-06T16:00:12+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        129,
+        42,
+        133
+      ],
+      "watermark": "2026-10-06T16:00:12+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        89,
+        42,
+        93
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:10:24+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        121,
+        38,
+        125
+      ],
+      "watermark": "2026-10-06T16:10:24+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        109,
+        46,
+        113
+      ],
+      "watermark": "2026-10-06T16:10:24+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        97,
+        42,
+        101
+      ],
+      "watermark": "2026-10-06T16:12:25+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        81,
+        46,
+        85
+      ],
+      "watermark": "2026-10-06T16:12:25+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        121,
+        30,
+        125
+      ],
+      "watermark": "2026-10-06T16:13:28+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        85,
+        42,
+        89
+      ],
+      "watermark": "2026-10-06T16:13:28+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        93,
+        30,
+        97
+      ],
+      "watermark": "2026-10-06T16:13:28+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        93,
+        46,
+        97
+      ],
+      "watermark": "2026-10-06T16:14:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        121,
+        26,
+        125
+      ],
+      "watermark": "2026-10-06T16:14:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        113,
+        46,
+        117
+      ],
+      "watermark": "2026-10-06T16:14:31+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        93,
+        34,
+        97
+      ],
+      "watermark": "2026-10-06T16:15:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        93,
+        38,
+        97
+      ],
+      "watermark": "2026-10-06T16:16:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        85,
+        34,
+        89
+      ],
+      "watermark": "2026-10-06T16:16:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        125,
+        50,
+        129
+      ],
+      "watermark": "2026-10-06T16:17:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        85,
+        50,
+        89
+      ],
+      "watermark": "2026-10-06T16:18:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        97,
+        34,
+        101
+      ],
+      "watermark": "2026-10-06T16:18:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        117,
+        46,
+        121
+      ],
+      "watermark": "2026-10-06T16:19:39+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        105,
+        46,
+        109
+      ],
+      "watermark": "2026-10-06T16:19:39+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        125,
+        34,
+        129
+      ],
+      "watermark": "2026-10-06T16:19:39+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        133,
+        46,
+        135
+      ],
+      "watermark": "2026-10-06T16:19:39+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        105,
+        42,
+        109
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:23:51+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        117,
+        26,
+        121
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:24:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        85,
+        30,
+        89
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:24:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        89,
+        50,
+        93
+      ],
+      "watermark": "2026-10-06T16:24:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        121,
+        50,
+        125
+      ],
+      "watermark": "2026-10-06T16:25:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        97,
+        46,
+        101
+      ],
+      "watermark": "2026-10-06T16:25:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        101,
+        22,
+        105
+      ],
+      "watermark": "2026-10-06T16:25:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        133,
+        42,
+        135
+      ],
+      "watermark": "2026-10-06T16:25:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        93,
+        26,
+        97
+      ],
+      "watermark": "2026-10-06T16:26:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        89,
+        38,
+        93
+      ],
+      "watermark": "2026-10-06T16:26:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        129,
+        50,
+        133
+      ],
+      "watermark": "2026-10-06T16:26:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        81,
+        42,
+        85
+      ],
+      "watermark": "2026-10-06T16:27:52+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        81,
+        50,
+        85
+      ],
+      "watermark": "2026-10-06T16:27:52+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        117,
+        22,
+        121
+      ],
+      "watermark": "2026-10-06T16:27:52+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        89,
+        26,
+        93
+      ],
+      "watermark": "2026-10-06T16:29:57+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        97,
+        22,
+        101
+      ],
+      "watermark": "2026-10-06T16:29:57+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        125,
+        30,
+        129
+      ],
+      "watermark": "2026-10-06T16:30:59+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        101,
+        46,
+        105
+      ],
+      "watermark": "2026-10-06T16:30:59+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        77,
+        46,
+        81
+      ],
+      "watermark": "2026-10-06T16:32:00+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        129,
+        38,
+        133
+      ],
+      "watermark": "2026-10-06T16:32:00+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        93,
+        50,
+        97
+      ],
+      "watermark": "2026-10-06T16:33:01+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        117,
+        50,
+        121
+      ],
+      "watermark": "2026-10-06T16:34:01+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        133,
+        50,
+        135
+      ],
+      "watermark": "2026-10-06T16:34:01+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        125,
+        38,
+        129
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:36:01+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        85,
+        26,
+        89
+      ],
+      "watermark": "2026-10-06T16:36:01+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        77,
+        50,
+        81
+      ],
+      "watermark": "2026-10-06T16:38:04+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        109,
+        50,
+        113
+      ],
+      "watermark": "2026-10-06T16:39:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        81,
+        34,
+        85
+      ],
+      "watermark": "2026-10-06T16:40:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        125,
+        26,
+        129
+      ],
+      "watermark": "2026-10-06T16:41:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        81,
+        30,
+        85
+      ],
+      "watermark": "2026-10-06T16:41:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        93,
+        22,
+        97
+      ],
+      "watermark": "2026-10-06T16:43:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        113,
+        50,
+        117
+      ],
+      "watermark": "2026-10-06T16:43:06+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        77,
+        42,
+        81
+      ],
+      "watermark": "2026-10-06T16:44:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        133,
+        38,
+        135
+      ],
+      "watermark": "2026-10-06T16:44:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        105,
+        50,
+        109
+      ],
+      "watermark": "2026-10-06T16:44:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        129,
+        34,
+        133
+      ],
+      "watermark": "2026-10-06T16:45:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        125,
+        54,
+        129
+      ],
+      "watermark": "2026-10-06T16:45:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        85,
+        54,
+        89
+      ],
+      "watermark": "2026-10-06T16:45:10+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        97,
+        50,
+        101
+      ],
+      "watermark": "2026-10-06T16:46:16+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        89,
+        54,
+        93
+      ],
+      "watermark": "2026-10-06T16:47:20+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        121,
+        54,
+        125
+      ],
+      "watermark": "2026-10-06T16:47:20+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        81,
+        38,
+        85
+      ],
+      "watermark": "2026-10-06T16:48:21+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        129,
+        54,
+        133
+      ],
+      "watermark": "2026-10-06T16:49:21+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        81,
+        54,
+        85
+      ],
+      "watermark": "2026-10-06T16:50:21+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        129,
+        30,
+        133
+      ],
+      "watermark": "2026-10-06T16:51:26+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        121,
+        22,
+        125
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:53:30+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        85,
+        38,
+        89
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T16:54:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        42,
+        73,
+        46,
+        77
+      ],
+      "watermark": "2026-10-06T16:54:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        81,
+        26,
+        85
+      ],
+      "watermark": "2026-10-06T16:55:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        93,
+        54,
+        97
+      ],
+      "watermark": "2026-10-06T16:55:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        117,
+        54,
+        121
+      ],
+      "watermark": "2026-10-06T16:56:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        133,
+        54,
+        135
+      ],
+      "watermark": "2026-10-06T16:57:35+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        73,
+        50,
+        77
+      ],
+      "watermark": "2026-10-06T16:58:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        125,
+        22,
+        129
+      ],
+      "watermark": "2026-10-06T16:58:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        89,
+        22,
+        93
+      ],
+      "watermark": "2026-10-06T16:58:36+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        77,
+        54,
+        81
+      ],
+      "watermark": "2026-10-06T16:59:37+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        38,
+        73,
+        42,
+        77
+      ],
+      "watermark": "2026-10-06T16:59:37+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        85,
+        22,
+        89
+      ],
+      "watermark": "2026-10-06T17:00:41+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        77,
+        34,
+        81
+      ],
+      "watermark": "2026-10-06T17:02:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        133,
+        34,
+        135
+      ],
+      "watermark": "2026-10-06T17:02:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        97,
+        54,
+        101
+      ],
+      "watermark": "2026-10-06T17:02:48+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        77,
+        30,
+        81
+      ],
+      "watermark": "2026-10-06T17:04:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        113,
+        54,
+        117
+      ],
+      "watermark": "2026-10-06T17:04:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        129,
+        26,
+        133
+      ],
+      "watermark": "2026-10-06T17:04:49+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        73,
+        54,
+        77
+      ],
+      "watermark": "2026-10-06T17:06:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        133,
+        30,
+        135
+      ],
+      "watermark": "2026-10-06T17:06:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        46,
+        101,
+        50,
+        105
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:08:51+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        77,
+        38,
+        81
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:08:51+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        105,
+        54,
+        109
+      ],
+      "watermark": "2026-10-06T17:09:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        81,
+        22,
+        85
+      ],
+      "watermark": "2026-10-06T17:09:50+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        101,
+        54,
+        105
+      ],
+      "watermark": "2026-10-06T17:11:56+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        77,
+        26,
+        81
+      ],
+      "watermark": "2026-10-06T17:11:56+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        129,
+        22,
+        133
+      ],
+      "watermark": "2026-10-06T17:11:56+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        34,
+        73,
+        38,
+        77
+      ],
+      "watermark": "2026-10-06T17:12:58+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        133,
+        26,
+        135
+      ],
+      "watermark": "2026-10-06T17:12:58+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        30,
+        73,
+        34,
+        77
+      ],
+      "watermark": "2026-10-06T17:12:58+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        26,
+        73,
+        30,
+        77
+      ],
+      "watermark": "2026-10-06T17:15:02+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        77,
+        22,
+        81
+      ],
+      "watermark": "2026-10-06T17:15:02+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        133,
+        22,
+        135
+      ],
+      "watermark": "2026-10-06T17:15:02+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        22,
+        73,
+        26,
+        77
+      ],
+      "watermark": "2026-10-06T17:15:02+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        18,
+        73,
+        22,
+        77
+      ],
+      "watermark": "2026-10-06T17:16:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        30,
+        129,
+        34,
+        133
+      ],
+      "watermark": "2026-10-06T17:17:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        30,
+        133,
+        34,
+        137
+      ],
+      "watermark": "2026-10-06T17:18:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        30,
+        137,
+        34,
+        141
+      ],
+      "watermark": "2026-10-06T17:18:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        30,
+        145,
+        34,
+        146
+      ],
+      "watermark": "2026-10-06T17:20:05+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        34,
+        129,
+        38,
+        133
+      ],
+      "watermark": "2026-10-06T17:20:05+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        34,
+        133,
+        38,
+        137
+      ],
+      "watermark": "2026-10-06T17:20:05+00:00"
+    },
+    {
+      "region": "china",
+      "bbox": [
+        50,
+        109,
+        54,
+        113
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:23:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        34,
+        145,
+        38,
+        146
+      ],
+      "watermark": "2026-10-06T17:24:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        38,
+        129,
+        42,
+        133
+      ],
+      "watermark": "2026-10-06T17:24:06+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        38,
+        133,
+        42,
+        137
+      ],
+      "watermark": "2026-10-06T17:25:08+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        38,
+        141,
+        42,
+        145
+      ],
+      "watermark": "2026-10-06T17:27:09+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        38,
+        145,
+        42,
+        146
+      ],
+      "watermark": "2026-10-06T17:27:09+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        42,
+        129,
+        46,
+        133
+      ],
+      "watermark": "2026-10-06T17:27:09+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        42,
+        133,
+        46,
+        137
+      ],
+      "watermark": "2026-10-06T17:28:11+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        42,
+        137,
+        46,
+        141
+      ],
+      "watermark": "2026-10-06T17:29:13+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        42,
+        145,
+        46,
+        146
+      ],
+      "watermark": "2026-10-06T17:30:14+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        30,
+        141,
+        34,
+        145
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:31:19+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        34,
+        137,
+        38,
+        141
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:31:19+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        65,
+        9,
+        69
+      ],
+      "watermark": "2026-10-06T17:32:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        69,
+        9,
+        73
+      ],
+      "watermark": "2026-10-06T17:32:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        73,
+        9,
+        77
+      ],
+      "watermark": "2026-10-06T17:32:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        77,
+        9,
+        81
+      ],
+      "watermark": "2026-10-06T17:33:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        81,
+        9,
+        85
+      ],
+      "watermark": "2026-10-06T17:33:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        85,
+        9,
+        89
+      ],
+      "watermark": "2026-10-06T17:34:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        89,
+        9,
+        93
+      ],
+      "watermark": "2026-10-06T17:34:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        5,
+        97,
+        9,
+        100
+      ],
+      "watermark": "2026-10-06T17:36:20+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        34,
+        141,
+        38,
+        145
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:37:20+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        42,
+        141,
+        46,
+        145
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:38:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        65,
+        13,
+        69
+      ],
+      "watermark": "2026-10-06T17:38:21+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        69,
+        13,
+        73
+      ],
+      "watermark": "2026-10-06T17:39:20+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        81,
+        13,
+        85
+      ],
+      "watermark": "2026-10-06T17:41:23+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        85,
+        13,
+        89
+      ],
+      "watermark": "2026-10-06T17:41:23+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        89,
+        13,
+        93
+      ],
+      "watermark": "2026-10-06T17:42:24+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        93,
+        13,
+        97
+      ],
+      "watermark": "2026-10-06T17:42:24+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        9,
+        97,
+        13,
+        100
+      ],
+      "watermark": "2026-10-06T17:42:24+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        69,
+        17,
+        73
+      ],
+      "watermark": "2026-10-06T17:44:28+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        77,
+        17,
+        81
+      ],
+      "watermark": "2026-10-06T17:45:31+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        81,
+        17,
+        85
+      ],
+      "watermark": "2026-10-06T17:46:33+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        85,
+        17,
+        89
+      ],
+      "watermark": "2026-10-06T17:47:36+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        93,
+        17,
+        97
+      ],
+      "watermark": "2026-10-06T17:48:36+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        13,
+        97,
+        17,
+        100
+      ],
+      "watermark": "2026-10-06T17:48:36+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        69,
+        21,
+        73
+      ],
+      "watermark": "2026-10-06T17:50:36+00:00"
+    },
+    {
+      "region": "japan",
+      "bbox": [
+        38,
+        137,
+        42,
+        141
+      ],
+      "lastError": "HTTP Error 504: Gateway Timeout",
+      "watermark": "2026-10-06T17:54:41+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        77,
+        21,
+        81
+      ],
+      "watermark": "2026-10-06T17:54:41+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        81,
+        21,
+        85
+      ],
+      "watermark": "2026-10-06T17:54:41+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        85,
+        21,
+        89
+      ],
+      "watermark": "2026-10-06T17:55:41+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        89,
+        21,
+        93
+      ],
+      "watermark": "2026-10-06T17:55:41+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        93,
+        21,
+        97
+      ],
+      "watermark": "2026-10-06T17:56:46+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        17,
+        97,
+        21,
+        100
+      ],
+      "watermark": "2026-10-06T17:56:46+00:00"
+    },
+    {
+      "region": "south-asia",
+      "bbox": [
+        21,
+        65,
+        25,
+        69
+      ],
+      "watermark": "2026-10-06T17:57:46+00:00"
+    }
+  ],
+  "cycle": 0,
+  "reconciliationVersion": 1,
+  "cycleStartedAt": "2026-10-06T15:38:12.036152+00:00"
+}

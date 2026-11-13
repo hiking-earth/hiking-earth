@@ -1,0 +1,1 @@
+{"site_version":36,"actual_browser_flow":["我的","统一账号与账号管理","生成 / 刷新登录二维码","等待小程序扫码确认","取消扫码登录","已取消扫码登录"],"qr_creation_and_cancel":"passed","qr_confirmation":"not tested","phone_login":"not integrated as explicitly stated by live UI","same_verified_phone_account_link":"not accepted","credentials_used":false,"release_acceptance":"incomplete"}

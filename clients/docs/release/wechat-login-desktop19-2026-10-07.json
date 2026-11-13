@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-07",
+  "sourceCommit": "86ddc6c",
+  "checks": [
+    {
+      "name": "My account layout after reopen",
+      "passed": true,
+      "evidence": "wechat-022-my-reopened-2026-10-07.png"
+    },
+    {
+      "name": "WeChat one-click login in developer simulator",
+      "passed": true,
+      "evidence": "Clicked login; My page changed to 山友 / 已登录，可使用云端功能"
+    },
+    {
+      "name": "QR confirmation entry",
+      "passed": true,
+      "evidence": "pages/account/qr-confirm with scan button"
+    }
+  ],
+  "limitations": [
+    "Developer tool domain/TLS checks already disabled in existing config; no production domain acceptance",
+    "No physical iPhone or scan/confirmation acceptance",
+    "HTTP 500 observed for catalog-feed usfs page 40 windowLimit40000; response generic service unavailable; exact root cause unverified"
+  ],
+  "desktop": {
+    "run": 37569203095,
+    "conclusion": "success",
+    "allJobsCompleted": true,
+    "draftTag": "desktop-19",
+    "version": "0.2.2",
+    "source": "8c98e6f",
+    "latestUiFixIncluded": false,
+    "assetSizesUnder500MB": true,
+    "sizeEvidence": "GitHub release metadata only; actual payload and runtime acceptance pending"
+  }
+}

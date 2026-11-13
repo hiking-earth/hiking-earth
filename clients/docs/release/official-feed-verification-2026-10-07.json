@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "scope": "Feed transport, RSS structure, article-link host and HTTPS integrity only. This does not approve route access, safety, article body reuse, images, or user-facing claims.",
+  "method": "Read-only HTTPS requests with the system Python trust store; TLS verification remained enabled.",
+  "feeds": [
+    {
+      "sourceId": "nps-yellowstone-news",
+      "officialEvidencePage": "https://www.nps.gov/yell/learn/news/index.htm",
+      "officialFeedUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=yell",
+      "request": {
+        "httpStatus": 200,
+        "finalHost": "www.nps.gov",
+        "contentType": "text/xml;charset=UTF-8",
+        "bytes": 232612
+      },
+      "rss": {
+        "format": "RSS",
+        "items": 385,
+        "httpsArticleLinksOnAllowedHost": 385,
+        "allowedHost": "www.nps.gov"
+      }
+    },
+    {
+      "sourceId": "hk-government-outdoor-news",
+      "officialEvidencePage": "https://data.gov.hk/en-data/dataset/hk-isd-gnmis-gnmis/resource/68cd851b-703d-41cc-9da2-e63f8afb8fc0",
+      "officialFeedUrl": "https://www.info.gov.hk/gia/rss/general_zh.xml",
+      "request": {
+        "httpStatus": 200,
+        "finalHost": "www.info.gov.hk",
+        "contentType": "application/xml",
+        "bytes": 508751
+      },
+      "rss": {
+        "format": "RSS",
+        "items": 100,
+        "httpsArticleLinksOnAllowedHost": 100,
+        "allowedHost": "www.info.gov.hk"
+      },
+      "collectorNote": "The configured outdoor-title filter returned zero matching new items during the recorded 2026-10-07 collection; this is treated as a valid empty result, not a transport failure."
+    }
+  ],
+  "decision": "Both official feeds are accepted for metadata-link collection under the existing 90-day freshness and host checks. Existing and future records remain subject to per-item screening. No full text or images are republished, and no route is marked open or navigable by this decision.",
+  "deploymentStatus": "Source registry and evidence only; collector, catalog generation, build, deployment, and product acceptance were not run as part of this verification."
+}

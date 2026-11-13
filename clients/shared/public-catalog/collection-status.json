@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-22T11:55:09.261355+00:00",
+  "runId": "39773102292",
+  "sourceCommit": "0e48605f6f246b75b0428ced499ce55312cd60ca",
+  "outcomes": {
+    "usfs": "success",
+    "osm_incremental": "failure",
+    "osm_reconciliation": "paused-public-global-sweep",
+    "hk": "success",
+    "nzdoc": "success",
+    "parkscanada": "success",
+    "nsw-npws": "success",
+    "england": "success",
+    "wales": "success",
+    "japan-tokai": "failure",
+    "scotland-argyll": "success",
+    "ni-midulster": "success",
+    "norfolk-prow": "success",
+    "cambridgeshire-prow": "success",
+    "news": "success",
+    "osm": "paused-public-global-sweep",
+    "nps-public-trails": "success",
+    "victoria-recreation-tracks": "success",
+    "queensland-qpws-trails": "success",
+    "swisstopo-wanderwege": "success",
+    "osm_incremental_step": "success"
+  },
+  "newsSources": [
+    {
+      "id": "nps-grand-canyon-news",
+      "status": "available",
+      "records": 14,
+      "lastCollectedCount": 100,
+      "lastAttempt": "2026-10-22T11:55:02.246268+00:00",
+      "lastSuccess": "2026-10-22T11:55:02.246266+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    },
+    {
+      "id": "nps-grand-canyon-backcountry",
+      "status": "available",
+      "records": 0,
+      "lastCollectedCount": 1,
+      "lastAttempt": "2026-10-22T11:55:02.264521+00:00",
+      "lastSuccess": "2026-10-22T11:55:02.264519+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    },
+    {
+      "id": "nps-yellowstone-news",
+      "status": "available",
+      "records": 9,
+      "lastCollectedCount": 100,
+      "lastAttempt": "2026-10-22T11:55:02.297559+00:00",
+      "lastSuccess": "2026-10-22T11:55:02.297558+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-07",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    },
+    {
+      "id": "hk-government-outdoor-news",
+      "status": "available",
+      "records": 3,
+      "lastCollectedCount": 3,
+      "lastAttempt": "2026-10-22T11:55:03.519566+00:00",
+      "lastSuccess": "2026-10-22T11:55:03.519564+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-07",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    },
+    {
+      "id": "nsw-npws-park-alerts",
+      "status": "available",
+      "records": 99,
+      "lastCollectedCount": 100,
+      "lastAttempt": "2026-10-22T11:55:05.574171+00:00",
+      "lastSuccess": "2026-10-22T11:55:05.574169+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-16",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    },
+    {
+      "id": "qld-qpws-park-alerts",
+      "status": "available",
+      "records": 100,
+      "lastCollectedCount": 100,
+      "lastAttempt": "2026-10-22T11:55:05.953627+00:00",
+      "lastSuccess": "2026-10-22T11:55:05.953625+00:00",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-16",
+      "feedVerificationStatus": "current",
+      "feedVerified": true
+    }
+  ],
+  "reconciliation": {
+    "osm": {
+      "supported": true,
+      "cycleStartedAt": "2026-10-06T15:38:12.036152+00:00",
+      "lastCompletedAt": null,
+      "lastRemovedFromDiscovery": null,
+      "pendingTiles": 1033,
+      "currentCycleComplete": false,
+      "scheduled": false,
+      "pauseReason": "Public Overpass documentation discourages stitching bounding boxes to scrape worldwide data; use regional extracts or an owner-approved sustainable service.",
+      "lastAttemptSucceeded": null,
+      "incrementalAttemptSucceeded": false,
+      "incrementalOutcome": "failure",
+      "incrementalRegions": {
+        "china": {
+          "status": "failed",
+          "error": "HTTP 502: Bad Gateway"
+        },
+        "japan": {
+          "status": "failed",
+          "error": "HTTP 502: Bad Gateway"
+        },
+        "south-asia": {
+          "status": "failed",
+          "error": "HTTP 502: Bad Gateway"
+        },
+        "europe": {
+          "status": "failed",
+          "error": "The read operation timed out"
+        },
+        "north-america": {
+          "status": "failed",
+          "error": "The read operation timed out"
+        },
+        "oceania": {
+          "status": "not-reported"
+        },
+        "south-america": {
+          "status": "not-reported"
+        },
+        "africa": {
+          "status": "not-reported"
+        }
+      }
+    },
+    "usfs": {
+      "supported": true,
+      "cycleStartedAt": "2026-10-22T04:38:52.322276+00:00",
+      "lastCompletedAt": "2026-10-21T21:39:11.767392+00:00",
+      "lastRemovedFromDiscovery": 28,
+      "nextObjectId": 10455729,
+      "currentCycleComplete": false,
+      "lastAttemptSucceeded": true
+    },
+    "hk": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "nzdoc": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "parkscanada": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "nps-public-trails": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "victoria-recreation-tracks": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "queensland-qpws-trails": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "swisstopo-wanderwege": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "nsw-npws": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "england": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "wales": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "japan-tokai": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": false
+    },
+    "scotland-argyll": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "ni-midulster": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "norfolk-prow": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    },
+    "cambridgeshire-prow": {
+      "mode": "complete-source-replacement",
+      "lastAttemptSucceeded": true
+    }
+  },
+  "pbfExtractRefreshes": [
+    {
+      "region": "africa",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "asia",
+      "sourcePage": "https://download.geofabrik.de/asia.html",
+      "lastStartedAt": "2026-10-11T15:30:41Z",
+      "lastCompletedAt": "2026-10-11T16:33:47Z",
+      "lastRunSuccessCount": 31,
+      "lastRunFailureCount": 2,
+      "latestSourceCount": 46,
+      "latestSourceResults": {
+        "empty": 9,
+        "failed": 2,
+        "imported": 35
+      },
+      "oldestSourceTimestamp": "2026-10-08T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "catalogDelta": {
+        "beforeCount": 153353,
+        "afterCount": 155320,
+        "added": 1967,
+        "updated": 405,
+        "removed": 0,
+        "sha256": "127ba40f6ed07768cb20198a909237c687f4731c98d68acd1b05b900ab1dc503"
+      },
+      "accessVerified": false,
+      "navigableGeometryAdded": false,
+      "report": "docs/release/osm-asia-pbf-refresh-2026-10-11.json",
+      "status": "partial"
+    },
+    {
+      "region": "europe",
+      "sourcePage": "https://download.geofabrik.de/europe.html",
+      "lastStartedAt": "2026-10-11T20:00:21Z",
+      "lastCompletedAt": "2026-10-11T20:25:18Z",
+      "lastRunSuccessCount": 10,
+      "lastRunFailureCount": 0,
+      "latestSourceCount": 139,
+      "latestSourceResults": {
+        "empty": 2,
+        "imported": 137
+      },
+      "oldestSourceTimestamp": "2026-10-08T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "catalogDelta": {
+        "beforeCount": 178245,
+        "afterCount": 178718,
+        "addedIds": 473,
+        "removedIds": 0,
+        "updatedIds": 154,
+        "beforeSha256": "3e6b42d73486b4efc90006ae0695cca925ec83fdb5288bf23d1801b9d137e8ce",
+        "afterSha256": "8dd0a0006ac3b996a03299d2187625c48ef5978891b1b5b0278cd655fb4c7fd0"
+      },
+      "accessVerified": false,
+      "navigableGeometryAdded": false,
+      "report": "docs/release/osm-europe-pbf-refresh-2026-10-11.json",
+      "status": "success"
+    },
+    {
+      "region": "south-america",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "oceania",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "north-america",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "china",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "japan",
+      "status": "not-recorded",
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    }
+  ],
+  "pbfCatalogCoverage": [
+    {
+      "region": "africa",
+      "sourceCount": 4,
+      "importedBytes": 9409397206,
+      "sourceRelationImports": 1078,
+      "oldestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "latestImportedAt": "2026-10-08T01:27:23+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "asia",
+      "sourceCount": 37,
+      "importedBytes": 11683878278,
+      "sourceRelationImports": 4090,
+      "oldestSourceTimestamp": "2026-10-08T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "latestImportedAt": "2026-10-11T16:32:27+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "china",
+      "sourceCount": 1,
+      "importedBytes": 1606044504,
+      "sourceRelationImports": 680,
+      "oldestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "latestImportedAt": "2026-10-11T12:01:06+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "europe",
+      "sourceCount": 146,
+      "importedBytes": 45230228257,
+      "sourceRelationImports": 202781,
+      "oldestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "latestImportedAt": "2026-10-11T20:25:16+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "japan",
+      "sourceCount": 1,
+      "importedBytes": 2546160026,
+      "sourceRelationImports": 817,
+      "oldestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "latestImportedAt": "2026-10-07T21:57:20+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "north-america",
+      "sourceCount": 9,
+      "importedBytes": 19370369371,
+      "sourceRelationImports": 16526,
+      "oldestSourceTimestamp": "2026-10-05T20:21:35+00:00",
+      "newestSourceTimestamp": "2026-10-06T20:21:06+00:00",
+      "latestImportedAt": "2026-10-07T23:36:58+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "oceania",
+      "sourceCount": 1,
+      "importedBytes": 1571847904,
+      "sourceRelationImports": 1398,
+      "oldestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "newestSourceTimestamp": "2026-10-09T20:21:04+00:00",
+      "latestImportedAt": "2026-10-11T11:30:29+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    },
+    {
+      "region": "south-america",
+      "sourceCount": 1,
+      "importedBytes": 4136471296,
+      "sourceRelationImports": 740,
+      "oldestSourceTimestamp": "2026-10-08T20:21:06+00:00",
+      "newestSourceTimestamp": "2026-10-08T20:21:06+00:00",
+      "latestImportedAt": "2026-10-11T12:51:22+00:00",
+      "scheduledRefresh": true,
+      "accessVerified": false,
+      "navigableGeometryAdded": false
+    }
+  ],
+  "pbfRouteProvenance": {
+    "totalRoutes": 178740,
+    "routesWithPbfSource": 0,
+    "legacyOrUnattributedRoutes": 178740,
+    "invalidProvenanceRoutes": 0,
+    "sourceIds": 0,
+    "coverageFraction": 0.0,
+    "completeCoverage": false,
+    "safeForGlobalWithdrawal": false
+  },
+  "snapshots": {
+    "OSM": {
+      "records": 178740,
+      "generatedAt": "2026-10-22T11:47:15Z",
+      "sha256": "173033c31be43e8a07a9269efb4818b918bf659feb46ed356570ad1926c639c7"
+    },
+    "USFS": {
+      "records": 9019,
+      "generatedAt": "2026-10-22T11:46:44.932838+00:00",
+      "sha256": "15e488cf7fc9b2e381e8371b2c79268091fb44b6b2ee6e46b8e88d8fb83318df"
+    },
+    "Hong Kong AFCD": {
+      "records": 167,
+      "generatedAt": "2026-10-22T11:51:51.431692+00:00",
+      "sha256": "05c9557a117e7ed4f81b10b63199fcc7f544451aa3fd646ed6ee6e464324b260"
+    },
+    "New Zealand DOC": {
+      "records": 1349,
+      "generatedAt": "2026-10-22T11:51:52.066838+00:00",
+      "sha256": "d9a6d3cee6575ae5f1ab0d65daea35bbb418484cd86665307201345229f70d71"
+    },
+    "Parks Canada": {
+      "records": 1349,
+      "generatedAt": "2026-10-22T11:51:56.430109+00:00",
+      "sha256": "6931003cfce395b68f88318902d7ffd837c636bd2943374e44406de54de2f53d"
+    },
+    "Argyll and Bute": {
+      "records": 964,
+      "generatedAt": "2026-10-22T11:54:17.524820+00:00",
+      "sha256": "f58608308ddc0ab797e13958d15d83971ded12b9004f85f1e5b48931f6874e12"
+    },
+    "Mid Ulster Public Rights of Way": {
+      "records": 19,
+      "generatedAt": "2026-10-22T11:54:32.026163+00:00",
+      "sha256": "6af287b32270a3559f1aac4556557d8a3a08aa06b87447255a0a3cdfd089c6ca"
+    },
+    "Norfolk Public Rights of Way": {
+      "records": 8096,
+      "generatedAt": "2026-10-22T11:54:32.812972+00:00",
+      "sha256": "5c020c5ea9518d59cd664efb89a471820a94c20a9035a8a733d70d51d5326de5"
+    },
+    "Cambridgeshire Public Rights of Way": {
+      "records": 4159,
+      "generatedAt": "2026-10-22T11:55:01.634062+00:00",
+      "sha256": "f7176db8d2cd59a4d5ec4a3db3edba7024b8fba320fecff1b04e58da5674f0db"
+    },
+    "NPS public trails": {
+      "records": 16661,
+      "generatedAt": "2026-10-22T11:52:04.566729+00:00",
+      "sha256": "6f3aa09370984742e5fc4893ff04f63257aa2b9d64bd46af4fb45779e8d52d46"
+    },
+    "swisstopo named hiking references": {
+      "records": 378,
+      "generatedAt": "2026-10-13T16:23:03.930002+00:00",
+      "sha256": "a967c621d8647ac9e00ed1c3fcee5a07f76bdf3d9fb8b0556704bde26a5aea23"
+    },
+    "Victoria recreation tracks": {
+      "records": 195,
+      "generatedAt": "2026-10-22T11:52:27.982450+00:00",
+      "sha256": "270ea4e467e3d33af2eb1672a5015b754197e9bb3b3de6bf3318887eefa32e5a"
+    },
+    "Queensland QPWS walking tracks": {
+      "records": 3561,
+      "generatedAt": "2026-10-22T11:52:29.663298+00:00",
+      "sha256": "abe988a94b9d1bef2e7a17bed8ff229d178cfbff362885075c717ed5ba0c9dd1"
+    },
+    "NSW NPWS": {
+      "records": 4582,
+      "generatedAt": "2026-10-22T11:53:59.413288+00:00",
+      "sha256": "f13441e39ee5e90ddb0879e6ae91b4718ccba28e98fd3e61a70a37367f206af1"
+    },
+    "Natural England": {
+      "records": 14,
+      "generatedAt": "2026-10-22T11:54:13.084487+00:00",
+      "sha256": "2eadcd3291f33ceae597dd6081b7320d0a1ed6d2f655d02ccc57ba53af60928e"
+    },
+    "Natural Resources Wales": {
+      "records": 3,
+      "generatedAt": "2026-10-22T11:54:15.055851+00:00",
+      "sha256": "88c7e7aacf7efc533b9e5341656a10ea780f983770bbbacddcc444ac890c67da"
+    },
+    "Japan Ministry of the Environment · Tokai Nature Trail": {
+      "records": 4,
+      "generatedAt": "2026-10-22T11:54:16.720188+00:00",
+      "sha256": "dac6c12a972873594c90a0c643ac5f18fadd576c97a2a96f8176479300dafad6"
+    },
+    "Official notices": {
+      "records": 225,
+      "generatedAt": "2026-10-22T11:55:05.953658+00:00",
+      "sha256": "8a4e62e2b113b4acc4d1359212b193acff8c861ae59863f81120307f151deee1"
+    }
+  },
+  "accessVerified": false
+}

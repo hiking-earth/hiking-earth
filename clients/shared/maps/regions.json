@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "regions": [
+    {"id":"world-overview","name":"全球离线概览底图（缩放0–5级）","bbox":"-180,-85.05112878,180,85.05112878","minZoom":0,"maxZoom":5,"scope":"global-overview"},
+    {"id":"monaco","name":"摩纳哥示例区域","bbox":"7.4,43.7,7.45,43.75","minZoom":8,"maxZoom":15},
+    {"id":"lantau","name":"香港大屿山局部底图","bbox":"113.92,22.20,113.99,22.26","minZoom":8,"maxZoom":15},
+    {"id":"fuji","name":"富士山周边局部底图","bbox":"138.66,35.30,138.80,35.42","minZoom":8,"maxZoom":15},
+    {"id":"chamonix","name":"霞慕尼周边局部底图","bbox":"6.80,45.86,6.94,45.98","minZoom":8,"maxZoom":15},
+    {"id":"yosemite-valley","name":"优胜美地谷周边局部底图","bbox":"-119.65,37.68,-119.50,37.80","minZoom":8,"maxZoom":15},
+    {"id":"table-mountain","name":"桌山周边局部底图","bbox":"18.35,-34.02,18.48,-33.90","minZoom":8,"maxZoom":15},
+    {"id":"banff","name":"班夫国家公园周边局部底图","bbox":"-116.25,51.15,-116.10,51.30","minZoom":8,"maxZoom":15},
+    {"id":"dolomites","name":"多洛米蒂周边局部底图","bbox":"11.65,46.45,11.80,46.60","minZoom":8,"maxZoom":15},
+    {"id":"annapurna","name":"安纳布尔纳周边局部底图","bbox":"83.85,28.45,84.00,28.60","minZoom":8,"maxZoom":15},
+    {"id":"everest","name":"珠峰地区周边局部底图","bbox":"86.70,27.85,86.85,28.00","minZoom":8,"maxZoom":15},
+    {"id":"kumano-kodo","name":"熊野古道周边局部底图","bbox":"135.55,33.75,135.70,33.90","minZoom":8,"maxZoom":15},
+    {"id":"aoraki","name":"奥拉基库克山周边局部底图","bbox":"170.10,-43.80,170.25,-43.65","minZoom":8,"maxZoom":15},
+    {"id":"milford-track","name":"米尔福德步道周边局部底图","bbox":"167.80,-44.70,167.95,-44.55","minZoom":8,"maxZoom":15},
+    {"id":"torres-del-paine","name":"百内国家公园周边局部底图","bbox":"-73.05,-51.05,-72.90,-50.90","minZoom":8,"maxZoom":15},
+    {"id":"kilimanjaro","name":"乞力马扎罗周边局部底图","bbox":"37.30,-3.15,37.45,-3.00","minZoom":8,"maxZoom":15},
+    {"id":"madeira","name":"马德拉岛周边局部底图","bbox":"-17.10,32.65,-16.95,32.80","minZoom":8,"maxZoom":15},
+    {"id":"lake-district","name":"英国湖区周边局部底图","bbox":"-3.15,54.35,-3.00,54.50","minZoom":8,"maxZoom":15},
+    {"id":"iceland-highlands","name":"冰岛高地周边局部底图","bbox":"-19.20,63.95,-19.05,64.10","minZoom":8,"maxZoom":15},
+    {"id":"grand-canyon","name":"大峡谷周边局部底图","bbox":"-112.20,36.05,-112.05,36.20","minZoom":8,"maxZoom":15},
+    {"id":"el-chalten","name":"埃尔查尔滕周边局部底图","bbox":"-73.00,-49.40,-72.85,-49.25","minZoom":8,"maxZoom":15},
+    {"id":"blue-mountains","name":"澳大利亚蓝山周边局部底图","bbox":"150.25,-33.75,150.40,-33.60","minZoom":8,"maxZoom":15},
+    {"id":"cappadocia","name":"卡帕多奇亚周边局部底图","bbox":"34.80,38.55,34.95,38.70","minZoom":8,"maxZoom":15}
+  ]
+}

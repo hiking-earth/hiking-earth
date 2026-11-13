@@ -1,0 +1,20 @@
+{
+  "candidate": "desktop-25",
+  "sourceCommit": "35aee8f81c508179e88c50dd72b5755ed977ad81",
+  "platform": "macOS ARM",
+  "checks": {
+    "coldRestartInventory": "passed: Yosemite 2.21 MiB and three previous maps restored",
+    "localArchiveRead": "passed: UI reports local roads and features loaded",
+    "render": "passed: visible roads, river and land cover"
+  },
+  "screenshots": [
+    "desktop25-restart-yosemite-2026-10-07.png",
+    "desktop25-restart-yosemite-render-2026-10-07.png"
+  ],
+  "limits": [
+    "Network remained enabled; airplane-mode acceptance is pending",
+    "Map controls appear blank in screenshot; visual control defect requires investigation",
+    "No proof of global map coverage or route access permission",
+    "Final all-platform release remains incomplete"
+  ]
+}

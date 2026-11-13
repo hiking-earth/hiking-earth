@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-08T01:50:02+08:00",
+  "source": "Geofabrik official regional OSM PBF",
+  "sourceUrl": "https://download.geofabrik.de/asia/nepal-261006.osm.pbf",
+  "sourceInfoUrl": "https://download.geofabrik.de/asia/nepal.html",
+  "sourceTimestamp": "2026-10-06T20:21:06Z",
+  "bytes": 414545110,
+  "md5": "e7d534762cb525e7d916faca89a509dc",
+  "sha256": "5e6bd07c96e66cdeda49a2346e2b496faefedda353c88944c35bab215ba04db1",
+  "import": {
+    "sourceId": "asia/nepal/261006",
+    "region": "south-asia",
+    "candidateRelations": 114,
+    "importedRelations": 111,
+    "skippedIncompleteRelations": 3,
+    "skippedNestedRelations": 1
+  },
+  "catalogDelta": {
+    "beforeCount": 26852,
+    "afterCount": 26852,
+    "added": 0,
+    "updated": 111,
+    "removed": 0,
+    "sha256": "923d80c2b38b77fbe789d59e02cc3b7c5a25d6e8a53ab14484b96ffe2d787303"
+  },
+  "distribution": {
+    "osmPages": 68,
+    "copies": [
+      "shared/public-catalog",
+      "app/cloudfunctions/catalog-feed/snapshots",
+      "app/cloudfunctions/client-api/business/catalog-feed/snapshots"
+    ],
+    "manifestAndPagePayloadHashesMatch": true,
+    "compressedPageBytesMatch": true
+  },
+  "productTestsBuildDeploymentDeviceAcceptancePerformed": false,
+  "accessVerified": false,
+  "navigableGeometryAdded": false
+}

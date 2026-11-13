@@ -1,0 +1,33 @@
+[
+  {
+    "command": "npm run type-check",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run build:mp-weixin",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run build:h5",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run build:app",
+    "exitCode": 0
+  },
+  {
+    "artifact": "app/dist/delivery/hiking-earth-app-resources-2026-10-04.zip",
+    "sha256": "9e1ec2372fd34979d1a306f3478fbc4e886f04fa927c9b0392077235b552f330",
+    "kind": "compiled resources; not native installer"
+  },
+  {
+    "artifact": "app/dist/delivery/hiking-earth-h5-resources-2026-10-04.zip",
+    "sha256": "38238bc47265aa0d9d9a95eec9eb9c791b05b68aa2a317fb3d0bec810aa37c65",
+    "kind": "compiled resources; not native installer"
+  },
+  {
+    "artifact": "app/dist/delivery/hiking-earth-mp-weixin-resources-2026-10-04.zip",
+    "sha256": "c5a9dac14357b1765c1be7fc99443dc91d4aa99fe7307701c7dba03ba07a9946",
+    "kind": "compiled resources; not native installer"
+  }
+]

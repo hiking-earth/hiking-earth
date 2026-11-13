@@ -1,0 +1,14 @@
+{
+  "scope": "Map reuse and inventory fault isolation",
+  "tests_passed": 21,
+  "typecheck": "passed",
+  "wechat_build": "passed",
+  "changes": [
+    "Exact name/size lookup followed by fresh SHA256 before reuse",
+    "No repeat download when saved bytes match published digest",
+    "Individual missing/unreadable/changed file states preserve other inventory entries",
+    "Only confirmed not-found removal commits missing record deletion; other removal failures restore inventory"
+  ],
+  "runtime_acceptance": "New reuse and fault UI pending; previous map download/render/reopen report remains separate",
+  "release_ready": false
+}

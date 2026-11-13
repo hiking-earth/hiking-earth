@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-07T04:12:05.125Z",
+  "scope": "Five public directory reads; no account credentials; one sequential then four concurrent requests for the previously failing USFS page",
+  "passed": true,
+  "sequential": {
+    "index": 0,
+    "status": 200,
+    "ok": true,
+    "items": 400,
+    "elapsedMs": 2628
+  },
+  "concurrent": [
+    {
+      "index": 1,
+      "status": 200,
+      "ok": true,
+      "items": 400,
+      "elapsedMs": 742
+    },
+    {
+      "index": 2,
+      "status": 200,
+      "ok": true,
+      "items": 400,
+      "elapsedMs": 3893
+    },
+    {
+      "index": 3,
+      "status": 200,
+      "ok": true,
+      "items": 400,
+      "elapsedMs": 1001
+    },
+    {
+      "index": 4,
+      "status": 200,
+      "ok": true,
+      "items": 400,
+      "elapsedMs": 3796
+    }
+  ]
+}

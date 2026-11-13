@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-07",
+  "sourceCommit": "58237b5",
+  "buildExitCode": 0,
+  "testsPassed": 7,
+  "previewSuccess": true,
+  "previewPackageBytes": 793082,
+  "compiledQrPageSha256": "47ea2a3994cb34f1d6e817efa68a29ece7b4f55594a4857168668c2fb21a83d9",
+  "runtimeAccepted": false,
+  "pending": [
+    "Reopen project after hot reload to restore WXSS",
+    "QR page login button response did not yet visibly change; inspect actual error",
+    "Rerun scan confirmation on latest candidate",
+    "physical device and production domain acceptance"
+  ],
+  "note": "Keep old successful scan evidence separate from this revised candidate."
+}

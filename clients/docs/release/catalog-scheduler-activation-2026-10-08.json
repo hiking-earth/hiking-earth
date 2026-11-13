@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-08T14:43:10.465377+00:00",
+  "mainWorkflowCommit": "b26049cb9228db02d1231c8b85997cfe4a276c66",
+  "maintainedSourceCommit": "504c555",
+  "catalogRun": 37794652591,
+  "catalogObserved": "in_progress; checkout and Python setup success; USDA collecting; remaining pending",
+  "desktopRun": 37794713835,
+  "scope": "Scheduled main workflow checks out maintained collector source; validated data-only publication keeps client release gates unchanged.",
+  "incomplete": [
+    "New scheduled collection completion and publication unproven",
+    "CloudBase newer snapshot still unavailable in last check",
+    "Desktop new build and actual runtime reacceptance pending",
+    "Full original multi-end objective remains incomplete"
+  ]
+}

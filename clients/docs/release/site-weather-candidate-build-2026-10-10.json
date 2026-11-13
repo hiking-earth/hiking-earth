@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-10T11:54:14.830854+00:00",
+  "clientSource": "881e134",
+  "siteCandidateBuildExitCode": 0,
+  "buildSession": 4881,
+  "pwaAssets": 105,
+  "pwaStamp": "e65bbba7c7e56506cc2421237da34918a06ec936a18f8cee889a142f38ef2599",
+  "deployed": false,
+  "pending": "web and site-release pins uncommitted; official Sites source helper and deploy still required"
+}

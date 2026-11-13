@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-11",
+  "scope": "web client accent tints",
+  "referenceAccent": "#b8f36b",
+  "change": {
+    "file": "web/app/globals.css",
+    "supersededTint": "rgba(167,223,191,*)",
+    "replacementTint": "rgba(184,243,107,*)",
+    "declarationsUpdated": 30
+  },
+  "guard": {
+    "file": "scripts/tests/visual-palette.test.cjs",
+    "addedAssertions": [
+      "website accent tints use the published lime-green RGB values",
+      "superseded mint-green accent tints are absent"
+    ],
+    "executed": false
+  },
+  "verification": {
+    "gitDiffCheck": "passed",
+    "functionalTests": "not run; deferred to unified final validation",
+    "build": "not run; deferred to unified final validation",
+    "visualRuntimeAcceptance": "pending"
+  },
+  "limitations": [
+    "This aligns translucent web highlights with the exact website green; it does not make the four home-page structures identical.",
+    "No deployment or platform package was produced."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Actual two isolated Chrome sessions automatic favorites on application reload; excludes periodic polling, conflicts, plans, tracks and physical devices",
+  "checks": [
+    {
+      "name": "password login through visible UI",
+      "passed": true
+    },
+    {
+      "name": "first browser automatically saves favorite after application reload",
+      "passed": true
+    },
+    {
+      "name": "automatic same-account favorite restored on second isolated browser",
+      "passed": true
+    },
+    {
+      "name": "automatic deletion propagates back on browser restart without manual save restore",
+      "passed": true
+    },
+    {
+      "name": "isolated UI account removed",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "checkedAt": "2026-10-10T13:04:30.092Z"
+}

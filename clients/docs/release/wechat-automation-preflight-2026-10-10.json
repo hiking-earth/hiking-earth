@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-10T08:05:42.408740+00:00",
+  "sourceCommit": "5db77d2",
+  "command": "WeChat IDE CLI auto with latest local build",
+  "attempt": 1,
+  "processExitCode": 0,
+  "automationReady": false,
+  "failureCode": "ECONNRESET",
+  "failureMessage": "Client network socket disconnected before secure TLS connection was established",
+  "phase": "Fetching AppID permissions",
+  "runtimeAcceptance": false,
+  "decision": "Stop identical WeChat CLI auto retries until external state changes; preserve candidates and continue other independent full-end tasks.",
+  "recoveryAttempts": [
+    {
+      "attempt": 1,
+      "failureCode": "ECONNRESET",
+      "automationReady": false
+    },
+    {
+      "attempt": 2,
+      "checkedAt": "2026-10-10T08:35:22.590987+00:00",
+      "failureCode": "ECONNRESET",
+      "processExitCode": 0,
+      "automationReady": false
+    },
+    {
+      "attempt": 3,
+      "checkedAt": "2026-10-10T09:05:16.693506+00:00",
+      "failureCode": "ECONNRESET",
+      "processExitCode": 0,
+      "automationReady": false
+    }
+  ],
+  "nextRecoveryAttempt": null,
+  "retryLimitReached": true
+}

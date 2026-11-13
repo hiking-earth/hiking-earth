@@ -1,0 +1,53 @@
+{
+  "scope": "Local Chrome H5 actual UI only, not native phone or packaged desktop WebView",
+  "mapFile": "/Users/nanyu/Documents/AI工具/02_Codex数据_0907/worktrees/2f39/徒步软件/app/map-assets/static/offline-maps/lantau-20261009.pmtiles",
+  "initialLabels": [
+    "塘褔",
+    "長沙",
+    "鹹田",
+    "望東灣",
+    "大芒輋",
+    "羅屋村",
+    "䃟石灣",
+    "長沙上村",
+    "貝澳",
+    "長屻石",
+    "Tai Mong Che",
+    "離島區",
+    "水口泥灘",
+    "貝澳泳灘",
+    "Ham Tin Villas",
+    "廟仔墩",
+    "南大嶼郊野公園",
+    "上長沙泳灘",
+    "出水頂",
+    "Botanica Bay"
+  ],
+  "zoomedLabels": [
+    "長沙",
+    "長沙下村",
+    "長沙上村",
+    "麗濱別墅",
+    "下長沙泳灘",
+    "美雅花園",
+    "長沙消防局",
+    "長沙政府度假別墅",
+    "Waterside",
+    "上長沙泳灘",
+    "蝶崗"
+  ],
+  "offlineUpdate": {
+    "visibleMessage": "当前设备离线，保留本机资料，联网后再更新",
+    "newRequestCount": 0,
+    "retainedLabelCount": 20
+  },
+  "screenshots": [
+    "output/playwright/offline-labels-lantau-final.png",
+    "output/playwright/offline-labels-network-guard.png"
+  ],
+  "limits": [
+    "Before the offline guard, background API attempts were observed while disconnected; no online font requests were needed for labels",
+    "Not deployed or shipped"
+  ],
+  "regressionTests": 179
+}

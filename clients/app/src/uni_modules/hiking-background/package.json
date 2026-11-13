@@ -1,0 +1,14 @@
+{
+  "id": "hiking-background",
+  "displayName": "徒步原生后台定位",
+  "version": "0.1.0",
+  "description": "系统定位、本地缓存，默认关闭",
+  "uni_modules": {
+    "dependencies": [],
+    "encrypt": []
+  },
+  "dcloudext": {
+    "type": "uts"
+  },
+  "types": "utssdk/index.d.ts"
+}

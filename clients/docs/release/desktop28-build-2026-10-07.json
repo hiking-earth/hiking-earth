@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-07T14:22:00Z",
+  "workflow": {
+    "id": 37635463021,
+    "url": "https://github.com/hiking-earth/clients/actions/runs/37635463021",
+    "headSha": "a8c7910435905ee8ae6935f5f312666bbfbf9498",
+    "status": "completed",
+    "conclusion": "success",
+    "allJobsPassed": true,
+    "packageBudgetAndUpdaterSignatureChecksPassedForAllTargets": true
+  },
+  "release": {
+    "tag": "desktop-28",
+    "draft": true,
+    "stable": false,
+    "assets": [
+      { "name": "latest.json", "bytes": 2622 },
+      { "name": "_0.2.3_aarch64.dmg", "bytes": 33413617 },
+      { "name": "_0.2.3_amd64.AppImage", "bytes": 112146936 },
+      { "name": "_0.2.3_amd64.AppImage.sig", "bytes": 444 },
+      { "name": "_0.2.3_amd64.deb", "bytes": 33872436 },
+      { "name": "_0.2.3_amd64.deb.sig", "bytes": 436 },
+      { "name": "_0.2.3_x64.dmg", "bytes": 33461351 },
+      { "name": "_0.2.3_x64_zh-CN.msi", "bytes": 33472512 },
+      { "name": "_0.2.3_x64_zh-CN.msi.sig", "bytes": 444 },
+      { "name": "_aarch64.app.tar.gz", "bytes": 33366301 },
+      { "name": "_aarch64.app.tar.gz.sig", "bytes": 432 },
+      { "name": "_x64.app.tar.gz", "bytes": 33382621 },
+      { "name": "_x64.app.tar.gz.sig", "bytes": 432 }
+    ],
+    "largestInstallPackageBytes": 112146936,
+    "packageBudgetBytes": 500000000
+  },
+  "scope": "CI build, size gate and updater signature verification only; installation, launch, permissions, live account workflows and upgrade rollback remain unverified."
+}

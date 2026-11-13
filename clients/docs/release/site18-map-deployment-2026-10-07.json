@@ -1,0 +1,27 @@
+{
+  "version": 18,
+  "source": "1f302394530d909c32b04547a89cad0f0a66f289",
+  "clientSource": "94507e915eccc00787bbee99e01bb267de40b085",
+  "deployment": "appgdep_6ac5d68d125c8191ae01ed39c499a216",
+  "status": "succeeded",
+  "assetVerification": {
+    "HTTP": 200,
+    "method": "curl",
+    "bytes": 1168799,
+    "sha256": "40231fd7abdc9a12261afba0ccfa23bf1ea8870d051cea6c0e943e7b0e87dc88",
+    "matchesBuild": true,
+    "pythonLimits": "Python3.14 SSL failure; system Python HTTP403"
+  },
+  "onlineBrowserAcceptance": {
+    "downloadSave": true,
+    "reloadListRestore": true,
+    "render": true,
+    "screenshot": "site18-map-runtime-2026-10-07.png",
+    "offlineNetworkReload": false
+  },
+  "serviceWorker": {
+    "status": 200,
+    "matchesStampedBuild": true,
+    "sha256": "498bd1f9db29b0fa29310b34bd692794a242c325d6de38dc5b2affd85cb44ae6"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "scope": "CloudBase direct HTTP account/library/private diary/team/chat/synthetic track workflow; excludes client UI and native/device permissions",
+  "checkedAt": "2026-10-08T02:24:09.524Z",
+  "passed": false,
+  "failure": "fetch failed",
+  "checks": []
+}

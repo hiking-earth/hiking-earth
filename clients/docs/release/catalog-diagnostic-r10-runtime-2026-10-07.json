@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-07T04:29:48.912111+00:00",
+  "sourceCommit": "eeb483f",
+  "deploymentRemoteHashesVerified": true,
+  "officialSimulatorReopened": true,
+  "refreshTriggered": true,
+  "runtimePassed": false,
+  "observedHttpStatus": 500,
+  "response": "generic service unavailable; no code field",
+  "clsFunctionLogResults": 0,
+  "clsFullTextDiagnosticResults": 0,
+  "conclusion": "New failure reproduced after r10; log retrieval did not expose the diagnostic. Root cause remains unknown. Need alternate sanitized stage observation, not inferred transaction fix."
+}

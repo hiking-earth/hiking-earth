@@ -1,0 +1,13 @@
+{
+  "stage": "build-in-progress",
+  "sourceCommit": "f6e1ad7251e4dd4c52c179f4f94e0a52dea191ce",
+  "workflowRunId": 37559129275,
+  "url": "https://github.com/hiking-earth/clients/actions/runs/37559129275",
+  "platforms": [
+    "macos-aarch64",
+    "macos-x86_64",
+    "windows-x86_64",
+    "linux-x86_64"
+  ],
+  "functionalAcceptance": "pending"
+}

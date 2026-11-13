@@ -1,0 +1,24 @@
+{
+  "sourceBase": "83cde42",
+  "distribution": "https://hiking-earth.nanyu20050927.chatgpt.site/client-app/",
+  "changes": [
+    "Desktop map catalog and downloads use fixed public distribution.",
+    "Browser retains its own deployment base.",
+    "Web CORS headers limited to public offline-maps static path."
+  ],
+  "checks": {
+    "catalogTests": 6,
+    "typeCheck": "passed",
+    "h5Build": "passed",
+    "wechatBuild": "passed"
+  },
+  "prechangeRemoteEvidence": {
+    "status": 200,
+    "accessControlAllowOrigin": null
+  },
+  "limitations": [
+    "Web headers not yet deployed.",
+    "Real desktop remote refresh and download not yet accepted.",
+    "Running desktop candidate37587612797 uses83cde42 and does not include this later change."
+  ]
+}

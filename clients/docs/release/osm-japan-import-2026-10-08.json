@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-08",
+  "region": "Japan",
+  "source": "Geofabrik official fixed Japan extract derived from OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "catalogCountBefore": 128644,
+  "catalogCountAfter": 128646,
+  "catalogRecordDelta": 2,
+  "successfulExtracts": [
+    {
+      "sourceId": "asia/japan-261006",
+      "region": "japan",
+      "sourceUrl": "https://download.geofabrik.de/asia/japan.html",
+      "sourceTimestamp": "2026-10-06T20:21:06Z",
+      "bytes": 2546160026,
+      "officialMd5Verified": "99b99e4cda186567e435e37ab37618c6",
+      "sha256": "4a422ad9f375cb561b8753686d0eb41678455239aaad705f1d89191528190016",
+      "candidateRelations": 817,
+      "importedRelations": 817,
+      "skippedIncompleteRelations": 0,
+      "skippedNestedRelations": 10,
+      "netCatalogRecordDelta": 2
+    }
+  ],
+  "catalogSnapshot": "f78b3427753a208d790fab47a581c3efea974ae4d0582f6ceb40dbb5f2ed6ff1",
+  "pageCount": 322,
+  "distributionCopies": 3,
+  "verifiedCompressedPages": 966,
+  "interpretation": "The extract refreshed 817 complete relation records; most already existed. Discovery metadata does not establish current access, permits, safety or navigable tracks.",
+  "distributionCheck": "The three manifest files are byte-identical. All 322 pages match across the three source copies, and decompressed SHA-256 values match the manifest. This proves local data integrity only."
+}

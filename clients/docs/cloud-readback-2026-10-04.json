@@ -1,0 +1,86 @@
+[
+  {
+    "name": "login",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "49180bb20285e26f30306884b8db3ed9536357ac1f05949f048aa1f09e3e3fdd"
+  },
+  {
+    "name": "companion-create",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "0725cad615227ae4c8847377cac69064c0e2d580c6b1e011fcbbae903317f2a3"
+  },
+  {
+    "name": "companion-join",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "faf87771de10868d302b3adcbc2d92025eb8db4c3374e3715313af90d7306dfb"
+  },
+  {
+    "name": "team-create",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "96af4f784e1452617e3cb560fa5bbfc300046f8f368c51c5d426375c8ff630c4"
+  },
+  {
+    "name": "team-join",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "f4655945fd4c24ddbd31f19dde7cd2260c1a9b1451753edd5725d202f3c17001"
+  },
+  {
+    "name": "team-report",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "665cc1e738f18573a11c4b8ee740768b0bcf3f7291200d932cd9355e3791ca79"
+  },
+  {
+    "name": "team-locations",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "bc3d2c59fc27cbae2a4ed5faf5020c240f02c7a5aca08855ab4adceb3c9d6d55"
+  },
+  {
+    "name": "track-sync",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "d7beb74ced1381c6d34eeb1ee6becca6c776c5c066b52b7ebc54845112b627bd"
+  },
+  {
+    "name": "team-stop",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "35a132d7e7b6bdd4cb76b458508188d7bf65375076a20e70bbfe92e6dcc71138"
+  },
+  {
+    "name": "team-leave",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "25a6b4ab42195631241113763c55e0dcd5175e28a96cbdd36b018809657e1341"
+  },
+  {
+    "name": "companion-report",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "9cac15fc01a512e1da705e5630d02d8b0d06c178c3ed677b71c91a8077008bb5"
+  },
+  {
+    "name": "track-manage",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "71d88f348a493af23b7814549fd96d6055fb5ac0192308612c9b2d971f6b981f"
+  },
+  {
+    "name": "sos-trigger",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "70793ff4654aae4f96822c6d8dc831d38b9cecc23693a28485b8f07f7c06f607"
+  },
+  {
+    "name": "init-db",
+    "sourceMatches": true,
+    "downloadExit": 0,
+    "localSha256": "2d111a192867f48b54dece759052ad5a55ef53b48239c21f669c3aee24e8c02b"
+  }
+]

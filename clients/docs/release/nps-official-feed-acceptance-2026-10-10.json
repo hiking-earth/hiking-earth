@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-10T15:19:14Z",
+  "sources": [
+    {
+      "id": "nps-grand-canyon-news",
+      "feedUrl": "https://www.nps.gov/feeds/getNewsRSS.htm?id=grca",
+      "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "collectedItems": 100
+    },
+    {
+      "id": "nps-grand-canyon-backcountry",
+      "feedUrl": "https://www.nps.gov/grca/planyourvisit/upload/grca-backcountry.xml",
+      "evidenceUrl": "https://www.nps.gov/grca/planyourvisit/rss-feed-info.htm",
+      "feedAcceptance": "accepted",
+      "feedVerifiedAt": "2026-10-10",
+      "collectedItems": 1
+    }
+  ],
+  "scope": "Metadata links only: titles, dates and official source links. Article bodies and images are not copied. No trail access state is inferred.",
+  "verified": {
+    "policyTests": 25,
+    "passed": true,
+    "liveOfficialFeedCollection": true,
+    "collectedNewsRecords": 203,
+    "withheldRecords": 0,
+    "sourceAccessVerified": false
+  },
+  "production": {
+    "publicCatalogMainCommit": "3a2c62d8387a5ae907e27a1e4d276234681c84bb",
+    "snapshot": "a3f332c322175c16c970ab88ff29655e44d7776107f885f3002237d5d798cef3",
+    "pinnedCloudApiRead": "passed",
+    "warmUnpinnedCache": "served previous snapshot at check time; CloudBase manifest cache has a 60-minute lifetime",
+    "stableReleaseReady": false
+  }
+}

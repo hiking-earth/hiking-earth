@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-12T01:00:57.675072+00:00",
+  "sourceUrl": "https://www.data.gov.uk/dataset/000d47eb-d164-4740-bd91-a01ca37d6b6b/mid-ulster-council-public-rights-of-way1",
+  "layerUrl": "https://services1.arcgis.com/IBPnlgK2X1Ngocds/arcgis/rest/services/PROW/FeatureServer/0",
+  "license": "Open Government Licence v3.0",
+  "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "attribution": "Contains information licensed under the Open Government Licence v3.0 from OpenDataNI and Mid Ulster District Council. Source: Public Rights of Way.",
+  "records": 19,
+  "rawBytes": 15664,
+  "rawSha256": "3ff01135e102e1d284142567ac3f776bc494dd6ffbceea784a69788bd0bb8d6d",
+  "catalogSnapshot": "3ff01135e102e1d284142567ac3f776bc494dd6ffbceea784a69788bd0bb8d6d",
+  "snapshotPages": 1,
+  "routeStatus": "待核验",
+  "navigationGeometry": "not provided; simplified reference paths only",
+  "sourceStatusPolicy": "These are Mid Ulster public-rights-of-way source records. Source condition and assertion fields are historical/source metadata only; all records remain 待核验 and linework is simplified display reference, not current legal access or navigation guidance.",
+  "evidenceBoundary": "Official data collection and static snapshot preparation only. No client feature test, build, deployment, or device acceptance."
+}

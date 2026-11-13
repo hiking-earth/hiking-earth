@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "徒步地球",
+  "version": "0.2.3",
+  "identifier": "earth.hiking.desktop",
+  "build": {
+    "frontendDist": "../client-dist",
+    "beforeBuildCommand": "node scripts/prepare-client.mjs",
+    "beforeDevCommand": "node scripts/prepare-client.mjs"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "徒步地球",
+        "label": "main",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 960,
+        "minHeight": 640,
+        "url": "index.html"
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "withGlobalTauri": true
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg",
+      "msi",
+      "appimage",
+      "deb"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Travel",
+    "shortDescription": "徒步地球桌面端",
+    "longDescription": "完整客户端：路线发现、系统定位、导航与轨迹记录、GPX导入导出、账号、组队与社区。",
+    "macOS": {
+      "signingIdentity": "-",
+      "infoPlist": "Info.plist"
+    },
+    "windows": {
+      "wix": {
+        "language": "zh-CN"
+      }
+    },
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDc5MTg5NzRFNUNCOUZEMjkKUldRcC9ibGNUcGNZZWFHaVdtRVl1eTFuWXo3SzlEcnBuVU9nTWtFNVlhN1pQaFlOeW1vQWFGS1QK",
+      "endpoints": [
+        "https://github.com/hiking-earth/clients/releases/latest/download/latest.json"
+      ]
+    }
+  }
+}
