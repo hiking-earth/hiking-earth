@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
   const previous = cache.get(key);
   try {
     let entry = previous;
-    if (!entry || entry.expires <= Date.now()) {
+    if (!entry || entry.expires <= Date.now() || !isCurrentForecastTime(entry.weather.observedAt)) {
       let job = pending.get(key);
       if (!job) {
         if (Date.now() < retryAfter || Date.now() - lastRequest < 250) throw new Error("backoff");
@@ -95,7 +95,7 @@ export async function GET(request: NextRequest) {
               ? result.providerNotice : undefined;
             if (result.status !== "available" || result.provider !== "MET Norway"
                 || result.license !== "CC BY 4.0" || !weather
-                || !isRecord(weather)
+                || !isRecord(weather) || weather.city !== key
                 || ![weather.city, weather.temperature, weather.wind, weather.humidity, weather.rain]
                   .every(v => typeof v === "string" && v.length < 100)
                 || typeof weather.fetchedAt !== "string" || !Number.isFinite(Date.parse(weather.fetchedAt))

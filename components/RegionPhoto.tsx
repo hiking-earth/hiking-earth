@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import {subscribeScenicClock} from '@/data/scenic-clock';
+import {scenicReviewCurrent} from '@/data/scenic-review';
 import scenicImages from "@/data/scenic-images.json";
 
 type ScenicImage = (typeof scenicImages.items)[number];
@@ -17,13 +19,17 @@ function safeCommonsUrl(value: string, hosts: string[]): string {
   }
 }
 
-function photoForRegion(region: string): ScenicImage | undefined {
-  return scenicImages.items.find((item) => item.region === region || item.matchRegions?.includes(region));
+function photoForRegion(region: string, now: number): ScenicImage | undefined {
+  return scenicImages.items.find((item) => scenicReviewCurrent(item, now) && (item.region === region || item.matchRegions?.includes(region)));
 }
 
 export function RegionPhoto({ region }: { region: string }) {
-  const photo = photoForRegion(region);
-  const [shown, setShown] = useState(false);
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => subscribeScenicClock(setNow), []);
+  const photo = now === null ? undefined : photoForRegion(region, now);
+  const [shownFor, setShownFor] = useState<string | null>(null);
+  const photoKey = photo ? `${region}:${photo.id}` : "";
+  const shown = !!photo && shownFor === photoKey;
   const [failed, setFailed] = useState(false);
   if (!photo) return null;
 
@@ -35,13 +41,13 @@ export function RegionPhoto({ region }: { region: string }) {
   return (
     <section className="region-photo" aria-label="地区历史实景">
       {!shown ? (
-        <button type="button" onClick={() => setShown(true)}>查看地区实景（从 Wikimedia 加载）</button>
+        <button type="button" onClick={() => { const current = Date.now(); setNow(current); if (scenicReviewCurrent(photo, current)) setShownFor(photoKey); }}>查看地区实景（从 Wikimedia 加载）</button>
       ) : (
         <>
           <p>点击后会向 Wikimedia Commons 请求图片；该图片只代表拍摄地区，不代表这条路线的实际路况、开放状态或当前景观。</p>
           {!failed ? <Image src={imageUrl} alt={photo.title} width={1200} height={720} sizes="(max-width: 560px) 100vw, 500px" unoptimized loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} /> : <p role="status">图片加载失败，可查看原始来源。</p>}
           {failed && <button type="button" onClick={() => setFailed(false)}>重试加载图片</button>}
-          <button type="button" onClick={() => { setShown(false); setFailed(false); }}>收起图片</button>
+          <button type="button" onClick={() => { setShownFor(null); setFailed(false); }}>收起图片</button>
           <strong>{photo.title}</strong>
           <span>{photo.author} · {photo.license}</span>
           <small>{photo.changes}</small>

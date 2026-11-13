@@ -1,0 +1,76 @@
+name: Prepare or publish static fallback
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish static fallback to GitHub Pages; preserve any unrelated existing site'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-fallback-pages
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare a new static delivery directory
+        run: python scripts/prepare-static-fallback.py --output '${{ runner.temp }}/hiking-static-fallback'
+      - name: Preserve portable static files and source hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiking-static-fallback-${{ github.sha }}
+          path: ${{ runner.temp }}/hiking-static-fallback/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Prepare GitHub Pages artifact only when explicitly requested
+        if: inputs.publish && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/hiking-static-fallback
+  publish:
+    if: inputs.publish && github.ref == 'refs/heads/main'
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Preserve any existing unrelated Pages website
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let site;
+            try { site = (await github.rest.repos.getPages(context.repo)).data; }
+            catch (error) { if (error.status === 404) return; throw error; }
+            const base = new URL(site.html_url);
+            if (site.cname || base.protocol !== 'https:' || base.hostname.toLowerCase() !== `${context.repo.owner.toLowerCase()}.github.io`) {
+              throw new Error('Existing Pages site has a custom or unexpected domain; preserve it for owner review');
+            }
+            const response = await fetch(new URL('source-record.json', base), {redirect: 'error', signal: AbortSignal.timeout(10000)});
+            if (!response.ok) throw new Error('Existing Pages site has no fallback source record; refusing replacement');
+            const body = await response.text();
+            if (body.length > 65536) throw new Error('Existing Pages source record exceeds limit');
+            const record = JSON.parse(body);
+            if (record.kind !== 'static-fallback' || record.project !== 'hiking-earth-web-static-fallback') {
+              throw new Error('Existing Pages site is not this fallback; refusing replacement');
+            }
+      - uses: actions/configure-pages@v5
+      - name: Publish only the selected static fallback artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

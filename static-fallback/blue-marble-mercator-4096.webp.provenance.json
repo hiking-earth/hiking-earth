@@ -1,0 +1,17 @@
+{
+  "source": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/june/world.200406.3x5400x2700.jpg",
+  "sourcePage": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/",
+  "credit": "NASA Earth Observatory",
+  "description": "June 2004 satellite composite, not live satellite imagery",
+  "processing": "4096x4096 full RGB WebP, bilinear-compatible Web Mercator latitude reprojection (EPSG:3857), from original 5400x2700 JPEG",
+  "sha256": "cc29d4b08bf65b11a2b09f31a21ae3cb825c468a4fad91b3d5e73671ac05b612",
+  "projection": "EPSG:3857",
+  "width": 4096,
+  "height": 4096,
+  "sourceAssetSha256": "dc059529b8ed1cfcdd59747a7c3f259c93c1322bf88ca1ec8bab1dd71fcc57f5",
+  "bytes": 1208258,
+  "generatedAsset": "blue-marble-mercator-4096.webp",
+  "generatedAssetSha256": "cc29d4b08bf65b11a2b09f31a21ae3cb825c468a4fad91b3d5e73671ac05b612",
+  "generatedAssetBytes": 1208258,
+  "generatedAssetDimensions": "4096x4096"
+}
